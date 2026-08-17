@@ -38,7 +38,7 @@ Recommended platforms for hosting this Laravel project **100% Free** with setup 
 [InfinityFree](https://www.infinityfree.com) provides traditional cPanel / LAMP hosting with **Free MySQL Database** and **Unlimited Bandwidth**.
 
 ### Setup Steps:
-1. Sign up on [InfinityFree.com](https://www.infinityfree.com).
+1. Sign up on [cx](https://www.infinityfree.com).
 2. Create a free account (you will get a domain like `sdntunggaljaya2.infinityfreeapp.com`).
 3. Open **cPanel** &rarr; **MySQL Databases** and create a new database.
 4. Upload project files to the `htdocs` directory via File Manager / FTP.

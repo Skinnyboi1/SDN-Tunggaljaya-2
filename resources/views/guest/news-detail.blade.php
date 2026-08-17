@@ -4,39 +4,41 @@
 
 @section('content')
 
-<section class="py-16 bg-slate-900 text-white border-b border-slate-800">
+<section class="py-16 bg-secondary text-white border-b border-[#9e6f54] shadow-md">
     <div class="max-w-4xl mx-auto px-4 text-center space-y-4">
-        <span class="px-3.5 py-1.5 rounded-lg bg-amber-500 text-slate-950 text-xs font-extrabold uppercase tracking-wider">
+        <span class="px-3.5 py-1.5 rounded-lg bg-[#3b2116] text-primary text-xs font-extrabold uppercase tracking-wider shadow-sm border border-[#6d4330]">
             {{ $post->category }}
         </span>
         <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-tight">
             {{ $post->title }}
         </h1>
-        <div class="flex items-center justify-center gap-4 text-xs text-slate-400 font-semibold">
-            <span><i class="fa-regular fa-calendar text-amber-400 mr-1"></i> {{ $post->published_at ? $post->published_at->format('d M Y, H:i') : date('d M Y') }} WIB</span>
+        <div class="flex items-center justify-center gap-4 text-xs text-primary font-semibold">
+            <span><i class="fa-regular fa-calendar text-primary mr-1"></i> {{ $post->published_at ? $post->published_at->format('d M Y, H:i') : date('d M Y') }} WIB</span>
             <span>&bull;</span>
-            <span><i class="fa-solid fa-user-pen text-emerald-400 mr-1"></i> {{ $post->author->name ?? 'Admin Sekolah' }}</span>
+            <span><i class="fa-solid fa-user-pen text-primary mr-1"></i> {{ $post->author->name ?? 'Admin Sekolah' }}</span>
         </div>
     </div>
 </section>
 
-<section class="py-16 bg-slate-950 text-slate-200">
+<section class="py-16 bg-primary text-slate-800">
     <div class="max-w-4xl mx-auto px-4">
         
         @if($post->image)
-            <div class="mb-10 rounded-2xl overflow-hidden shadow-xl border border-slate-800">
+            <div class="mb-10 rounded-2xl overflow-hidden shadow-xl border border-[#9e6f54]">
                 <img src="{{ $post->image }}" alt="{{ $post->title }}" class="w-full max-h-[480px] object-cover">
             </div>
         @endif
 
-        <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800 space-y-6 text-slate-200 text-sm sm:text-base leading-relaxed">
-            {!! $post->content !!}
+        <div class="bg-secondary text-white p-8 lg:p-10 rounded-2xl border border-[#9e6f54] shadow-xl space-y-6 text-sm sm:text-base leading-relaxed">
+            <div class="prose prose-invert max-w-none text-[#fdfbf9] space-y-4">
+                {!! $post->content !!}
+            </div>
         </div>
 
         <!-- Back Button -->
-        <div class="mt-10 pt-6 border-t border-slate-900 flex justify-between items-center">
-            <a href="{{ route('home') }}#berita" class="px-5 py-2.5 rounded-xl bg-amber-500 text-slate-950 font-extrabold text-sm hover:bg-amber-400 transition flex items-center gap-2">
-                <i class="fa-solid fa-arrow-left"></i> Kembali ke Beranda
+        <div class="mt-10 pt-6 border-t border-[#e4bca2] flex justify-between items-center">
+            <a href="{{ route('home') }}#berita" class="px-6 py-3 rounded-xl bg-secondary text-white font-extrabold text-sm hover:bg-secondary-600 transition flex items-center gap-2 shadow-md border border-[#9e6f54]">
+                <i class="fa-solid fa-arrow-left text-primary"></i> Kembali ke Beranda
             </a>
         </div>
 
@@ -44,3 +46,7 @@
 </section>
 
 @endsection
+
+
+
+

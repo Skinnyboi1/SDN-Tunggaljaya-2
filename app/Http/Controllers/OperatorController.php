@@ -41,9 +41,10 @@ class OperatorController extends Controller
             'principal_name' => 'nullable|string|max:255',
             'principal_welcome' => 'nullable|string',
             'principal_photo' => 'nullable|string',
+            'principal_photo_file' => 'nullable|image|mimes:jpeg,png,jpg,webp,gif|max:5120',
             'history' => 'nullable|string',
             'vision' => 'nullable|string',
-            'mission_text' => 'nullable|string', // raw multiline text to convert to array
+            'mission_text' => 'nullable|string',
             'address' => 'nullable|string',
             'phone' => 'nullable|string',
             'email' => 'nullable|email',
@@ -52,6 +53,14 @@ class OperatorController extends Controller
             'teacher_count' => 'required|integer|min:0',
             'class_count' => 'required|integer|min:0',
         ]);
+
+        if ($request->hasFile('principal_photo_file')) {
+            $file = $request->file('principal_photo_file');
+            $filename = time() . '_' . Str::random(8) . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads/profile'), $filename);
+            $data['principal_photo'] = '/uploads/profile/' . $filename;
+        }
+        unset($data['principal_photo_file']);
 
         if (!empty($data['mission_text'])) {
             $data['mission'] = array_filter(array_map('trim', explode("\n", $data['mission_text'])));
@@ -84,8 +93,17 @@ class OperatorController extends Controller
             'nip' => 'nullable|string|max:50',
             'position' => 'required|string|max:255',
             'photo' => 'nullable|string',
+            'photo_file' => 'nullable|image|mimes:jpeg,png,jpg,webp,gif|max:5120',
             'order' => 'required|integer|min:0',
         ]);
+
+        if ($request->hasFile('photo_file')) {
+            $file = $request->file('photo_file');
+            $filename = time() . '_' . Str::random(8) . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads/teachers'), $filename);
+            $data['photo'] = '/uploads/teachers/' . $filename;
+        }
+        unset($data['photo_file']);
 
         Teacher::create($data);
 
@@ -99,8 +117,17 @@ class OperatorController extends Controller
             'nip' => 'nullable|string|max:50',
             'position' => 'required|string|max:255',
             'photo' => 'nullable|string',
+            'photo_file' => 'nullable|image|mimes:jpeg,png,jpg,webp,gif|max:5120',
             'order' => 'required|integer|min:0',
         ]);
+
+        if ($request->hasFile('photo_file')) {
+            $file = $request->file('photo_file');
+            $filename = time() . '_' . Str::random(8) . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads/teachers'), $filename);
+            $data['photo'] = '/uploads/teachers/' . $filename;
+        }
+        unset($data['photo_file']);
 
         $teacher->update($data);
 
@@ -126,8 +153,17 @@ class OperatorController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'image' => 'nullable|string',
+            'image_file' => 'nullable|image|mimes:jpeg,png,jpg,webp,gif|max:5120',
             'icon' => 'nullable|string',
         ]);
+
+        if ($request->hasFile('image_file')) {
+            $file = $request->file('image_file');
+            $filename = time() . '_' . Str::random(8) . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads/facilities'), $filename);
+            $data['image'] = '/uploads/facilities/' . $filename;
+        }
+        unset($data['image_file']);
 
         Facility::create($data);
 
@@ -140,8 +176,17 @@ class OperatorController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'image' => 'nullable|string',
+            'image_file' => 'nullable|image|mimes:jpeg,png,jpg,webp,gif|max:5120',
             'icon' => 'nullable|string',
         ]);
+
+        if ($request->hasFile('image_file')) {
+            $file = $request->file('image_file');
+            $filename = time() . '_' . Str::random(8) . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads/facilities'), $filename);
+            $data['image'] = '/uploads/facilities/' . $filename;
+        }
+        unset($data['image_file']);
 
         $facility->update($data);
 
@@ -169,8 +214,17 @@ class OperatorController extends Controller
             'excerpt' => 'nullable|string',
             'content' => 'required|string',
             'image' => 'nullable|string',
+            'image_file' => 'nullable|image|mimes:jpeg,png,jpg,webp,gif|max:5120',
             'is_published' => 'boolean',
         ]);
+
+        if ($request->hasFile('image_file')) {
+            $file = $request->file('image_file');
+            $filename = time() . '_' . Str::random(8) . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads/posts'), $filename);
+            $data['image'] = '/uploads/posts/' . $filename;
+        }
+        unset($data['image_file']);
 
         $data['slug'] = Str::slug($data['title']) . '-' . rand(100, 999);
         $data['published_at'] = now();
@@ -190,7 +244,16 @@ class OperatorController extends Controller
             'excerpt' => 'nullable|string',
             'content' => 'required|string',
             'image' => 'nullable|string',
+            'image_file' => 'nullable|image|mimes:jpeg,png,jpg,webp,gif|max:5120',
         ]);
+
+        if ($request->hasFile('image_file')) {
+            $file = $request->file('image_file');
+            $filename = time() . '_' . Str::random(8) . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads/posts'), $filename);
+            $data['image'] = '/uploads/posts/' . $filename;
+        }
+        unset($data['image_file']);
 
         $data['is_published'] = $request->has('is_published');
 
@@ -216,9 +279,22 @@ class OperatorController extends Controller
     {
         $data = $request->validate([
             'title' => 'required|string|max:255',
-            'image' => 'required|string',
+            'image' => 'nullable|string',
+            'image_file' => 'nullable|image|mimes:jpeg,png,jpg,webp,gif|max:5120',
             'category' => 'required|string',
         ]);
+
+        if ($request->hasFile('image_file')) {
+            $file = $request->file('image_file');
+            $filename = time() . '_' . Str::random(8) . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads/gallery'), $filename);
+            $data['image'] = '/uploads/gallery/' . $filename;
+        }
+
+        if (empty($data['image'])) {
+            return redirect()->back()->with('error', 'Silakan pilih file gambar dari PC atau masukkan link gambar.');
+        }
+        unset($data['image_file']);
 
         Gallery::create($data);
 

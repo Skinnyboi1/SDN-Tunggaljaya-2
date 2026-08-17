@@ -7,23 +7,23 @@
 
 <div class="space-y-8">
     
-    <!-- Add Post Form -->
-    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
-        <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
-            <i class="fa-solid fa-pen-nib text-brand-600"></i> Buat Berita / Pengumuman / PPDB Baru
+    <!-- Add Post Form with Drag & Drop Upload -->
+    <div class="bg-secondary text-white p-6 rounded-2xl border border-[#9e6f54] shadow-xl space-y-4">
+        <h2 class="text-lg font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-pen-nib text-primary"></i> Buat Berita / Pengumuman / PPDB Baru
         </h2>
 
-        <form action="{{ route('operator.posts.store') }}" method="POST" class="space-y-4">
+        <form action="{{ route('operator.posts.store') }}" method="POST" enctype="multipart/form-data" class="space-y-4">
             @csrf
             
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div class="sm:col-span-2">
-                    <label class="block text-xs font-bold text-slate-700 mb-1">Judul Artikel / Pengumuman</label>
-                    <input type="text" name="title" required placeholder="Contoh: Info Penerimaan Siswa Baru Tahun 2026" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs">
+                    <label class="block text-xs font-bold text-primary mb-1">Judul Artikel / Pengumuman</label>
+                    <input type="text" name="title" required placeholder="Contoh: Info Penerimaan Siswa Baru Tahun 2026" class="w-full px-3.5 py-2.5 bg-[#9e6f54] border border-[#835841] rounded-xl text-xs text-white placeholder-primary/60 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-slate-700 mb-1">Kategori</label>
-                    <select name="category" required class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs font-bold">
+                    <label class="block text-xs font-bold text-primary mb-1">Kategori</label>
+                    <select name="category" required class="w-full px-3.5 py-2.5 bg-[#9e6f54] border border-[#835841] rounded-xl text-xs font-bold text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
                         <option value="Berita">Berita</option>
                         <option value="Pengumuman">Pengumuman (PPDB)</option>
                         <option value="Prestasi">Prestasi Siswa</option>
@@ -31,43 +31,76 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                    <label class="block text-xs font-bold text-slate-700 mb-1">Ringkasan Singkat (Excerpt)</label>
-                    <input type="text" name="excerpt" placeholder="Ringkasan 1-2 kalimat..." class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs">
+            <div>
+                <label class="block text-xs font-bold text-primary mb-1">Ringkasan Singkat (Excerpt)</label>
+                <input type="text" name="excerpt" placeholder="Ringkasan 1-2 kalimat untuk kartu depan..." class="w-full px-3.5 py-2.5 bg-[#9e6f54] border border-[#835841] rounded-xl text-xs text-white placeholder-primary/60 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
+            </div>
+
+            <!-- Drag and Drop Image Box -->
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
+                <div class="sm:col-span-8">
+                    <label class="block text-xs font-bold text-primary mb-1">Gambar Banner / Header Artikel (Drag & Drop dari PC)</label>
+                    <div id="dropzone-post" 
+                         class="relative border-2 border-dashed border-primary/50 hover:border-primary bg-[#9e6f54]/60 hover:bg-[#9e6f54] rounded-2xl p-4 text-center cursor-pointer transition flex flex-col items-center justify-center min-h-[110px] group">
+                        <input type="file" name="image_file" id="file-post" accept="image/*" class="hidden">
+                        
+                        <div id="prompt-post" class="space-y-1">
+                            <div class="w-8 h-8 rounded-lg bg-[#835841] text-primary flex items-center justify-center mx-auto text-sm group-hover:scale-110 transition transform">
+                                <i class="fa-solid fa-cloud-arrow-up"></i>
+                            </div>
+                            <div class="text-xs font-bold text-white">
+                                Tarik & Lepas gambar banner dari PC, atau <span class="text-primary underline">Pilih File</span>
+                            </div>
+                            <div class="text-[10px] text-primary-200">
+                                JPG, PNG, WEBP (Maks 5MB)
+                            </div>
+                        </div>
+
+                        <div id="preview-box-post" class="hidden flex items-center gap-3 w-full">
+                            <img id="preview-img-post" src="#" alt="Preview" class="w-16 h-12 rounded-xl object-cover border-2 border-primary shadow">
+                            <div class="text-left flex-grow truncate">
+                                <div id="filename-post" class="text-xs font-bold text-white truncate">banner.jpg</div>
+                                <div id="filesize-post" class="text-[10px] text-primary-200">0 KB</div>
+                            </div>
+                            <button type="button" id="remove-btn-post" class="p-1.5 rounded-lg bg-rose-600/40 hover:bg-rose-600 text-rose-100 transition">
+                                <i class="fa-solid fa-trash text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <label class="block text-xs font-bold text-slate-700 mb-1">URL Gambar Header (Image Link)</label>
-                    <input type="text" name="image" placeholder="https://..." class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs">
+
+                <div class="sm:col-span-4">
+                    <label class="block text-[11px] font-bold text-primary-200 mb-1">Atau URL Gambar:</label>
+                    <input type="text" name="image" placeholder="https://..." class="w-full px-3 py-2.5 bg-[#9e6f54] border border-[#835841] rounded-xl text-xs text-white placeholder-primary/50 focus:outline-none focus:border-primary">
                 </div>
             </div>
 
             <div>
-                <label class="block text-xs font-bold text-slate-700 mb-1">Isi Lengkap Konten (HTML / Teks)</label>
-                <textarea name="content" rows="4" required placeholder="Tulis isi pengumuman atau berita di sini..." class="w-full p-4 bg-slate-50 border border-slate-300 rounded-xl text-xs focus:outline-none focus:border-amber-500"></textarea>
+                <label class="block text-xs font-bold text-primary mb-1">Isi Lengkap Konten (HTML / Teks)</label>
+                <textarea name="content" rows="4" required placeholder="Tulis isi pengumuman atau berita di sini..." class="w-full p-4 bg-[#9e6f54] border border-[#835841] rounded-xl text-xs text-white placeholder-primary/60 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"></textarea>
             </div>
 
             <div class="flex items-center justify-between pt-2">
-                <label class="flex items-center gap-2 cursor-pointer text-xs font-bold text-slate-700">
-                    <input type="checkbox" name="is_published" value="1" checked class="rounded bg-slate-100 border-slate-300 text-amber-500 focus:ring-0">
+                <label class="flex items-center gap-2 cursor-pointer text-xs font-bold text-primary">
+                    <input type="checkbox" name="is_published" value="1" checked class="rounded bg-[#9e6f54] border-[#835841] text-primary focus:ring-0">
                     <span>Terbitkan Langsung ke Publik</span>
                 </label>
-                <button type="submit" class="px-6 py-2.5 rounded-xl bg-brand-700 hover:bg-brand-800 text-white font-extrabold text-xs shadow transition flex items-center gap-2">
-                    <i class="fa-solid fa-paper-plane"></i> Publikasikan Konten
+                <button type="submit" class="px-6 py-2.5 rounded-xl bg-primary hover:bg-primary-200 text-secondary-950 font-extrabold text-xs shadow-md transition flex items-center gap-2">
+                    <i class="fa-solid fa-paper-plane text-secondary"></i> Publikasikan Konten
                 </button>
             </div>
         </form>
     </div>
 
     <!-- Posts Table -->
-    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-        <div class="p-6 border-b border-slate-100">
-            <h3 class="text-base font-bold text-slate-900">Daftar Konten Diterbitkan ({{ count($posts) }})</h3>
+    <div class="bg-secondary text-white rounded-2xl border border-[#9e6f54] shadow-xl overflow-hidden">
+        <div class="p-6 border-b border-[#9e6f54]">
+            <h3 class="text-base font-bold text-white">Daftar Konten Diterbitkan ({{ count($posts) }})</h3>
         </div>
 
         <div class="overflow-x-auto">
-            <table class="w-full text-left text-xs text-slate-700">
-                <thead class="bg-slate-50 text-slate-500 uppercase font-bold border-b border-slate-200">
+            <table class="w-full text-left text-xs text-white">
+                <thead class="bg-[#9e6f54] text-primary uppercase font-bold border-b border-[#835841]">
                     <tr>
                         <th class="px-6 py-3.5">Judul</th>
                         <th class="px-6 py-3.5">Kategori</th>
@@ -75,23 +108,23 @@
                         <th class="px-6 py-3.5 text-right">Aksi</th>
                     </tr>
                 </thead>
-                <tbody class="divide-y divide-slate-100">
+                <tbody class="divide-y divide-[#835841]">
                     @forelse($posts as $post)
-                        <tr class="hover:bg-slate-50/80 transition">
-                            <td class="px-6 py-3 font-bold text-slate-900">
-                                <a href="{{ route('news.detail', $post->slug) }}" target="_blank" class="hover:text-brand-600">{{ $post->title }}</a>
+                        <tr class="hover:bg-[#9e6f54]/50 transition">
+                            <td class="px-6 py-3 font-bold text-white">
+                                <a href="{{ route('news.detail', $post->slug) }}" target="_blank" class="hover:text-primary">{{ $post->title }}</a>
                             </td>
                             <td class="px-6 py-3">
-                                <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-100 text-amber-800 border border-amber-200">
+                                <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-[#3b2116] text-primary border border-[#6d4330]">
                                     {{ $post->category }}
                                 </span>
                             </td>
-                            <td class="px-6 py-3 font-mono text-slate-500">{{ $post->published_at ? $post->published_at->format('d M Y') : date('d M Y') }}</td>
+                            <td class="px-6 py-3 font-mono text-primary-200">{{ $post->published_at ? $post->published_at->format('d M Y') : date('d M Y') }}</td>
                             <td class="px-6 py-3 text-right">
                                 <form action="{{ route('operator.posts.delete', $post->id) }}" method="POST" class="inline" onsubmit="return confirm('Hapus berita ini?')">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="px-3 py-1.5 rounded-lg bg-rose-500/10 text-rose-600 hover:bg-rose-500 hover:text-white font-bold transition">
+                                    <button type="submit" class="px-3 py-1.5 rounded-lg bg-rose-600/30 text-rose-200 hover:bg-rose-600 hover:text-white font-bold transition border border-rose-500/40">
                                         <i class="fa-solid fa-trash"></i> Hapus
                                     </button>
                                 </form>
@@ -99,7 +132,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="4" class="px-6 py-8 text-center text-slate-400">Belum ada konten berita atau pengumuman.</td>
+                            <td colspan="4" class="px-6 py-8 text-center text-primary-200">Belum ada konten berita atau pengumuman.</td>
                         </tr>
                     @endforelse
                 </tbody>
@@ -108,5 +141,91 @@
     </div>
 
 </div>
+
+<script>
+    function setupPostDragDrop() {
+        const dropzone = document.getElementById('dropzone-post');
+        const fileInput = document.getElementById('file-post');
+        const prompt = document.getElementById('prompt-post');
+        const previewBox = document.getElementById('preview-box-post');
+        const previewImg = document.getElementById('preview-img-post');
+        const filenameElem = document.getElementById('filename-post');
+        const filesizeElem = document.getElementById('filesize-post');
+        const removeBtn = document.getElementById('remove-btn-post');
+
+        if (!dropzone || !fileInput) return;
+
+        dropzone.addEventListener('click', (e) => {
+            if (e.target !== removeBtn && !removeBtn?.contains(e.target)) {
+                fileInput.click();
+            }
+        });
+
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropzone.addEventListener(eventName, (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                dropzone.classList.add('border-primary', 'bg-primary/20', 'scale-[1.01]');
+            }, false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropzone.addEventListener(eventName, (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                dropzone.classList.remove('border-primary', 'bg-primary/20', 'scale-[1.01]');
+            }, false);
+        });
+
+        dropzone.addEventListener('drop', (e) => {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            if (files && files.length > 0) {
+                fileInput.files = files;
+                handleFile(files[0]);
+            }
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            if (fileInput.files && fileInput.files.length > 0) {
+                handleFile(fileInput.files[0]);
+            }
+        });
+
+        function handleFile(file) {
+            if (!file.type.startsWith('image/')) {
+                alert('File yang dipilih harus berupa gambar (JPG, PNG, WEBP, GIF).');
+                reset();
+                return;
+            }
+            filenameElem.textContent = file.name;
+            filesizeElem.textContent = (file.size / 1024 < 1024) 
+                ? (file.size / 1024).toFixed(1) + ' KB' 
+                : (file.size / (1024 * 1024)).toFixed(2) + ' MB';
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                previewImg.src = e.target.result;
+                prompt.classList.add('hidden');
+                previewBox.classList.remove('hidden');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function reset() {
+            fileInput.value = '';
+            previewImg.src = '#';
+            prompt.classList.remove('hidden');
+            previewBox.classList.add('hidden');
+        }
+
+        removeBtn?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            reset();
+        });
+    }
+
+    setupPostDragDrop();
+</script>
 
 @endsection
