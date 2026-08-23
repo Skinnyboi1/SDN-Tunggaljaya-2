@@ -58,7 +58,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'info@sdntunggaljaya2.sch.id',
             'map_url' => 'https://maps.google.com/maps?q=Sumur+Pandeglang&t=&z=13&ie=UTF8&iwloc=&output=embed',
             'student_count' => 384,
-            'teacher_count' => 24,
+            'teacher_count' => 12,
             'class_count' => 12,
         ]);
 
@@ -66,46 +66,88 @@ class DatabaseSeeder extends Seeder
         Teacher::truncate();
         $teachersData = [
             [
-                'name' => 'Hj. Siti Rahmawati, S.Pd., M.M.',
-                'nip' => '19750812 199903 2 001',
-                'position' => 'Kepala Sekolah',
-                'photo' => 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop',
+                'name' => 'ADE SUMARNA, S.Pd.',
+                'nip' => null,
+                'position' => 'Guru Kelas',
+                'photo' => '/uploads/teachers/ADE SUMARNA, S.Pd.jpeg',
                 'order' => 1
             ],
             [
-                'name' => 'Drs. Ahmad Fauzi',
-                'nip' => '19800315 200501 1 003',
-                'position' => 'Wali Kelas VI (Enam)',
-                'photo' => 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400&auto=format&fit=crop',
+                'name' => 'ALIMUDIN, S.Pd.',
+                'nip' => null,
+                'position' => 'Guru Kelas',
+                'photo' => '/uploads/teachers/ALIMUDIN, S.Pd.jpeg',
                 'order' => 2
             ],
             [
-                'name' => 'Rina Kurniawati, S.Pd.',
-                'nip' => '19881120 201101 2 005',
-                'position' => 'Wali Kelas V (Lima)',
-                'photo' => 'https://images.unsplash.com/photo-1580894732413-8472506822a1?q=80&w=400&auto=format&fit=crop',
+                'name' => 'ANIS KHUATUL SRI RAHAYU, S.Pd.',
+                'nip' => null,
+                'position' => 'Guru Kelas',
+                'photo' => '/uploads/teachers/ANIS KHUATUL SRI RAHAYU, S.Pd.jpeg',
                 'order' => 3
             ],
             [
-                'name' => 'Budi Santoso, S.Pd.Jas.',
-                'nip' => '19910405 201402 1 004',
-                'position' => 'Guru PJOK & Pembina Pramuka',
-                'photo' => 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop',
+                'name' => 'ENCEP IR, S.S.',
+                'nip' => null,
+                'position' => 'Guru Bahasa',
+                'photo' => '/uploads/teachers/ENCEP IR, S.S.jpeg',
                 'order' => 4
             ],
             [
-                'name' => 'Dewi Anggraini, S.Ag.',
-                'nip' => '19850614 200902 2 008',
-                'position' => 'Guru Pendidikan Agama Islam',
-                'photo' => 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop',
+                'name' => 'EROH HERNAWATI, S.Pd.',
+                'nip' => null,
+                'position' => 'Guru Kelas',
+                'photo' => '/uploads/teachers/EROH HERNAWATI, S.Pd.jpeg',
                 'order' => 5
             ],
             [
-                'name' => 'Hendra Prasetya, S.Kom.',
-                'nip' => '19940218 202012 1 009',
-                'position' => 'Guru TIK & Laboran Komputer',
-                'photo' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop',
+                'name' => 'FITRIA FEBRIYANTI, S.Pd.',
+                'nip' => null,
+                'position' => 'Guru Kelas',
+                'photo' => '/uploads/teachers/FITRIA FEBRIYANTI, S.Pd.jpeg',
                 'order' => 6
+            ],
+            [
+                'name' => 'IDA ROSIDA, S.Pd.I.',
+                'nip' => null,
+                'position' => 'Guru Pendidikan Agama Islam',
+                'photo' => '/uploads/teachers/IDA ROSIDA, S.Pd.I.jpeg',
+                'order' => 7
+            ],
+            [
+                'name' => 'RISMA RISDIYANTI, S.Pd.',
+                'nip' => null,
+                'position' => 'Guru Kelas',
+                'photo' => '/uploads/teachers/RISMA RISDIYANTI, S.Pd.jpeg',
+                'order' => 8
+            ],
+            [
+                'name' => 'SACHRUDIYANTO, S.Pd.',
+                'nip' => null,
+                'position' => 'Guru PJOK',
+                'photo' => '/uploads/teachers/SACHRUDIYANTO, S.Pd.jpeg',
+                'order' => 9
+            ],
+            [
+                'name' => 'SAEFUL ANHAR',
+                'nip' => null,
+                'position' => 'Tenaga Kependidikan & Staf TU',
+                'photo' => '/uploads/teachers/SAEFUL ANHAR.jpeg',
+                'order' => 10
+            ],
+            [
+                'name' => 'YOGI SAPUTRA PAMUNGKAS, S.Pd.',
+                'nip' => null,
+                'position' => 'Guru Kelas & TIK',
+                'photo' => '/uploads/teachers/YOGI SAPUTRA PAMUNGKAS, S.Pd.jpeg',
+                'order' => 11
+            ],
+            [
+                'name' => 'YUNIDAR RIFA\'ATUL MUKARROMAH, S.E.',
+                'nip' => null,
+                'position' => 'Bendahara & Staf Admin',
+                'photo' => '/uploads/teachers/YUNIDAR RIFA\'ATUL MUKARROMAH, S.E.jpeg',
+                'order' => 12
             ],
         ];
         foreach ($teachersData as $teacher) {
