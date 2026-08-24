@@ -89,9 +89,9 @@
     <div class="bg-[#9e6f54] text-[#fdfbf9] text-xs py-2 px-4 border-b border-[#835841]">
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
             <div class="flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-1 font-medium text-[11px] sm:text-xs">
-                <span class="flex items-center gap-1.5"><i class="fa-solid fa-graduation-cap text-primary"></i> NPSN: 20215432</span>
-                <span class="flex items-center gap-1.5"><i class="fa-solid fa-certificate text-primary"></i> Akreditasi: A (Unggul)</span>
-                <span class="hidden lg:flex items-center gap-1.5"><i class="fa-solid fa-envelope text-primary/80"></i> info@sdntunggaljaya2.sch.id</span>
+                <span class="flex items-center gap-1.5"><i class="fa-solid fa-graduation-cap text-primary"></i> NPSN: 20600476</span>
+                <span class="flex items-center gap-1.5"><i class="fa-solid fa-certificate text-primary"></i> Akreditasi: B</span>
+                <span class="hidden lg:flex items-center gap-1.5"><i class="fa-solid fa-envelope text-primary/80"></i> sdntunggaljaya2@gmail.com</span>
             </div>
             
             <div class="flex items-center gap-2.5">
@@ -133,10 +133,10 @@
                 <!-- Logo & Brand Name -->
                 <a href="{{ route('home') }}" class="flex items-center gap-2.5 sm:gap-3 group">
                     <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-primary flex items-center justify-center p-1 shadow-md border border-primary-200 group-hover:scale-105 transition transform shrink-0">
-                        <img src="{{ asset('images/logo.png') }}" alt="Logo SDN Tunggaljaya 2" class="w-full h-full object-contain">
+                        <img src="{{ asset('images/logo.png') }}" alt="Logo SD N TUNGGALJAYA 2" class="w-full h-full object-contain">
                     </div>
                     <div>
-                        <div class="text-base sm:text-lg font-extrabold tracking-tight text-white group-hover:text-primary transition leading-tight">SDN TUNGGALJAYA 2</div>
+                        <div class="text-base sm:text-lg font-extrabold tracking-tight text-white group-hover:text-primary transition leading-tight">SD N TUNGGALJAYA 2</div>
                         <div class="text-[10px] sm:text-xs text-primary-200 font-medium tracking-wide">Kec. Sumur, Kab. Pandeglang</div>
                     </div>
                 </a>
@@ -212,9 +212,9 @@
                 <div>
                     <div class="flex items-center gap-3 mb-4">
                         <div class="w-9 h-9 rounded-lg bg-primary p-0.5 flex items-center justify-center shadow shrink-0">
-                            <img src="{{ asset('images/logo.png') }}" alt="Logo SDN Tunggaljaya 2" class="w-full h-full object-contain">
+                            <img src="{{ asset('images/logo.png') }}" alt="Logo SD N TUNGGALJAYA 2" class="w-full h-full object-contain">
                         </div>
-                        <span class="text-white font-extrabold text-lg">SDN Tunggaljaya 2</span>
+                        <span class="text-white font-extrabold text-lg">SD N TUNGGALJAYA 2</span>
                     </div>
                     <p class="text-xs text-[#f4d8cc] leading-relaxed mb-4">
                         Sekolah Dasar Negeri dengan komitmen membina generasi cerdas, berkarakter mulia, bernalar kritis, dan berwawasan teknologi masa depan.
@@ -259,7 +259,7 @@
                     <ul class="space-y-2.5 text-xs text-[#f4d8cc]">
                         <li class="flex items-start gap-2.5">
                             <i class="fa-solid fa-location-dot text-secondary mt-0.5 shrink-0"></i>
-                            <span>Jl. Pendidikan No. 42, Tunggaljaya, Sumur, Pandeglang</span>
+                            <span>Kp. Cipining, Desa Tunggaljaya, Sumur, Pandeglang</span>
                         </li>
                         <li class="flex items-center gap-2.5">
                             <i class="fa-solid fa-phone text-secondary shrink-0"></i>
@@ -267,7 +267,7 @@
                         </li>
                         <li class="flex items-center gap-2.5">
                             <i class="fa-solid fa-envelope text-secondary shrink-0"></i>
-                            <span>info@sdntunggaljaya2.sch.id</span>
+                            <span>sdntunggaljaya2@gmail.com</span>
                         </li>
                     </ul>
                 </div>
@@ -275,7 +275,7 @@
             </div>
 
             <div class="pt-6 border-t border-[#6d4330] text-center text-xs text-[#d49e7b]">
-                <p>&copy; {{ date('Y') }} SDN Tunggaljaya 2. All rights reserved.</p>
+                <p>&copy; {{ date('Y') }} SD N TUNGGALJAYA 2. All rights reserved.</p>
             </div>
         </div>
     </footer>

@@ -39,13 +39,13 @@ class DatabaseSeeder extends Seeder
         // 2. Create School Profile
         SchoolProfile::truncate();
         SchoolProfile::create([
-            'name' => 'SDN Tunggaljaya 2',
-            'npsn' => '20215432',
-            'akreditasi' => 'A (Unggul)',
+            'name' => 'SD N TUNGGALJAYA 2',
+            'npsn' => '20600476',
+            'akreditasi' => 'B',
             'principal_name' => 'Hj. Siti Rahmawati, S.Pd., M.M.',
-            'principal_welcome' => 'Selamat datang di Website Resmi SDN Tunggaljaya 2. Kami berkomitmen untuk menyelenggarakan pendidikan dasar yang berkarakter, inovatif, berbasis teknologi modern, dan berlandaskan nilai-nilai imtak serta iptek untuk mencetak generasi penerus bangsa yang unggul dan berprestasi.',
+            'principal_welcome' => 'Selamat datang di Website Resmi SD N TUNGGALJAYA 2. Kami berkomitmen untuk menyelenggarakan pendidikan dasar yang berkarakter, inovatif, berbasis teknologi modern, dan berlandaskan nilai-nilai imtak serta iptek untuk mencetak generasi penerus bangsa yang unggul dan berprestasi.',
             'principal_photo' => 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop',
-            'history' => 'SDN Tunggaljaya 2 didirikan pada tahun 1985 sebagai wujud kepedulian terhadap pendidikan anak usia sekolah dasar di wilayah Tunggaljaya. Berada di lingkungan yang asri dan aman, sekolah kami terus berkembang pesat dalam penyediaan sarana prasarana modern, kurikulum berstandar nasional, dan prestasi di bidang akademik maupun non-akademik.',
+            'history' => 'SD N TUNGGALJAYA 2 didirikan secara resmi pada tanggal 1 Oktober 1973 (SK Operasional) sebagai bentuk komitmen pemerintah dalam memberikan layanan pendidikan dasar berkualitas bagi masyarakat di Kp. Cipining dan sekitarnya. Berada di lingkungan Kecamatan Sumur, Pandeglang, Banten, sekolah kami terus berkembang pesat dalam penyediaan sarana prasarana modern, kurikulum nasional, serta pembinaan minat dan bakat siswa.',
             'vision' => 'Terwujudnya Peserta Didik yang Budi Pekerti Luhur, Cerdas, Inovatif, Berwawasan Lingkungan, dan Unggul dalam Prestasi.',
             'mission' => [
                 'Menyelenggarakan pembelajaran berorientasi pada pengembangan karakter Islami dan budi pekerti luhur.',
@@ -53,10 +53,10 @@ class DatabaseSeeder extends Seeder
                 'Menumbuhkan semangat berprestasi dalam bidang akademik, seni, dan olahraga bagi seluruh warga sekolah.',
                 'Menciptakan lingkungan sekolah yang bersih, hijau, sehat, dan kondusif untuk tumbuh kembang anak.'
             ],
-            'address' => 'Jl. Pendidikan No. 42, Tunggaljaya, Kec. Sumur, Kabupaten Pandeglang, Banten 42283',
+            'address' => 'Kp. Cipining, Desa Tunggaljaya, Kec. Sumur, Kabupaten Pandeglang, Banten 42283',
             'phone' => '(0253) 8812-901',
-            'email' => 'info@sdntunggaljaya2.sch.id',
-            'map_url' => 'https://maps.google.com/maps?q=Sumur+Pandeglang&t=&z=13&ie=UTF8&iwloc=&output=embed',
+            'email' => 'sdntunggaljaya2@gmail.com',
+            'map_url' => 'https://maps.google.com/maps?q=Tunggaljaya+Sumur+Pandeglang&t=&z=14&ie=UTF8&iwloc=&output=embed',
             'student_count' => 384,
             'teacher_count' => 12,
             'class_count' => 12,
