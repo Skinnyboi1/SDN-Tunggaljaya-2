@@ -5,11 +5,11 @@
 
 @section('content')
 
-<div class="space-y-8">
+<div class="space-y-6 sm:space-y-8">
     
     <!-- Add Gallery Form with Drag & Drop Upload -->
-    <div class="bg-secondary text-white p-6 rounded-2xl border border-[#9e6f54] shadow-xl space-y-4">
-        <h2 class="text-lg font-bold text-white flex items-center gap-2">
+    <div class="bg-secondary text-white p-5 sm:p-6 rounded-2xl border border-[#9e6f54] shadow-xl space-y-4">
+        <h2 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
             <i class="fa-solid fa-image text-primary"></i> Tambah Foto Galeri Baru
         </h2>
 
@@ -19,12 +19,12 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                     <label class="block text-xs font-bold text-primary mb-1">Judul / Keterangan Foto</label>
-                    <input type="text" name="title" required placeholder="Contoh: Upacara Bendera HUT RI" class="w-full px-3.5 py-2.5 bg-[#9e6f54] border border-[#835841] rounded-xl text-xs text-white placeholder-primary/60 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
+                    <input type="text" name="title" required placeholder="Contoh: Upacara Bendera HUT RI" class="w-full px-3.5 py-2.5 bg-[#9e6f54] border border-[#835841] rounded-xl text-base sm:text-xs text-white placeholder-primary/60 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
                 </div>
 
                 <div>
                     <label class="block text-xs font-bold text-primary mb-1">Kategori Foto</label>
-                    <input type="text" name="category" required placeholder="Kegiatan / Olahraga / Seni / Prestasi" class="w-full px-3.5 py-2.5 bg-[#9e6f54] border border-[#835841] rounded-xl text-xs text-white placeholder-primary/60 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
+                    <input type="text" name="category" required placeholder="Kegiatan / Olahraga / Seni / Prestasi" class="w-full px-3.5 py-2.5 bg-[#9e6f54] border border-[#835841] rounded-xl text-base sm:text-xs text-white placeholder-primary/60 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
                 </div>
             </div>
 
@@ -33,7 +33,7 @@
                 <div class="sm:col-span-8">
                     <label class="block text-xs font-bold text-primary mb-1">Upload File Foto (Drag & Drop dari PC)</label>
                     <div id="dropzone-gallery" 
-                         class="relative border-2 border-dashed border-primary/50 hover:border-primary bg-[#9e6f54]/60 hover:bg-[#9e6f54] rounded-2xl p-4 text-center cursor-pointer transition flex flex-col items-center justify-center min-h-[110px] group">
+                         class="relative border-2 border-dashed border-primary/50 hover:border-primary bg-[#9e6f54]/60 hover:bg-[#9e6f54] rounded-2xl p-4 text-center cursor-pointer transition flex flex-col items-center justify-center min-h-[100px] group">
                         <input type="file" name="image_file" id="file-gallery" accept="image/*" class="hidden">
                         
                         <div id="prompt-gallery" class="space-y-1">
@@ -49,12 +49,12 @@
                         </div>
 
                         <div id="preview-box-gallery" class="hidden flex items-center gap-3 w-full">
-                            <img id="preview-img-gallery" src="#" alt="Preview" class="w-14 h-14 rounded-xl object-cover border-2 border-primary shadow">
+                            <img id="preview-img-gallery" src="#" alt="Preview" class="w-14 h-14 rounded-xl object-cover border-2 border-primary shadow shrink-0">
                             <div class="text-left flex-grow truncate">
                                 <div id="filename-gallery" class="text-xs font-bold text-white truncate">foto.jpg</div>
                                 <div id="filesize-gallery" class="text-[10px] text-primary-200">0 KB</div>
                             </div>
-                            <button type="button" id="remove-btn-gallery" class="p-1.5 rounded-lg bg-rose-600/40 hover:bg-rose-600 text-rose-100 transition">
+                            <button type="button" id="remove-btn-gallery" class="p-1.5 rounded-lg bg-rose-600/40 hover:bg-rose-600 text-rose-100 transition shrink-0">
                                 <i class="fa-solid fa-trash text-xs"></i>
                             </button>
                         </div>
@@ -64,7 +64,7 @@
                 <div class="sm:col-span-4 space-y-3">
                     <div>
                         <label class="block text-[11px] font-bold text-primary-200 mb-1">Atau Gunakan URL Gambar:</label>
-                        <input type="text" name="image" placeholder="https://..." class="w-full px-3 py-2 bg-[#9e6f54] border border-[#835841] rounded-xl text-xs text-white placeholder-primary/50 focus:outline-none focus:border-primary">
+                        <input type="text" name="image" placeholder="https://..." class="w-full px-3 py-2 bg-[#9e6f54] border border-[#835841] rounded-xl text-base sm:text-xs text-white placeholder-primary/50 focus:outline-none focus:border-primary">
                     </div>
                     
                     <button type="submit" class="w-full py-2.5 rounded-xl bg-primary hover:bg-primary-200 text-secondary-950 font-extrabold text-xs shadow-md transition flex items-center justify-center gap-1.5">
@@ -76,18 +76,18 @@
     </div>
 
     <!-- Gallery Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
         @foreach($galleries as $gal)
             <div class="bg-secondary text-white rounded-2xl border border-[#9e6f54] shadow-xl overflow-hidden p-3 space-y-2 hover:border-primary transition">
-                <div class="h-44 rounded-xl overflow-hidden bg-slate-900 border border-[#835841]">
+                <div class="h-40 sm:h-44 rounded-xl overflow-hidden bg-slate-900 border border-[#835841]">
                     <img src="{{ $gal->image }}" alt="{{ $gal->title }}" class="w-full h-full object-cover">
                 </div>
                 <div class="flex items-center justify-between pt-1">
-                    <div>
-                        <span class="text-[10px] font-bold text-primary uppercase">{{ $gal->category }}</span>
-                        <h4 class="font-bold text-white text-xs">{{ $gal->title }}</h4>
+                    <div class="min-w-0 pr-2">
+                        <span class="text-[10px] font-bold text-primary uppercase block">{{ $gal->category }}</span>
+                        <h4 class="font-bold text-white text-xs truncate">{{ $gal->title }}</h4>
                     </div>
-                    <form action="{{ route('operator.gallery.delete', $gal->id) }}" method="POST" onsubmit="return confirm('Hapus foto galeri ini?')">
+                    <form action="{{ route('operator.gallery.delete', $gal->id) }}" method="POST" onsubmit="return confirm('Hapus foto galeri ini?')" class="shrink-0">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="p-2 rounded-lg bg-rose-600/30 text-rose-200 hover:bg-rose-600 hover:text-white transition border border-rose-500/40">

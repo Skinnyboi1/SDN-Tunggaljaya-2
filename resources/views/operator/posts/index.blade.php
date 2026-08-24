@@ -5,11 +5,11 @@
 
 @section('content')
 
-<div class="space-y-8">
+<div class="space-y-6 sm:space-y-8">
     
     <!-- Add Post Form with Drag & Drop Upload -->
-    <div class="bg-secondary text-white p-6 rounded-2xl border border-[#9e6f54] shadow-xl space-y-4">
-        <h2 class="text-lg font-bold text-white flex items-center gap-2">
+    <div class="bg-secondary text-white p-5 sm:p-6 rounded-2xl border border-[#9e6f54] shadow-xl space-y-4">
+        <h2 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
             <i class="fa-solid fa-pen-nib text-primary"></i> Buat Berita / Pengumuman / PPDB Baru
         </h2>
 
@@ -19,11 +19,11 @@
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div class="sm:col-span-2">
                     <label class="block text-xs font-bold text-primary mb-1">Judul Artikel / Pengumuman</label>
-                    <input type="text" name="title" required placeholder="Contoh: Info Penerimaan Siswa Baru Tahun 2026" class="w-full px-3.5 py-2.5 bg-[#9e6f54] border border-[#835841] rounded-xl text-xs text-white placeholder-primary/60 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
+                    <input type="text" name="title" required placeholder="Contoh: Info Penerimaan Siswa Baru Tahun 2026" class="w-full px-3.5 py-2.5 bg-[#9e6f54] border border-[#835841] rounded-xl text-base sm:text-xs text-white placeholder-primary/60 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-primary mb-1">Kategori</label>
-                    <select name="category" required class="w-full px-3.5 py-2.5 bg-[#9e6f54] border border-[#835841] rounded-xl text-xs font-bold text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
+                    <select name="category" required class="w-full px-3.5 py-2.5 bg-[#9e6f54] border border-[#835841] rounded-xl text-base sm:text-xs font-bold text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
                         <option value="Berita">Berita</option>
                         <option value="Pengumuman">Pengumuman (PPDB)</option>
                         <option value="Prestasi">Prestasi Siswa</option>
@@ -33,7 +33,7 @@
 
             <div>
                 <label class="block text-xs font-bold text-primary mb-1">Ringkasan Singkat (Excerpt)</label>
-                <input type="text" name="excerpt" placeholder="Ringkasan 1-2 kalimat untuk kartu depan..." class="w-full px-3.5 py-2.5 bg-[#9e6f54] border border-[#835841] rounded-xl text-xs text-white placeholder-primary/60 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
+                <input type="text" name="excerpt" placeholder="Ringkasan 1-2 kalimat untuk kartu depan..." class="w-full px-3.5 py-2.5 bg-[#9e6f54] border border-[#835841] rounded-xl text-base sm:text-xs text-white placeholder-primary/60 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
             </div>
 
             <!-- Drag and Drop Image Box -->
@@ -41,7 +41,7 @@
                 <div class="sm:col-span-8">
                     <label class="block text-xs font-bold text-primary mb-1">Gambar Banner / Header Artikel (Drag & Drop dari PC)</label>
                     <div id="dropzone-post" 
-                         class="relative border-2 border-dashed border-primary/50 hover:border-primary bg-[#9e6f54]/60 hover:bg-[#9e6f54] rounded-2xl p-4 text-center cursor-pointer transition flex flex-col items-center justify-center min-h-[110px] group">
+                         class="relative border-2 border-dashed border-primary/50 hover:border-primary bg-[#9e6f54]/60 hover:bg-[#9e6f54] rounded-2xl p-4 text-center cursor-pointer transition flex flex-col items-center justify-center min-h-[100px] group">
                         <input type="file" name="image_file" id="file-post" accept="image/*" class="hidden">
                         
                         <div id="prompt-post" class="space-y-1">
@@ -57,12 +57,12 @@
                         </div>
 
                         <div id="preview-box-post" class="hidden flex items-center gap-3 w-full">
-                            <img id="preview-img-post" src="#" alt="Preview" class="w-16 h-12 rounded-xl object-cover border-2 border-primary shadow">
+                            <img id="preview-img-post" src="#" alt="Preview" class="w-16 h-12 rounded-xl object-cover border-2 border-primary shadow shrink-0">
                             <div class="text-left flex-grow truncate">
                                 <div id="filename-post" class="text-xs font-bold text-white truncate">banner.jpg</div>
                                 <div id="filesize-post" class="text-[10px] text-primary-200">0 KB</div>
                             </div>
-                            <button type="button" id="remove-btn-post" class="p-1.5 rounded-lg bg-rose-600/40 hover:bg-rose-600 text-rose-100 transition">
+                            <button type="button" id="remove-btn-post" class="p-1.5 rounded-lg bg-rose-600/40 hover:bg-rose-600 text-rose-100 transition shrink-0">
                                 <i class="fa-solid fa-trash text-xs"></i>
                             </button>
                         </div>
@@ -71,21 +71,21 @@
 
                 <div class="sm:col-span-4">
                     <label class="block text-[11px] font-bold text-primary-200 mb-1">Atau URL Gambar:</label>
-                    <input type="text" name="image" placeholder="https://..." class="w-full px-3 py-2.5 bg-[#9e6f54] border border-[#835841] rounded-xl text-xs text-white placeholder-primary/50 focus:outline-none focus:border-primary">
+                    <input type="text" name="image" placeholder="https://..." class="w-full px-3 py-2.5 bg-[#9e6f54] border border-[#835841] rounded-xl text-base sm:text-xs text-white placeholder-primary/50 focus:outline-none focus:border-primary">
                 </div>
             </div>
 
             <div>
                 <label class="block text-xs font-bold text-primary mb-1">Isi Lengkap Konten (HTML / Teks)</label>
-                <textarea name="content" rows="4" required placeholder="Tulis isi pengumuman atau berita di sini..." class="w-full p-4 bg-[#9e6f54] border border-[#835841] rounded-xl text-xs text-white placeholder-primary/60 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"></textarea>
+                <textarea name="content" rows="4" required placeholder="Tulis isi pengumuman atau berita di sini..." class="w-full p-3.5 sm:p-4 bg-[#9e6f54] border border-[#835841] rounded-xl text-base sm:text-xs text-white placeholder-primary/60 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"></textarea>
             </div>
 
-            <div class="flex items-center justify-between pt-2">
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between pt-2 gap-3">
                 <label class="flex items-center gap-2 cursor-pointer text-xs font-bold text-primary">
                     <input type="checkbox" name="is_published" value="1" checked class="rounded bg-[#9e6f54] border-[#835841] text-primary focus:ring-0">
                     <span>Terbitkan Langsung ke Publik</span>
                 </label>
-                <button type="submit" class="px-6 py-2.5 rounded-xl bg-primary hover:bg-primary-200 text-secondary-950 font-extrabold text-xs shadow-md transition flex items-center gap-2">
+                <button type="submit" class="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-primary hover:bg-primary-200 text-secondary-950 font-extrabold text-xs shadow-md transition flex items-center justify-center gap-2">
                     <i class="fa-solid fa-paper-plane text-secondary"></i> Publikasikan Konten
                 </button>
             </div>
@@ -94,33 +94,33 @@
 
     <!-- Posts Table -->
     <div class="bg-secondary text-white rounded-2xl border border-[#9e6f54] shadow-xl overflow-hidden">
-        <div class="p-6 border-b border-[#9e6f54]">
-            <h3 class="text-base font-bold text-white">Daftar Konten Diterbitkan ({{ count($posts) }})</h3>
+        <div class="p-4 sm:p-6 border-b border-[#9e6f54]">
+            <h3 class="text-sm sm:text-base font-bold text-white">Daftar Konten Diterbitkan ({{ count($posts) }})</h3>
         </div>
 
         <div class="overflow-x-auto">
-            <table class="w-full text-left text-xs text-white">
+            <table class="w-full text-left text-xs text-white whitespace-nowrap">
                 <thead class="bg-[#9e6f54] text-primary uppercase font-bold border-b border-[#835841]">
                     <tr>
-                        <th class="px-6 py-3.5">Judul</th>
-                        <th class="px-6 py-3.5">Kategori</th>
-                        <th class="px-6 py-3.5">Tanggal Publish</th>
-                        <th class="px-6 py-3.5 text-right">Aksi</th>
+                        <th class="px-4 sm:px-6 py-3.5">Judul</th>
+                        <th class="px-4 sm:px-6 py-3.5">Kategori</th>
+                        <th class="px-4 sm:px-6 py-3.5">Tanggal Publish</th>
+                        <th class="px-4 sm:px-6 py-3.5 text-right">Aksi</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-[#835841]">
                     @forelse($posts as $post)
                         <tr class="hover:bg-[#9e6f54]/50 transition">
-                            <td class="px-6 py-3 font-bold text-white">
+                            <td class="px-4 sm:px-6 py-3 font-bold text-white max-w-xs truncate">
                                 <a href="{{ route('news.detail', $post->slug) }}" target="_blank" class="hover:text-primary">{{ $post->title }}</a>
                             </td>
-                            <td class="px-6 py-3">
+                            <td class="px-4 sm:px-6 py-3">
                                 <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-[#3b2116] text-primary border border-[#6d4330]">
                                     {{ $post->category }}
                                 </span>
                             </td>
-                            <td class="px-6 py-3 font-mono text-primary-200">{{ $post->published_at ? $post->published_at->format('d M Y') : date('d M Y') }}</td>
-                            <td class="px-6 py-3 text-right">
+                            <td class="px-4 sm:px-6 py-3 font-mono text-primary-200">{{ $post->published_at ? $post->published_at->format('d M Y') : date('d M Y') }}</td>
+                            <td class="px-4 sm:px-6 py-3 text-right">
                                 <form action="{{ route('operator.posts.delete', $post->id) }}" method="POST" class="inline" onsubmit="return confirm('Hapus berita ini?')">
                                     @csrf
                                     @method('DELETE')

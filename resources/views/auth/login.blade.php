@@ -60,27 +60,25 @@
         }
     </script>
 </head>
-<body class="bg-primary text-slate-900 font-sans antialiased min-h-screen flex items-center justify-center p-4">
+<body class="bg-primary text-slate-900 font-sans antialiased min-h-screen flex items-center justify-center p-3.5 sm:p-4">
 
-    <div class="w-full max-w-md bg-secondary text-white rounded-3xl border border-[#9e6f54] shadow-2xl p-8 space-y-6">
+    <div class="w-full max-w-md bg-secondary text-white rounded-3xl border border-[#9e6f54] shadow-2xl p-5 sm:p-8 space-y-5 sm:space-y-6">
         
         <!-- Header with Logo on Placeholder -->
         <div class="text-center space-y-2">
-            <div class="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center p-2 mx-auto shadow-md border border-primary-200">
+            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-primary flex items-center justify-center p-2 mx-auto shadow-md border border-primary-200">
                 <img src="{{ asset('images/logo.png') }}" alt="Logo SDN Tunggaljaya 2" class="w-full h-full object-contain">
             </div>
-            <h1 class="text-2xl font-extrabold text-white tracking-tight">Login Operator</h1>
+            <h1 class="text-xl sm:text-2xl font-extrabold text-white tracking-tight">Login Operator</h1>
             <p class="text-xs text-primary">Masuk untuk mengelola data & profil SDN Tunggaljaya 2</p>
         </div>
 
-
-
         <!-- Quick Demo Account Hint Card -->
-        <div class="bg-[#9e6f54] border border-[#835841] p-3.5 rounded-2xl text-xs text-white space-y-1">
+        <div class="bg-[#9e6f54] border border-[#835841] p-3 sm:p-3.5 rounded-2xl text-xs text-white space-y-1">
             <div class="font-bold text-primary flex items-center gap-1.5">
                 <i class="fa-solid fa-key"></i> Akun Akreditasi / Operator Demo:
             </div>
-            <div class="font-mono text-[11px] text-[#fdfbf9]">
+            <div class="font-mono text-[11px] text-[#fdfbf9] break-all">
                 Email: <strong class="text-white">operator@tunggaljaya2.sch.id</strong><br>
                 Password: <strong class="text-white">password123</strong>
             </div>
@@ -102,22 +100,22 @@
             <div>
                 <label class="block text-xs font-bold text-primary mb-1.5">Alamat Email</label>
                 <div class="relative">
-                    <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-primary-200">
+                    <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-primary-200 pointer-events-none">
                         <i class="fa-solid fa-envelope text-sm"></i>
                     </span>
                     <input type="email" name="email" value="{{ old('email', 'operator@tunggaljaya2.sch.id') }}" required 
-                           class="w-full pl-10 pr-4 py-3 bg-[#9e6f54] border border-[#835841] rounded-xl text-sm text-white placeholder-primary/60 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition">
+                           class="w-full pl-10 pr-4 py-3 bg-[#9e6f54] border border-[#835841] rounded-xl text-base sm:text-sm text-white placeholder-primary/60 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition">
                 </div>
             </div>
 
             <div>
                 <label class="block text-xs font-bold text-primary mb-1.5">Kata Sandi (Password)</label>
                 <div class="relative">
-                    <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-primary-200">
+                    <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-primary-200 pointer-events-none">
                         <i class="fa-solid fa-key text-sm"></i>
                     </span>
                     <input type="password" name="password" value="password123" required 
-                           class="w-full pl-10 pr-4 py-3 bg-[#9e6f54] border border-[#835841] rounded-xl text-sm text-white placeholder-primary/60 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition">
+                           class="w-full pl-10 pr-4 py-3 bg-[#9e6f54] border border-[#835841] rounded-xl text-base sm:text-sm text-white placeholder-primary/60 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition">
                 </div>
             </div>
 
@@ -128,7 +126,7 @@
                 </label>
             </div>
 
-            <button type="submit" class="w-full py-3.5 rounded-xl bg-primary hover:bg-primary-200 text-slate-950 font-extrabold text-sm shadow-md transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+            <button type="submit" class="w-full py-3.5 rounded-xl bg-primary hover:bg-primary-200 text-slate-950 font-extrabold text-sm shadow-md transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2 active:scale-95">
                 <i class="fa-solid fa-right-to-bracket text-secondary"></i> Masuk Sekarang
             </button>
         </form>

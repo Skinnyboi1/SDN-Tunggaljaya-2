@@ -5,11 +5,11 @@
 
 @section('content')
 
-<div class="space-y-8">
+<div class="space-y-6 sm:space-y-8">
     
     <!-- Add Facility Form with Drag & Drop Upload -->
-    <div class="bg-secondary text-white p-6 rounded-2xl border border-[#9e6f54] shadow-xl space-y-4">
-        <h2 class="text-lg font-bold text-white flex items-center gap-2">
+    <div class="bg-secondary text-white p-5 sm:p-6 rounded-2xl border border-[#9e6f54] shadow-xl space-y-4">
+        <h2 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
             <i class="fa-solid fa-plus-circle text-primary"></i> Tambah Fasilitas Baru
         </h2>
 
@@ -19,12 +19,12 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                     <label class="block text-xs font-bold text-primary mb-1">Nama Fasilitas</label>
-                    <input type="text" name="name" required placeholder="Contoh: Perpustakaan Digital" class="w-full px-3.5 py-2.5 bg-[#9e6f54] border border-[#835841] rounded-xl text-xs text-white placeholder-primary/60 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
+                    <input type="text" name="name" required placeholder="Contoh: Perpustakaan Digital" class="w-full px-3.5 py-2.5 bg-[#9e6f54] border border-[#835841] rounded-xl text-base sm:text-xs text-white placeholder-primary/60 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
                 </div>
 
                 <div>
                     <label class="block text-xs font-bold text-primary mb-1">Deskripsi Singkat</label>
-                    <input type="text" name="description" placeholder="Fasilitas pendukung pembelajaran..." class="w-full px-3.5 py-2.5 bg-[#9e6f54] border border-[#835841] rounded-xl text-xs text-white placeholder-primary/60 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
+                    <input type="text" name="description" placeholder="Fasilitas pendukung pembelajaran..." class="w-full px-3.5 py-2.5 bg-[#9e6f54] border border-[#835841] rounded-xl text-base sm:text-xs text-white placeholder-primary/60 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
                 </div>
             </div>
 
@@ -33,7 +33,7 @@
                 <div class="sm:col-span-8">
                     <label class="block text-xs font-bold text-primary mb-1">Foto Fasilitas (Drag & Drop dari PC)</label>
                     <div id="dropzone-facility" 
-                         class="relative border-2 border-dashed border-primary/50 hover:border-primary bg-[#9e6f54]/60 hover:bg-[#9e6f54] rounded-2xl p-4 text-center cursor-pointer transition flex flex-col items-center justify-center min-h-[110px] group">
+                         class="relative border-2 border-dashed border-primary/50 hover:border-primary bg-[#9e6f54]/60 hover:bg-[#9e6f54] rounded-2xl p-4 text-center cursor-pointer transition flex flex-col items-center justify-center min-h-[100px] group">
                         <input type="file" name="image_file" id="file-facility" accept="image/*" class="hidden">
                         
                         <div id="prompt-facility" class="space-y-1">
@@ -49,12 +49,12 @@
                         </div>
 
                         <div id="preview-box-facility" class="hidden flex items-center gap-3 w-full">
-                            <img id="preview-img-facility" src="#" alt="Preview" class="w-12 h-12 rounded-xl object-cover border-2 border-primary shadow">
+                            <img id="preview-img-facility" src="#" alt="Preview" class="w-12 h-12 rounded-xl object-cover border-2 border-primary shadow shrink-0">
                             <div class="text-left flex-grow truncate">
                                 <div id="filename-facility" class="text-xs font-bold text-white truncate">fasilitas.jpg</div>
                                 <div id="filesize-facility" class="text-[10px] text-primary-200">0 KB</div>
                             </div>
-                            <button type="button" id="remove-btn-facility" class="p-1.5 rounded-lg bg-rose-600/40 hover:bg-rose-600 text-rose-100 transition">
+                            <button type="button" id="remove-btn-facility" class="p-1.5 rounded-lg bg-rose-600/40 hover:bg-rose-600 text-rose-100 transition shrink-0">
                                 <i class="fa-solid fa-trash text-xs"></i>
                             </button>
                         </div>
@@ -64,7 +64,7 @@
                 <div class="sm:col-span-4 space-y-3">
                     <div>
                         <label class="block text-[11px] font-bold text-primary-200 mb-1">Atau URL Gambar:</label>
-                        <input type="text" name="image" placeholder="https://..." class="w-full px-3 py-2 bg-[#9e6f54] border border-[#835841] rounded-xl text-xs text-white placeholder-primary/50 focus:outline-none focus:border-primary">
+                        <input type="text" name="image" placeholder="https://..." class="w-full px-3 py-2 bg-[#9e6f54] border border-[#835841] rounded-xl text-base sm:text-xs text-white placeholder-primary/50 focus:outline-none focus:border-primary">
                     </div>
                     
                     <button type="submit" class="w-full py-2.5 rounded-xl bg-primary hover:bg-primary-200 text-secondary-950 font-extrabold text-xs shadow-md transition flex items-center justify-center gap-1.5">
@@ -76,10 +76,10 @@
     </div>
 
     <!-- Facilities Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
         @foreach($facilities as $fac)
             <div class="bg-secondary text-white rounded-2xl border border-[#9e6f54] shadow-xl overflow-hidden flex flex-col justify-between p-4 space-y-3 hover:border-primary transition">
-                <img src="{{ $fac->image ?? 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=400&auto=format&fit=crop' }}" alt="{{ $fac->name }}" class="w-full h-40 object-cover rounded-xl border border-[#835841]">
+                <img src="{{ $fac->image ?? 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=400&auto=format&fit=crop' }}" alt="{{ $fac->name }}" class="w-full h-36 sm:h-40 object-cover rounded-xl border border-[#835841]">
                 <div>
                     <h4 class="font-bold text-white text-sm">{{ $fac->name }}</h4>
                     <p class="text-xs text-primary-100 mt-1 line-clamp-2">{{ $fac->description }}</p>

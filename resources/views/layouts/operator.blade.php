@@ -60,23 +60,48 @@
         }
     </script>
 </head>
-<body class="bg-primary text-slate-800 font-sans antialiased flex min-h-screen">
+<body class="bg-primary text-slate-800 font-sans antialiased flex flex-col md:flex-row min-h-screen">
 
-    <!-- SIDEBAR -->
-    <aside class="w-64 bg-[#3b2116] text-[#f5e5da] flex flex-col justify-between shrink-0 hidden md:flex border-r border-[#6d4330]">
-        <div>
-            <!-- Brand with Logo on Placeholder -->
-            <div class="h-20 flex items-center gap-3 px-6 bg-[#2a170f] border-b border-[#6d4330]">
-                <div class="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center p-1 shadow-lg border border-secondary-600">
-                    <img src="{{ asset('images/logo.png') }}" alt="Logo SDN Tunggaljaya 2" class="w-full h-full object-contain">
-                </div>
-                <div>
-                    <div class="text-sm font-extrabold text-white tracking-tight">PANEL OPERATOR</div>
-                    <div class="text-[11px] text-primary font-semibold">SDN Tunggaljaya 2</div>
-                </div>
+    <!-- MOBILE HEADER BAR (VISIBLE ONLY ON MOBILE < MD) -->
+    <div class="md:hidden bg-[#3b2116] text-[#f5e5da] border-b border-[#6d4330] px-4 py-3 flex items-center justify-between sticky top-0 z-40 shadow-md">
+        <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-lg bg-secondary flex items-center justify-center p-1 shadow border border-secondary-600">
+                <img src="{{ asset('images/logo.png') }}" alt="Logo SDN Tunggaljaya 2" class="w-full h-full object-contain">
             </div>
+            <div>
+                <div class="text-xs font-extrabold text-white tracking-tight">PANEL OPERATOR</div>
+                <div class="text-[10px] text-primary font-semibold">SDN Tunggaljaya 2</div>
+            </div>
+        </div>
 
+        <button id="operator-mobile-menu-btn" type="button" class="p-2 rounded-xl bg-[#2a170f] text-primary hover:text-white border border-[#6d4330] focus:outline-none">
+            <i class="fa-solid fa-bars text-lg"></i>
+        </button>
+    </div>
 
+    <!-- BACKDROP OVERLAY FOR MOBILE SIDEBAR -->
+    <div id="mobile-sidebar-backdrop" class="fixed inset-0 bg-black/60 z-50 hidden transition-opacity md:hidden"></div>
+
+    <!-- DESKTOP & MOBILE SIDEBAR -->
+    <aside id="operator-sidebar" class="fixed inset-y-0 left-0 z-50 w-72 bg-[#3b2116] text-[#f5e5da] flex flex-col justify-between border-r border-[#6d4330] transform -translate-x-full transition-transform duration-300 md:translate-x-0 md:static md:w-64 md:shrink-0 md:flex">
+        <div>
+            <!-- Brand header -->
+            <div class="h-20 flex items-center justify-between px-6 bg-[#2a170f] border-b border-[#6d4330]">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center p-1 shadow-lg border border-secondary-600">
+                        <img src="{{ asset('images/logo.png') }}" alt="Logo SDN Tunggaljaya 2" class="w-full h-full object-contain">
+                    </div>
+                    <div>
+                        <div class="text-sm font-extrabold text-white tracking-tight">PANEL OPERATOR</div>
+                        <div class="text-[11px] text-primary font-semibold">SDN Tunggaljaya 2</div>
+                    </div>
+                </div>
+
+                <!-- Close button for mobile -->
+                <button id="operator-mobile-close-btn" type="button" class="md:hidden text-primary hover:text-white p-1">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
 
             <!-- Role Badge -->
             <div class="p-4 border-b border-[#6d4330]/60">
@@ -139,45 +164,70 @@
     <!-- MAIN WRAPPER -->
     <div class="flex-grow flex flex-col min-w-0">
         
-        <!-- TOPBAR (CHANGED TO #b68a70) -->
-        <header class="h-20 bg-secondary border-b border-[#9e6f54] px-6 flex items-center justify-between shadow-md text-white">
+        <!-- TOPBAR -->
+        <header class="min-h-16 md:h-20 bg-secondary border-b border-[#9e6f54] px-4 sm:px-6 py-3 md:py-0 flex flex-wrap items-center justify-between shadow-md text-white gap-2">
             <div>
-                <h1 class="text-xl font-extrabold text-white tracking-tight">@yield('header_title', 'Dashboard Operator')</h1>
-                <p class="text-xs text-primary">Kelola informasi publik dan profil SDN Tunggaljaya 2</p>
+                <h1 class="text-lg sm:text-xl font-extrabold text-white tracking-tight">@yield('header_title', 'Dashboard Operator')</h1>
+                <p class="text-[11px] sm:text-xs text-primary">Kelola informasi publik dan profil SDN Tunggaljaya 2</p>
             </div>
 
-            <div class="flex items-center gap-4">
-                <a href="{{ route('home') }}" target="_blank" class="px-4 py-2 rounded-xl bg-[#3b2116] hover:bg-[#2a170f] text-primary text-xs font-bold transition flex items-center gap-2 border border-[#6d4330] shadow-sm">
-                    <i class="fa-solid fa-globe text-secondary"></i> View Website
+            <div class="flex items-center gap-3">
+                <a href="{{ route('home') }}" target="_blank" class="px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-[#3b2116] hover:bg-[#2a170f] text-primary text-xs font-bold transition flex items-center gap-2 border border-[#6d4330] shadow-sm">
+                    <i class="fa-solid fa-globe text-secondary"></i> <span class="hidden sm:inline">View Website</span><span class="sm:hidden">Web</span>
                 </a>
             </div>
         </header>
 
         <!-- FLASH MESSAGES -->
         @if(session('success'))
-            <div class="mx-6 mt-6">
+            <div class="mx-4 sm:mx-6 mt-4 sm:mt-6">
                 <div class="bg-emerald-600 border border-emerald-500 text-white px-4 py-3 rounded-xl flex items-center gap-2 shadow-md">
                     <i class="fa-solid fa-circle-check text-white text-lg"></i>
-                    <span class="text-sm font-medium">{{ session('success') }}</span>
+                    <span class="text-xs sm:text-sm font-medium">{{ session('success') }}</span>
                 </div>
             </div>
         @endif
 
         @if(session('error'))
-            <div class="mx-6 mt-6">
+            <div class="mx-4 sm:mx-6 mt-4 sm:mt-6">
                 <div class="bg-rose-600 border border-rose-500 text-white px-4 py-3 rounded-xl flex items-center gap-2 shadow-md">
                     <i class="fa-solid fa-triangle-exclamation text-white text-lg"></i>
-                    <span class="text-sm font-medium">{{ session('error') }}</span>
+                    <span class="text-xs sm:text-sm font-medium">{{ session('error') }}</span>
                 </div>
             </div>
         @endif
 
         <!-- PAGE CONTENT -->
-        <main class="p-6 flex-grow">
+        <main class="p-4 sm:p-6 flex-grow min-w-0">
             @yield('content')
         </main>
     </div>
 
+    <!-- JS FOR OPERATOR MOBILE SIDEBAR DRAWER -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.getElementById('operator-mobile-menu-btn');
+            const closeBtn = document.getElementById('operator-mobile-close-btn');
+            const sidebar = document.getElementById('operator-sidebar');
+            const backdrop = document.getElementById('mobile-sidebar-backdrop');
+
+            function openSidebar() {
+                sidebar.classList.remove('-translate-x-full');
+                backdrop.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+            }
+
+            function closeSidebar() {
+                sidebar.classList.add('-translate-x-full');
+                backdrop.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            }
+
+            menuBtn?.addEventListener('click', openSidebar);
+            closeBtn?.addEventListener('click', closeSidebar);
+            backdrop?.addEventListener('click', closeSidebar);
+        });
+    </script>
 </body>
 </html>
 
