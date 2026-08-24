@@ -70,10 +70,16 @@ jobs:
           sed -i 's|src="/build/|src="/SDN-Tunggaljaya-2/build/|g' dist/index.html || true
           sed -i 's|href="/storage/|href="/SDN-Tunggaljaya-2/storage/|g' dist/index.html || true
           sed -i 's|src="/storage/|src="/SDN-Tunggaljaya-2/storage/|g' dist/index.html || true
+          sed -i 's|href="/images/|href="/SDN-Tunggaljaya-2/images/|g' dist/index.html || true
+          sed -i 's|src="/images/|src="/SDN-Tunggaljaya-2/images/|g' dist/index.html || true
+          sed -i 's|href="/uploads/|href="/SDN-Tunggaljaya-2/uploads/|g' dist/index.html || true
+          sed -i 's|src="/uploads/|src="/SDN-Tunggaljaya-2/uploads/|g' dist/index.html || true
 
-          # Copy public build assets & images
+          # Copy public build assets, images & uploads
           if [ -d "public/build" ]; then cp -r public/build dist/; fi
           if [ -d "public/storage" ]; then cp -r public/storage dist/; fi
+          if [ -d "public/images" ]; then cp -r public/images dist/; fi
+          if [ -d "public/uploads" ]; then cp -r public/uploads dist/; fi
           if [ -f "public/favicon.ico" ]; then cp public/favicon.ico dist/; fi
           
           # Kill background server
