@@ -7,7 +7,9 @@ use App\Models\Teacher;
 use App\Models\Facility;
 use App\Models\Post;
 use App\Models\Gallery;
+use App\Services\StaticSiteExporter;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
 class OperatorController extends Controller
@@ -22,7 +24,10 @@ class OperatorController extends Controller
         $profile = SchoolProfile::first();
         $recentPosts = Post::latest()->take(5)->get();
 
-        return view('operator.dashboard', compact('teacherCount', 'facilityCount', 'postCount', 'galleryCount', 'profile', 'recentPosts'));
+        $metaPath = base_path('dist/export-meta.json');
+        $exportMeta = File::exists($metaPath) ? json_decode(File::get($metaPath), true) : null;
+
+        return view('operator.dashboard', compact('teacherCount', 'facilityCount', 'postCount', 'galleryCount', 'profile', 'recentPosts', 'exportMeta'));
     }
 
     // --- School Profile Management ---
@@ -305,5 +310,28 @@ class OperatorController extends Controller
     {
         $gallery->delete();
         return redirect()->back()->with('success', 'Foto galeri berhasil dihapus.');
+    }
+
+    // --- Static Site Export & Download ---
+    public function exportStatic(StaticSiteExporter $exporter)
+    {
+        try {
+            $summary = $exporter->export();
+            return redirect()->back()->with('success', "Website statis berhasil diekspor! Total {$summary['pages_count']} halaman HTML & aset telah disimpan di folder dist/.");
+        } catch (\Throwable $e) {
+            return redirect()->back()->with('error', 'Gagal mengekspor website statis: ' . $e->getMessage());
+        }
+    }
+
+    public function downloadStaticZip(StaticSiteExporter $exporter)
+    {
+        try {
+            $exporter->export();
+            $zipPath = $exporter->createZipArchive();
+
+            return response()->download($zipPath, 'sdn-tunggaljaya-2-static.zip');
+        } catch (\Throwable $e) {
+            return redirect()->back()->with('error', 'Gagal mengunduh file ZIP: ' . $e->getMessage());
+        }
     }
 }

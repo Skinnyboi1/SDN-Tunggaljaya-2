@@ -45,4 +45,8 @@ Route::middleware(['auth', RoleMiddleware::class . ':operator'])->prefix('operat
     Route::get('/gallery', [OperatorController::class, 'gallery'])->name('gallery');
     Route::post('/gallery', [OperatorController::class, 'storeGallery'])->name('gallery.store');
     Route::delete('/gallery/{gallery}', [OperatorController::class, 'deleteGallery'])->name('gallery.delete');
+
+    // Static Site Export
+    Route::post('/export-static', [OperatorController::class, 'exportStatic'])->name('exportStatic');
+    Route::get('/download-static-zip', [OperatorController::class, 'downloadStaticZip'])->name('downloadStaticZip');
 });

@@ -1,0 +1,29 @@
+{
+    "exported_at": "25 Aug 2026, 03:12:42 WIB",
+    "output_dir": "C:\\laragon\\www\\Tunggaljaya\\dist",
+    "pages_count": 4,
+    "posts_count": 3,
+    "pages": [
+        {
+            "type": "Home Page",
+            "url": "/",
+            "file": "index.html"
+        },
+        {
+            "type": "Berita / Pengumuman",
+            "url": "/berita/penerimaan-peserta-didik-baru-ppdb-sdn-tunggaljaya-2-2026-2027",
+            "file": "berita/penerimaan-peserta-didik-baru-ppdb-sdn-tunggaljaya-2-2026-2027/index.html"
+        },
+        {
+            "type": "Berita / Pengumuman",
+            "url": "/berita/tim-pramuka-sdn-tunggaljaya-2-meraih-juara-umum-lomba-regu",
+            "file": "berita/tim-pramuka-sdn-tunggaljaya-2-meraih-juara-umum-lomba-regu/index.html"
+        },
+        {
+            "type": "Berita / Pengumuman",
+            "url": "/berita/peluncuran-program-literasi-digital-extrakulikuler-coding",
+            "file": "berita/peluncuran-program-literasi-digital-extrakulikuler-coding/index.html"
+        }
+    ],
+    "status": "success"
+}

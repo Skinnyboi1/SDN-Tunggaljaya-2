@@ -5,6 +5,44 @@
 
 @section('content')
 
+<!-- 0. STATIC SITE EXPORTER & PUBLISH BANNER -->
+<div class="bg-gradient-to-r from-[#2a170f] via-[#3b2116] to-[#6d4330] p-5 sm:p-6 rounded-2xl border border-[#9e6f54] shadow-2xl mb-6 sm:mb-8 text-white">
+    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-5">
+        <div class="space-y-2 max-w-2xl">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-emerald-600/30 text-emerald-200 border border-emerald-500/40 text-[11px] font-bold uppercase tracking-wider">
+                <i class="fa-solid fa-bolt text-emerald-400"></i> Mode Website Statis Aktif (Opsi 1)
+            </div>
+            <h2 class="text-lg sm:text-xl font-extrabold text-white tracking-tight">
+                Publikasi & Ekspor File Website Statis
+            </h2>
+            <p class="text-xs text-[#f5e5da] leading-relaxed">
+                Ubah seluruh data sekolah, foto guru, fasilitas, dan berita menjadi file HTML murni siap pakai di folder <code class="px-1.5 py-0.5 rounded bg-black/40 text-primary font-mono text-[11px]">dist/</code>. File statis ini dapat diunggah ke GitHub Pages, Vercel, Netlify, atau shared hosting secara gratis tanpa butuh PHP server di sisi pengunjung.
+            </p>
+            
+            <div class="flex flex-wrap items-center gap-4 text-[11px] text-primary pt-1 font-medium">
+                <span><i class="fa-regular fa-clock mr-1"></i> Terakhir Diekspor: <strong class="text-white">{{ $exportMeta['exported_at'] ?? 'Belum pernah diekspor' }}</strong></span>
+                @if(isset($exportMeta['pages_count']))
+                    <span>&bull;</span>
+                    <span><i class="fa-solid fa-file-code mr-1"></i> Total Halaman: <strong class="text-white">{{ $exportMeta['pages_count'] }} Halaman</strong></span>
+                @endif
+            </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row lg:flex-col shrink-0 gap-2.5">
+            <form action="{{ route('operator.exportStatic', [], false) }}" method="POST">
+                @csrf
+                <button type="submit" class="w-full px-5 py-3 rounded-xl bg-primary hover:bg-primary-200 text-slate-950 font-extrabold text-xs sm:text-sm shadow-lg transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2 cursor-pointer active:scale-95">
+                    <i class="fa-solid fa-rocket text-secondary"></i> 🚀 Ekspor Website Statis Sekarang
+                </button>
+            </form>
+
+            <a href="{{ route('operator.downloadStaticZip', [], false) }}" class="w-full px-5 py-2.5 rounded-xl bg-[#9e6f54] hover:bg-[#835841] text-white font-bold text-xs shadow transition flex items-center justify-center gap-2 border border-[#835841]">
+                <i class="fa-solid fa-file-zipper text-primary"></i> 📦 Unduh File Statis (.ZIP)
+            </a>
+        </div>
+    </div>
+</div>
+
 <!-- Stat Cards Grid -->
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8">
     

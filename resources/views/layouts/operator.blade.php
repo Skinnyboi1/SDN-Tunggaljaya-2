@@ -148,6 +148,13 @@
 
         <!-- Footer Actions -->
         <div class="p-4 border-t border-[#6d4330] space-y-2">
+            <form action="{{ route('operator.exportStatic', [], false) }}" method="POST">
+                @csrf
+                <button type="submit" class="w-full py-2.5 px-4 rounded-xl bg-primary hover:bg-primary-200 text-slate-950 text-xs font-extrabold transition flex items-center justify-center gap-2 shadow cursor-pointer">
+                    <i class="fa-solid fa-rocket text-secondary"></i> 🚀 Ekspor Website Statis
+                </button>
+            </form>
+
             <a href="{{ route('home', [], false) }}" target="_blank" class="w-full py-2.5 px-4 rounded-xl bg-[#2a170f] hover:bg-[#6d4330] text-primary text-xs font-bold transition flex items-center justify-center gap-2">
                 <i class="fa-solid fa-eye text-secondary"></i> Lihat Tampilan Tamu (Guest)
             </a>
@@ -171,7 +178,14 @@
                 <p class="text-[11px] sm:text-xs text-primary">Kelola informasi publik dan profil SDN Tunggaljaya 2</p>
             </div>
 
-            <div class="flex items-center gap-3">
+            <div class="flex items-center gap-2 sm:gap-3">
+                <form action="{{ route('operator.exportStatic', [], false) }}" method="POST" class="inline">
+                    @csrf
+                    <button type="submit" class="px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-primary hover:bg-primary-200 text-slate-950 text-xs font-extrabold transition flex items-center gap-1.5 shadow-sm cursor-pointer">
+                        <i class="fa-solid fa-rocket text-secondary"></i> <span class="hidden sm:inline">Ekspor Statis</span><span class="sm:hidden">Ekspor</span>
+                    </button>
+                </form>
+
                 <a href="{{ route('home', [], false) }}" target="_blank" class="px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-[#3b2116] hover:bg-[#2a170f] text-primary text-xs font-bold transition flex items-center gap-2 border border-[#6d4330] shadow-sm">
                     <i class="fa-solid fa-globe text-secondary"></i> <span class="hidden sm:inline">View Website</span><span class="sm:hidden">Web</span>
                 </a>
