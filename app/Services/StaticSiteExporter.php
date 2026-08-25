@@ -50,16 +50,17 @@ class StaticSiteExporter
         // 3. Export News Detail Pages (/berita/{slug}/index.html & /berita/{slug}.html)
         $posts = Post::where('is_published', true)->get();
         foreach ($posts as $post) {
-            $postHtml = $this->renderNewsDetail($post);
+            $postHtmlSubdir = $this->renderNewsDetail($post, 2);
+            $postHtmlSingle = $this->renderNewsDetail($post, 1);
             
             $postDir = $this->outputDir . '/berita/' . $post->slug;
             if (!File::exists($postDir)) {
                 File::makeDirectory($postDir, 0755, true);
             }
-            File::put($postDir . '/index.html', $postHtml);
+            File::put($postDir . '/index.html', $postHtmlSubdir);
             
             // Also write single file for direct server routing fallback
-            File::put($this->outputDir . '/berita/' . $post->slug . '.html', $postHtml);
+            File::put($this->outputDir . '/berita/' . $post->slug . '.html', $postHtmlSingle);
 
             $generatedPages[] = [
                 'type' => 'Berita / Pengumuman',
@@ -117,13 +118,13 @@ class StaticSiteExporter
 
         $html = View::make('guest.index', compact('profile', 'teachers', 'facilities', 'latestPosts', 'galleries'))->render();
 
-        return $this->optimizeStaticHtml($html);
+        return $this->optimizeStaticHtml($html, 0);
     }
 
     /**
      * Render News Detail Page.
      */
-    protected function renderNewsDetail(Post $post): string
+    protected function renderNewsDetail(Post $post, int $depth = 2): string
     {
         $recentPosts = Post::where('is_published', true)
             ->where('id', '!=', $post->id)
@@ -134,7 +135,7 @@ class StaticSiteExporter
 
         $html = View::make('guest.news-detail', compact('post', 'recentPosts', 'profile'))->render();
 
-        return $this->optimizeStaticHtml($html);
+        return $this->optimizeStaticHtml($html, $depth);
     }
 
     /**
@@ -166,12 +167,50 @@ class StaticSiteExporter
     }
 
     /**
-     * Optimize and sanitize HTML for static serving.
+     * Optimize and sanitize HTML for static serving with proper relative paths.
      */
-    protected function optimizeStaticHtml(string $html): string
+    protected function optimizeStaticHtml(string $html, int $depth = 0): string
     {
-        // Ensure all URLs are relative
+        // 1. Strip domain/host prefix
         $html = str_replace(['http://localhost', 'https://localhost'], '', $html);
+
+        // 2. Determine relative prefix based on folder depth
+        $prefix = match($depth) {
+            1 => '../',
+            2 => '../../',
+            default => './',
+        };
+
+        // 3. Replace asset paths (images, uploads, favicon, icons)
+        $html = preg_replace('/src="\/images\//', 'src="' . $prefix . 'images/', $html);
+        $html = preg_replace('/href="\/images\//', 'href="' . $prefix . 'images/', $html);
+        $html = preg_replace('/src="\/uploads\//', 'src="' . $prefix . 'uploads/', $html);
+        $html = preg_replace('/href="\/uploads\//', 'href="' . $prefix . 'uploads/', $html);
+        $html = preg_replace('/href="\/favicon\.ico"/', 'href="' . $prefix . 'favicon.ico"', $html);
+
+        // 4. Replace links and navigation anchors
+        if ($depth === 0) {
+            // Homepage root
+            $html = preg_replace('/href="\/#([^"]*)"/', 'href="#$1"', $html);
+            $html = preg_replace('/href="\/"/', 'href="./"', $html);
+            $html = preg_replace('/href="\/berita\//', 'href="berita/', $html);
+            $html = preg_replace('/href="\/login"/', 'href="#" title="Login Operator (Gunakan Server Lokal)"', $html);
+        } else {
+            // Subpages (e.g. berita/slug)
+            $html = preg_replace('/href="\/#([^"]*)"/', 'href="' . $prefix . '#$1"', $html);
+            $html = preg_replace('/href="\/"/', 'href="' . $prefix . '"', $html);
+            $html = preg_replace('/href="\/berita\//', 'href="' . $prefix . 'berita/', $html);
+            $html = preg_replace('/href="\/login"/', 'href="#" title="Login Operator (Gunakan Server Lokal)"', $html);
+        }
+
+        // 5. URL-encode spaces in local upload paths for strict web servers
+        $html = preg_replace_callback('/(src|href)="(' . preg_quote($prefix, '/') . 'uploads\/[^"]+)"/', function ($matches) {
+            $attr = $matches[1];
+            $url = $matches[2];
+            // Encode spaces but leave slashes intact
+            $encodedUrl = str_replace(' ', '%20', $url);
+            return $attr . '="' . $encodedUrl . '"';
+        }, $html);
 
         return $html;
     }
