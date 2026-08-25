@@ -32,76 +32,8 @@
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-primary mb-1">Akreditasi</label>
-                    <input type="text" name="akreditasi" value="{{ old('akreditasi', $profile->akreditasi) }}" class="w-full px-4 py-2.5 bg-[#9e6f54] border border-[#835841] rounded-xl text-base sm:text-sm text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
+                    <input type="text" name="akreditasi" value="{{ old('akreditasi', $profile->akreditasi ?? 'B') }}" class="w-full px-4 py-2.5 bg-[#9e6f54] border border-[#835841] rounded-xl text-base sm:text-sm text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
                 </div>
-                <div>
-                    <label class="block text-xs font-bold text-primary mb-1">Nama Kepala Sekolah</label>
-                    <input type="text" name="principal_name" value="{{ old('principal_name', $profile->principal_name) }}" class="w-full px-4 py-2.5 bg-[#9e6f54] border border-[#835841] rounded-xl text-base sm:text-sm text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
-                </div>
-            </div>
-
-            <!-- Foto Kepala Sekolah Drag & Drop Upload -->
-            <div>
-                <label class="block text-xs font-bold text-primary mb-1.5 flex flex-wrap items-center justify-between gap-1">
-                    <span><i class="fa-solid fa-image text-primary mr-1"></i> Foto Kepala Sekolah</span>
-                    <span class="text-[11px] text-primary-200 font-normal">Tarik & lepas file atau pilih dari PC</span>
-                </label>
-                
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
-                    <!-- Drag & Drop Box -->
-                    <div class="lg:col-span-8">
-                        <div id="dropzone-principal" 
-                             class="relative border-2 border-dashed border-primary/50 hover:border-primary bg-[#9e6f54]/60 hover:bg-[#9e6f54] rounded-2xl p-4 sm:p-6 text-center cursor-pointer transition flex flex-col items-center justify-center min-h-[120px] group">
-                            <input type="file" name="principal_photo_file" id="file-principal" accept="image/*" class="hidden">
-                            
-                            <div id="prompt-principal" class="space-y-2">
-                                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#835841] text-primary flex items-center justify-center mx-auto text-lg sm:text-xl group-hover:scale-110 transition transform shadow">
-                                    <i class="fa-solid fa-cloud-arrow-up"></i>
-                                </div>
-                                <div class="text-xs font-bold text-white">
-                                    Tarik & Lepas foto dari PC ke sini, atau <span class="text-primary underline">Pilih File</span>
-                                </div>
-                                <div class="text-[11px] text-primary-200">
-                                    Format didukung: JPG, PNG, WEBP (Maks 5MB)
-                                </div>
-                            </div>
-
-                            <div id="preview-box-principal" class="hidden flex items-center gap-3 sm:gap-4 w-full">
-                                <img id="preview-img-principal" src="#" alt="Preview" class="w-14 h-14 sm:w-16 sm:h-16 rounded-xl object-cover border-2 border-primary shadow shrink-0">
-                                <div class="text-left flex-grow truncate">
-                                    <div id="filename-principal" class="text-xs font-bold text-white truncate">file.jpg</div>
-                                    <div id="filesize-principal" class="text-[10px] text-primary-200">0 KB</div>
-                                    <span class="inline-block mt-1 px-2 py-0.5 rounded bg-emerald-500/30 text-emerald-200 text-[10px] font-bold">Siap diunggah</span>
-                                </div>
-                                <button type="button" id="remove-btn-principal" class="p-2 rounded-lg bg-rose-600/40 hover:bg-rose-600 text-rose-100 transition shrink-0">
-                                    <i class="fa-solid fa-trash text-xs"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Current Photo & URL fallback -->
-                    <div class="lg:col-span-4 bg-[#9e6f54] p-3.5 rounded-2xl border border-[#835841] space-y-2">
-                        <div class="text-[11px] font-bold text-primary">Foto Aktif Sekarang:</div>
-                        <div class="flex items-center gap-3">
-                            <img src="{{ $profile->principal_photo ?? 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop' }}" 
-                                 alt="Foto Saat Ini" 
-                                 class="w-12 h-12 rounded-xl object-cover border border-primary/50 shadow shrink-0">
-                            <div class="text-[11px] text-primary-200 truncate flex-grow">
-                                Digunakan di beranda
-                            </div>
-                        </div>
-                        <div class="pt-2 border-t border-[#835841]/80">
-                            <label class="block text-[10px] font-bold text-primary-200 mb-1">Atau gunakan URL Gambar:</label>
-                            <input type="text" name="principal_photo" value="{{ old('principal_photo', $profile->principal_photo) }}" placeholder="https://..." class="w-full px-2.5 py-1.5 bg-[#835841] border border-[#6c4837] rounded-lg text-xs text-white placeholder-primary/50 focus:outline-none focus:border-primary">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div>
-                <label class="block text-xs font-bold text-primary mb-1">Sambutan Kepala Sekolah</label>
-                <textarea name="principal_welcome" rows="4" class="w-full p-3.5 sm:p-4 bg-[#9e6f54] border border-[#835841] rounded-xl text-base sm:text-sm text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">{{ old('principal_welcome', $profile->principal_welcome) }}</textarea>
             </div>
         </div>
 

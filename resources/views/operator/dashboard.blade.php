@@ -113,11 +113,11 @@
             </div>
             <div class="p-3 bg-[#9e6f54] rounded-xl border border-[#835841]">
                 <span class="text-primary font-medium">NPSN / Akreditasi:</span>
-                <div class="font-bold text-white text-xs sm:text-sm mt-0.5">{{ $profile->npsn ?? '-' }} ({{ $profile->akreditasi ?? 'A' }})</div>
+                <div class="font-bold text-white text-xs sm:text-sm mt-0.5">{{ $profile->npsn ?? '-' }} ({{ $profile->akreditasi ?? 'B' }})</div>
             </div>
             <div class="p-3 bg-[#9e6f54] rounded-xl border border-[#835841]">
-                <span class="text-primary font-medium">Kepala Sekolah:</span>
-                <div class="font-bold text-white text-xs sm:text-sm mt-0.5">{{ $profile->principal_name ?? '-' }}</div>
+                <span class="text-primary font-medium">Kontak Sekolah:</span>
+                <div class="font-bold text-white text-xs sm:text-sm mt-0.5">{{ $profile->phone ?? $profile->email ?? '-' }}</div>
             </div>
             <div class="p-3 bg-[#9e6f54] rounded-xl border border-[#835841]">
                 <span class="text-primary font-medium">Jumlah Siswa / Kelas:</span>

@@ -163,7 +163,6 @@
                 <!-- Desktop Navigation Links -->
                 <nav class="hidden md:flex items-center gap-1 font-semibold text-sm">
                     <a href="{{ route('home', [], false) }}#beranda" class="px-3 py-2 rounded-lg text-white/90 hover:text-white hover:bg-[#9e6f54] transition">Beranda</a>
-                    <a href="{{ route('home', [], false) }}#sambutan" class="px-3 py-2 rounded-lg text-white/90 hover:text-white hover:bg-[#9e6f54] transition">Sambutan</a>
                     <a href="{{ route('home', [], false) }}#visimisi" class="px-3 py-2 rounded-lg text-white/90 hover:text-white hover:bg-[#9e6f54] transition">Visi & Misi</a>
                     <a href="{{ route('home', [], false) }}#guru" class="px-3 py-2 rounded-lg text-white/90 hover:text-white hover:bg-[#9e6f54] transition">Guru & Staf</a>
                     <a href="{{ route('home', [], false) }}#fasilitas" class="px-3 py-2 rounded-lg text-white/90 hover:text-white hover:bg-[#9e6f54] transition">Fasilitas</a>
@@ -184,7 +183,6 @@
         <!-- Mobile Navigation Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-[#b68a70] border-b border-[#835841] px-4 pt-2 pb-4 space-y-1">
             <a href="{{ route('home', [], false) }}#beranda" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-white hover:bg-[#9e6f54] active:bg-[#835841]">Beranda</a>
-            <a href="{{ route('home', [], false) }}#sambutan" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-white hover:bg-[#9e6f54] active:bg-[#835841]">Sambutan</a>
             <a href="{{ route('home', [], false) }}#visimisi" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-white hover:bg-[#9e6f54] active:bg-[#835841]">Visi & Misi</a>
             <a href="{{ route('home', [], false) }}#guru" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-white hover:bg-[#9e6f54] active:bg-[#835841]">Guru & Staf</a>
             <a href="{{ route('home', [], false) }}#fasilitas" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-white hover:bg-[#9e6f54] active:bg-[#835841]">Fasilitas</a>

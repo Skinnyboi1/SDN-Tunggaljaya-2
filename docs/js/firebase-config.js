@@ -120,9 +120,6 @@ export const DEFAULT_SCHOOL_DATA = {
         name: "SD N TUNGGALJAYA 2",
         npsn: "20600476",
         akreditasi: "B",
-        principal_name: "Ade Sumarna, S.Pd.",
-        principal_welcome: "Selamat datang di Website Resmi SD N TUNGGALJAYA 2. Kami berkomitmen untuk menyelenggarakan pendidikan dasar yang bermutu, inklusif, dan berorientasi pada pembentukan karakter siswa yang beriman, bertakwa, berakhlak mulia, serta siap menghadapi kemajuan teknologi era digital.",
-        principal_photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop",
         history: "SD N TUNGGALJAYA 2 berlokasi di Kecamatan Sumur, Kabupaten Pandeglang, Banten. Berdiri sebagai garda terdepan pendidikan dasar yang melayani generasi muda di wilayah pesisir barat Pandeglang dengan semangat kekeluargaan dan prestasi.",
         vision: "Terwujudnya Peserta Didik yang Beriman, Bertaqwa, Berkarakter Luhur, Unggul dalam Prestasi, dan Berwawasan Lingkungan.",
         mission: [

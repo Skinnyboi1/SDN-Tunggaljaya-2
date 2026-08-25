@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('name')->default('SDN Tunggaljaya 2');
             $table->string('npsn')->nullable();
-            $table->string('akreditasi')->default('A');
+            $table->string('akreditasi')->default('B');
             $table->string('principal_name')->nullable();
             $table->text('principal_welcome')->nullable();
             $table->string('principal_photo')->nullable();

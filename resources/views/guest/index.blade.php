@@ -12,7 +12,7 @@
             <!-- Left Info -->
             <div class="lg:col-span-7 space-y-4 sm:space-y-6 text-center lg:text-left">
                 <div class="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1.5 rounded-lg bg-secondary text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider shadow-sm border border-[#9e6f54]">
-                    <i class="fa-solid fa-award text-primary"></i> Sekolah Dasar Penggerak & Berakreditasi A
+                    <i class="fa-solid fa-award text-primary"></i> Sekolah Dasar Penggerak & Berakreditasi B
                 </div>
                 
                 <h1 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
@@ -61,7 +61,7 @@
                     <div class="p-5 sm:p-6 space-y-3">
                         <div class="flex items-center justify-between text-[11px] sm:text-xs text-primary font-bold uppercase">
                             <span><i class="fa-solid fa-location-dot"></i> Sumur, Pandeglang</span>
-                            <span><i class="fa-solid fa-shield-check"></i> Terakreditasi A</span>
+                            <span><i class="fa-solid fa-shield-check"></i> Terakreditasi B</span>
                         </div>
                         <h3 class="text-base sm:text-lg font-bold text-white">
                             SD Negeri Tunggaljaya 2
@@ -77,45 +77,7 @@
     </div>
 </section>
 
-<!-- 2. SAMBUTAN KEPALA SEKOLAH -->
-<section id="sambutan" class="py-12 sm:py-20 bg-primary border-b border-[#e4bca2]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-secondary rounded-2xl text-white p-5 sm:p-8 lg:p-12 border border-[#9e6f54] shadow-xl">
-            
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
-                <!-- Principal Photo -->
-                <div class="lg:col-span-4 flex flex-col items-center text-center">
-                    <div class="w-36 h-36 sm:w-48 sm:h-48 lg:w-56 lg:h-56 rounded-2xl overflow-hidden border-4 border-primary shadow-lg mb-4 bg-[#9e6f54]">
-                        <img src="{{ $profile->principal_photo ?? 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop' }}" 
-                             alt="{{ $profile->principal_name ?? 'Kepala Sekolah' }}"
-                             class="w-full h-full object-cover">
-                    </div>
-                    <h4 class="text-base font-bold text-white">{{ $profile->principal_name ?? 'Hj. Siti Rahmawati, S.Pd., M.M.' }}</h4>
-                    <p class="text-xs text-primary font-bold">Kepala Sekolah SDN Tunggaljaya 2</p>
-                </div>
-
-                <!-- Welcome Text -->
-                <div class="lg:col-span-8 space-y-3 sm:space-y-4">
-                    <div class="inline-block px-3 py-1 rounded-lg bg-[#9e6f54] text-primary text-[11px] sm:text-xs font-bold uppercase border border-[#835841]">
-                        <i class="fa-solid fa-quote-left mr-1"></i> Sambutan Kepala Sekolah
-                    </div>
-                    <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white leading-snug">
-                        Menyiapkan Generasi Berilmu & Berakhlak Mulia
-                    </h2>
-                    <p class="text-[#fdfbf9] text-xs sm:text-sm lg:text-base leading-relaxed italic border-l-4 border-primary pl-3.5 sm:pl-4 py-2.5 sm:py-3 bg-[#9e6f54] rounded-r-lg">
-                        "{{ $profile->principal_welcome ?? 'Selamat datang di Website Resmi SDN Tunggaljaya 2. Kami berkomitmen untuk menyelenggarakan pendidikan dasar yang berkarakter, inovatif, berbasis teknologi modern, dan berlandaskan nilai-nilai imtak serta iptek.' }}"
-                    </p>
-                    <div class="pt-1 text-xs text-primary flex items-center gap-2 font-bold">
-                        <i class="fa-solid fa-circle-check text-primary"></i> SDN Tunggaljaya 2 - Siap Melayani & Mengabdi Bagi Bangsa
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- 3. VISI & MISI SEKOLAH -->
+<!-- 2. VISI & MISI SEKOLAH -->
 <section id="visimisi" class="py-12 sm:py-20 bg-primary border-b border-[#e4bca2]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         

@@ -264,8 +264,8 @@
                                 <div class="font-bold text-white text-sm mt-0.5" id="dash-school-npsn">-</div>
                             </div>
                             <div class="p-3 bg-[#9e6f54] rounded-xl border border-[#835841]">
-                                <span class="text-primary font-medium">Kepala Sekolah:</span>
-                                <div class="font-bold text-white text-sm mt-0.5" id="dash-school-principal">-</div>
+                                <span class="text-primary font-medium">Kontak Sekolah:</span>
+                                <div class="font-bold text-white text-sm mt-0.5 truncate" id="dash-school-contact">-</div>
                             </div>
                             <div class="p-3 bg-[#9e6f54] rounded-xl border border-[#835841]">
                                 <span class="text-primary font-medium">Jumlah Siswa / Rombel:</span>
@@ -325,30 +325,6 @@
                                     <label class="block text-xs font-bold text-white mb-1">Akreditasi</label>
                                     <input type="text" id="prof-akreditasi" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white text-xs focus:ring-2 focus:ring-primary focus:outline-none">
                                 </div>
-                            </div>
-                        </div>
-
-                        <!-- Kepala Sekolah -->
-                        <div class="bg-[#9e6f54] p-4 sm:p-6 rounded-2xl border border-[#835841] space-y-4">
-                            <h3 class="text-sm font-bold text-white border-b border-[#835841] pb-2 flex items-center gap-2">
-                                <i class="fa-solid fa-user-tie text-primary"></i> Kepala Sekolah & Sambutan
-                            </h3>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-xs font-bold text-white mb-1">Nama Kepala Sekolah</label>
-                                    <input type="text" id="prof-principal-name" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white text-xs focus:ring-2 focus:ring-primary focus:outline-none">
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-bold text-white mb-1">Foto Kepala Sekolah (File / URL)</label>
-                                    <div class="flex items-center gap-2">
-                                        <input type="file" id="prof-principal-file" accept="image/*" class="text-xs text-primary file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-primary file:text-slate-950 hover:file:bg-primary-200">
-                                        <input type="text" id="prof-principal-photo" placeholder="atau paste link URL foto" class="w-full px-3 py-1.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white text-xs">
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold text-white mb-1">Teks Sambutan Kepala Sekolah</label>
-                                <textarea id="prof-principal-welcome" rows="4" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white text-xs focus:ring-2 focus:ring-primary focus:outline-none"></textarea>
                             </div>
                         </div>
 
@@ -871,7 +847,7 @@
         function populateDashboardProfile(p) {
             document.getElementById('dash-school-name').innerText = p.name || 'SD N TUNGGALJAYA 2';
             document.getElementById('dash-school-npsn').innerText = `${p.npsn || '-'} (${p.akreditasi || 'B'})`;
-            document.getElementById('dash-school-principal').innerText = p.principal_name || '-';
+            document.getElementById('dash-school-contact').innerText = p.phone || p.email || '-';
             document.getElementById('dash-school-students').innerText = `${p.student_count || 0} Siswa (${p.class_count || 0} Rombel)`;
             document.getElementById('dash-school-vision').innerText = `"${p.vision || '-'}"`;
         }
@@ -897,10 +873,7 @@
         function populateProfileForm(p) {
             document.getElementById('prof-name').value = p.name || '';
             document.getElementById('prof-npsn').value = p.npsn || '';
-            document.getElementById('prof-akreditasi').value = p.akreditasi || '';
-            document.getElementById('prof-principal-name').value = p.principal_name || '';
-            document.getElementById('prof-principal-photo').value = p.principal_photo || '';
-            document.getElementById('prof-principal-welcome').value = p.principal_welcome || '';
+            document.getElementById('prof-akreditasi').value = p.akreditasi || 'B';
             document.getElementById('prof-vision').value = p.vision || '';
             document.getElementById('prof-mission').value = Array.isArray(p.mission) ? p.mission.join('\n') : (p.mission || '');
             document.getElementById('prof-history').value = p.history || '';
@@ -921,22 +894,13 @@
             btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Menyimpan ke Firestore...';
 
             try {
-                let photoUrl = document.getElementById('prof-principal-photo').value.trim();
-                const photoFile = document.getElementById('prof-principal-file').files[0];
-                if (photoFile) {
-                    photoUrl = await uploadImageFile(photoFile, 'profile');
-                }
-
                 const missionText = document.getElementById('prof-mission').value;
                 const missionArray = missionText.split('\n').map(s => s.trim()).filter(s => s.length > 0);
 
                 const data = {
                     name: document.getElementById('prof-name').value.trim(),
                     npsn: document.getElementById('prof-npsn').value.trim(),
-                    akreditasi: document.getElementById('prof-akreditasi').value.trim(),
-                    principal_name: document.getElementById('prof-principal-name').value.trim(),
-                    principal_photo: photoUrl,
-                    principal_welcome: document.getElementById('prof-principal-welcome').value.trim(),
+                    akreditasi: document.getElementById('prof-akreditasi').value.trim() || 'B',
                     vision: document.getElementById('prof-vision').value.trim(),
                     mission: missionArray,
                     history: document.getElementById('prof-history').value.trim(),

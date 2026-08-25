@@ -17,8 +17,6 @@ export function initLiveWebsite() {
         updateText('.live-school-name', p.name);
         updateText('.live-school-npsn', `NPSN: ${p.npsn || '20600476'}`);
         updateText('.live-school-akreditasi', `Akreditasi: ${p.akreditasi || 'B'}`);
-        updateText('.live-school-principal-name', p.principal_name);
-        updateText('.live-school-welcome', p.principal_welcome);
         updateText('.live-school-vision', p.vision);
         updateText('.live-school-history', p.history);
         updateText('.live-school-students', `${p.student_count || 185} Siswa`);
@@ -27,13 +25,6 @@ export function initLiveWebsite() {
         updateText('.live-school-address', p.address);
         updateText('.live-school-phone', p.phone);
         updateText('.live-school-email', p.email);
-
-        // Update Principal Photo
-        if (p.principal_photo) {
-            document.querySelectorAll('.live-principal-photo').forEach(img => {
-                img.src = p.principal_photo;
-            });
-        }
 
         // Update Map Embed
         if (p.map_url) {
