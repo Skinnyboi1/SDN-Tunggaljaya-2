@@ -12,11 +12,11 @@ class RoleMiddleware
     public function handle(Request $request, Closure $next, string $role): Response
     {
         if (!Auth::check()) {
-            return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu untuk mengakses halaman operator.');
+            return redirect('/login')->with('error', 'Silakan login terlebih dahulu untuk mengakses halaman operator.');
         }
 
         if (Auth::user()->role !== $role) {
-            return redirect()->route('home')->with('error', 'Anda tidak memiliki hak akses untuk halaman tersebut.');
+            return redirect('/')->with('error', 'Anda tidak memiliki hak akses untuk halaman tersebut.');
         }
 
         return $next($request);

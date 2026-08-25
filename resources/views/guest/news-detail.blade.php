@@ -37,7 +37,7 @@
 
         <!-- Back Button -->
         <div class="mt-8 sm:mt-10 pt-6 border-t border-[#e4bca2] flex justify-between items-center">
-            <a href="{{ route('home') }}#berita" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-secondary text-white font-extrabold text-xs sm:text-sm hover:bg-secondary-600 transition flex items-center justify-center gap-2 shadow-md border border-[#9e6f54]">
+            <a href="{{ route('home', [], false) }}#berita" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-secondary text-white font-extrabold text-xs sm:text-sm hover:bg-secondary-600 transition flex items-center justify-center gap-2 shadow-md border border-[#9e6f54]">
                 <i class="fa-solid fa-arrow-left text-primary"></i> Kembali ke Beranda
             </a>
         </div>

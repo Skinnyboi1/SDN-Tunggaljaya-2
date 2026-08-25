@@ -13,7 +13,7 @@
             <i class="fa-solid fa-pen-nib text-primary"></i> Buat Berita / Pengumuman / PPDB Baru
         </h2>
 
-        <form action="{{ route('operator.posts.store') }}" method="POST" enctype="multipart/form-data" class="space-y-4">
+        <form action="{{ route('operator.posts.store', [], false) }}" method="POST" enctype="multipart/form-data" class="space-y-4">
             @csrf
             
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -112,7 +112,7 @@
                     @forelse($posts as $post)
                         <tr class="hover:bg-[#9e6f54]/50 transition">
                             <td class="px-4 sm:px-6 py-3 font-bold text-white max-w-xs truncate">
-                                <a href="{{ route('news.detail', $post->slug) }}" target="_blank" class="hover:text-primary">{{ $post->title }}</a>
+                                <a href="{{ route('news.detail', $post->slug, false) }}" target="_blank" class="hover:text-primary">{{ $post->title }}</a>
                             </td>
                             <td class="px-4 sm:px-6 py-3">
                                 <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-[#3b2116] text-primary border border-[#6d4330]">
@@ -121,7 +121,7 @@
                             </td>
                             <td class="px-4 sm:px-6 py-3 font-mono text-primary-200">{{ $post->published_at ? $post->published_at->format('d M Y') : date('d M Y') }}</td>
                             <td class="px-4 sm:px-6 py-3 text-right">
-                                <form action="{{ route('operator.posts.delete', $post->id) }}" method="POST" class="inline" onsubmit="return confirm('Hapus berita ini?')">
+                                <form action="{{ route('operator.posts.delete', $post->id, false) }}" method="POST" class="inline" onsubmit="return confirm('Hapus berita ini?')">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="px-3 py-1.5 rounded-lg bg-rose-600/30 text-rose-200 hover:bg-rose-600 hover:text-white font-bold transition border border-rose-500/40">

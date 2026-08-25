@@ -13,7 +13,7 @@
             <i class="fa-solid fa-user-plus text-primary"></i> Tambah Tenaga Pendidik Baru
         </h2>
 
-        <form action="{{ route('operator.teachers.store') }}" method="POST" enctype="multipart/form-data" class="space-y-4">
+        <form action="{{ route('operator.teachers.store', [], false) }}" method="POST" enctype="multipart/form-data" class="space-y-4">
             @csrf
             
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -110,7 +110,7 @@
                             <td class="px-4 sm:px-6 py-3 font-mono text-primary-200">{{ $teacher->nip ?? '-' }}</td>
                             <td class="px-4 sm:px-6 py-3 font-semibold text-primary">{{ $teacher->position }}</td>
                             <td class="px-4 sm:px-6 py-3 text-right">
-                                <form action="{{ route('operator.teachers.delete', $teacher->id) }}" method="POST" class="inline" onsubmit="return confirm('Yakin ingin menghapus data guru ini?')">
+                                <form action="{{ route('operator.teachers.delete', $teacher->id, false) }}" method="POST" class="inline" onsubmit="return confirm('Yakin ingin menghapus data guru ini?')">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="px-3 py-1.5 rounded-lg bg-rose-600/30 text-rose-200 hover:bg-rose-600 hover:text-white font-bold transition border border-rose-500/40">

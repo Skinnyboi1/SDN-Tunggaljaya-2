@@ -6,7 +6,7 @@
     <title>Login Operator - SDN Tunggaljaya 2</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
+    <link rel="icon" type="image/png" href="/images/logo.png">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -67,7 +67,7 @@
         <!-- Header with Logo on Placeholder -->
         <div class="text-center space-y-2">
             <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-primary flex items-center justify-center p-2 mx-auto shadow-md border border-primary-200">
-                <img src="{{ asset('images/logo.png') }}" alt="Logo SDN Tunggaljaya 2" class="w-full h-full object-contain">
+                <img src="/images/logo.png" alt="Logo SDN Tunggaljaya 2" class="w-full h-full object-contain">
             </div>
             <h1 class="text-xl sm:text-2xl font-extrabold text-white tracking-tight">Login Operator</h1>
             <p class="text-xs text-primary">Masuk untuk mengelola data & profil SDN Tunggaljaya 2</p>
@@ -95,7 +95,7 @@
         @endif
 
         <!-- Login Form -->
-        <form action="{{ route('login') }}" method="POST" class="space-y-4">
+        <form action="{{ route('login', [], false) }}" method="POST" class="space-y-4">
             @csrf
             <div>
                 <label class="block text-xs font-bold text-primary mb-1.5">Alamat Email</label>
@@ -132,7 +132,7 @@
         </form>
 
         <div class="pt-2 text-center border-t border-[#9e6f54]">
-            <a href="{{ route('home') }}" class="text-xs text-primary hover:text-white font-bold transition flex items-center justify-center gap-1">
+            <a href="{{ route('home', [], false) }}" class="text-xs text-primary hover:text-white font-bold transition flex items-center justify-center gap-1">
                 <i class="fa-solid fa-arrow-left"></i> Kembali ke Halaman Utama Guest
             </a>
         </div>

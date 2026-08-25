@@ -10,7 +10,7 @@ class AuthController extends Controller
     public function showLogin()
     {
         if (Auth::check() && Auth::user()->isOperator()) {
-            return redirect()->route('operator.dashboard');
+            return redirect('/operator/dashboard');
         }
 
         return view('auth.login');
@@ -27,10 +27,10 @@ class AuthController extends Controller
             $request->session()->regenerate();
 
             if (Auth::user()->isOperator()) {
-                return redirect()->intended(route('operator.dashboard'))->with('success', 'Selamat datang kembali, Operator!');
+                return redirect()->intended('/operator/dashboard')->with('success', 'Selamat datang kembali, Operator!');
             }
 
-            return redirect()->route('home');
+            return redirect('/');
         }
 
         return back()->withErrors([
@@ -45,6 +45,6 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->route('home')->with('success', 'Anda telah berhasil logout.');
+        return redirect('/')->with('success', 'Anda telah berhasil logout.');
     }
 }

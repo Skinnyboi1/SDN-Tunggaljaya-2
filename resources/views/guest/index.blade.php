@@ -283,7 +283,7 @@
                                 <span>{{ $post->published_at ? $post->published_at->format('d M Y') : date('d M Y') }}</span>
                             </div>
                             <h3 class="text-sm sm:text-base font-bold text-white hover:text-primary transition leading-snug line-clamp-2">
-                                <a href="{{ route('news.detail', $post->slug) }}">{{ $post->title }}</a>
+                                 <a href="{{ route('news.detail', $post->slug, false) }}">{{ $post->title }}</a>
                             </h3>
                             <p class="text-xs text-primary-100 line-clamp-3 leading-relaxed">
                                 {{ $post->excerpt }}
@@ -291,7 +291,7 @@
                         </div>
                     </div>
                     <div class="p-4 sm:p-5 pt-0">
-                        <a href="{{ route('news.detail', $post->slug) }}" class="inline-flex items-center gap-2 text-xs font-bold text-primary hover:text-white transition">
+                        <a href="{{ route('news.detail', $post->slug, false) }}" class="inline-flex items-center gap-2 text-xs font-bold text-primary hover:text-white transition">
                             Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i>
                         </a>
                     </div>

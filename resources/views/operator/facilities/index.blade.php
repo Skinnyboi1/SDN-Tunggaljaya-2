@@ -13,7 +13,7 @@
             <i class="fa-solid fa-plus-circle text-primary"></i> Tambah Fasilitas Baru
         </h2>
 
-        <form action="{{ route('operator.facilities.store') }}" method="POST" enctype="multipart/form-data" class="space-y-4">
+        <form action="{{ route('operator.facilities.store', [], false) }}" method="POST" enctype="multipart/form-data" class="space-y-4">
             @csrf
             
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -85,7 +85,7 @@
                     <p class="text-xs text-primary-100 mt-1 line-clamp-2">{{ $fac->description }}</p>
                 </div>
                 <div class="pt-2 border-t border-[#9e6f54] flex justify-end">
-                    <form action="{{ route('operator.facilities.delete', $fac->id) }}" method="POST" onsubmit="return confirm('Hapus fasilitas ini?')">
+                    <form action="{{ route('operator.facilities.delete', $fac->id, false) }}" method="POST" onsubmit="return confirm('Hapus fasilitas ini?')">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="px-3 py-1.5 rounded-lg bg-rose-600/30 text-rose-200 hover:bg-rose-600 hover:text-white text-xs font-bold transition border border-rose-500/40">

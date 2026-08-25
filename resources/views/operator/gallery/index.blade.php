@@ -13,7 +13,7 @@
             <i class="fa-solid fa-image text-primary"></i> Tambah Foto Galeri Baru
         </h2>
 
-        <form action="{{ route('operator.gallery.store') }}" method="POST" enctype="multipart/form-data" class="space-y-4">
+        <form action="{{ route('operator.gallery.store', [], false) }}" method="POST" enctype="multipart/form-data" class="space-y-4">
             @csrf
             
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -87,7 +87,7 @@
                         <span class="text-[10px] font-bold text-primary uppercase block">{{ $gal->category }}</span>
                         <h4 class="font-bold text-white text-xs truncate">{{ $gal->title }}</h4>
                     </div>
-                    <form action="{{ route('operator.gallery.delete', $gal->id) }}" method="POST" onsubmit="return confirm('Hapus foto galeri ini?')" class="shrink-0">
+                    <form action="{{ route('operator.gallery.delete', $gal->id, false) }}" method="POST" onsubmit="return confirm('Hapus foto galeri ini?')" class="shrink-0">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="p-2 rounded-lg bg-rose-600/30 text-rose-200 hover:bg-rose-600 hover:text-white transition border border-rose-500/40">

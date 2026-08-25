@@ -7,7 +7,7 @@
     <meta name="description" content="Website Resmi SDN Tunggaljaya 2 Sumur Pandeglang Banten. Informasi Profil Sekolah, Visi Misi, Guru & Staf, Fasilitas, Berita, PPDB dan Galeri Kegiatan.">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
+    <link rel="icon" type="image/png" href="/images/logo.png">
 
     <!-- Google Fonts: Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -106,18 +106,18 @@
 
                 @auth
                     @if(auth()->user()->isOperator())
-                        <a href="{{ route('operator.dashboard') }}" class="px-2.5 py-1 rounded-lg bg-primary hover:bg-primary-200 text-[#3b2116] font-extrabold transition flex items-center gap-1 text-[11px] sm:text-xs shadow-sm">
+                        <a href="{{ route('operator.dashboard', [], false) }}" class="px-2.5 py-1 rounded-lg bg-primary hover:bg-primary-200 text-[#3b2116] font-extrabold transition flex items-center gap-1 text-[11px] sm:text-xs shadow-sm">
                             <i class="fa-solid fa-gauge"></i> Panel Operator
                         </a>
                     @endif
-                    <form action="{{ route('logout') }}" method="POST" class="inline">
+                    <form action="{{ route('logout', [], false) }}" method="POST" class="inline">
                         @csrf
                         <button type="submit" class="hover:text-red-200 transition ml-1 font-bold text-white text-[11px] sm:text-xs">
                             <i class="fa-solid fa-right-from-bracket text-red-200"></i> Logout
                         </button>
                     </form>
                 @else
-                    <a href="{{ route('login') }}" class="text-white hover:text-primary font-bold transition flex items-center gap-1 text-[11px] sm:text-xs">
+                    <a href="{{ route('login', [], false) }}" class="text-white hover:text-primary font-bold transition flex items-center gap-1 text-[11px] sm:text-xs">
                         <i class="fa-solid fa-lock text-primary"></i> Login Operator
                     </a>
                 @endauth
@@ -131,9 +131,9 @@
             <div class="flex items-center justify-between h-16 sm:h-20">
                 
                 <!-- Logo & Brand Name -->
-                <a href="{{ route('home') }}" class="flex items-center gap-2.5 sm:gap-3 group">
+                <a href="{{ route('home', [], false) }}" class="flex items-center gap-2.5 sm:gap-3 group">
                     <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-primary flex items-center justify-center p-1 shadow-md border border-primary-200 group-hover:scale-105 transition transform shrink-0">
-                        <img src="{{ asset('images/logo.png') }}" alt="Logo SD N TUNGGALJAYA 2" class="w-full h-full object-contain">
+                        <img src="/images/logo.png" alt="Logo SD N TUNGGALJAYA 2" class="w-full h-full object-contain">
                     </div>
                     <div>
                         <div class="text-base sm:text-lg font-extrabold tracking-tight text-white group-hover:text-primary transition leading-tight">SD N TUNGGALJAYA 2</div>
@@ -143,14 +143,14 @@
 
                 <!-- Desktop Navigation Links -->
                 <nav class="hidden md:flex items-center gap-1 font-semibold text-sm">
-                    <a href="{{ route('home') }}#beranda" class="px-3 py-2 rounded-lg text-white/90 hover:text-white hover:bg-[#9e6f54] transition">Beranda</a>
-                    <a href="{{ route('home') }}#sambutan" class="px-3 py-2 rounded-lg text-white/90 hover:text-white hover:bg-[#9e6f54] transition">Sambutan</a>
-                    <a href="{{ route('home') }}#visimisi" class="px-3 py-2 rounded-lg text-white/90 hover:text-white hover:bg-[#9e6f54] transition">Visi & Misi</a>
-                    <a href="{{ route('home') }}#guru" class="px-3 py-2 rounded-lg text-white/90 hover:text-white hover:bg-[#9e6f54] transition">Guru & Staf</a>
-                    <a href="{{ route('home') }}#fasilitas" class="px-3 py-2 rounded-lg text-white/90 hover:text-white hover:bg-[#9e6f54] transition">Fasilitas</a>
-                    <a href="{{ route('home') }}#berita" class="px-3 py-2 rounded-lg text-white/90 hover:text-white hover:bg-[#9e6f54] transition">Berita</a>
-                    <a href="{{ route('home') }}#galeri" class="px-3 py-2 rounded-lg text-white/90 hover:text-white hover:bg-[#9e6f54] transition">Galeri</a>
-                    <a href="{{ route('home') }}#kontak" class="px-3 py-2 rounded-lg text-white/90 hover:text-white hover:bg-[#9e6f54] transition">Kontak</a>
+                    <a href="{{ route('home', [], false) }}#beranda" class="px-3 py-2 rounded-lg text-white/90 hover:text-white hover:bg-[#9e6f54] transition">Beranda</a>
+                    <a href="{{ route('home', [], false) }}#sambutan" class="px-3 py-2 rounded-lg text-white/90 hover:text-white hover:bg-[#9e6f54] transition">Sambutan</a>
+                    <a href="{{ route('home', [], false) }}#visimisi" class="px-3 py-2 rounded-lg text-white/90 hover:text-white hover:bg-[#9e6f54] transition">Visi & Misi</a>
+                    <a href="{{ route('home', [], false) }}#guru" class="px-3 py-2 rounded-lg text-white/90 hover:text-white hover:bg-[#9e6f54] transition">Guru & Staf</a>
+                    <a href="{{ route('home', [], false) }}#fasilitas" class="px-3 py-2 rounded-lg text-white/90 hover:text-white hover:bg-[#9e6f54] transition">Fasilitas</a>
+                    <a href="{{ route('home', [], false) }}#berita" class="px-3 py-2 rounded-lg text-white/90 hover:text-white hover:bg-[#9e6f54] transition">Berita</a>
+                    <a href="{{ route('home', [], false) }}#galeri" class="px-3 py-2 rounded-lg text-white/90 hover:text-white hover:bg-[#9e6f54] transition">Galeri</a>
+                    <a href="{{ route('home', [], false) }}#kontak" class="px-3 py-2 rounded-lg text-white/90 hover:text-white hover:bg-[#9e6f54] transition">Kontak</a>
                 </nav>
 
                 <!-- Mobile Menu Button -->
@@ -164,14 +164,14 @@
 
         <!-- Mobile Navigation Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-[#b68a70] border-b border-[#835841] px-4 pt-2 pb-4 space-y-1">
-            <a href="{{ route('home') }}#beranda" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-white hover:bg-[#9e6f54] active:bg-[#835841]">Beranda</a>
-            <a href="{{ route('home') }}#sambutan" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-white hover:bg-[#9e6f54] active:bg-[#835841]">Sambutan</a>
-            <a href="{{ route('home') }}#visimisi" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-white hover:bg-[#9e6f54] active:bg-[#835841]">Visi & Misi</a>
-            <a href="{{ route('home') }}#guru" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-white hover:bg-[#9e6f54] active:bg-[#835841]">Guru & Staf</a>
-            <a href="{{ route('home') }}#fasilitas" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-white hover:bg-[#9e6f54] active:bg-[#835841]">Fasilitas</a>
-            <a href="{{ route('home') }}#berita" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-white hover:bg-[#9e6f54] active:bg-[#835841]">Berita</a>
-            <a href="{{ route('home') }}#galeri" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-white hover:bg-[#9e6f54] active:bg-[#835841]">Galeri</a>
-            <a href="{{ route('home') }}#kontak" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-white hover:bg-[#9e6f54] active:bg-[#835841]">Kontak</a>
+            <a href="{{ route('home', [], false) }}#beranda" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-white hover:bg-[#9e6f54] active:bg-[#835841]">Beranda</a>
+            <a href="{{ route('home', [], false) }}#sambutan" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-white hover:bg-[#9e6f54] active:bg-[#835841]">Sambutan</a>
+            <a href="{{ route('home', [], false) }}#visimisi" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-white hover:bg-[#9e6f54] active:bg-[#835841]">Visi & Misi</a>
+            <a href="{{ route('home', [], false) }}#guru" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-white hover:bg-[#9e6f54] active:bg-[#835841]">Guru & Staf</a>
+            <a href="{{ route('home', [], false) }}#fasilitas" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-white hover:bg-[#9e6f54] active:bg-[#835841]">Fasilitas</a>
+            <a href="{{ route('home', [], false) }}#berita" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-white hover:bg-[#9e6f54] active:bg-[#835841]">Berita</a>
+            <a href="{{ route('home', [], false) }}#galeri" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-white hover:bg-[#9e6f54] active:bg-[#835841]">Galeri</a>
+            <a href="{{ route('home', [], false) }}#kontak" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-white hover:bg-[#9e6f54] active:bg-[#835841]">Kontak</a>
         </div>
     </header>
 
@@ -212,7 +212,7 @@
                 <div>
                     <div class="flex items-center gap-3 mb-4">
                         <div class="w-9 h-9 rounded-lg bg-primary p-0.5 flex items-center justify-center shadow shrink-0">
-                            <img src="{{ asset('images/logo.png') }}" alt="Logo SD N TUNGGALJAYA 2" class="w-full h-full object-contain">
+                            <img src="/images/logo.png" alt="Logo SD N TUNGGALJAYA 2" class="w-full h-full object-contain">
                         </div>
                         <span class="text-white font-extrabold text-lg">SD N TUNGGALJAYA 2</span>
                     </div>
@@ -225,11 +225,11 @@
                 <div>
                     <h3 class="text-white font-bold text-sm mb-4 border-l-4 border-secondary pl-3">Tautan Cepat</h3>
                     <ul class="space-y-2 text-xs">
-                        <li><a href="#visimisi" class="hover:text-primary transition inline-block py-0.5"><i class="fa-solid fa-chevron-right text-[10px] text-secondary mr-2"></i>Visi & Misi</a></li>
-                        <li><a href="#guru" class="hover:text-primary transition inline-block py-0.5"><i class="fa-solid fa-chevron-right text-[10px] text-secondary mr-2"></i>Tenaga Pendidik</a></li>
-                        <li><a href="#fasilitas" class="hover:text-primary transition inline-block py-0.5"><i class="fa-solid fa-chevron-right text-[10px] text-secondary mr-2"></i>Fasilitas Sekolah</a></li>
-                        <li><a href="#berita" class="hover:text-primary transition inline-block py-0.5"><i class="fa-solid fa-chevron-right text-[10px] text-secondary mr-2"></i>Berita & PPDB</a></li>
-                        <li><a href="#galeri" class="hover:text-primary transition inline-block py-0.5"><i class="fa-solid fa-chevron-right text-[10px] text-secondary mr-2"></i>Galeri Foto</a></li>
+                        <li><a href="{{ route('home', [], false) }}#visimisi" class="hover:text-primary transition inline-block py-0.5"><i class="fa-solid fa-chevron-right text-[10px] text-secondary mr-2"></i>Visi & Misi</a></li>
+                        <li><a href="{{ route('home', [], false) }}#guru" class="hover:text-primary transition inline-block py-0.5"><i class="fa-solid fa-chevron-right text-[10px] text-secondary mr-2"></i>Tenaga Pendidik</a></li>
+                        <li><a href="{{ route('home', [], false) }}#fasilitas" class="hover:text-primary transition inline-block py-0.5"><i class="fa-solid fa-chevron-right text-[10px] text-secondary mr-2"></i>Fasilitas Sekolah</a></li>
+                        <li><a href="{{ route('home', [], false) }}#berita" class="hover:text-primary transition inline-block py-0.5"><i class="fa-solid fa-chevron-right text-[10px] text-secondary mr-2"></i>Berita & PPDB</a></li>
+                        <li><a href="{{ route('home', [], false) }}#galeri" class="hover:text-primary transition inline-block py-0.5"><i class="fa-solid fa-chevron-right text-[10px] text-secondary mr-2"></i>Galeri Foto</a></li>
                     </ul>
                 </div>
 
@@ -246,7 +246,7 @@
                             <span><strong>Role Operator:</strong> Panel kelola konten.</span>
                         </div>
                         <div class="pt-1">
-                            <a href="{{ route('login') }}" class="inline-flex items-center gap-1.5 text-primary font-bold hover:text-secondary-300 hover:underline">
+                            <a href="{{ route('login', [], false) }}" class="inline-flex items-center gap-1.5 text-primary font-bold hover:text-secondary-300 hover:underline">
                                 <i class="fa-solid fa-key text-secondary"></i> Login Operator
                             </a>
                         </div>
@@ -297,8 +297,6 @@
             });
         });
     </script>
-</body>
-</html>
 </body>
 </html>
 

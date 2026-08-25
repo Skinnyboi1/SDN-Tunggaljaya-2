@@ -12,7 +12,7 @@
         <p class="text-xs text-primary">Perubahan informasi di halaman ini akan langsung diperbarui di tampilan publik (Guest).</p>
     </div>
 
-    <form action="{{ route('operator.profile.update') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
+    <form action="{{ route('operator.profile.update', [], false) }}" method="POST" enctype="multipart/form-data" class="space-y-6">
         @csrf
         
         <!-- Identitas Utama -->

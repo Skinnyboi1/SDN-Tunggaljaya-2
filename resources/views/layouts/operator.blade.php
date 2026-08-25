@@ -6,7 +6,7 @@
     <title>@yield('title', 'Panel Operator - SDN Tunggaljaya 2')</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
+    <link rel="icon" type="image/png" href="/images/logo.png">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,7 +66,7 @@
     <div class="md:hidden bg-[#3b2116] text-[#f5e5da] border-b border-[#6d4330] px-4 py-3 flex items-center justify-between sticky top-0 z-40 shadow-md">
         <div class="flex items-center gap-2.5">
             <div class="w-8 h-8 rounded-lg bg-secondary flex items-center justify-center p-1 shadow border border-secondary-600">
-                <img src="{{ asset('images/logo.png') }}" alt="Logo SDN Tunggaljaya 2" class="w-full h-full object-contain">
+                <img src="/images/logo.png" alt="Logo SDN Tunggaljaya 2" class="w-full h-full object-contain">
             </div>
             <div>
                 <div class="text-xs font-extrabold text-white tracking-tight">PANEL OPERATOR</div>
@@ -89,7 +89,7 @@
             <div class="h-20 flex items-center justify-between px-6 bg-[#2a170f] border-b border-[#6d4330]">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center p-1 shadow-lg border border-secondary-600">
-                        <img src="{{ asset('images/logo.png') }}" alt="Logo SDN Tunggaljaya 2" class="w-full h-full object-contain">
+                        <img src="/images/logo.png" alt="Logo SDN Tunggaljaya 2" class="w-full h-full object-contain">
                     </div>
                     <div>
                         <div class="text-sm font-extrabold text-white tracking-tight">PANEL OPERATOR</div>
@@ -114,32 +114,32 @@
 
             <!-- Navigation Links -->
             <nav class="p-4 space-y-1.5 text-sm font-medium">
-                <a href="{{ route('operator.dashboard') }}" 
+                <a href="{{ route('operator.dashboard', [], false) }}" 
                    class="flex items-center gap-3 px-4 py-3 rounded-xl transition {{ request()->routeIs('operator.dashboard') ? 'bg-secondary text-white font-bold shadow-md' : 'hover:bg-[#6d4330]/40 hover:text-primary text-[#f5e5da]' }}">
                     <i class="fa-solid fa-gauge text-base w-5 text-center"></i> Dashboard
                 </a>
 
-                <a href="{{ route('operator.profile') }}" 
+                <a href="{{ route('operator.profile', [], false) }}" 
                    class="flex items-center gap-3 px-4 py-3 rounded-xl transition {{ request()->routeIs('operator.profile') ? 'bg-secondary text-white font-bold shadow-md' : 'hover:bg-[#6d4330]/40 hover:text-primary text-[#f5e5da]' }}">
                     <i class="fa-solid fa-school-flag text-base w-5 text-center"></i> Profil Sekolah
                 </a>
 
-                <a href="{{ route('operator.teachers') }}" 
+                <a href="{{ route('operator.teachers', [], false) }}" 
                    class="flex items-center gap-3 px-4 py-3 rounded-xl transition {{ request()->routeIs('operator.teachers') ? 'bg-secondary text-white font-bold shadow-md' : 'hover:bg-[#6d4330]/40 hover:text-primary text-[#f5e5da]' }}">
                     <i class="fa-solid fa-chalkboard-user text-base w-5 text-center"></i> Guru & Staf
                 </a>
 
-                <a href="{{ route('operator.facilities') }}" 
+                <a href="{{ route('operator.facilities', [], false) }}" 
                    class="flex items-center gap-3 px-4 py-3 rounded-xl transition {{ request()->routeIs('operator.facilities') ? 'bg-secondary text-white font-bold shadow-md' : 'hover:bg-[#6d4330]/40 hover:text-primary text-[#f5e5da]' }}">
                     <i class="fa-solid fa-building-user text-base w-5 text-center"></i> Fasilitas
                 </a>
 
-                <a href="{{ route('operator.posts') }}" 
+                <a href="{{ route('operator.posts', [], false) }}" 
                    class="flex items-center gap-3 px-4 py-3 rounded-xl transition {{ request()->routeIs('operator.posts') ? 'bg-secondary text-white font-bold shadow-md' : 'hover:bg-[#6d4330]/40 hover:text-primary text-[#f5e5da]' }}">
                     <i class="fa-solid fa-newspaper text-base w-5 text-center"></i> Berita & PPDB
                 </a>
 
-                <a href="{{ route('operator.gallery') }}" 
+                <a href="{{ route('operator.gallery', [], false) }}" 
                    class="flex items-center gap-3 px-4 py-3 rounded-xl transition {{ request()->routeIs('operator.gallery') ? 'bg-secondary text-white font-bold shadow-md' : 'hover:bg-[#6d4330]/40 hover:text-primary text-[#f5e5da]' }}">
                     <i class="fa-solid fa-images text-base w-5 text-center"></i> Galeri Foto
                 </a>
@@ -148,11 +148,11 @@
 
         <!-- Footer Actions -->
         <div class="p-4 border-t border-[#6d4330] space-y-2">
-            <a href="{{ route('home') }}" target="_blank" class="w-full py-2.5 px-4 rounded-xl bg-[#2a170f] hover:bg-[#6d4330] text-primary text-xs font-bold transition flex items-center justify-center gap-2">
+            <a href="{{ route('home', [], false) }}" target="_blank" class="w-full py-2.5 px-4 rounded-xl bg-[#2a170f] hover:bg-[#6d4330] text-primary text-xs font-bold transition flex items-center justify-center gap-2">
                 <i class="fa-solid fa-eye text-secondary"></i> Lihat Tampilan Tamu (Guest)
             </a>
             
-            <form action="{{ route('logout') }}" method="POST">
+            <form action="{{ route('logout', [], false) }}" method="POST">
                 @csrf
                 <button type="submit" class="w-full py-2.5 px-4 rounded-xl bg-rose-500/20 hover:bg-rose-500 text-rose-300 hover:text-white text-xs font-bold transition flex items-center justify-center gap-2 border border-rose-500/30">
                     <i class="fa-solid fa-right-from-bracket"></i> Keluar / Logout
@@ -172,7 +172,7 @@
             </div>
 
             <div class="flex items-center gap-3">
-                <a href="{{ route('home') }}" target="_blank" class="px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-[#3b2116] hover:bg-[#2a170f] text-primary text-xs font-bold transition flex items-center gap-2 border border-[#6d4330] shadow-sm">
+                <a href="{{ route('home', [], false) }}" target="_blank" class="px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-[#3b2116] hover:bg-[#2a170f] text-primary text-xs font-bold transition flex items-center gap-2 border border-[#6d4330] shadow-sm">
                     <i class="fa-solid fa-globe text-secondary"></i> <span class="hidden sm:inline">View Website</span><span class="sm:hidden">Web</span>
                 </a>
             </div>

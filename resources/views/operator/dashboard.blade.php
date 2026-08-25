@@ -12,7 +12,7 @@
         <div>
             <div class="text-[10px] sm:text-xs text-primary font-bold uppercase tracking-wider">Tenaga Pendidik</div>
             <div class="text-2xl sm:text-3xl font-extrabold text-white mt-1">{{ $teacherCount }}</div>
-            <a href="{{ route('operator.teachers') }}" class="text-xs font-bold text-primary hover:text-white mt-2 inline-block">Kelola Guru &rarr;</a>
+            <a href="{{ route('operator.teachers', [], false) }}" class="text-xs font-bold text-primary hover:text-white mt-2 inline-block">Kelola Guru &rarr;</a>
         </div>
         <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#9e6f54] text-primary flex items-center justify-center text-lg sm:text-xl font-bold border border-[#835841] shrink-0">
             <i class="fa-solid fa-chalkboard-user"></i>
@@ -23,7 +23,7 @@
         <div>
             <div class="text-[10px] sm:text-xs text-primary font-bold uppercase tracking-wider">Fasilitas</div>
             <div class="text-2xl sm:text-3xl font-extrabold text-white mt-1">{{ $facilityCount }}</div>
-            <a href="{{ route('operator.facilities') }}" class="text-xs font-bold text-primary hover:text-white mt-2 inline-block">Kelola Fasilitas &rarr;</a>
+            <a href="{{ route('operator.facilities', [], false) }}" class="text-xs font-bold text-primary hover:text-white mt-2 inline-block">Kelola Fasilitas &rarr;</a>
         </div>
         <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#9e6f54] text-primary flex items-center justify-center text-lg sm:text-xl font-bold border border-[#835841] shrink-0">
             <i class="fa-solid fa-building-user"></i>
@@ -34,7 +34,7 @@
         <div>
             <div class="text-[10px] sm:text-xs text-primary font-bold uppercase tracking-wider">Berita & PPDB</div>
             <div class="text-2xl sm:text-3xl font-extrabold text-white mt-1">{{ $postCount }}</div>
-            <a href="{{ route('operator.posts') }}" class="text-xs font-bold text-primary hover:text-white mt-2 inline-block">Kelola Berita &rarr;</a>
+            <a href="{{ route('operator.posts', [], false) }}" class="text-xs font-bold text-primary hover:text-white mt-2 inline-block">Kelola Berita &rarr;</a>
         </div>
         <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#9e6f54] text-primary flex items-center justify-center text-lg sm:text-xl font-bold border border-[#835841] shrink-0">
             <i class="fa-solid fa-newspaper"></i>
@@ -45,7 +45,7 @@
         <div>
             <div class="text-[10px] sm:text-xs text-primary font-bold uppercase tracking-wider">Foto Galeri</div>
             <div class="text-2xl sm:text-3xl font-extrabold text-white mt-1">{{ $galleryCount }}</div>
-            <a href="{{ route('operator.gallery') }}" class="text-xs font-bold text-primary hover:text-white mt-2 inline-block">Kelola Galeri &rarr;</a>
+            <a href="{{ route('operator.gallery', [], false) }}" class="text-xs font-bold text-primary hover:text-white mt-2 inline-block">Kelola Galeri &rarr;</a>
         </div>
         <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#9e6f54] text-primary flex items-center justify-center text-lg sm:text-xl font-bold border border-[#835841] shrink-0">
             <i class="fa-solid fa-images"></i>
@@ -63,7 +63,7 @@
             <h3 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
                 <i class="fa-solid fa-school-flag text-primary"></i> Informasi Profil Sekolah
             </h3>
-            <a href="{{ route('operator.profile') }}" class="self-start sm:self-auto px-3 py-1.5 rounded-lg bg-primary text-secondary-950 text-xs font-extrabold hover:bg-primary-200 transition shadow-sm">
+            <a href="{{ route('operator.profile', [], false) }}" class="self-start sm:self-auto px-3 py-1.5 rounded-lg bg-primary text-secondary-950 text-xs font-extrabold hover:bg-primary-200 transition shadow-sm">
                 <i class="fa-solid fa-pen-to-square"></i> Edit Profil
             </a>
         </div>
@@ -101,7 +101,7 @@
             <h3 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
                 <i class="fa-solid fa-newspaper text-primary"></i> Berita Terakhir
             </h3>
-            <a href="{{ route('operator.posts') }}" class="text-xs font-bold text-primary hover:underline">Lihat Semua</a>
+            <a href="{{ route('operator.posts', [], false) }}" class="text-xs font-bold text-primary hover:underline">Lihat Semua</a>
         </div>
 
         <div class="space-y-3">
