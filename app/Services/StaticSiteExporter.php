@@ -17,7 +17,8 @@ class StaticSiteExporter
 
     public function __construct(?string $outputDir = null)
     {
-        $this->outputDir = $outputDir ?? base_path('dist');
+        // Default to docs/ for native GitHub Pages support
+        $this->outputDir = $outputDir ?? base_path('docs');
     }
 
     /**
@@ -31,7 +32,7 @@ class StaticSiteExporter
         if (!File::exists($this->outputDir)) {
             File::makeDirectory($this->outputDir, 0755, true);
         } else {
-            // Clean previous HTML files while preserving existing directory structure
+            // Clean previous HTML and assets while keeping directory clean
             File::cleanDirectory($this->outputDir);
         }
 
@@ -70,7 +71,13 @@ class StaticSiteExporter
         // 4. Copy Assets & Uploads
         $this->copyAssets();
 
-        // 5. Generate meta summary info
+        // 5. Create .nojekyll for GitHub Pages compatibility
+        File::put($this->outputDir . '/.nojekyll', '');
+
+        // 6. Generate 404.html fallback
+        File::put($this->outputDir . '/404.html', $homeHtml);
+
+        // 7. Generate meta summary info
         $summary = [
             'exported_at' => now()->format('d M Y, H:i:s') . ' WIB',
             'output_dir' => $this->outputDir,
@@ -81,6 +88,15 @@ class StaticSiteExporter
         ];
 
         File::put($this->outputDir . '/export-meta.json', json_encode($summary, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+
+        // 8. If default docs/ was used, also mirror to dist/ for standard static hostings
+        $distPath = base_path('dist');
+        if ($this->outputDir === base_path('docs')) {
+            if (!File::exists($distPath)) {
+                File::makeDirectory($distPath, 0755, true);
+            }
+            File::copyDirectory($this->outputDir, $distPath);
+        }
 
         return $summary;
     }

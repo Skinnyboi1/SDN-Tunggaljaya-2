@@ -24,7 +24,9 @@ class OperatorController extends Controller
         $profile = SchoolProfile::first();
         $recentPosts = Post::latest()->take(5)->get();
 
-        $metaPath = base_path('dist/export-meta.json');
+        $metaPath = File::exists(base_path('docs/export-meta.json')) 
+            ? base_path('docs/export-meta.json') 
+            : base_path('dist/export-meta.json');
         $exportMeta = File::exists($metaPath) ? json_decode(File::get($metaPath), true) : null;
 
         return view('operator.dashboard', compact('teacherCount', 'facilityCount', 'postCount', 'galleryCount', 'profile', 'recentPosts', 'exportMeta'));
@@ -317,7 +319,7 @@ class OperatorController extends Controller
     {
         try {
             $summary = $exporter->export();
-            return redirect()->back()->with('success', "Website statis berhasil diekspor! Total {$summary['pages_count']} halaman HTML & aset telah disimpan di folder dist/.");
+            return redirect()->back()->with('success', "Website statis berhasil diekspor! Total {$summary['pages_count']} halaman HTML & aset telah disimpan di folder docs/ (GitHub Pages ready) & dist/.");
         } catch (\Throwable $e) {
             return redirect()->back()->with('error', 'Gagal mengekspor website statis: ' . $e->getMessage());
         }

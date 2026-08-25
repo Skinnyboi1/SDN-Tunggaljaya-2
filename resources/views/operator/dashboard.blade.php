@@ -16,7 +16,7 @@
                 Publikasi & Ekspor File Website Statis
             </h2>
             <p class="text-xs text-[#f5e5da] leading-relaxed">
-                Ubah seluruh data sekolah, foto guru, fasilitas, dan berita menjadi file HTML murni siap pakai di folder <code class="px-1.5 py-0.5 rounded bg-black/40 text-primary font-mono text-[11px]">dist/</code>. File statis ini dapat diunggah ke GitHub Pages, Vercel, Netlify, atau shared hosting secara gratis tanpa butuh PHP server di sisi pengunjung.
+                Ubah seluruh data sekolah, foto guru, fasilitas, dan berita menjadi file HTML murni siap pakai di folder <code class="px-1.5 py-0.5 rounded bg-black/40 text-primary font-mono text-[11px]">docs/</code> (langsung cocok dengan pilihan <strong>/docs</strong> di GitHub Pages) dan folder <code class="px-1.5 py-0.5 rounded bg-black/40 text-primary font-mono text-[11px]">dist/</code>.
             </p>
             
             <div class="flex flex-wrap items-center gap-4 text-[11px] text-primary pt-1 font-medium">
