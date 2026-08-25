@@ -1,0 +1,39 @@
+type SchoolProfile @table {
+  schoolName: String!
+  mission: String!
+  vision: String!
+  address: String!
+  phoneNumber: String!
+  websiteUrl: String
+  establishmentDate: Date
+}
+
+type Staff @table {
+  name: String!
+  position: String!
+  subjectSpecialization: String!
+  email: String
+  profileImageUrl: String
+}
+
+type Announcement @table {
+  title: String!
+  content: String!
+  publishDate: Timestamp!
+  imageUrl: String
+  author: Staff
+}
+
+type Extracurricular @table {
+  name: String!
+  description: String!
+  category: String!
+  supervisorName: String
+}
+
+type Facility @table {
+  name: String!
+  description: String!
+  photoUrl: String
+  capacity: Int
+}

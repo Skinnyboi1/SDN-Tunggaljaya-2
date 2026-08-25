@@ -1,0 +1,161 @@
+mutation InsertSchoolProfile($data: SchoolProfile_Data!) @auth(level: USER) {
+  schoolProfile_insert(data: $data)
+}
+
+mutation UpsertSchoolProfile($data: SchoolProfile_Data!) @auth(level: USER) {
+  schoolProfile_upsert(data: $data)
+}
+
+mutation DeleteSchoolProfile($id: UUID!) @auth(level: USER) {
+  schoolProfile_delete(id: $id)
+}
+
+mutation UpdateSchoolProfile($id: UUID!, $data: SchoolProfile_Data!) @auth(level: USER) {
+  schoolProfile_update(id: $id, data: $data)
+}
+
+query GetSchoolProfile($id: UUID!) @auth(level: PUBLIC, insecureReason: "School profile is intended for public viewing.") {
+  schoolProfile(id: $id) {
+    schoolName
+    mission
+    vision
+    address
+    phoneNumber
+    websiteUrl
+    establishmentDate
+  }
+}
+
+query ListSchoolProfiles @auth(level: PUBLIC, insecureReason: "School profiles are public information.") {
+  schoolProfiles {
+    schoolName
+    address
+  }
+}
+
+mutation InsertStaff($data: Staff_Data!) @auth(level: USER) {
+  staff_insert(data: $data)
+}
+
+mutation UpsertStaff($data: Staff_Data!) @auth(level: USER) {
+  staff_upsert(data: $data)
+}
+
+mutation DeleteStaff($id: UUID!) @auth(level: USER) {
+  staff_delete(id: $id)
+}
+
+mutation UpdateStaff($id: UUID!, $data: Staff_Data!) @auth(level: USER) {
+  staff_update(id: $id, data: $data)
+}
+
+query GetStaff($id: UUID!) @auth(level: PUBLIC, insecureReason: "Staff contact info is public.") {
+  staff(id: $id) {
+    name
+    position
+    subjectSpecialization
+    email
+    profileImageUrl
+  }
+}
+
+query ListStaff @auth(level: PUBLIC, insecureReason: "Staff directory is public.") {
+  staffs {
+    name
+    position
+  }
+}
+
+mutation InsertAnnouncement($data: Announcement_Data!) @auth(level: USER) {
+  announcement_insert(data: $data)
+}
+
+mutation UpsertAnnouncement($data: Announcement_Data!) @auth(level: USER) {
+  announcement_upsert(data: $data)
+}
+
+mutation DeleteAnnouncement($id: UUID!) @auth(level: USER) {
+  announcement_delete(id: $id)
+}
+
+mutation UpdateAnnouncement($id: UUID!, $data: Announcement_Data!) @auth(level: USER) {
+  announcement_update(id: $id, data: $data)
+}
+
+query GetAnnouncement($id: UUID!) @auth(level: PUBLIC, insecureReason: "School announcements are public.") {
+  announcement(id: $id) {
+    title
+    content
+    publishDate
+  }
+}
+
+query ListAnnouncements @auth(level: PUBLIC, insecureReason: "School announcements are public.") {
+  announcements {
+    title
+    publishDate
+  }
+}
+
+mutation InsertExtracurricular($data: Extracurricular_Data!) @auth(level: USER) {
+  extracurricular_insert(data: $data)
+}
+
+mutation UpsertExtracurricular($data: Extracurricular_Data!) @auth(level: USER) {
+  extracurricular_upsert(data: $data)
+}
+
+mutation DeleteExtracurricular($id: UUID!) @auth(level: USER) {
+  extracurricular_delete(id: $id)
+}
+
+mutation UpdateExtracurricular($id: UUID!, $data: Extracurricular_Data!) @auth(level: USER) {
+  extracurricular_update(id: $id, data: $data)
+}
+
+query GetExtracurricular($id: UUID!) @auth(level: PUBLIC, insecureReason: "Extracurricular info is public.") {
+  extracurricular(id: $id) {
+    name
+    description
+    category
+    supervisorName
+  }
+}
+
+query ListExtracurriculars @auth(level: PUBLIC, insecureReason: "Extracurriculars are public.") {
+  extracurriculars {
+    name
+    category
+  }
+}
+
+mutation InsertFacility($data: Facility_Data!) @auth(level: USER) {
+  facility_insert(data: $data)
+}
+
+mutation UpsertFacility($data: Facility_Data!) @auth(level: USER) {
+  facility_upsert(data: $data)
+}
+
+mutation DeleteFacility($id: UUID!) @auth(level: USER) {
+  facility_delete(id: $id)
+}
+
+mutation UpdateFacility($id: UUID!, $data: Facility_Data!) @auth(level: USER) {
+  facility_update(id: $id, data: $data)
+}
+
+query GetFacility($id: UUID!) @auth(level: PUBLIC, insecureReason: "Facility info is public.") {
+  facility(id: $id) {
+    name
+    description
+    capacity
+  }
+}
+
+query ListFacilities @auth(level: PUBLIC, insecureReason: "Facility list is public.") {
+  facilities {
+    name
+    capacity
+  }
+}

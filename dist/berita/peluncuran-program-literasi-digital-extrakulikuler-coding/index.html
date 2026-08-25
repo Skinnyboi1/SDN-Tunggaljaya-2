@@ -82,6 +82,25 @@
             transform: translateY(-4px);
         }
     </style>
+
+    <!-- Firebase SDK & Google Analytics -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyA7hj_pon3B4Ovf_c6zVeaPEpUCxaUhnms",
+            authDomain: "sdn-tunggaljaya-2-390e2.firebaseapp.com",
+            projectId: "sdn-tunggaljaya-2-390e2",
+            storageBucket: "sdn-tunggaljaya-2-390e2.firebasestorage.app",
+            messagingSenderId: "98855346649",
+            appId: "1:98855346649:web:6b0953e2ac9aaaef5fb9c8",
+            measurementId: "G-W664X67YSR"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+    </script>
 </head>
 <body class="bg-primary text-slate-900 font-sans antialiased flex flex-col min-h-screen">
 
