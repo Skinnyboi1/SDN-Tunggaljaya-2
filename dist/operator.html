@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Operator Cloud - SD N TUNGGALJAYA 2</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./images/logo.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS v4 CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#f1d7c6',
+                            50: '#fdfbf9',
+                            100: '#faf4ef',
+                            200: '#f5e5da',
+                            300: '#f1d7c6',
+                            400: '#e4bca2',
+                            500: '#d49e7b',
+                            600: '#c1815b',
+                            700: '#a36544',
+                            800: '#845139',
+                            900: '#6d4330',
+                            950: '#3b2116',
+                        },
+                        secondary: {
+                            DEFAULT: '#b68a70',
+                            50: '#fbf8f6',
+                            100: '#f5ede7',
+                            200: '#ebdcd2',
+                            300: '#dcc2b2',
+                            400: '#cba58f',
+                            500: '#b68a70',
+                            600: '#9e6f54',
+                            700: '#835841',
+                            800: '#6c4837',
+                            900: '#593c2e',
+                            950: '#311f17',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-primary text-slate-800 font-sans antialiased flex flex-col md:flex-row min-h-screen">
+
+    <!-- MOBILE HEADER (VISIBLE ON MOBILE < MD) -->
+    <div class="md:hidden bg-[#3b2116] text-[#f5e5da] border-b border-[#6d4330] px-4 py-3 flex items-center justify-between sticky top-0 z-40 shadow-md">
+        <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-lg bg-secondary flex items-center justify-center p-1 shadow border border-secondary-600">
+                <img src="./images/logo.png" alt="Logo SDN Tunggaljaya 2" class="w-full h-full object-contain">
+            </div>
+            <div>
+                <div class="text-xs font-extrabold text-white tracking-tight">PANEL OPERATOR CLOUD</div>
+                <div class="text-[10px] text-primary font-semibold">SD N TUNGGALJAYA 2</div>
+            </div>
+        </div>
+
+        <button id="mobile-sidebar-toggle" type="button" class="p-2 rounded-xl bg-[#2a170f] text-primary hover:text-white border border-[#6d4330] focus:outline-none">
+            <i class="fa-solid fa-bars text-lg"></i>
+        </button>
+    </div>
+
+    <!-- BACKDROP OVERLAY FOR MOBILE SIDEBAR -->
+    <div id="sidebar-backdrop" class="fixed inset-0 bg-black/60 z-40 hidden transition-opacity md:hidden"></div>
+
+    <!-- SIDEBAR NAVIGATION -->
+    <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-72 bg-[#3b2116] text-[#f5e5da] flex flex-col justify-between border-r border-[#6d4330] transform -translate-x-full transition-transform duration-300 md:translate-x-0 md:static md:w-64 md:shrink-0 md:flex">
+        <div>
+            <!-- Brand header -->
+            <div class="h-20 flex items-center justify-between px-6 bg-[#2a170f] border-b border-[#6d4330]">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center p-1 shadow-lg border border-secondary-600">
+                        <img src="./images/logo.png" alt="Logo SDN Tunggaljaya 2" class="w-full h-full object-contain">
+                    </div>
+                    <div>
+                        <div class="text-sm font-extrabold text-white tracking-tight leading-tight">PANEL CLOUD</div>
+                        <div class="text-[10px] text-primary font-semibold">SDN Tunggaljaya 2</div>
+                    </div>
+                </div>
+                <button id="mobile-sidebar-close" class="md:hidden text-primary hover:text-white">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Operator Status Card -->
+            <div class="p-4 mx-3 my-4 bg-[#2a170f] rounded-2xl border border-[#6d4330] flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-emerald-600/30 text-emerald-300 flex items-center justify-center text-sm font-bold border border-emerald-500/40 shrink-0">
+                    <i class="fa-solid fa-cloud-bolt"></i>
+                </div>
+                <div class="min-w-0">
+                    <div class="text-xs font-bold text-white truncate" id="operator-email-display">Memuat...</div>
+                    <div class="text-[10px] text-emerald-300 flex items-center gap-1 font-medium">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Firebase Live Online
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Links (Tabs) -->
+            <nav class="px-3 space-y-1.5 text-xs font-semibold" id="nav-tabs">
+                <button type="button" data-tab="dashboard" class="nav-tab w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition text-slate-950 font-extrabold bg-primary shadow-sm">
+                    <i class="fa-solid fa-chart-pie w-5 text-center text-sm"></i> Dashboard
+                </button>
+
+                <button type="button" data-tab="profile" class="nav-tab w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition text-primary hover:text-white hover:bg-[#6d4330]">
+                    <i class="fa-solid fa-school w-5 text-center text-sm"></i> Profil Sekolah
+                </button>
+
+                <button type="button" data-tab="teachers" class="nav-tab w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition text-primary hover:text-white hover:bg-[#6d4330]">
+                    <i class="fa-solid fa-chalkboard-user w-5 text-center text-sm"></i> Guru & Tenaga Kerja
+                </button>
+
+                <button type="button" data-tab="facilities" class="nav-tab w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition text-primary hover:text-white hover:bg-[#6d4330]">
+                    <i class="fa-solid fa-building-user w-5 text-center text-sm"></i> Fasilitas Sekolah
+                </button>
+
+                <button type="button" data-tab="posts" class="nav-tab w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition text-primary hover:text-white hover:bg-[#6d4330]">
+                    <i class="fa-solid fa-newspaper w-5 text-center text-sm"></i> Berita & PPDB
+                </button>
+
+                <button type="button" data-tab="gallery" class="nav-tab w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition text-primary hover:text-white hover:bg-[#6d4330]">
+                    <i class="fa-solid fa-images w-5 text-center text-sm"></i> Galeri Dokumentasi
+                </button>
+            </nav>
+        </div>
+
+        <!-- Footer Actions -->
+        <div class="p-4 border-t border-[#6d4330] space-y-2">
+            <a href="./" target="_blank" class="w-full py-2.5 px-4 rounded-xl bg-[#2a170f] hover:bg-[#6d4330] text-primary text-xs font-bold transition flex items-center justify-center gap-2">
+                <i class="fa-solid fa-eye text-secondary"></i> Lihat Website Publik
+            </a>
+            
+            <button type="button" id="logout-btn" class="w-full py-2.5 px-4 rounded-xl bg-rose-500/20 hover:bg-rose-500 text-rose-300 hover:text-white text-xs font-bold transition flex items-center justify-center gap-2 border border-rose-500/30 cursor-pointer">
+                <i class="fa-solid fa-right-from-bracket"></i> Keluar / Logout
+            </button>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT AREA -->
+    <div class="flex-grow flex flex-col min-w-0">
+        
+        <!-- TOPBAR -->
+        <header class="min-h-16 md:h-20 bg-secondary border-b border-[#9e6f54] px-4 sm:px-6 py-3 md:py-0 flex flex-wrap items-center justify-between shadow-md text-white gap-2">
+            <div>
+                <h1 class="text-lg sm:text-xl font-extrabold text-white tracking-tight" id="header-title">Dashboard Operator</h1>
+                <p class="text-[11px] sm:text-xs text-primary">Kelola informasi publik SDN Tunggaljaya 2 secara real-time di cloud</p>
+            </div>
+
+            <div class="flex items-center gap-2.5">
+                <button type="button" id="quick-seed-btn" class="px-3.5 py-2 rounded-xl bg-[#3b2116] hover:bg-[#2a170f] text-primary text-xs font-bold transition flex items-center gap-2 border border-[#6d4330] shadow-sm cursor-pointer" title="Muat data default awal jika database kosong">
+                    <i class="fa-solid fa-database text-secondary"></i> <span class="hidden sm:inline">Sinkronkan Data Awal</span><span class="sm:hidden">Sync</span>
+                </button>
+                <a href="./" target="_blank" class="px-3.5 py-2 rounded-xl bg-primary hover:bg-primary-200 text-slate-950 text-xs font-extrabold transition flex items-center gap-2 shadow-sm">
+                    <i class="fa-solid fa-globe text-secondary"></i> View Website
+                </a>
+            </div>
+        </header>
+
+        <!-- FLASH NOTIFICATION TOAST -->
+        <div id="toast-container" class="fixed top-5 right-5 z-50 space-y-2 max-w-md w-full px-4 pointer-events-none"></div>
+
+        <!-- MAIN BODY -->
+        <main class="p-4 sm:p-6 lg:p-8 flex-grow">
+
+            <!-- ================= TAB 1: DASHBOARD ================= -->
+            <div id="tab-dashboard" class="tab-content space-y-6">
+                <!-- Sync Alert Banner if DB is fresh -->
+                <div id="sync-banner" class="hidden bg-gradient-to-r from-[#2a170f] via-[#3b2116] to-[#6d4330] p-5 rounded-2xl border border-[#9e6f54] shadow-xl text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div class="space-y-1">
+                        <h3 class="font-extrabold text-sm sm:text-base flex items-center gap-2 text-white">
+                            <i class="fa-solid fa-sparkles text-primary"></i> Inisialisasi Database Cloud Pertama Kali
+                        </h3>
+                        <p class="text-xs text-primary-100">Database Firestore Anda masih kosong. Klik tombol di samping untuk memuat profil sekolah, 12 guru, fasilitas, dan berita bawaan dalam 1 detik.</p>
+                    </div>
+                    <button type="button" id="seed-action-btn" class="px-4 py-2.5 rounded-xl bg-primary text-slate-950 font-extrabold text-xs shrink-0 shadow hover:bg-primary-200 transition cursor-pointer">
+                        🚀 Muat Data Bawaan Sekarang
+                    </button>
+                </div>
+
+                <!-- Stat Cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                    <div class="bg-secondary p-5 rounded-2xl border border-[#9e6f54] shadow-md flex items-center justify-between text-white">
+                        <div>
+                            <div class="text-[10px] text-primary font-bold uppercase tracking-wider">Tenaga Pendidik</div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-white mt-1" id="stat-teachers">0</div>
+                            <button type="button" onclick="switchTab('teachers')" class="text-xs font-bold text-primary hover:text-white mt-2 inline-block">Kelola Guru &rarr;</button>
+                        </div>
+                        <div class="w-11 h-11 rounded-xl bg-[#9e6f54] text-primary flex items-center justify-center text-xl font-bold border border-[#835841] shrink-0">
+                            <i class="fa-solid fa-chalkboard-user"></i>
+                        </div>
+                    </div>
+
+                    <div class="bg-secondary p-5 rounded-2xl border border-[#9e6f54] shadow-md flex items-center justify-between text-white">
+                        <div>
+                            <div class="text-[10px] text-primary font-bold uppercase tracking-wider">Fasilitas</div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-white mt-1" id="stat-facilities">0</div>
+                            <button type="button" onclick="switchTab('facilities')" class="text-xs font-bold text-primary hover:text-white mt-2 inline-block">Kelola Fasilitas &rarr;</button>
+                        </div>
+                        <div class="w-11 h-11 rounded-xl bg-[#9e6f54] text-primary flex items-center justify-center text-xl font-bold border border-[#835841] shrink-0">
+                            <i class="fa-solid fa-building-user"></i>
+                        </div>
+                    </div>
+
+                    <div class="bg-secondary p-5 rounded-2xl border border-[#9e6f54] shadow-md flex items-center justify-between text-white">
+                        <div>
+                            <div class="text-[10px] text-primary font-bold uppercase tracking-wider">Berita & PPDB</div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-white mt-1" id="stat-posts">0</div>
+                            <button type="button" onclick="switchTab('posts')" class="text-xs font-bold text-primary hover:text-white mt-2 inline-block">Kelola Berita &rarr;</button>
+                        </div>
+                        <div class="w-11 h-11 rounded-xl bg-[#9e6f54] text-primary flex items-center justify-center text-xl font-bold border border-[#835841] shrink-0">
+                            <i class="fa-solid fa-newspaper"></i>
+                        </div>
+                    </div>
+
+                    <div class="bg-secondary p-5 rounded-2xl border border-[#9e6f54] shadow-md flex items-center justify-between text-white">
+                        <div>
+                            <div class="text-[10px] text-primary font-bold uppercase tracking-wider">Foto Galeri</div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-white mt-1" id="stat-gallery">0</div>
+                            <button type="button" onclick="switchTab('gallery')" class="text-xs font-bold text-primary hover:text-white mt-2 inline-block">Kelola Galeri &rarr;</button>
+                        </div>
+                        <div class="w-11 h-11 rounded-xl bg-[#9e6f54] text-primary flex items-center justify-center text-xl font-bold border border-[#835841] shrink-0">
+                            <i class="fa-solid fa-images"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dashboard Overview -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                    <div class="lg:col-span-7 bg-secondary text-white p-5 sm:p-6 rounded-2xl border border-[#9e6f54] shadow-xl space-y-4">
+                        <div class="flex items-center justify-between border-b border-[#9e6f54] pb-4">
+                            <h3 class="text-base font-bold text-white flex items-center gap-2">
+                                <i class="fa-solid fa-school-flag text-primary"></i> Identitas & Ringkasan Sekolah
+                            </h3>
+                            <button type="button" onclick="switchTab('profile')" class="px-3 py-1.5 rounded-lg bg-primary text-slate-950 text-xs font-extrabold hover:bg-primary-200 transition">
+                                <i class="fa-solid fa-pen-to-square"></i> Edit Profil
+                            </button>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                            <div class="p-3 bg-[#9e6f54] rounded-xl border border-[#835841]">
+                                <span class="text-primary font-medium">Nama Sekolah:</span>
+                                <div class="font-bold text-white text-sm mt-0.5" id="dash-school-name">-</div>
+                            </div>
+                            <div class="p-3 bg-[#9e6f54] rounded-xl border border-[#835841]">
+                                <span class="text-primary font-medium">NPSN / Akreditasi:</span>
+                                <div class="font-bold text-white text-sm mt-0.5" id="dash-school-npsn">-</div>
+                            </div>
+                            <div class="p-3 bg-[#9e6f54] rounded-xl border border-[#835841]">
+                                <span class="text-primary font-medium">Kepala Sekolah:</span>
+                                <div class="font-bold text-white text-sm mt-0.5" id="dash-school-principal">-</div>
+                            </div>
+                            <div class="p-3 bg-[#9e6f54] rounded-xl border border-[#835841]">
+                                <span class="text-primary font-medium">Jumlah Siswa / Rombel:</span>
+                                <div class="font-bold text-white text-sm mt-0.5" id="dash-school-students">-</div>
+                            </div>
+                        </div>
+
+                        <div class="p-3.5 bg-[#9e6f54] rounded-xl border border-[#835841] text-xs text-white space-y-1">
+                            <div class="font-bold flex items-center gap-1.5 text-primary">
+                                <i class="fa-solid fa-eye"></i> Visi Sekolah:
+                            </div>
+                            <p class="italic font-medium text-[#fdfbf9]" id="dash-school-vision">-</p>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 bg-secondary text-white p-5 sm:p-6 rounded-2xl border border-[#9e6f54] shadow-xl space-y-4">
+                        <div class="flex items-center justify-between border-b border-[#9e6f54] pb-4">
+                            <h3 class="text-base font-bold text-white flex items-center gap-2">
+                                <i class="fa-solid fa-newspaper text-primary"></i> Berita Terbaru
+                            </h3>
+                            <button type="button" onclick="switchTab('posts')" class="text-xs font-bold text-primary hover:underline">Lihat Semua</button>
+                        </div>
+
+                        <div id="dash-recent-posts" class="space-y-2.5">
+                            <p class="text-xs text-primary-200 text-center py-4">Memuat data berita...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= TAB 2: PROFIL SEKOLAH ================= -->
+            <div id="tab-profile" class="tab-content hidden space-y-6">
+                <div class="bg-secondary text-white p-6 sm:p-8 rounded-3xl border border-[#9e6f54] shadow-xl">
+                    <div class="border-b border-[#9e6f54] pb-4 mb-6">
+                        <h2 class="text-xl font-extrabold text-white flex items-center gap-2.5">
+                            <i class="fa-solid fa-school text-primary"></i> Pengaturan Informasi Profil Sekolah
+                        </h2>
+                        <p class="text-xs text-primary mt-1">Perubahan di halaman ini langsung tersimpan di Cloud Firestore dan otomatis terupdate di website publik.</p>
+                    </div>
+
+                    <form id="form-profile" class="space-y-6">
+                        <!-- Identitas -->
+                        <div class="bg-[#9e6f54] p-4 sm:p-6 rounded-2xl border border-[#835841] space-y-4">
+                            <h3 class="text-sm font-bold text-white border-b border-[#835841] pb-2 flex items-center gap-2">
+                                <i class="fa-solid fa-id-card-clip text-primary"></i> Identitas Pokok Sekolah
+                            </h3>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-white mb-1">Nama Sekolah</label>
+                                    <input type="text" id="prof-name" required class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white text-xs focus:ring-2 focus:ring-primary focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-white mb-1">NPSN</label>
+                                    <input type="text" id="prof-npsn" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white text-xs focus:ring-2 focus:ring-primary focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-white mb-1">Akreditasi</label>
+                                    <input type="text" id="prof-akreditasi" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white text-xs focus:ring-2 focus:ring-primary focus:outline-none">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Kepala Sekolah -->
+                        <div class="bg-[#9e6f54] p-4 sm:p-6 rounded-2xl border border-[#835841] space-y-4">
+                            <h3 class="text-sm font-bold text-white border-b border-[#835841] pb-2 flex items-center gap-2">
+                                <i class="fa-solid fa-user-tie text-primary"></i> Kepala Sekolah & Sambutan
+                            </h3>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-white mb-1">Nama Kepala Sekolah</label>
+                                    <input type="text" id="prof-principal-name" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white text-xs focus:ring-2 focus:ring-primary focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-white mb-1">Foto Kepala Sekolah (File / URL)</label>
+                                    <div class="flex items-center gap-2">
+                                        <input type="file" id="prof-principal-file" accept="image/*" class="text-xs text-primary file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-primary file:text-slate-950 hover:file:bg-primary-200">
+                                        <input type="text" id="prof-principal-photo" placeholder="atau paste link URL foto" class="w-full px-3 py-1.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white text-xs">
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-white mb-1">Teks Sambutan Kepala Sekolah</label>
+                                <textarea id="prof-principal-welcome" rows="4" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white text-xs focus:ring-2 focus:ring-primary focus:outline-none"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Visi & Misi -->
+                        <div class="bg-[#9e6f54] p-4 sm:p-6 rounded-2xl border border-[#835841] space-y-4">
+                            <h3 class="text-sm font-bold text-white border-b border-[#835841] pb-2 flex items-center gap-2">
+                                <i class="fa-solid fa-bullseye text-primary"></i> Visi, Misi & Profil Sejarah
+                            </h3>
+                            <div>
+                                <label class="block text-xs font-bold text-white mb-1">Visi Lembaga</label>
+                                <textarea id="prof-vision" rows="2" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white text-xs focus:ring-2 focus:ring-primary focus:outline-none"></textarea>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-white mb-1">Misi Lembaga (Tulis 1 poin per baris)</label>
+                                <textarea id="prof-mission" rows="4" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white text-xs focus:ring-2 focus:ring-primary focus:outline-none" placeholder="Poin misi 1&#10;Poin misi 2&#10;Poin misi 3"></textarea>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-white mb-1">Sejarah Singkat / Profil Sekolah</label>
+                                <textarea id="prof-history" rows="3" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white text-xs focus:ring-2 focus:ring-primary focus:outline-none"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Statistik & Kontak -->
+                        <div class="bg-[#9e6f54] p-4 sm:p-6 rounded-2xl border border-[#835841] space-y-4">
+                            <h3 class="text-sm font-bold text-white border-b border-[#835841] pb-2 flex items-center gap-2">
+                                <i class="fa-solid fa-address-book text-primary"></i> Statistik, Alamat & Kontak
+                            </h3>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-white mb-1">Jumlah Siswa</label>
+                                    <input type="number" id="prof-students" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white text-xs focus:ring-2 focus:ring-primary focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-white mb-1">Jumlah Guru/Staf</label>
+                                    <input type="number" id="prof-teachers" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white text-xs focus:ring-2 focus:ring-primary focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-white mb-1">Jumlah Rombel / Kelas</label>
+                                    <input type="number" id="prof-classes" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white text-xs focus:ring-2 focus:ring-primary focus:outline-none">
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-white mb-1">Nomor Telepon / WhatsApp</label>
+                                    <input type="text" id="prof-phone" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white text-xs focus:ring-2 focus:ring-primary focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-white mb-1">Email Resmi Sekolah</label>
+                                    <input type="email" id="prof-email" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white text-xs focus:ring-2 focus:ring-primary focus:outline-none">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-white mb-1">Alamat Lengkap</label>
+                                <input type="text" id="prof-address" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white text-xs focus:ring-2 focus:ring-primary focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-white mb-1">Google Maps Embed URL</label>
+                                <input type="text" id="prof-map-url" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white text-xs focus:ring-2 focus:ring-primary focus:outline-none">
+                            </div>
+                        </div>
+
+                        <div class="flex justify-end">
+                            <button type="submit" id="btn-save-profile" class="px-6 py-3 rounded-xl bg-primary hover:bg-primary-200 text-slate-950 font-extrabold text-xs sm:text-sm shadow-lg transition flex items-center gap-2 cursor-pointer">
+                                <i class="fa-solid fa-floppy-disk text-secondary"></i> Simpan Perubahan Profil
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- ================= TAB 3: GURU & STAF ================= -->
+            <div id="tab-teachers" class="tab-content hidden space-y-6">
+                <div class="bg-secondary text-white p-6 rounded-3xl border border-[#9e6f54] shadow-xl space-y-6">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-[#9e6f54] pb-4">
+                        <div>
+                            <h2 class="text-xl font-extrabold text-white flex items-center gap-2">
+                                <i class="fa-solid fa-chalkboard-user text-primary"></i> Kelola Data Tenaga Pendidik & Staf
+                            </h2>
+                            <p class="text-xs text-primary mt-0.5">Daftar guru yang ditampilkan di halaman utama.</p>
+                        </div>
+                        <button type="button" onclick="openTeacherModal()" class="px-4 py-2.5 rounded-xl bg-primary hover:bg-primary-200 text-slate-950 font-extrabold text-xs shadow flex items-center gap-2 cursor-pointer">
+                            <i class="fa-solid fa-plus text-secondary"></i> Tambah Guru Baru
+                        </button>
+                    </div>
+
+                    <!-- Teachers Table -->
+                    <div class="overflow-x-auto rounded-xl border border-[#835841]">
+                        <table class="w-full text-left text-xs">
+                            <thead class="bg-[#2a170f] text-primary uppercase font-bold text-[10px] tracking-wider">
+                                <tr>
+                                    <th class="px-4 py-3">Foto</th>
+                                    <th class="px-4 py-3">Nama Lengkap</th>
+                                    <th class="px-4 py-3">NIP</th>
+                                    <th class="px-4 py-3">Jabatan</th>
+                                    <th class="px-4 py-3">Urutan</th>
+                                    <th class="px-4 py-3 text-right">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="teachers-table-body" class="divide-y divide-[#835841] bg-[#9e6f54]">
+                                <tr><td colspan="6" class="px-4 py-8 text-center text-primary-200">Memuat data guru...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= TAB 4: FASILITAS ================= -->
+            <div id="tab-facilities" class="tab-content hidden space-y-6">
+                <div class="bg-secondary text-white p-6 rounded-3xl border border-[#9e6f54] shadow-xl space-y-6">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-[#9e6f54] pb-4">
+                        <div>
+                            <h2 class="text-xl font-extrabold text-white flex items-center gap-2">
+                                <i class="fa-solid fa-building-user text-primary"></i> Kelola Fasilitas Sekolah
+                            </h2>
+                            <p class="text-xs text-primary mt-0.5">Sarana dan prasarana penunjang kegiatan belajar mengajar.</p>
+                        </div>
+                        <button type="button" onclick="openFacilityModal()" class="px-4 py-2.5 rounded-xl bg-primary hover:bg-primary-200 text-slate-950 font-extrabold text-xs shadow flex items-center gap-2 cursor-pointer">
+                            <i class="fa-solid fa-plus text-secondary"></i> Tambah Fasilitas Baru
+                        </button>
+                    </div>
+
+                    <div id="facilities-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <p class="text-xs text-primary-200 col-span-full text-center py-8">Memuat fasilitas...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= TAB 5: BERITA & PPDB ================= -->
+            <div id="tab-posts" class="tab-content hidden space-y-6">
+                <div class="bg-secondary text-white p-6 rounded-3xl border border-[#9e6f54] shadow-xl space-y-6">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-[#9e6f54] pb-4">
+                        <div>
+                            <h2 class="text-xl font-extrabold text-white flex items-center gap-2">
+                                <i class="fa-solid fa-newspaper text-primary"></i> Berita, Pengumuman & PPDB
+                            </h2>
+                            <p class="text-xs text-primary mt-0.5">Publikasi kabar sekolah dan informasi penerimaan siswa baru.</p>
+                        </div>
+                        <button type="button" onclick="openPostModal()" class="px-4 py-2.5 rounded-xl bg-primary hover:bg-primary-200 text-slate-950 font-extrabold text-xs shadow flex items-center gap-2 cursor-pointer">
+                            <i class="fa-solid fa-pen-nib text-secondary"></i> Buat Berita / Pengumuman
+                        </button>
+                    </div>
+
+                    <div class="overflow-x-auto rounded-xl border border-[#835841]">
+                        <table class="w-full text-left text-xs">
+                            <thead class="bg-[#2a170f] text-primary uppercase font-bold text-[10px] tracking-wider">
+                                <tr>
+                                    <th class="px-4 py-3">Judul Berita</th>
+                                    <th class="px-4 py-3">Kategori</th>
+                                    <th class="px-4 py-3">Status</th>
+                                    <th class="px-4 py-3">Tanggal Terbit</th>
+                                    <th class="px-4 py-3 text-right">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="posts-table-body" class="divide-y divide-[#835841] bg-[#9e6f54]">
+                                <tr><td colspan="5" class="px-4 py-8 text-center text-primary-200">Memuat berita...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= TAB 6: GALERI ================= -->
+            <div id="tab-gallery" class="tab-content hidden space-y-6">
+                <div class="bg-secondary text-white p-6 rounded-3xl border border-[#9e6f54] shadow-xl space-y-6">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-[#9e6f54] pb-4">
+                        <div>
+                            <h2 class="text-xl font-extrabold text-white flex items-center gap-2">
+                                <i class="fa-solid fa-images text-primary"></i> Galeri Dokumentasi Kegiatan
+                            </h2>
+                            <p class="text-xs text-primary mt-0.5">Dokumentasi foto kegiatan siswa, upacara, dan prestasi sekolah.</p>
+                        </div>
+                        <button type="button" onclick="openGalleryModal()" class="px-4 py-2.5 rounded-xl bg-primary hover:bg-primary-200 text-slate-950 font-extrabold text-xs shadow flex items-center gap-2 cursor-pointer">
+                            <i class="fa-solid fa-camera text-secondary"></i> Tambah Foto Galeri
+                        </button>
+                    </div>
+
+                    <div id="gallery-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                        <p class="text-xs text-primary-200 col-span-full text-center py-8">Memuat galeri...</p>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- ================= MODALS ================= -->
+
+    <!-- Teacher Modal -->
+    <div id="modal-teacher" class="fixed inset-0 bg-black/70 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-secondary text-white rounded-3xl border border-[#9e6f54] max-w-lg w-full p-6 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto">
+            <div class="flex items-center justify-between border-b border-[#9e6f54] pb-3">
+                <h3 class="text-base font-bold text-white" id="teacher-modal-title">Tambah Tenaga Pendidik</h3>
+                <button type="button" onclick="closeModals()" class="text-primary hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <form id="form-teacher" class="space-y-3.5 text-xs">
+                <input type="hidden" id="teacher-id">
+                <div>
+                    <label class="block font-bold text-white mb-1">Nama Lengkap & Gelar</label>
+                    <input type="text" id="teacher-name" required placeholder="Contoh: ADE SUMARNA, S.Pd." class="w-full px-3 py-2 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white">
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-bold text-white mb-1">NIP (Opsional)</label>
+                        <input type="text" id="teacher-nip" placeholder="1988... atau -" class="w-full px-3 py-2 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-white mb-1">Jabatan / Mata Pelajaran</label>
+                        <input type="text" id="teacher-position" required placeholder="Contoh: Guru Kelas" class="w-full px-3 py-2 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white">
+                    </div>
+                </div>
+                <div>
+                    <label class="block font-bold text-white mb-1">Urutan Tampil (Angka)</label>
+                    <input type="number" id="teacher-order" value="1" min="1" class="w-full px-3 py-2 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white">
+                </div>
+                <div>
+                    <label class="block font-bold text-white mb-1">Foto Guru (Upload File atau URL)</label>
+                    <input type="file" id="teacher-photo-file" accept="image/*" class="w-full text-xs text-primary file:mr-2 file:py-1 file:px-2.5 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-primary file:text-slate-950 mb-1.5">
+                    <input type="text" id="teacher-photo-url" placeholder="atau paste link URL foto online" class="w-full px-3 py-2 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white">
+                </div>
+                <div class="pt-2 flex justify-end gap-2">
+                    <button type="button" onclick="closeModals()" class="px-4 py-2 rounded-xl bg-[#3b2116] text-primary hover:text-white font-bold">Batal</button>
+                    <button type="submit" id="btn-save-teacher" class="px-4 py-2 rounded-xl bg-primary text-slate-950 font-extrabold shadow hover:bg-primary-200">Simpan Guru</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Facility Modal -->
+    <div id="modal-facility" class="fixed inset-0 bg-black/70 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-secondary text-white rounded-3xl border border-[#9e6f54] max-w-lg w-full p-6 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto">
+            <div class="flex items-center justify-between border-b border-[#9e6f54] pb-3">
+                <h3 class="text-base font-bold text-white" id="facility-modal-title">Tambah Fasilitas Baru</h3>
+                <button type="button" onclick="closeModals()" class="text-primary hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <form id="form-facility" class="space-y-3.5 text-xs">
+                <input type="hidden" id="facility-id">
+                <div>
+                    <label class="block font-bold text-white mb-1">Nama Fasilitas</label>
+                    <input type="text" id="facility-name" required placeholder="Contoh: Laboratorium Komputer" class="w-full px-3 py-2 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white">
+                </div>
+                <div>
+                    <label class="block font-bold text-white mb-1">Deskripsi Singkat</label>
+                    <textarea id="facility-desc" rows="3" required placeholder="Fasilitas penunjang belajar siswa..." class="w-full px-3 py-2 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white"></textarea>
+                </div>
+                <div>
+                    <label class="block font-bold text-white mb-1">Gambar Fasilitas (Upload File atau URL)</label>
+                    <input type="file" id="facility-image-file" accept="image/*" class="w-full text-xs text-primary file:mr-2 file:py-1 file:px-2.5 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-primary file:text-slate-950 mb-1.5">
+                    <input type="text" id="facility-image-url" placeholder="atau paste link URL gambar online" class="w-full px-3 py-2 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white">
+                </div>
+                <div class="pt-2 flex justify-end gap-2">
+                    <button type="button" onclick="closeModals()" class="px-4 py-2 rounded-xl bg-[#3b2116] text-primary hover:text-white font-bold">Batal</button>
+                    <button type="submit" id="btn-save-facility" class="px-4 py-2 rounded-xl bg-primary text-slate-950 font-extrabold shadow hover:bg-primary-200">Simpan Fasilitas</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Post Modal -->
+    <div id="modal-post" class="fixed inset-0 bg-black/70 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-secondary text-white rounded-3xl border border-[#9e6f54] max-w-2xl w-full p-6 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto">
+            <div class="flex items-center justify-between border-b border-[#9e6f54] pb-3">
+                <h3 class="text-base font-bold text-white" id="post-modal-title">Buat Berita / Pengumuman / PPDB</h3>
+                <button type="button" onclick="closeModals()" class="text-primary hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <form id="form-post" class="space-y-3.5 text-xs">
+                <input type="hidden" id="post-id">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <div class="sm:col-span-2">
+                        <label class="block font-bold text-white mb-1">Judul Berita</label>
+                        <input type="text" id="post-title" required placeholder="Judul artikel atau pengumuman..." class="w-full px-3 py-2 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-white mb-1">Kategori</label>
+                        <select id="post-category" class="w-full px-3 py-2 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white">
+                            <option value="Berita">Berita</option>
+                            <option value="Pengumuman">Pengumuman</option>
+                            <option value="PPDB">PPDB</option>
+                            <option value="Prestasi">Prestasi</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label class="block font-bold text-white mb-1">Ringkasan Singkat (Excerpt)</label>
+                    <textarea id="post-excerpt" rows="2" placeholder="Ringkasan 1-2 kalimat untuk kartu depan..." class="w-full px-3 py-2 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white"></textarea>
+                </div>
+                <div>
+                    <label class="block font-bold text-white mb-1">Konten Lengkap Berita (Mendukung HTML)</label>
+                    <textarea id="post-content" rows="6" required placeholder="Tulis isi berita lengkap di sini..." class="w-full px-3 py-2 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white font-mono"></textarea>
+                </div>
+                <div>
+                    <label class="block font-bold text-white mb-1">Foto Sampul / Banner (Upload File atau URL)</label>
+                    <input type="file" id="post-image-file" accept="image/*" class="w-full text-xs text-primary file:mr-2 file:py-1 file:px-2.5 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-primary file:text-slate-950 mb-1.5">
+                    <input type="text" id="post-image-url" placeholder="atau paste link URL gambar online" class="w-full px-3 py-2 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white">
+                </div>
+                <div class="flex items-center gap-2 pt-1">
+                    <input type="checkbox" id="post-published" checked class="w-4 h-4 rounded text-primary focus:ring-primary">
+                    <label for="post-published" class="font-bold text-white">Terbitkan sekarang ke publik</label>
+                </div>
+                <div class="pt-2 flex justify-end gap-2">
+                    <button type="button" onclick="closeModals()" class="px-4 py-2 rounded-xl bg-[#3b2116] text-primary hover:text-white font-bold">Batal</button>
+                    <button type="submit" id="btn-save-post" class="px-4 py-2 rounded-xl bg-primary text-slate-950 font-extrabold shadow hover:bg-primary-200">Simpan Berita</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Gallery Modal -->
+    <div id="modal-gallery" class="fixed inset-0 bg-black/70 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-secondary text-white rounded-3xl border border-[#9e6f54] max-w-lg w-full p-6 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto">
+            <div class="flex items-center justify-between border-b border-[#9e6f54] pb-3">
+                <h3 class="text-base font-bold text-white">Tambah Foto Galeri Baru</h3>
+                <button type="button" onclick="closeModals()" class="text-primary hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <form id="form-gallery" class="space-y-3.5 text-xs">
+                <div>
+                    <label class="block font-bold text-white mb-1">Judul / Keterangan Foto</label>
+                    <input type="text" id="gallery-title" required placeholder="Contoh: Upacara Bendera Hari Senin" class="w-full px-3 py-2 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white">
+                </div>
+                <div>
+                    <label class="block font-bold text-white mb-1">Kategori Kegiatan</label>
+                    <select id="gallery-category" class="w-full px-3 py-2 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white">
+                        <option value="Kegiatan">Kegiatan Siswa</option>
+                        <option value="Prestasi">Prestasi & Lomba</option>
+                        <option value="Fasilitas">Sarana / Fasilitas</option>
+                        <option value="Umum">Umum</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block font-bold text-white mb-1">File Foto (Upload File atau URL)</label>
+                    <input type="file" id="gallery-image-file" accept="image/*" class="w-full text-xs text-primary file:mr-2 file:py-1 file:px-2.5 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-primary file:text-slate-950 mb-1.5">
+                    <input type="text" id="gallery-image-url" placeholder="atau paste link URL gambar online" class="w-full px-3 py-2 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white">
+                </div>
+                <div class="pt-2 flex justify-end gap-2">
+                    <button type="button" onclick="closeModals()" class="px-4 py-2 rounded-xl bg-[#3b2116] text-primary hover:text-white font-bold">Batal</button>
+                    <button type="submit" id="btn-save-gallery" class="px-4 py-2 rounded-xl bg-primary text-slate-950 font-extrabold shadow hover:bg-primary-200">Simpan Foto</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MAIN FIREBASE CONTROLLER SPA SCRIPT -->
+    <script type="module">
+        import { 
+            auth, 
+            db, 
+            signOut, 
+            onAuthStateChanged,
+            collection,
+            doc,
+            getDoc,
+            getDocs,
+            setDoc,
+            addDoc,
+            updateDoc,
+            deleteDoc,
+            query,
+            orderBy,
+            onSnapshot,
+            uploadImageFile,
+            DEFAULT_SCHOOL_DATA 
+        } from "./js/firebase-config.js";
+
+        // Global State
+        let currentUser = null;
+        let schoolProfile = {};
+        let teachersList = [];
+        let facilitiesList = [];
+        let postsList = [];
+        let galleryList = [];
+
+        // Auth Protection Guard
+        onAuthStateChanged(auth, (user) => {
+            if (!user) {
+                window.location.href = './login.html';
+            } else {
+                currentUser = user;
+                document.getElementById('operator-email-display').innerText = user.email || 'Operator';
+                initRealtimeListeners();
+            }
+        });
+
+        // Logout action
+        document.getElementById('logout-btn').addEventListener('click', async () => {
+            if (confirm('Yakin ingin keluar dari Panel Operator?')) {
+                await signOut(auth);
+                window.location.href = './login.html';
+            }
+        });
+
+        // Mobile Sidebar Controls
+        const sidebar = document.getElementById('sidebar');
+        const sidebarBackdrop = document.getElementById('sidebar-backdrop');
+        document.getElementById('mobile-sidebar-toggle').addEventListener('click', () => {
+            sidebar.classList.remove('-translate-x-full');
+            sidebarBackdrop.classList.remove('hidden');
+        });
+        document.getElementById('mobile-sidebar-close').addEventListener('click', () => {
+            sidebar.classList.add('-translate-x-full');
+            sidebarBackdrop.classList.add('hidden');
+        });
+        sidebarBackdrop.addEventListener('click', () => {
+            sidebar.classList.add('-translate-x-full');
+            sidebarBackdrop.classList.add('hidden');
+        });
+
+        // Tab Navigation
+        window.switchTab = function(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            const target = document.getElementById(`tab-${tabId}`);
+            if (target) target.classList.remove('hidden');
+
+            document.querySelectorAll('.nav-tab').forEach(el => {
+                if (el.getAttribute('data-tab') === tabId) {
+                    el.className = 'nav-tab w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition text-slate-950 font-extrabold bg-primary shadow-sm';
+                } else {
+                    el.className = 'nav-tab w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition text-primary hover:text-white hover:bg-[#6d4330]';
+                }
+            });
+
+            const titles = {
+                dashboard: 'Dashboard Operator',
+                profile: 'Kelola Profil Sekolah',
+                teachers: 'Kelola Tenaga Pendidik & Staf',
+                facilities: 'Kelola Fasilitas Sekolah',
+                posts: 'Kelola Berita & PPDB',
+                gallery: 'Kelola Galeri Dokumentasi'
+            };
+            document.getElementById('header-title').innerText = titles[tabId] || 'Panel Operator';
+
+            // Close mobile drawer on tab select
+            sidebar.classList.add('-translate-x-full');
+            sidebarBackdrop.classList.add('hidden');
+        };
+
+        document.querySelectorAll('.nav-tab').forEach(btn => {
+            btn.addEventListener('click', () => {
+                switchTab(btn.getAttribute('data-tab'));
+            });
+        });
+
+        // Toast Helper
+        window.showToast = function(msg, type = 'success') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `p-4 rounded-2xl shadow-2xl text-xs font-bold text-white flex items-center justify-between gap-3 pointer-events-auto transform transition duration-300 translate-y-2 opacity-0 ${type === 'success' ? 'bg-emerald-600 border border-emerald-500' : 'bg-rose-600 border border-rose-500'}`;
+            toast.innerHTML = `
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid ${type === 'success' ? 'fa-circle-check' : 'fa-triangle-exclamation'} text-base"></i>
+                    <span>${msg}</span>
+                </div>
+                <button onclick="this.parentElement.remove()" class="text-white/80 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+            `;
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            }, 10);
+            setTimeout(() => {
+                toast.classList.add('translate-y-2', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 4000);
+        };
+
+        // Modal Controls
+        window.closeModals = function() {
+            document.querySelectorAll('[id^="modal-"]').forEach(m => m.classList.add('hidden'));
+        };
+
+        // ================= REAL-TIME FIRESTORE LISTENERS =================
+        function initRealtimeListeners() {
+            // 1. Profile Listener
+            onSnapshot(doc(db, "profile", "main"), (docSnap) => {
+                if (docSnap.exists()) {
+                    schoolProfile = docSnap.data();
+                    populateProfileForm(schoolProfile);
+                    populateDashboardProfile(schoolProfile);
+                    document.getElementById('sync-banner').classList.add('hidden');
+                } else {
+                    // Show seed banner if no profile doc exists
+                    document.getElementById('sync-banner').classList.remove('hidden');
+                }
+            });
+
+            // 2. Teachers Listener
+            onSnapshot(collection(db, "teachers"), (snap) => {
+                teachersList = [];
+                snap.forEach(d => teachersList.push({ id: d.id, ...d.data() }));
+                teachersList.sort((a, b) => (Number(a.order) || 99) - (Number(b.order) || 99));
+                document.getElementById('stat-teachers').innerText = teachersList.length;
+                renderTeachersTable(teachersList);
+            });
+
+            // 3. Facilities Listener
+            onSnapshot(collection(db, "facilities"), (snap) => {
+                facilitiesList = [];
+                snap.forEach(d => facilitiesList.push({ id: d.id, ...d.data() }));
+                document.getElementById('stat-facilities').innerText = facilitiesList.length;
+                renderFacilitiesGrid(facilitiesList);
+            });
+
+            // 4. Posts Listener
+            onSnapshot(collection(db, "posts"), (snap) => {
+                postsList = [];
+                snap.forEach(d => postsList.push({ id: d.id, ...d.data() }));
+                postsList.sort((a, b) => new Date(b.published_at || 0) - new Date(a.published_at || 0));
+                document.getElementById('stat-posts').innerText = postsList.length;
+                renderPostsTable(postsList);
+                renderDashboardRecentPosts(postsList);
+            });
+
+            // 5. Gallery Listener
+            onSnapshot(collection(db, "gallery"), (snap) => {
+                galleryList = [];
+                snap.forEach(d => galleryList.push({ id: d.id, ...d.data() }));
+                document.getElementById('stat-gallery').innerText = galleryList.length;
+                renderGalleryGrid(galleryList);
+            });
+        }
+
+        // ================= DASHBOARD & PROFILE LOGIC =================
+        function populateDashboardProfile(p) {
+            document.getElementById('dash-school-name').innerText = p.name || 'SD N TUNGGALJAYA 2';
+            document.getElementById('dash-school-npsn').innerText = `${p.npsn || '-'} (${p.akreditasi || 'B'})`;
+            document.getElementById('dash-school-principal').innerText = p.principal_name || '-';
+            document.getElementById('dash-school-students').innerText = `${p.student_count || 0} Siswa (${p.class_count || 0} Rombel)`;
+            document.getElementById('dash-school-vision').innerText = `"${p.vision || '-'}"`;
+        }
+
+        function renderDashboardRecentPosts(posts) {
+            const container = document.getElementById('dash-recent-posts');
+            if (!posts.length) {
+                container.innerHTML = '<p class="text-xs text-primary-200 text-center py-4">Belum ada berita yang diterbitkan.</p>';
+                return;
+            }
+            container.innerHTML = posts.slice(0, 4).map(post => `
+                <div class="p-3 bg-[#9e6f54] rounded-xl border border-[#835841] flex items-center justify-between gap-2">
+                    <div class="min-w-0">
+                        <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-[#3b2116] text-primary border border-[#6d4330] inline-block mb-0.5">${post.category || 'Berita'}</span>
+                        <h4 class="text-xs font-bold text-white truncate">${post.title}</h4>
+                        <span class="text-[10px] text-primary-200 font-medium block mt-0.5">${post.published_at ? new Date(post.published_at).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' }) : '-'}</span>
+                    </div>
+                    <a href="./berita.html?slug=${post.slug}" target="_blank" class="px-2.5 py-1 rounded-lg bg-[#3b2116] text-primary text-[11px] font-bold hover:text-white shrink-0">Lihat &rarr;</a>
+                </div>
+            `).join('');
+        }
+
+        function populateProfileForm(p) {
+            document.getElementById('prof-name').value = p.name || '';
+            document.getElementById('prof-npsn').value = p.npsn || '';
+            document.getElementById('prof-akreditasi').value = p.akreditasi || '';
+            document.getElementById('prof-principal-name').value = p.principal_name || '';
+            document.getElementById('prof-principal-photo').value = p.principal_photo || '';
+            document.getElementById('prof-principal-welcome').value = p.principal_welcome || '';
+            document.getElementById('prof-vision').value = p.vision || '';
+            document.getElementById('prof-mission').value = Array.isArray(p.mission) ? p.mission.join('\n') : (p.mission || '');
+            document.getElementById('prof-history').value = p.history || '';
+            document.getElementById('prof-students').value = p.student_count || 0;
+            document.getElementById('prof-teachers').value = p.teacher_count || 0;
+            document.getElementById('prof-classes').value = p.class_count || 0;
+            document.getElementById('prof-phone').value = p.phone || '';
+            document.getElementById('prof-email').value = p.email || '';
+            document.getElementById('prof-address').value = p.address || '';
+            document.getElementById('prof-map-url').value = p.map_url || '';
+        }
+
+        // Profile Form Submit
+        document.getElementById('form-profile').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('btn-save-profile');
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Menyimpan ke Firestore...';
+
+            try {
+                let photoUrl = document.getElementById('prof-principal-photo').value.trim();
+                const photoFile = document.getElementById('prof-principal-file').files[0];
+                if (photoFile) {
+                    photoUrl = await uploadImageFile(photoFile, 'profile');
+                }
+
+                const missionText = document.getElementById('prof-mission').value;
+                const missionArray = missionText.split('\n').map(s => s.trim()).filter(s => s.length > 0);
+
+                const data = {
+                    name: document.getElementById('prof-name').value.trim(),
+                    npsn: document.getElementById('prof-npsn').value.trim(),
+                    akreditasi: document.getElementById('prof-akreditasi').value.trim(),
+                    principal_name: document.getElementById('prof-principal-name').value.trim(),
+                    principal_photo: photoUrl,
+                    principal_welcome: document.getElementById('prof-principal-welcome').value.trim(),
+                    vision: document.getElementById('prof-vision').value.trim(),
+                    mission: missionArray,
+                    history: document.getElementById('prof-history').value.trim(),
+                    student_count: Number(document.getElementById('prof-students').value) || 0,
+                    teacher_count: Number(document.getElementById('prof-teachers').value) || 0,
+                    class_count: Number(document.getElementById('prof-classes').value) || 0,
+                    phone: document.getElementById('prof-phone').value.trim(),
+                    email: document.getElementById('prof-email').value.trim(),
+                    address: document.getElementById('prof-address').value.trim(),
+                    map_url: document.getElementById('prof-map-url').value.trim(),
+                    updated_at: new Date().toISOString()
+                };
+
+                await setDoc(doc(db, "profile", "main"), data, { merge: true });
+                showToast('Profil sekolah berhasil diperbarui di Cloud Firestore!');
+            } catch (err) {
+                console.error(err);
+                showToast('Gagal menyimpan profil: ' + err.message, 'error');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fa-solid fa-floppy-disk text-secondary"></i> Simpan Perubahan Profil';
+            }
+        });
+
+        // ================= TEACHERS CRUD =================
+        function renderTeachersTable(teachers) {
+            const tbody = document.getElementById('teachers-table-body');
+            if (!teachers.length) {
+                tbody.innerHTML = '<tr><td colspan="6" class="px-4 py-8 text-center text-primary-200">Belum ada data guru. Klik tombol Tambah Guru Baru.</td></tr>';
+                return;
+            }
+            tbody.innerHTML = teachers.map(t => `
+                <tr class="hover:bg-[#835841]/50 transition">
+                    <td class="px-4 py-3">
+                        <img src="${t.photo || './uploads/teachers/placeholder.jpg'}" alt="${t.name}" class="w-10 h-10 rounded-full object-cover border border-primary/50 shadow-xs">
+                    </td>
+                    <td class="px-4 py-3 font-bold text-white">${t.name}</td>
+                    <td class="px-4 py-3 font-mono text-primary-200">${t.nip || '-'}</td>
+                    <td class="px-4 py-3 font-semibold text-primary">${t.position}</td>
+                    <td class="px-4 py-3 font-mono text-white">${t.order || 1}</td>
+                    <td class="px-4 py-3 text-right space-x-1">
+                        <button type="button" onclick="editTeacher('${t.id}')" class="px-2.5 py-1.5 rounded-lg bg-primary text-slate-950 font-bold hover:bg-primary-200 transition"><i class="fa-solid fa-pen"></i></button>
+                        <button type="button" onclick="deleteTeacher('${t.id}', '${t.name.replace(/'/g, "\\'")}')" class="px-2.5 py-1.5 rounded-lg bg-rose-600/30 text-rose-200 hover:bg-rose-600 hover:text-white font-bold transition"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        window.openTeacherModal = function() {
+            document.getElementById('form-teacher').reset();
+            document.getElementById('teacher-id').value = '';
+            document.getElementById('teacher-modal-title').innerText = 'Tambah Tenaga Pendidik Baru';
+            document.getElementById('modal-teacher').classList.remove('hidden');
+        };
+
+        window.editTeacher = function(id) {
+            const t = teachersList.find(item => item.id === id);
+            if (!t) return;
+            document.getElementById('teacher-id').value = t.id;
+            document.getElementById('teacher-name').value = t.name || '';
+            document.getElementById('teacher-nip').value = t.nip || '';
+            document.getElementById('teacher-position').value = t.position || '';
+            document.getElementById('teacher-order').value = t.order || 1;
+            document.getElementById('teacher-photo-url').value = t.photo || '';
+            document.getElementById('teacher-modal-title').innerText = 'Edit Data Tenaga Pendidik';
+            document.getElementById('modal-teacher').classList.remove('hidden');
+        };
+
+        document.getElementById('form-teacher').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('btn-save-teacher');
+            btn.disabled = true;
+            btn.innerText = 'Menyimpan...';
+
+            try {
+                const id = document.getElementById('teacher-id').value;
+                let photoUrl = document.getElementById('teacher-photo-url').value.trim();
+                const photoFile = document.getElementById('teacher-photo-file').files[0];
+                if (photoFile) {
+                    photoUrl = await uploadImageFile(photoFile, 'teachers');
+                }
+
+                const data = {
+                    name: document.getElementById('teacher-name').value.trim(),
+                    nip: document.getElementById('teacher-nip').value.trim() || '-',
+                    position: document.getElementById('teacher-position').value.trim(),
+                    order: Number(document.getElementById('teacher-order').value) || 1,
+                    photo: photoUrl || './uploads/teachers/placeholder.jpg',
+                    updated_at: new Date().toISOString()
+                };
+
+                if (id) {
+                    await updateDoc(doc(db, "teachers", id), data);
+                    showToast('Data guru berhasil diperbarui!');
+                } else {
+                    data.created_at = new Date().toISOString();
+                    await addDoc(collection(db, "teachers"), data);
+                    showToast('Guru baru berhasil ditambahkan!');
+                }
+                closeModals();
+            } catch (err) {
+                console.error(err);
+                showToast('Gagal menyimpan guru: ' + err.message, 'error');
+            } finally {
+                btn.disabled = false;
+                btn.innerText = 'Simpan Guru';
+            }
+        });
+
+        window.deleteTeacher = async function(id, name) {
+            if (confirm(`Yakin ingin menghapus data guru "${name}"?`)) {
+                try {
+                    await deleteDoc(doc(db, "teachers", id));
+                    showToast('Data guru telah dihapus.');
+                } catch (err) {
+                    showToast('Gagal menghapus: ' + err.message, 'error');
+                }
+            }
+        };
+
+        // ================= FACILITIES CRUD =================
+        function renderFacilitiesGrid(facilities) {
+            const grid = document.getElementById('facilities-grid');
+            if (!facilities.length) {
+                grid.innerHTML = '<p class="text-xs text-primary-200 col-span-full text-center py-8">Belum ada fasilitas. Klik Tambah Fasilitas Baru.</p>';
+                return;
+            }
+            grid.innerHTML = facilities.map(f => `
+                <div class="bg-[#9e6f54] p-4 rounded-2xl border border-[#835841] flex flex-col justify-between space-y-3 shadow-md">
+                    <div>
+                        <img src="${f.image || 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400'}" alt="${f.name}" class="w-full h-36 object-cover rounded-xl border border-[#835841] mb-2.5">
+                        <h4 class="font-bold text-white text-sm">${f.name}</h4>
+                        <p class="text-xs text-primary-100 mt-1 line-clamp-2">${f.description}</p>
+                    </div>
+                    <div class="pt-2 border-t border-[#835841] flex justify-end gap-1.5">
+                        <button type="button" onclick="editFacility('${f.id}')" class="px-2.5 py-1.5 rounded-lg bg-primary text-slate-950 font-bold hover:bg-primary-200"><i class="fa-solid fa-pen"></i></button>
+                        <button type="button" onclick="deleteFacility('${f.id}', '${f.name.replace(/'/g, "\\'")}')" class="px-2.5 py-1.5 rounded-lg bg-rose-600/30 text-rose-200 hover:bg-rose-600 hover:text-white font-bold"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        window.openFacilityModal = function() {
+            document.getElementById('form-facility').reset();
+            document.getElementById('facility-id').value = '';
+            document.getElementById('facility-modal-title').innerText = 'Tambah Fasilitas Baru';
+            document.getElementById('modal-facility').classList.remove('hidden');
+        };
+
+        window.editFacility = function(id) {
+            const f = facilitiesList.find(item => item.id === id);
+            if (!f) return;
+            document.getElementById('facility-id').value = f.id;
+            document.getElementById('facility-name').value = f.name || '';
+            document.getElementById('facility-desc').value = f.description || '';
+            document.getElementById('facility-image-url').value = f.image || '';
+            document.getElementById('facility-modal-title').innerText = 'Edit Fasilitas Sekolah';
+            document.getElementById('modal-facility').classList.remove('hidden');
+        };
+
+        document.getElementById('form-facility').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('btn-save-facility');
+            btn.disabled = true;
+            btn.innerText = 'Menyimpan...';
+
+            try {
+                const id = document.getElementById('facility-id').value;
+                let imageUrl = document.getElementById('facility-image-url').value.trim();
+                const imageFile = document.getElementById('facility-image-file').files[0];
+                if (imageFile) {
+                    imageUrl = await uploadImageFile(imageFile, 'facilities');
+                }
+
+                const data = {
+                    name: document.getElementById('facility-name').value.trim(),
+                    description: document.getElementById('facility-desc').value.trim(),
+                    image: imageUrl || 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400',
+                    updated_at: new Date().toISOString()
+                };
+
+                if (id) {
+                    await updateDoc(doc(db, "facilities", id), data);
+                    showToast('Fasilitas berhasil diperbarui!');
+                } else {
+                    data.created_at = new Date().toISOString();
+                    await addDoc(collection(db, "facilities"), data);
+                    showToast('Fasilitas baru berhasil ditambahkan!');
+                }
+                closeModals();
+            } catch (err) {
+                console.error(err);
+                showToast('Gagal menyimpan fasilitas: ' + err.message, 'error');
+            } finally {
+                btn.disabled = false;
+                btn.innerText = 'Simpan Fasilitas';
+            }
+        });
+
+        window.deleteFacility = async function(id, name) {
+            if (confirm(`Hapus fasilitas "${name}"?`)) {
+                try {
+                    await deleteDoc(doc(db, "facilities", id));
+                    showToast('Fasilitas berhasil dihapus.');
+                } catch (err) {
+                    showToast('Gagal menghapus: ' + err.message, 'error');
+                }
+            }
+        };
+
+        // ================= POSTS / NEWS CRUD =================
+        function renderPostsTable(posts) {
+            const tbody = document.getElementById('posts-table-body');
+            if (!posts.length) {
+                tbody.innerHTML = '<tr><td colspan="5" class="px-4 py-8 text-center text-primary-200">Belum ada berita. Klik Buat Berita Baru.</td></tr>';
+                return;
+            }
+            tbody.innerHTML = posts.map(p => `
+                <tr class="hover:bg-[#835841]/50 transition">
+                    <td class="px-4 py-3 font-bold text-white max-w-xs truncate">
+                        <a href="./berita.html?slug=${p.slug}" target="_blank" class="hover:text-primary">${p.title}</a>
+                    </td>
+                    <td class="px-4 py-3">
+                        <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#3b2116] text-primary border border-[#6d4330]">${p.category || 'Berita'}</span>
+                    </td>
+                    <td class="px-4 py-3">
+                        <span class="px-2 py-0.5 rounded text-[10px] font-bold ${p.is_published ? 'bg-emerald-600/40 text-emerald-200 border border-emerald-500' : 'bg-slate-700 text-slate-300'}">
+                            ${p.is_published ? 'Terbit' : 'Draft'}
+                        </span>
+                    </td>
+                    <td class="px-4 py-3 font-mono text-primary-200">
+                        ${p.published_at ? new Date(p.published_at).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' }) : '-'}
+                    </td>
+                    <td class="px-4 py-3 text-right space-x-1">
+                        <button type="button" onclick="editPost('${p.id}')" class="px-2.5 py-1.5 rounded-lg bg-primary text-slate-950 font-bold hover:bg-primary-200"><i class="fa-solid fa-pen"></i></button>
+                        <button type="button" onclick="deletePost('${p.id}', '${p.title.replace(/'/g, "\\'")}')" class="px-2.5 py-1.5 rounded-lg bg-rose-600/30 text-rose-200 hover:bg-rose-600 hover:text-white font-bold"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        window.openPostModal = function() {
+            document.getElementById('form-post').reset();
+            document.getElementById('post-id').value = '';
+            document.getElementById('post-modal-title').innerText = 'Buat Berita / Pengumuman Baru';
+            document.getElementById('modal-post').classList.remove('hidden');
+        };
+
+        window.editPost = function(id) {
+            const p = postsList.find(item => item.id === id);
+            if (!p) return;
+            document.getElementById('post-id').value = p.id;
+            document.getElementById('post-title').value = p.title || '';
+            document.getElementById('post-category').value = p.category || 'Berita';
+            document.getElementById('post-excerpt').value = p.excerpt || '';
+            document.getElementById('post-content').value = p.content || '';
+            document.getElementById('post-image-url').value = p.image || '';
+            document.getElementById('post-published').checked = !!p.is_published;
+            document.getElementById('post-modal-title').innerText = 'Edit Berita / Pengumuman';
+            document.getElementById('modal-post').classList.remove('hidden');
+        };
+
+        document.getElementById('form-post').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('btn-save-post');
+            btn.disabled = true;
+            btn.innerText = 'Menyimpan...';
+
+            try {
+                const id = document.getElementById('post-id').value;
+                const title = document.getElementById('post-title').value.trim();
+                let imageUrl = document.getElementById('post-image-url').value.trim();
+                const imageFile = document.getElementById('post-image-file').files[0];
+                if (imageFile) {
+                    imageUrl = await uploadImageFile(imageFile, 'posts');
+                }
+
+                const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') + '-' + Math.floor(100 + Math.random() * 900);
+
+                const data = {
+                    title: title,
+                    category: document.getElementById('post-category').value,
+                    excerpt: document.getElementById('post-excerpt').value.trim(),
+                    content: document.getElementById('post-content').value.trim(),
+                    image: imageUrl || 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800',
+                    is_published: document.getElementById('post-published').checked,
+                    updated_at: new Date().toISOString()
+                };
+
+                if (id) {
+                    await updateDoc(doc(db, "posts", id), data);
+                    showToast('Berita berhasil diperbarui!');
+                } else {
+                    data.slug = slug;
+                    data.published_at = new Date().toISOString();
+                    data.created_at = new Date().toISOString();
+                    await addDoc(collection(db, "posts"), data);
+                    showToast('Berita baru berhasil diterbitkan!');
+                }
+                closeModals();
+            } catch (err) {
+                console.error(err);
+                showToast('Gagal menyimpan berita: ' + err.message, 'error');
+            } finally {
+                btn.disabled = false;
+                btn.innerText = 'Simpan Berita';
+            }
+        });
+
+        window.deletePost = async function(id, title) {
+            if (confirm(`Hapus berita "${title}"?`)) {
+                try {
+                    await deleteDoc(doc(db, "posts", id));
+                    showToast('Berita telah dihapus.');
+                } catch (err) {
+                    showToast('Gagal menghapus: ' + err.message, 'error');
+                }
+            }
+        };
+
+        // ================= GALLERY CRUD =================
+        function renderGalleryGrid(galleries) {
+            const grid = document.getElementById('gallery-grid');
+            if (!galleries.length) {
+                grid.innerHTML = '<p class="text-xs text-primary-200 col-span-full text-center py-8">Belum ada foto di galeri. Klik Tambah Foto Galeri.</p>';
+                return;
+            }
+            grid.innerHTML = galleries.map(g => `
+                <div class="bg-[#9e6f54] p-2.5 rounded-2xl border border-[#835841] flex flex-col justify-between space-y-2 shadow-md">
+                    <div class="aspect-square rounded-xl overflow-hidden bg-black/40">
+                        <img src="${g.image}" alt="${g.title}" class="w-full h-full object-cover hover:scale-105 transition transform duration-300">
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-bold text-primary uppercase block">${g.category || 'Kegiatan'}</span>
+                        <h4 class="font-bold text-white text-xs truncate">${g.title}</h4>
+                    </div>
+                    <div class="pt-1.5 border-t border-[#835841] flex justify-end">
+                        <button type="button" onclick="deleteGallery('${g.id}', '${g.title.replace(/'/g, "\\'")}')" class="px-2.5 py-1 rounded-lg bg-rose-600/30 text-rose-200 hover:bg-rose-600 hover:text-white text-xs font-bold transition"><i class="fa-solid fa-trash mr-1"></i> Hapus</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        window.openGalleryModal = function() {
+            document.getElementById('form-gallery').reset();
+            document.getElementById('modal-gallery').classList.remove('hidden');
+        };
+
+        document.getElementById('form-gallery').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('btn-save-gallery');
+            btn.disabled = true;
+            btn.innerText = 'Menyimpan...';
+
+            try {
+                let imageUrl = document.getElementById('gallery-image-url').value.trim();
+                const imageFile = document.getElementById('gallery-image-file').files[0];
+                if (imageFile) {
+                    imageUrl = await uploadImageFile(imageFile, 'gallery');
+                }
+
+                if (!imageUrl) {
+                    showToast('Silakan pilih file gambar atau masukkan URL gambar.', 'error');
+                    btn.disabled = false;
+                    btn.innerText = 'Simpan Foto';
+                    return;
+                }
+
+                const data = {
+                    title: document.getElementById('gallery-title').value.trim(),
+                    category: document.getElementById('gallery-category').value,
+                    image: imageUrl,
+                    created_at: new Date().toISOString()
+                };
+
+                await addDoc(collection(db, "gallery"), data);
+                showToast('Foto galeri berhasil ditambahkan!');
+                closeModals();
+            } catch (err) {
+                console.error(err);
+                showToast('Gagal menyimpan galeri: ' + err.message, 'error');
+            } finally {
+                btn.disabled = false;
+                btn.innerText = 'Simpan Foto';
+            }
+        });
+
+        window.deleteGallery = async function(id, title) {
+            if (confirm(`Hapus foto galeri "${title}"?`)) {
+                try {
+                    await deleteDoc(doc(db, "gallery", id));
+                    showToast('Foto galeri telah dihapus.');
+                } catch (err) {
+                    showToast('Gagal menghapus: ' + err.message, 'error');
+                }
+            }
+        };
+
+        // ================= ONE-CLICK INITIAL DATA SEED =================
+        async function runInitialDataSeed() {
+            if (!confirm('Apakah Anda ingin memuat data default awal (Profil, 12 Guru, Fasilitas, Berita, dan Galeri) ke Cloud Firestore?')) {
+                return;
+            }
+
+            const btn = document.getElementById('seed-action-btn') || document.getElementById('quick-seed-btn');
+            btn.disabled = true;
+            btn.innerText = 'Memuat Data Awal ke Firestore...';
+
+            try {
+                // 1. Set Profile
+                await setDoc(doc(db, "profile", "main"), {
+                    ...DEFAULT_SCHOOL_DATA.profile,
+                    updated_at: new Date().toISOString()
+                });
+
+                // 2. Set Teachers
+                for (const t of DEFAULT_SCHOOL_DATA.teachers) {
+                    await addDoc(collection(db, "teachers"), {
+                        ...t,
+                        created_at: new Date().toISOString()
+                    });
+                }
+
+                // 3. Set Facilities
+                for (const f of DEFAULT_SCHOOL_DATA.facilities) {
+                    await addDoc(collection(db, "facilities"), {
+                        ...f,
+                        created_at: new Date().toISOString()
+                    });
+                }
+
+                // 4. Set Posts
+                for (const p of DEFAULT_SCHOOL_DATA.posts) {
+                    await addDoc(collection(db, "posts"), {
+                        ...p,
+                        created_at: new Date().toISOString()
+                    });
+                }
+
+                // 5. Set Gallery
+                for (const g of DEFAULT_SCHOOL_DATA.gallery) {
+                    await addDoc(collection(db, "gallery"), {
+                        ...g,
+                        created_at: new Date().toISOString()
+                    });
+                }
+
+                showToast('Semua data default awal berhasil disinkronkan ke Cloud Firestore!');
+                document.getElementById('sync-banner').classList.add('hidden');
+            } catch (err) {
+                console.error(err);
+                showToast('Gagal menyinkronkan data: ' + err.message, 'error');
+            } finally {
+                btn.disabled = false;
+                btn.innerText = 'Sinkronkan Data Awal';
+            }
+        }
+
+        document.getElementById('seed-action-btn')?.addEventListener('click', runInitialDataSeed);
+        document.getElementById('quick-seed-btn')?.addEventListener('click', runInitialDataSeed);
+
+    </script>
+</body>
+</html>

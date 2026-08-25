@@ -7,6 +7,27 @@
       "**/node_modules/**"
     ],
     "cleanUrls": true,
-    "trailingSlash": false
+    "trailingSlash": false,
+    "rewrites": [
+      {
+        "source": "/login",
+        "destination": "/login.html"
+      },
+      {
+        "source": "/operator",
+        "destination": "/operator.html"
+      },
+      {
+        "source": "/operator/**",
+        "destination": "/operator.html"
+      },
+      {
+        "source": "/berita/**",
+        "destination": "/berita.html"
+      }
+    ]
+  },
+  "firestore": {
+    "rules": "firestore.rules"
   }
 }

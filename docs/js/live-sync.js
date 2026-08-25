@@ -1,0 +1,178 @@
+import { db, doc, collection, onSnapshot } from "./firebase-config.js";
+
+// Initialize Real-time Hydration for Index.html
+export function initLiveWebsite() {
+    // 1. Live School Profile Listener
+    onSnapshot(doc(db, "profile", "main"), (docSnap) => {
+        if (!docSnap.exists()) return;
+        const p = docSnap.data();
+
+        // Update Text Elements if they exist
+        const updateText = (selector, val) => {
+            document.querySelectorAll(selector).forEach(el => {
+                if (val !== undefined && val !== null) el.innerText = val;
+            });
+        };
+
+        updateText('.live-school-name', p.name);
+        updateText('.live-school-npsn', `NPSN: ${p.npsn || '20600476'}`);
+        updateText('.live-school-akreditasi', `Akreditasi: ${p.akreditasi || 'B'}`);
+        updateText('.live-school-principal-name', p.principal_name);
+        updateText('.live-school-welcome', p.principal_welcome);
+        updateText('.live-school-vision', p.vision);
+        updateText('.live-school-history', p.history);
+        updateText('.live-school-students', `${p.student_count || 185} Siswa`);
+        updateText('.live-school-teachers', `${p.teacher_count || 12} Guru`);
+        updateText('.live-school-classes', `${p.class_count || 6} Rombel`);
+        updateText('.live-school-address', p.address);
+        updateText('.live-school-phone', p.phone);
+        updateText('.live-school-email', p.email);
+
+        // Update Principal Photo
+        if (p.principal_photo) {
+            document.querySelectorAll('.live-principal-photo').forEach(img => {
+                img.src = p.principal_photo;
+            });
+        }
+
+        // Update Map Embed
+        if (p.map_url) {
+            document.querySelectorAll('.live-map-iframe').forEach(iframe => {
+                iframe.src = p.map_url;
+            });
+        }
+
+        // Update Mission List
+        if (Array.isArray(p.mission) && p.mission.length > 0) {
+            const missionContainer = document.getElementById('live-mission-container');
+            if (missionContainer) {
+                missionContainer.innerHTML = p.mission.map((m, idx) => `
+                    <div class="flex items-start gap-3 p-3.5 sm:p-4 rounded-xl bg-[#9e6f54] border border-[#835841]">
+                        <span class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-primary text-secondary font-extrabold flex items-center justify-center shrink-0 text-xs shadow-xs">
+                            ${idx + 1}
+                        </span>
+                        <p class="text-[#fdfbf9] text-xs sm:text-sm leading-relaxed font-medium pt-0.5">${m}</p>
+                    </div>
+                `).join('');
+            }
+        }
+    });
+
+    // 2. Live Teachers Listener
+    onSnapshot(collection(db, "teachers"), (snap) => {
+        if (snap.empty) return;
+        let teachers = [];
+        snap.forEach(d => teachers.push({ id: d.id, ...d.data() }));
+        teachers.sort((a, b) => (Number(a.order) || 99) - (Number(b.order) || 99));
+
+        const container = document.getElementById('live-teachers-container');
+        if (container) {
+            container.innerHTML = teachers.map(t => `
+                <div class="bg-secondary rounded-2xl border border-[#9e6f54] overflow-hidden flex flex-col justify-between shadow-md hover:border-primary transition">
+                    <div class="p-5 sm:p-6 text-center space-y-3">
+                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden mx-auto border-4 border-primary shadow-md">
+                            <img src="${t.photo || './uploads/teachers/placeholder.jpg'}" 
+                                 alt="${t.name}" 
+                                 class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h3 class="text-base font-bold text-white">${t.name}</h3>
+                            <p class="text-xs font-semibold text-primary mt-1">${t.position}</p>
+                        </div>
+                    </div>
+                    <div class="bg-[#9e6f54] px-4 py-2.5 border-t border-[#835841] text-xs text-primary-200 text-center font-mono">
+                        <i class="fa-solid fa-id-card text-primary mr-1"></i> NIP: ${t.nip || '-'}
+                    </div>
+                </div>
+            `).join('');
+        }
+    });
+
+    // 3. Live Facilities Listener
+    onSnapshot(collection(db, "facilities"), (snap) => {
+        if (snap.empty) return;
+        let facilities = [];
+        snap.forEach(d => facilities.push({ id: d.id, ...d.data() }));
+
+        const container = document.getElementById('live-facilities-container');
+        if (container) {
+            container.innerHTML = facilities.map(f => `
+                <div class="bg-secondary rounded-2xl border border-[#9e6f54] overflow-hidden shadow-md hover:border-primary transition flex flex-col justify-between">
+                    <div>
+                        <div class="h-44 sm:h-48 overflow-hidden bg-black/20">
+                            <img src="${f.image || 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600'}" alt="${f.name}" class="w-full h-full object-cover hover:scale-105 transition transform duration-500">
+                        </div>
+                        <div class="p-5 sm:p-6 space-y-2">
+                            <h3 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+                                <i class="fa-solid ${f.icon || 'fa-building-circle-check'} text-primary"></i> ${f.name}
+                            </h3>
+                            <p class="text-xs text-primary-100 leading-relaxed">${f.description || ''}</p>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+    });
+
+    // 4. Live Posts Listener
+    onSnapshot(collection(db, "posts"), (snap) => {
+        if (snap.empty) return;
+        let posts = [];
+        snap.forEach(d => {
+            const data = d.data();
+            if (data.is_published !== false) posts.push({ id: d.id, ...data });
+        });
+        posts.sort((a, b) => new Date(b.published_at || 0) - new Date(a.published_at || 0));
+
+        const container = document.getElementById('live-posts-container');
+        if (container) {
+            container.innerHTML = posts.slice(0, 3).map(p => `
+                <article class="bg-secondary rounded-2xl border border-[#9e6f54] overflow-hidden flex flex-col justify-between shadow-md hover:border-primary transition">
+                    <div>
+                        <div class="relative h-48 overflow-hidden bg-black/20">
+                            <img src="${p.image || 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600'}" alt="${p.title}" class="w-full h-full object-cover hover:scale-105 transition transform duration-500">
+                            <div class="absolute top-3 left-3">
+                                <span class="px-2.5 py-1 rounded-lg text-[10px] font-extrabold uppercase bg-[#3b2116] text-primary border border-[#6d4330] shadow-sm">${p.category || 'Berita'}</span>
+                            </div>
+                        </div>
+                        <div class="p-5 sm:p-6 space-y-2.5">
+                            <div class="flex items-center gap-2 text-[11px] text-primary font-semibold">
+                                <i class="fa-regular fa-calendar"></i>
+                                <span>${p.published_at ? new Date(p.published_at).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' }) : '-'}</span>
+                            </div>
+                            <h3 class="text-base font-bold text-white leading-snug line-clamp-2 hover:text-primary transition">
+                                <a href="./berita.html?slug=${p.slug}">${p.title}</a>
+                            </h3>
+                            <p class="text-xs text-primary-100 line-clamp-3 leading-relaxed">${p.excerpt || ''}</p>
+                        </div>
+                    </div>
+                    <div class="px-5 sm:px-6 pb-5 pt-2 border-t border-[#835841]">
+                        <a href="./berita.html?slug=${p.slug}" class="inline-flex items-center gap-1 text-xs font-bold text-primary hover:text-white transition">
+                            Baca Selengkapnya <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </article>
+            `).join('');
+        }
+    });
+
+    // 5. Live Gallery Listener
+    onSnapshot(collection(db, "gallery"), (snap) => {
+        if (snap.empty) return;
+        let galleries = [];
+        snap.forEach(d => galleries.push({ id: d.id, ...d.data() }));
+
+        const container = document.getElementById('live-gallery-container');
+        if (container) {
+            container.innerHTML = galleries.slice(0, 6).map(g => `
+                <div class="group relative rounded-2xl overflow-hidden shadow-md border border-[#9e6f54] bg-[#9e6f54] aspect-square">
+                    <img src="${g.image}" alt="${g.title}" class="w-full h-full object-cover group-hover:scale-110 transition transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-4 text-white">
+                        <span class="text-[10px] font-extrabold uppercase text-primary">${g.category || 'Kegiatan'}</span>
+                        <h4 class="text-xs font-bold leading-tight mt-0.5">${g.title}</h4>
+                    </div>
+                </div>
+            `).join('');
+        }
+    });
+}
