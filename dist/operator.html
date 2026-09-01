@@ -816,28 +816,44 @@
             }, 3500);
         };
 
-        // Modal Handlers
-        window.closeModals = function() {
-            document.querySelectorAll('[id^="modal-"]').forEach(m => m.classList.add('hidden'));
-        };
-
-        // Supabase Settings Modal
-        window.openSupabaseSettingsModal = function() {
-            const creds = getSupabaseCredentials();
-            document.getElementById('setting-supabase-url').value = creds.url;
-            document.getElementById('setting-supabase-key').value = creds.key;
-            document.getElementById('modal-supabase-settings').classList.remove('hidden');
-        };
-
-        document.getElementById('form-supabase-settings').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const url = document.getElementById('setting-supabase-url').value.trim();
-            const key = document.getElementById('setting-supabase-key').value.trim();
-            saveSupabaseCredentials(url, key);
-        });
-
         // ================= SUPABASE DATA SYNC & CRUD =================
+        function renderDefaultDataFirst() {
+            try {
+                if (DEFAULT_SCHOOL_DATA?.profile) {
+                    const data = DEFAULT_SCHOOL_DATA.profile;
+                    document.getElementById('dash-school-name').innerText = data.name || '-';
+                    document.getElementById('dash-school-npsn').innerText = `${data.npsn || '-'} (Akreditasi ${data.akreditasi || '-'})`;
+                    document.getElementById('dash-school-contact').innerText = `${data.phone || '-'} / ${data.email || '-'}`;
+                    document.getElementById('dash-school-students').innerText = `${data.student_count || 0} Siswa / ${data.class_count || 0} Rombel`;
+                    document.getElementById('dash-school-vision').innerText = data.vision || 'Belum diisi';
+                }
+                if (DEFAULT_SCHOOL_DATA?.teachers) {
+                    teachersList = DEFAULT_SCHOOL_DATA.teachers;
+                    document.getElementById('stat-teachers').innerText = teachersList.length;
+                    renderTeachersTable(teachersList);
+                }
+                if (DEFAULT_SCHOOL_DATA?.facilities) {
+                    facilitiesList = DEFAULT_SCHOOL_DATA.facilities;
+                    document.getElementById('stat-facilities').innerText = facilitiesList.length;
+                    renderFacilitiesGrid(facilitiesList);
+                }
+                if (DEFAULT_SCHOOL_DATA?.posts) {
+                    postsList = DEFAULT_SCHOOL_DATA.posts;
+                    document.getElementById('stat-posts').innerText = postsList.length;
+                    renderPostsTable(postsList);
+                }
+                if (DEFAULT_SCHOOL_DATA?.gallery) {
+                    galleryList = DEFAULT_SCHOOL_DATA.gallery;
+                    document.getElementById('stat-gallery').innerText = galleryList.length;
+                    renderGalleryGrid(galleryList);
+                }
+            } catch(e) {
+                console.warn('Local render notice:', e);
+            }
+        }
+
         async function fetchAllData() {
+            renderDefaultDataFirst();
             await Promise.allSettled([
                 fetchProfile(),
                 fetchTeachers(),
