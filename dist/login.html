@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Operator - SD N TUNGGALJAYA 2</title>
+    <title>Login Operator Supabase - SD N TUNGGALJAYA 2</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="./images/logo.png">
@@ -133,18 +133,47 @@
             Masuk dengan Akun Google
         </button>
 
-        <!-- Back to Website -->
-        <div class="text-center pt-2 border-t border-[#835841]">
-            <a href="./" class="text-xs text-primary hover:text-white font-bold inline-flex items-center gap-1.5 transition">
-                <i class="fa-solid fa-arrow-left"></i> Kembali ke Halaman Utama
+        <!-- Back to Website & Supabase Settings -->
+        <div class="text-center pt-2 border-t border-[#835841] flex items-center justify-between text-xs">
+            <a href="./" class="text-primary hover:text-white font-bold inline-flex items-center gap-1.5 transition">
+                <i class="fa-solid fa-arrow-left"></i> Beranda
             </a>
+            <button type="button" id="config-link-btn" class="text-primary hover:text-white font-semibold transition inline-flex items-center gap-1">
+                <i class="fa-solid fa-gear text-[11px]"></i> Set Supabase URL
+            </button>
         </div>
 
     </div>
 
-    <!-- Firebase Auth Logic Script -->
+    <!-- Supabase Settings Quick Modal -->
+    <div id="modal-config" class="fixed inset-0 bg-black/70 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-secondary text-white rounded-3xl border border-[#9e6f54] max-w-md w-full p-6 shadow-2xl space-y-4">
+            <div class="flex items-center justify-between border-b border-[#9e6f54] pb-3">
+                <h3 class="text-sm font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-gear text-primary"></i> Pengaturan Supabase URL
+                </h3>
+                <button type="button" id="close-config-modal" class="text-primary hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <form id="config-form" class="space-y-3 text-xs">
+                <div>
+                    <label class="block font-bold mb-1">Supabase Project URL</label>
+                    <input type="url" id="cfg-url" required placeholder="https://your-project.supabase.co" class="w-full px-3 py-2 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white font-mono text-xs">
+                </div>
+                <div>
+                    <label class="block font-bold mb-1">Supabase Key (Anon / Secret)</label>
+                    <input type="text" id="cfg-key" required class="w-full px-3 py-2 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white font-mono text-xs">
+                </div>
+                <div class="flex justify-end gap-2 pt-2">
+                    <button type="button" id="cancel-config-btn" class="px-3 py-1.5 rounded-xl bg-[#3b2116] text-primary">Batal</button>
+                    <button type="submit" class="px-4 py-1.5 rounded-xl bg-primary text-slate-950 font-bold">Simpan & Reload</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Supabase Auth Logic Script -->
     <script type="module">
-        import { auth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "./js/firebase-config.js";
+        import { supabase, getSupabaseCredentials, saveSupabaseCredentials } from "./js/supabase-config.js";
 
         const form = document.getElementById('login-form');
         const emailInput = document.getElementById('email');
@@ -157,6 +186,23 @@
         const alertIcon = document.getElementById('alert-icon');
         const togglePassword = document.getElementById('toggle-password');
         const passwordEyeIcon = document.getElementById('password-eye-icon');
+
+        // Config Modal Controls
+        const configModal = document.getElementById('modal-config');
+        document.getElementById('config-link-btn').addEventListener('click', () => {
+            const creds = getSupabaseCredentials();
+            document.getElementById('cfg-url').value = creds.url;
+            document.getElementById('cfg-key').value = creds.key;
+            configModal.classList.remove('hidden');
+        });
+        document.getElementById('close-config-modal').addEventListener('click', () => configModal.classList.add('hidden'));
+        document.getElementById('cancel-config-btn').addEventListener('click', () => configModal.classList.add('hidden'));
+        document.getElementById('config-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const url = document.getElementById('cfg-url').value.trim();
+            const key = document.getElementById('cfg-key').value.trim();
+            saveSupabaseCredentials(url, key);
+        });
 
         // Toggle password visibility
         togglePassword.addEventListener('click', () => {
@@ -179,15 +225,21 @@
             alertMessage.innerText = msg;
         }
 
-        // Check if already logged in
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                showAlert(`Sesi aktif terdeteksi (${user.email}). Mengalihkan ke Panel Operator...`, 'success');
-                setTimeout(() => {
-                    window.location.href = './operator.html';
-                }, 800);
+        // Check active session
+        async function checkActiveSession() {
+            try {
+                const { data: { session } } = await supabase.auth.getSession();
+                if (session?.user) {
+                    showAlert(`Sesi aktif terdeteksi (${session.user.email}). Mengalihkan ke Panel Operator...`, 'success');
+                    setTimeout(() => {
+                        window.location.href = './operator.html';
+                    }, 800);
+                }
+            } catch (err) {
+                console.warn('Session check notice:', err);
             }
-        });
+        }
+        checkActiveSession();
 
         // Handle Email/Password Login
         form.addEventListener('submit', async (e) => {
@@ -199,7 +251,13 @@
             btnText.innerText = 'Memverifikasi...';
 
             try {
-                const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                const { data, error } = await supabase.auth.signInWithPassword({
+                    email: email,
+                    password: password
+                });
+
+                if (error) throw error;
+
                 showAlert('Login berhasil! Mengalihkan...', 'success');
                 setTimeout(() => {
                     window.location.href = './operator.html';
@@ -209,11 +267,11 @@
                 btnText.innerText = 'Masuk ke Panel Operator';
                 console.error('Login error:', error);
                 
-                let msg = 'Gagal masuk. Periksa kembali email dan password Anda.';
-                if (error.code === 'auth/invalid-credential' || error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
-                    msg = 'Email atau kata sandi tidak cocok. Pastikan akun telah didaftarkan di Firebase Console.';
-                } else if (error.code === 'auth/too-many-requests') {
-                    msg = 'Terlalu banyak percobaan gagal. Silakan coba beberapa saat lagi.';
+                let msg = error.message || 'Gagal masuk. Periksa kembali email dan password Anda.';
+                if (error.message?.includes('Invalid login credentials')) {
+                    msg = 'Email atau kata sandi tidak cocok. Pastikan akun operator telah didaftarkan di Supabase Auth.';
+                } else if (error.message?.includes('Email not confirmed')) {
+                    msg = 'Email belum dikonfirmasi di Supabase (atau aktifkan "Auto Confirm" di Auth Settings).';
                 }
                 showAlert(msg, 'error');
             }
@@ -221,13 +279,14 @@
 
         // Handle Google Login
         googleBtn.addEventListener('click', async () => {
-            const provider = new GoogleAuthProvider();
             try {
-                await signInWithPopup(auth, provider);
-                showAlert('Login Google berhasil! Mengalihkan...', 'success');
-                setTimeout(() => {
-                    window.location.href = './operator.html';
-                }, 800);
+                const { error } = await supabase.auth.signInWithOAuth({
+                    provider: 'google',
+                    options: {
+                        redirectTo: window.location.origin + window.location.pathname.replace('login.html', 'operator.html')
+                    }
+                });
+                if (error) throw error;
             } catch (error) {
                 console.error('Google Sign-In Error:', error);
                 showAlert('Gagal login via Google: ' + error.message, 'error');

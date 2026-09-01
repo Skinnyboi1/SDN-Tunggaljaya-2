@@ -237,9 +237,9 @@
         </div>
     </footer>
 
-    <!-- DYNAMIC FIREBASE SCRIPT -->
+    <!-- DYNAMIC SUPABASE SCRIPT -->
     <script type="module">
-        import { db, collection, getDocs, DEFAULT_SCHOOL_DATA } from "./js/firebase-config.js";
+        import { supabase, DEFAULT_SCHOOL_DATA } from "./js/supabase-config.js";
 
         // Mobile menu toggle
         const menuBtn = document.getElementById('mobile-menu-btn');
@@ -258,21 +258,18 @@
 
         async function fetchAllPosts() {
             try {
-                const snap = await getDocs(collection(db, "posts"));
-                let posts = [];
-                snap.forEach(d => {
-                    const data = d.data();
-                    if (data.is_published !== false) {
-                        posts.push({ id: d.id, ...data });
-                    }
-                });
-                if (!posts.length) {
-                    posts = DEFAULT_SCHOOL_DATA.posts;
+                const { data, error } = await supabase
+                    .from('posts')
+                    .select('*')
+                    .eq('is_published', true)
+                    .order('published_at', { ascending: false });
+
+                if (error || !data || !data.length) {
+                    return DEFAULT_SCHOOL_DATA.posts;
                 }
-                posts.sort((a, b) => new Date(b.published_at || 0) - new Date(a.published_at || 0));
-                return posts;
+                return data;
             } catch (err) {
-                console.warn('Firestore fetch failed, fallback to default:', err);
+                console.warn('Supabase fetch failed, fallback to default:', err);
                 return DEFAULT_SCHOOL_DATA.posts;
             }
         }

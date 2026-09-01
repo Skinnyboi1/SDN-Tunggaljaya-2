@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel Operator Cloud - SD N TUNGGALJAYA 2</title>
+    <title>Panel Operator Supabase - SD N TUNGGALJAYA 2</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="./images/logo.png">
@@ -69,7 +69,7 @@
                 <img src="./images/logo.png" alt="Logo SDN Tunggaljaya 2" class="w-full h-full object-contain">
             </div>
             <div>
-                <div class="text-xs font-extrabold text-white tracking-tight">PANEL OPERATOR CLOUD</div>
+                <div class="text-xs font-extrabold text-white tracking-tight">PANEL OPERATOR SUPABASE</div>
                 <div class="text-[10px] text-primary font-semibold">SD N TUNGGALJAYA 2</div>
             </div>
         </div>
@@ -92,8 +92,8 @@
                         <img src="./images/logo.png" alt="Logo SDN Tunggaljaya 2" class="w-full h-full object-contain">
                     </div>
                     <div>
-                        <div class="text-sm font-extrabold text-white tracking-tight leading-tight">PANEL CLOUD</div>
-                        <div class="text-[10px] text-primary font-semibold">SDN Tunggaljaya 2</div>
+                        <div class="text-sm font-extrabold text-white tracking-tight leading-tight">PANEL OPERATOR</div>
+                        <div class="text-[10px] text-primary font-semibold">Supabase Backend</div>
                     </div>
                 </div>
                 <button id="mobile-sidebar-close" class="md:hidden text-primary hover:text-white">
@@ -102,16 +102,21 @@
             </div>
 
             <!-- Operator Status Card -->
-            <div class="p-4 mx-3 my-4 bg-[#2a170f] rounded-2xl border border-[#6d4330] flex items-center gap-3">
-                <div class="w-9 h-9 rounded-xl bg-emerald-600/30 text-emerald-300 flex items-center justify-center text-sm font-bold border border-emerald-500/40 shrink-0">
-                    <i class="fa-solid fa-cloud-bolt"></i>
-                </div>
-                <div class="min-w-0">
-                    <div class="text-xs font-bold text-white truncate" id="operator-email-display">Memuat...</div>
-                    <div class="text-[10px] text-emerald-300 flex items-center gap-1 font-medium">
-                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Firebase Live Online
+            <div class="p-4 mx-3 my-4 bg-[#2a170f] rounded-2xl border border-[#6d4330] space-y-2">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-xl bg-emerald-600/30 text-emerald-300 flex items-center justify-center text-sm font-bold border border-emerald-500/40 shrink-0">
+                        <i class="fa-solid fa-database"></i>
+                    </div>
+                    <div class="min-w-0">
+                        <div class="text-xs font-bold text-white truncate" id="operator-email-display">Memuat...</div>
+                        <div class="text-[10px] text-emerald-300 flex items-center gap-1 font-medium">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Supabase Connected
+                        </div>
                     </div>
                 </div>
+                <button type="button" onclick="openSupabaseSettingsModal()" class="w-full py-1.5 px-2.5 rounded-lg bg-[#3b2116] hover:bg-[#6d4330] text-primary hover:text-white text-[11px] font-semibold transition flex items-center justify-center gap-1.5 border border-[#6d4330]">
+                    <i class="fa-solid fa-gear text-[10px]"></i> Pengaturan Koneksi Supabase
+                </button>
             </div>
 
             <!-- Navigation Links (Tabs) -->
@@ -161,7 +166,7 @@
         <header class="min-h-16 md:h-20 bg-secondary border-b border-[#9e6f54] px-4 sm:px-6 py-3 md:py-0 flex flex-wrap items-center justify-between shadow-md text-white gap-2">
             <div>
                 <h1 class="text-lg sm:text-xl font-extrabold text-white tracking-tight" id="header-title">Dashboard Operator</h1>
-                <p class="text-[11px] sm:text-xs text-primary">Kelola informasi publik SDN Tunggaljaya 2 secara real-time di cloud</p>
+                <p class="text-[11px] sm:text-xs text-primary">Kelola informasi publik SDN Tunggaljaya 2 secara real-time di Supabase</p>
             </div>
 
             <div class="flex items-center gap-2.5">
@@ -186,9 +191,9 @@
                 <div id="sync-banner" class="hidden bg-gradient-to-r from-[#2a170f] via-[#3b2116] to-[#6d4330] p-5 rounded-2xl border border-[#9e6f54] shadow-xl text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                     <div class="space-y-1">
                         <h3 class="font-extrabold text-sm sm:text-base flex items-center gap-2 text-white">
-                            <i class="fa-solid fa-sparkles text-primary"></i> Inisialisasi Database Cloud Pertama Kali
+                            <i class="fa-solid fa-sparkles text-primary"></i> Inisialisasi Database Supabase Pertama Kali
                         </h3>
-                        <p class="text-xs text-primary-100">Database Firestore Anda masih kosong. Klik tombol di samping untuk memuat profil sekolah, 12 guru, fasilitas, dan berita bawaan dalam 1 detik.</p>
+                        <p class="text-xs text-primary-100">Database Supabase Anda masih kosong. Klik tombol di samping untuk memuat profil sekolah, 12 guru, fasilitas, dan berita bawaan dalam 2 detik.</p>
                     </div>
                     <button type="button" id="seed-action-btn" class="px-4 py-2.5 rounded-xl bg-primary text-slate-950 font-extrabold text-xs shrink-0 shadow hover:bg-primary-200 transition cursor-pointer">
                         🚀 Muat Data Bawaan Sekarang
@@ -303,7 +308,7 @@
                         <h2 class="text-xl font-extrabold text-white flex items-center gap-2.5">
                             <i class="fa-solid fa-school text-primary"></i> Pengaturan Informasi Profil Sekolah
                         </h2>
-                        <p class="text-xs text-primary mt-1">Perubahan di halaman ini langsung tersimpan di Cloud Firestore dan otomatis terupdate di website publik.</p>
+                        <p class="text-xs text-primary mt-1">Perubahan di halaman ini langsung tersimpan di Supabase PostgreSQL dan otomatis terupdate di website publik.</p>
                     </div>
 
                     <form id="form-profile" class="space-y-6">
@@ -458,12 +463,12 @@
                     <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-[#9e6f54] pb-4">
                         <div>
                             <h2 class="text-xl font-extrabold text-white flex items-center gap-2">
-                                <i class="fa-solid fa-newspaper text-primary"></i> Berita, Pengumuman & PPDB
+                                <i class="fa-solid fa-newspaper text-primary"></i> Kelola Berita, Pengumuman & PPDB
                             </h2>
-                            <p class="text-xs text-primary mt-0.5">Publikasi kabar sekolah dan informasi penerimaan siswa baru.</p>
+                            <p class="text-xs text-primary mt-0.5">Publikasikan informasi resmi sekolah secara instan.</p>
                         </div>
                         <button type="button" onclick="openPostModal()" class="px-4 py-2.5 rounded-xl bg-primary hover:bg-primary-200 text-slate-950 font-extrabold text-xs shadow flex items-center gap-2 cursor-pointer">
-                            <i class="fa-solid fa-pen-nib text-secondary"></i> Buat Berita / Pengumuman
+                            <i class="fa-solid fa-plus text-secondary"></i> Buat Berita Baru
                         </button>
                     </div>
 
@@ -486,7 +491,7 @@
                 </div>
             </div>
 
-            <!-- ================= TAB 6: GALERI ================= -->
+            <!-- ================= TAB 6: GALERI FOTO ================= -->
             <div id="tab-gallery" class="tab-content hidden space-y-6">
                 <div class="bg-secondary text-white p-6 rounded-3xl border border-[#9e6f54] shadow-xl space-y-6">
                     <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-[#9e6f54] pb-4">
@@ -494,10 +499,10 @@
                             <h2 class="text-xl font-extrabold text-white flex items-center gap-2">
                                 <i class="fa-solid fa-images text-primary"></i> Galeri Dokumentasi Kegiatan
                             </h2>
-                            <p class="text-xs text-primary mt-0.5">Dokumentasi foto kegiatan siswa, upacara, dan prestasi sekolah.</p>
+                            <p class="text-xs text-primary mt-0.5">Koleksi foto kegiatan, upacara, dan prestasi siswa.</p>
                         </div>
                         <button type="button" onclick="openGalleryModal()" class="px-4 py-2.5 rounded-xl bg-primary hover:bg-primary-200 text-slate-950 font-extrabold text-xs shadow flex items-center gap-2 cursor-pointer">
-                            <i class="fa-solid fa-camera text-secondary"></i> Tambah Foto Galeri
+                            <i class="fa-solid fa-plus text-secondary"></i> Tambah Foto Galeri
                         </button>
                     </div>
 
@@ -516,7 +521,7 @@
     <div id="modal-teacher" class="fixed inset-0 bg-black/70 z-50 hidden flex items-center justify-center p-4">
         <div class="bg-secondary text-white rounded-3xl border border-[#9e6f54] max-w-lg w-full p-6 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto">
             <div class="flex items-center justify-between border-b border-[#9e6f54] pb-3">
-                <h3 class="text-base font-bold text-white" id="teacher-modal-title">Tambah Tenaga Pendidik</h3>
+                <h3 class="text-base font-bold text-white" id="teacher-modal-title">Tambah Guru / Staf Baru</h3>
                 <button type="button" onclick="closeModals()" class="text-primary hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
             <form id="form-teacher" class="space-y-3.5 text-xs">
@@ -525,19 +530,19 @@
                     <label class="block font-bold text-white mb-1">Nama Lengkap & Gelar</label>
                     <input type="text" id="teacher-name" required placeholder="Contoh: ADE SUMARNA, S.Pd." class="w-full px-3 py-2 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white">
                 </div>
-                <div class="grid grid-cols-2 gap-3">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
                         <label class="block font-bold text-white mb-1">NIP (Opsional)</label>
-                        <input type="text" id="teacher-nip" placeholder="1988... atau -" class="w-full px-3 py-2 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white">
+                        <input type="text" id="teacher-nip" placeholder="19800101..." class="w-full px-3 py-2 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white">
                     </div>
                     <div>
-                        <label class="block font-bold text-white mb-1">Jabatan / Mata Pelajaran</label>
-                        <input type="text" id="teacher-position" required placeholder="Contoh: Guru Kelas" class="w-full px-3 py-2 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white">
+                        <label class="block font-bold text-white mb-1">Jabatan / Posisi</label>
+                        <input type="text" id="teacher-pos" required placeholder="Contoh: Guru Kelas" class="w-full px-3 py-2 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white">
                     </div>
                 </div>
                 <div>
-                    <label class="block font-bold text-white mb-1">Urutan Tampil (Angka)</label>
-                    <input type="number" id="teacher-order" value="1" min="1" class="w-full px-3 py-2 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white">
+                    <label class="block font-bold text-white mb-1">Nomor Urutan Tampilan</label>
+                    <input type="number" id="teacher-order" value="1" class="w-full px-3 py-2 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white">
                 </div>
                 <div>
                     <label class="block font-bold text-white mb-1">Foto Guru (Upload File atau URL)</label>
@@ -665,27 +670,42 @@
         </div>
     </div>
 
-    <!-- MAIN FIREBASE CONTROLLER SPA SCRIPT -->
+    <!-- Supabase Settings Modal -->
+    <div id="modal-supabase-settings" class="fixed inset-0 bg-black/70 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-secondary text-white rounded-3xl border border-[#9e6f54] max-w-lg w-full p-6 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto">
+            <div class="flex items-center justify-between border-b border-[#9e6f54] pb-3">
+                <h3 class="text-base font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-gear text-primary"></i> Pengaturan Koneksi Supabase
+                </h3>
+                <button type="button" onclick="closeModals()" class="text-primary hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <form id="form-supabase-settings" class="space-y-3.5 text-xs">
+                <div>
+                    <label class="block font-bold text-white mb-1">Supabase Project URL</label>
+                    <input type="url" id="setting-supabase-url" required placeholder="https://your-project-ref.supabase.co" class="w-full px-3 py-2 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white font-mono text-xs">
+                    <p class="text-[10px] text-primary-200 mt-1">Dapatkan di Supabase Dashboard &rarr; Project Settings &rarr; API &rarr; Project URL</p>
+                </div>
+                <div>
+                    <label class="block font-bold text-white mb-1">Supabase API Key (Anon / Secret)</label>
+                    <input type="text" id="setting-supabase-key" required class="w-full px-3 py-2 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white font-mono text-xs">
+                </div>
+                <div class="pt-2 flex justify-end gap-2">
+                    <button type="button" onclick="closeModals()" class="px-4 py-2 rounded-xl bg-[#3b2116] text-primary hover:text-white font-bold">Batal</button>
+                    <button type="submit" class="px-4 py-2 rounded-xl bg-primary text-slate-950 font-extrabold shadow hover:bg-primary-200">Simpan & Reload</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MAIN SUPABASE CONTROLLER SPA SCRIPT -->
     <script type="module">
         import { 
-            auth, 
-            db, 
-            signOut, 
-            onAuthStateChanged,
-            collection,
-            doc,
-            getDoc,
-            getDocs,
-            setDoc,
-            addDoc,
-            updateDoc,
-            deleteDoc,
-            query,
-            orderBy,
-            onSnapshot,
-            uploadImageFile,
-            DEFAULT_SCHOOL_DATA 
-        } from "./js/firebase-config.js";
+            supabase, 
+            uploadImageFile, 
+            DEFAULT_SCHOOL_DATA,
+            getSupabaseCredentials,
+            saveSupabaseCredentials 
+        } from "./js/supabase-config.js";
 
         // Global State
         let currentUser = null;
@@ -696,20 +716,38 @@
         let galleryList = [];
 
         // Auth Protection Guard
-        onAuthStateChanged(auth, (user) => {
-            if (!user) {
-                window.location.href = './login.html';
-            } else {
-                currentUser = user;
-                document.getElementById('operator-email-display').innerText = user.email || 'Operator';
+        async function checkAuthSession() {
+            try {
+                const { data: { session }, error } = await supabase.auth.getSession();
+                if (error || !session || !session.user) {
+                    // Redirect to login
+                    window.location.href = './login.html';
+                    return;
+                }
+                currentUser = session.user;
+                document.getElementById('operator-email-display').innerText = currentUser.email || 'Operator';
                 initRealtimeListeners();
+            } catch (err) {
+                console.error('Auth verification error:', err);
+                window.location.href = './login.html';
+            }
+        }
+
+        supabase.auth.onAuthStateChange((event, session) => {
+            if (event === 'SIGNED_OUT' || !session) {
+                window.location.href = './login.html';
+            } else if (session?.user) {
+                currentUser = session.user;
+                document.getElementById('operator-email-display').innerText = currentUser.email || 'Operator';
             }
         });
+
+        checkAuthSession();
 
         // Logout action
         document.getElementById('logout-btn').addEventListener('click', async () => {
             if (confirm('Yakin ingin keluar dari Panel Operator?')) {
-                await signOut(auth);
+                await supabase.auth.signOut();
                 window.location.href = './login.html';
             }
         });
@@ -750,172 +788,172 @@
                 teachers: 'Kelola Tenaga Pendidik & Staf',
                 facilities: 'Kelola Fasilitas Sekolah',
                 posts: 'Kelola Berita & PPDB',
-                gallery: 'Kelola Galeri Dokumentasi'
+                gallery: 'Kelola Galeri Foto'
             };
-            document.getElementById('header-title').innerText = titles[tabId] || 'Panel Operator';
-
-            // Close mobile drawer on tab select
-            sidebar.classList.add('-translate-x-full');
-            sidebarBackdrop.classList.add('hidden');
+            document.getElementById('header-title').innerText = titles[tabId] || 'Dashboard Operator';
+            if (window.innerWidth < 768) {
+                sidebar.classList.add('-translate-x-full');
+                sidebarBackdrop.classList.add('hidden');
+            }
         };
 
         document.querySelectorAll('.nav-tab').forEach(btn => {
-            btn.addEventListener('click', () => {
-                switchTab(btn.getAttribute('data-tab'));
-            });
+            btn.addEventListener('click', () => switchTab(btn.getAttribute('data-tab')));
         });
 
-        // Toast Helper
-        window.showToast = function(msg, type = 'success') {
+        // Toast Notification Helper
+        window.showToast = function(message, type = 'success') {
             const container = document.getElementById('toast-container');
             const toast = document.createElement('div');
-            toast.className = `p-4 rounded-2xl shadow-2xl text-xs font-bold text-white flex items-center justify-between gap-3 pointer-events-auto transform transition duration-300 translate-y-2 opacity-0 ${type === 'success' ? 'bg-emerald-600 border border-emerald-500' : 'bg-rose-600 border border-rose-500'}`;
-            toast.innerHTML = `
-                <div class="flex items-center gap-2">
-                    <i class="fa-solid ${type === 'success' ? 'fa-circle-check' : 'fa-triangle-exclamation'} text-base"></i>
-                    <span>${msg}</span>
-                </div>
-                <button onclick="this.parentElement.remove()" class="text-white/80 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
-            `;
+            const bgClass = type === 'success' ? 'bg-emerald-600 border-emerald-500' : 'bg-rose-600 border-rose-500';
+            const icon = type === 'success' ? 'fa-circle-check' : 'fa-triangle-exclamation';
+
+            toast.className = `${bgClass} text-white px-4 py-3 rounded-2xl shadow-2xl border text-xs font-bold flex items-center gap-2.5 pointer-events-auto transform translate-y-2 opacity-0 transition duration-300`;
+            toast.innerHTML = `<i class="fa-solid ${icon} text-base"></i> <span>${message}</span>`;
+            
             container.appendChild(toast);
+            setTimeout(() => toast.classList.remove('translate-y-2', 'opacity-0'), 10);
             setTimeout(() => {
-                toast.classList.remove('translate-y-2', 'opacity-0');
-            }, 10);
-            setTimeout(() => {
-                toast.classList.add('translate-y-2', 'opacity-0');
+                toast.classList.add('opacity-0', '-translate-y-2');
                 setTimeout(() => toast.remove(), 300);
-            }, 4000);
+            }, 3500);
         };
 
-        // Modal Controls
+        // Modal Handlers
         window.closeModals = function() {
             document.querySelectorAll('[id^="modal-"]').forEach(m => m.classList.add('hidden'));
         };
 
-        // ================= REAL-TIME FIRESTORE LISTENERS =================
+        // Supabase Settings Modal
+        window.openSupabaseSettingsModal = function() {
+            const creds = getSupabaseCredentials();
+            document.getElementById('setting-supabase-url').value = creds.url;
+            document.getElementById('setting-supabase-key').value = creds.key;
+            document.getElementById('modal-supabase-settings').classList.remove('hidden');
+        };
+
+        document.getElementById('form-supabase-settings').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const url = document.getElementById('setting-supabase-url').value.trim();
+            const key = document.getElementById('setting-supabase-key').value.trim();
+            saveSupabaseCredentials(url, key);
+        });
+
+        // ================= SUPABASE DATA SYNC & CRUD =================
+        async function fetchAllData() {
+            await Promise.allSettled([
+                fetchProfile(),
+                fetchTeachers(),
+                fetchFacilities(),
+                fetchPosts(),
+                fetchGallery()
+            ]);
+        }
+
         function initRealtimeListeners() {
-            // 1. Profile Listener
-            onSnapshot(doc(db, "profile", "main"), (docSnap) => {
-                if (docSnap.exists()) {
-                    schoolProfile = docSnap.data();
-                    populateProfileForm(schoolProfile);
-                    populateDashboardProfile(schoolProfile);
-                    document.getElementById('sync-banner').classList.add('hidden');
-                } else {
-                    // Show seed banner if no profile doc exists
-                    document.getElementById('sync-banner').classList.remove('hidden');
-                }
-            });
+            fetchAllData();
 
-            // 2. Teachers Listener
-            onSnapshot(collection(db, "teachers"), (snap) => {
-                teachersList = [];
-                snap.forEach(d => teachersList.push({ id: d.id, ...d.data() }));
-                teachersList.sort((a, b) => (Number(a.order) || 99) - (Number(b.order) || 99));
-                document.getElementById('stat-teachers').innerText = teachersList.length;
-                renderTeachersTable(teachersList);
-            });
-
-            // 3. Facilities Listener
-            onSnapshot(collection(db, "facilities"), (snap) => {
-                facilitiesList = [];
-                snap.forEach(d => facilitiesList.push({ id: d.id, ...d.data() }));
-                document.getElementById('stat-facilities').innerText = facilitiesList.length;
-                renderFacilitiesGrid(facilitiesList);
-            });
-
-            // 4. Posts Listener
-            onSnapshot(collection(db, "posts"), (snap) => {
-                postsList = [];
-                snap.forEach(d => postsList.push({ id: d.id, ...d.data() }));
-                postsList.sort((a, b) => new Date(b.published_at || 0) - new Date(a.published_at || 0));
-                document.getElementById('stat-posts').innerText = postsList.length;
-                renderPostsTable(postsList);
-                renderDashboardRecentPosts(postsList);
-            });
-
-            // 5. Gallery Listener
-            onSnapshot(collection(db, "gallery"), (snap) => {
-                galleryList = [];
-                snap.forEach(d => galleryList.push({ id: d.id, ...d.data() }));
-                document.getElementById('stat-gallery').innerText = galleryList.length;
-                renderGalleryGrid(galleryList);
-            });
-        }
-
-        // ================= DASHBOARD & PROFILE LOGIC =================
-        function populateDashboardProfile(p) {
-            document.getElementById('dash-school-name').innerText = p.name || 'SD N TUNGGALJAYA 2';
-            document.getElementById('dash-school-npsn').innerText = `${p.npsn || '-'} (${p.akreditasi || 'B'})`;
-            document.getElementById('dash-school-contact').innerText = p.phone || p.email || '-';
-            document.getElementById('dash-school-students').innerText = `${p.student_count || 0} Siswa (${p.class_count || 0} Rombel)`;
-            document.getElementById('dash-school-vision').innerText = `"${p.vision || '-'}"`;
-        }
-
-        function renderDashboardRecentPosts(posts) {
-            const container = document.getElementById('dash-recent-posts');
-            if (!posts.length) {
-                container.innerHTML = '<p class="text-xs text-primary-200 text-center py-4">Belum ada berita yang diterbitkan.</p>';
-                return;
+            // Setup Realtime Postgres Subscription
+            try {
+                supabase.channel('operator_panel_sync')
+                    .on('postgres_changes', { event: '*', schema: 'public', table: 'profiles' }, () => fetchProfile())
+                    .on('postgres_changes', { event: '*', schema: 'public', table: 'teachers' }, () => fetchTeachers())
+                    .on('postgres_changes', { event: '*', schema: 'public', table: 'facilities' }, () => fetchFacilities())
+                    .on('postgres_changes', { event: '*', schema: 'public', table: 'posts' }, () => fetchPosts())
+                    .on('postgres_changes', { event: '*', schema: 'public', table: 'gallery' }, () => fetchGallery())
+                    .subscribe();
+            } catch (e) {
+                console.warn('Realtime channel notice:', e);
             }
-            container.innerHTML = posts.slice(0, 4).map(post => `
-                <div class="p-3 bg-[#9e6f54] rounded-xl border border-[#835841] flex items-center justify-between gap-2">
-                    <div class="min-w-0">
-                        <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-[#3b2116] text-primary border border-[#6d4330] inline-block mb-0.5">${post.category || 'Berita'}</span>
-                        <h4 class="text-xs font-bold text-white truncate">${post.title}</h4>
-                        <span class="text-[10px] text-primary-200 font-medium block mt-0.5">${post.published_at ? new Date(post.published_at).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' }) : '-'}</span>
-                    </div>
-                    <a href="./berita.html?slug=${post.slug}" target="_blank" class="px-2.5 py-1 rounded-lg bg-[#3b2116] text-primary text-[11px] font-bold hover:text-white shrink-0">Lihat &rarr;</a>
-                </div>
-            `).join('');
         }
 
-        function populateProfileForm(p) {
-            document.getElementById('prof-name').value = p.name || '';
-            document.getElementById('prof-npsn').value = p.npsn || '';
-            document.getElementById('prof-akreditasi').value = p.akreditasi || 'B';
-            document.getElementById('prof-vision').value = p.vision || '';
-            document.getElementById('prof-mission').value = Array.isArray(p.mission) ? p.mission.join('\n') : (p.mission || '');
-            document.getElementById('prof-history').value = p.history || '';
-            document.getElementById('prof-students').value = p.student_count || 0;
-            document.getElementById('prof-teachers').value = p.teacher_count || 0;
-            document.getElementById('prof-classes').value = p.class_count || 0;
-            document.getElementById('prof-phone').value = p.phone || '';
-            document.getElementById('prof-email').value = p.email || '';
-            document.getElementById('prof-address').value = p.address || '';
-            document.getElementById('prof-map-url').value = p.map_url || '';
+        // ================= 1. PROFILES =================
+        async function fetchProfile() {
+            try {
+                const { data, error } = await supabase
+                    .from('profiles')
+                    .select('*')
+                    .eq('id', 'main')
+                    .maybeSingle();
+
+                if (error) {
+                    console.warn('Profile fetch notice:', error.message);
+                    return;
+                }
+
+                if (!data) {
+                    document.getElementById('sync-banner').classList.remove('hidden');
+                    return;
+                }
+
+                document.getElementById('sync-banner').classList.add('hidden');
+                schoolProfile = data;
+
+                // Update Dashboard Overview
+                document.getElementById('dash-school-name').innerText = data.name || '-';
+                document.getElementById('dash-school-npsn').innerText = `${data.npsn || '-'} (Akreditasi ${data.akreditasi || '-'})`;
+                document.getElementById('dash-school-contact').innerText = `${data.phone || '-'} / ${data.email || '-'}`;
+                document.getElementById('dash-school-students').innerText = `${data.student_count || 0} Siswa / ${data.class_count || 0} Rombel`;
+                document.getElementById('dash-school-vision').innerText = data.vision || 'Belum diisi';
+
+                // Populate Form
+                document.getElementById('prof-name').value = data.name || '';
+                document.getElementById('prof-npsn').value = data.npsn || '';
+                document.getElementById('prof-akreditasi').value = data.akreditasi || '';
+                document.getElementById('prof-vision').value = data.vision || '';
+                
+                let missions = data.mission;
+                if (typeof missions === 'string') {
+                    try { missions = JSON.parse(missions); } catch(e) { missions = missions.split('\n'); }
+                }
+                document.getElementById('prof-mission').value = Array.isArray(missions) ? missions.join('\n') : '';
+                document.getElementById('prof-history').value = data.history || '';
+                document.getElementById('prof-students').value = data.student_count || 0;
+                document.getElementById('prof-teachers').value = data.teacher_count || 0;
+                document.getElementById('prof-classes').value = data.class_count || 0;
+                document.getElementById('prof-phone').value = data.phone || '';
+                document.getElementById('prof-email').value = data.email || '';
+                document.getElementById('prof-address').value = data.address || '';
+                document.getElementById('prof-map-url').value = data.map_url || '';
+            } catch (err) {
+                console.error('Error fetching profile:', err);
+            }
         }
 
-        // Profile Form Submit
         document.getElementById('form-profile').addEventListener('submit', async (e) => {
             e.preventDefault();
             const btn = document.getElementById('btn-save-profile');
             btn.disabled = true;
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Menyimpan ke Firestore...';
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Menyimpan...';
+
+            const missionLines = document.getElementById('prof-mission').value
+                .split('\n')
+                .map(l => l.trim())
+                .filter(l => l.length > 0);
+
+            const payload = {
+                id: 'main',
+                name: document.getElementById('prof-name').value.trim(),
+                npsn: document.getElementById('prof-npsn').value.trim(),
+                akreditasi: document.getElementById('prof-akreditasi').value.trim(),
+                vision: document.getElementById('prof-vision').value.trim(),
+                mission: missionLines,
+                history: document.getElementById('prof-history').value.trim(),
+                student_count: parseInt(document.getElementById('prof-students').value) || 0,
+                teacher_count: parseInt(document.getElementById('prof-teachers').value) || 0,
+                class_count: parseInt(document.getElementById('prof-classes').value) || 0,
+                phone: document.getElementById('prof-phone').value.trim(),
+                email: document.getElementById('prof-email').value.trim(),
+                address: document.getElementById('prof-address').value.trim(),
+                map_url: document.getElementById('prof-map-url').value.trim(),
+                updated_at: new Date().toISOString()
+            };
 
             try {
-                const missionText = document.getElementById('prof-mission').value;
-                const missionArray = missionText.split('\n').map(s => s.trim()).filter(s => s.length > 0);
-
-                const data = {
-                    name: document.getElementById('prof-name').value.trim(),
-                    npsn: document.getElementById('prof-npsn').value.trim(),
-                    akreditasi: document.getElementById('prof-akreditasi').value.trim() || 'B',
-                    vision: document.getElementById('prof-vision').value.trim(),
-                    mission: missionArray,
-                    history: document.getElementById('prof-history').value.trim(),
-                    student_count: Number(document.getElementById('prof-students').value) || 0,
-                    teacher_count: Number(document.getElementById('prof-teachers').value) || 0,
-                    class_count: Number(document.getElementById('prof-classes').value) || 0,
-                    phone: document.getElementById('prof-phone').value.trim(),
-                    email: document.getElementById('prof-email').value.trim(),
-                    address: document.getElementById('prof-address').value.trim(),
-                    map_url: document.getElementById('prof-map-url').value.trim(),
-                    updated_at: new Date().toISOString()
-                };
-
-                await setDoc(doc(db, "profile", "main"), data, { merge: true });
-                showToast('Profil sekolah berhasil diperbarui di Cloud Firestore!');
+                const { error } = await supabase.from('profiles').upsert(payload);
+                if (error) throw error;
+                showToast('Profil sekolah berhasil disimpan!');
+                fetchProfile();
             } catch (err) {
                 console.error(err);
                 showToast('Gagal menyimpan profil: ' + err.message, 'error');
@@ -925,25 +963,41 @@
             }
         });
 
-        // ================= TEACHERS CRUD =================
+        // ================= 2. TEACHERS =================
+        async function fetchTeachers() {
+            try {
+                const { data, error } = await supabase
+                    .from('teachers')
+                    .select('*')
+                    .order('order', { ascending: true });
+
+                if (error) throw error;
+                teachersList = data || [];
+                document.getElementById('stat-teachers').innerText = teachersList.length;
+                renderTeachersTable(teachersList);
+            } catch (err) {
+                console.warn('Error fetching teachers:', err);
+            }
+        }
+
         function renderTeachersTable(teachers) {
             const tbody = document.getElementById('teachers-table-body');
             if (!teachers.length) {
-                tbody.innerHTML = '<tr><td colspan="6" class="px-4 py-8 text-center text-primary-200">Belum ada data guru. Klik tombol Tambah Guru Baru.</td></tr>';
+                tbody.innerHTML = '<tr><td colspan="6" class="px-4 py-8 text-center text-primary-200">Belum ada guru. Klik Tambah Guru Baru.</td></tr>';
                 return;
             }
             tbody.innerHTML = teachers.map(t => `
                 <tr class="hover:bg-[#835841]/50 transition">
                     <td class="px-4 py-3">
-                        <img src="${t.photo || './uploads/teachers/placeholder.jpg'}" alt="${t.name}" class="w-10 h-10 rounded-full object-cover border border-primary/50 shadow-xs">
+                        <img src="${t.photo || './uploads/teachers/placeholder.jpg'}" alt="${t.name}" class="w-10 h-10 rounded-xl object-cover border border-[#835841]">
                     </td>
                     <td class="px-4 py-3 font-bold text-white">${t.name}</td>
                     <td class="px-4 py-3 font-mono text-primary-200">${t.nip || '-'}</td>
-                    <td class="px-4 py-3 font-semibold text-primary">${t.position}</td>
-                    <td class="px-4 py-3 font-mono text-white">${t.order || 1}</td>
+                    <td class="px-4 py-3"><span class="px-2.5 py-1 rounded-lg bg-[#3b2116] text-primary font-semibold text-[11px] border border-[#6d4330]">${t.position}</span></td>
+                    <td class="px-4 py-3 text-center font-bold text-primary">${t.order || 1}</td>
                     <td class="px-4 py-3 text-right space-x-1">
-                        <button type="button" onclick="editTeacher('${t.id}')" class="px-2.5 py-1.5 rounded-lg bg-primary text-slate-950 font-bold hover:bg-primary-200 transition"><i class="fa-solid fa-pen"></i></button>
-                        <button type="button" onclick="deleteTeacher('${t.id}', '${t.name.replace(/'/g, "\\'")}')" class="px-2.5 py-1.5 rounded-lg bg-rose-600/30 text-rose-200 hover:bg-rose-600 hover:text-white font-bold transition"><i class="fa-solid fa-trash"></i></button>
+                        <button type="button" onclick="editTeacher('${t.id}')" class="px-2.5 py-1.5 rounded-lg bg-primary text-slate-950 font-bold hover:bg-primary-200"><i class="fa-solid fa-pen"></i></button>
+                        <button type="button" onclick="deleteTeacher('${t.id}', '${t.name.replace(/'/g, "\\'")}')" class="px-2.5 py-1.5 rounded-lg bg-rose-600/30 text-rose-200 hover:bg-rose-600 hover:text-white font-bold"><i class="fa-solid fa-trash"></i></button>
                     </td>
                 </tr>
             `).join('');
@@ -952,7 +1006,7 @@
         window.openTeacherModal = function() {
             document.getElementById('form-teacher').reset();
             document.getElementById('teacher-id').value = '';
-            document.getElementById('teacher-modal-title').innerText = 'Tambah Tenaga Pendidik Baru';
+            document.getElementById('teacher-modal-title').innerText = 'Tambah Guru Baru';
             document.getElementById('modal-teacher').classList.remove('hidden');
         };
 
@@ -962,10 +1016,10 @@
             document.getElementById('teacher-id').value = t.id;
             document.getElementById('teacher-name').value = t.name || '';
             document.getElementById('teacher-nip').value = t.nip || '';
-            document.getElementById('teacher-position').value = t.position || '';
+            document.getElementById('teacher-pos').value = t.position || '';
             document.getElementById('teacher-order').value = t.order || 1;
             document.getElementById('teacher-photo-url').value = t.photo || '';
-            document.getElementById('teacher-modal-title').innerText = 'Edit Data Tenaga Pendidik';
+            document.getElementById('teacher-modal-title').innerText = 'Edit Data Guru';
             document.getElementById('modal-teacher').classList.remove('hidden');
         };
 
@@ -979,6 +1033,7 @@
                 const id = document.getElementById('teacher-id').value;
                 let photoUrl = document.getElementById('teacher-photo-url').value.trim();
                 const photoFile = document.getElementById('teacher-photo-file').files[0];
+                
                 if (photoFile) {
                     photoUrl = await uploadImageFile(photoFile, 'teachers');
                 }
@@ -986,21 +1041,23 @@
                 const data = {
                     name: document.getElementById('teacher-name').value.trim(),
                     nip: document.getElementById('teacher-nip').value.trim() || '-',
-                    position: document.getElementById('teacher-position').value.trim(),
-                    order: Number(document.getElementById('teacher-order').value) || 1,
+                    position: document.getElementById('teacher-pos').value.trim(),
+                    order: parseInt(document.getElementById('teacher-order').value) || 1,
                     photo: photoUrl || './uploads/teachers/placeholder.jpg',
                     updated_at: new Date().toISOString()
                 };
 
                 if (id) {
-                    await updateDoc(doc(db, "teachers", id), data);
+                    const { error } = await supabase.from('teachers').update(data).eq('id', id);
+                    if (error) throw error;
                     showToast('Data guru berhasil diperbarui!');
                 } else {
-                    data.created_at = new Date().toISOString();
-                    await addDoc(collection(db, "teachers"), data);
+                    const { error } = await supabase.from('teachers').insert([data]);
+                    if (error) throw error;
                     showToast('Guru baru berhasil ditambahkan!');
                 }
                 closeModals();
+                fetchTeachers();
             } catch (err) {
                 console.error(err);
                 showToast('Gagal menyimpan guru: ' + err.message, 'error');
@@ -1013,15 +1070,33 @@
         window.deleteTeacher = async function(id, name) {
             if (confirm(`Yakin ingin menghapus data guru "${name}"?`)) {
                 try {
-                    await deleteDoc(doc(db, "teachers", id));
+                    const { error } = await supabase.from('teachers').delete().eq('id', id);
+                    if (error) throw error;
                     showToast('Data guru telah dihapus.');
+                    fetchTeachers();
                 } catch (err) {
                     showToast('Gagal menghapus: ' + err.message, 'error');
                 }
             }
         };
 
-        // ================= FACILITIES CRUD =================
+        // ================= 3. FACILITIES =================
+        async function fetchFacilities() {
+            try {
+                const { data, error } = await supabase
+                    .from('facilities')
+                    .select('*')
+                    .order('created_at', { ascending: false });
+
+                if (error) throw error;
+                facilitiesList = data || [];
+                document.getElementById('stat-facilities').innerText = facilitiesList.length;
+                renderFacilitiesGrid(facilitiesList);
+            } catch (err) {
+                console.warn('Error fetching facilities:', err);
+            }
+        }
+
         function renderFacilitiesGrid(facilities) {
             const grid = document.getElementById('facilities-grid');
             if (!facilities.length) {
@@ -1083,14 +1158,16 @@
                 };
 
                 if (id) {
-                    await updateDoc(doc(db, "facilities", id), data);
+                    const { error } = await supabase.from('facilities').update(data).eq('id', id);
+                    if (error) throw error;
                     showToast('Fasilitas berhasil diperbarui!');
                 } else {
-                    data.created_at = new Date().toISOString();
-                    await addDoc(collection(db, "facilities"), data);
+                    const { error } = await supabase.from('facilities').insert([data]);
+                    if (error) throw error;
                     showToast('Fasilitas baru berhasil ditambahkan!');
                 }
                 closeModals();
+                fetchFacilities();
             } catch (err) {
                 console.error(err);
                 showToast('Gagal menyimpan fasilitas: ' + err.message, 'error');
@@ -1103,15 +1180,53 @@
         window.deleteFacility = async function(id, name) {
             if (confirm(`Hapus fasilitas "${name}"?`)) {
                 try {
-                    await deleteDoc(doc(db, "facilities", id));
+                    const { error } = await supabase.from('facilities').delete().eq('id', id);
+                    if (error) throw error;
                     showToast('Fasilitas berhasil dihapus.');
+                    fetchFacilities();
                 } catch (err) {
                     showToast('Gagal menghapus: ' + err.message, 'error');
                 }
             }
         };
 
-        // ================= POSTS / NEWS CRUD =================
+        // ================= 4. POSTS / NEWS =================
+        async function fetchPosts() {
+            try {
+                const { data, error } = await supabase
+                    .from('posts')
+                    .select('*')
+                    .order('published_at', { ascending: false });
+
+                if (error) throw error;
+                postsList = data || [];
+                document.getElementById('stat-posts').innerText = postsList.length;
+                renderPostsTable(postsList);
+                renderRecentPosts(postsList);
+            } catch (err) {
+                console.warn('Error fetching posts:', err);
+            }
+        }
+
+        function renderRecentPosts(posts) {
+            const container = document.getElementById('dash-recent-posts');
+            if (!posts.length) {
+                container.innerHTML = '<p class="text-xs text-primary-200 text-center py-4">Belum ada berita dibuat.</p>';
+                return;
+            }
+            container.innerHTML = posts.slice(0, 3).map(p => `
+                <div class="p-3 bg-[#9e6f54] rounded-xl border border-[#835841] flex items-center justify-between gap-3">
+                    <div class="min-w-0">
+                        <div class="font-bold text-white text-xs truncate">${p.title}</div>
+                        <div class="text-[10px] text-primary-200 mt-0.5">${p.published_at ? new Date(p.published_at).toLocaleDateString('id-ID') : '-'} &bull; <span class="text-primary font-semibold">${p.category}</span></div>
+                    </div>
+                    <span class="px-2 py-0.5 rounded text-[9px] font-extrabold shrink-0 ${p.is_published ? 'bg-emerald-600 text-white' : 'bg-slate-700 text-slate-300'}">
+                        ${p.is_published ? 'Terbit' : 'Draft'}
+                    </span>
+                </div>
+            `).join('');
+        }
+
         function renderPostsTable(posts) {
             const tbody = document.getElementById('posts-table-body');
             if (!posts.length) {
@@ -1191,16 +1306,18 @@
                 };
 
                 if (id) {
-                    await updateDoc(doc(db, "posts", id), data);
+                    const { error } = await supabase.from('posts').update(data).eq('id', id);
+                    if (error) throw error;
                     showToast('Berita berhasil diperbarui!');
                 } else {
                     data.slug = slug;
                     data.published_at = new Date().toISOString();
-                    data.created_at = new Date().toISOString();
-                    await addDoc(collection(db, "posts"), data);
+                    const { error } = await supabase.from('posts').insert([data]);
+                    if (error) throw error;
                     showToast('Berita baru berhasil diterbitkan!');
                 }
                 closeModals();
+                fetchPosts();
             } catch (err) {
                 console.error(err);
                 showToast('Gagal menyimpan berita: ' + err.message, 'error');
@@ -1213,15 +1330,33 @@
         window.deletePost = async function(id, title) {
             if (confirm(`Hapus berita "${title}"?`)) {
                 try {
-                    await deleteDoc(doc(db, "posts", id));
+                    const { error } = await supabase.from('posts').delete().eq('id', id);
+                    if (error) throw error;
                     showToast('Berita telah dihapus.');
+                    fetchPosts();
                 } catch (err) {
                     showToast('Gagal menghapus: ' + err.message, 'error');
                 }
             }
         };
 
-        // ================= GALLERY CRUD =================
+        // ================= 5. GALLERY =================
+        async function fetchGallery() {
+            try {
+                const { data, error } = await supabase
+                    .from('gallery')
+                    .select('*')
+                    .order('created_at', { ascending: false });
+
+                if (error) throw error;
+                galleryList = data || [];
+                document.getElementById('stat-gallery').innerText = galleryList.length;
+                renderGalleryGrid(galleryList);
+            } catch (err) {
+                console.warn('Error fetching gallery:', err);
+            }
+        }
+
         function renderGalleryGrid(galleries) {
             const grid = document.getElementById('gallery-grid');
             if (!galleries.length) {
@@ -1272,13 +1407,14 @@
                 const data = {
                     title: document.getElementById('gallery-title').value.trim(),
                     category: document.getElementById('gallery-category').value,
-                    image: imageUrl,
-                    created_at: new Date().toISOString()
+                    image: imageUrl
                 };
 
-                await addDoc(collection(db, "gallery"), data);
+                const { error } = await supabase.from('gallery').insert([data]);
+                if (error) throw error;
                 showToast('Foto galeri berhasil ditambahkan!');
                 closeModals();
+                fetchGallery();
             } catch (err) {
                 console.error(err);
                 showToast('Gagal menyimpan galeri: ' + err.message, 'error');
@@ -1291,8 +1427,10 @@
         window.deleteGallery = async function(id, title) {
             if (confirm(`Hapus foto galeri "${title}"?`)) {
                 try {
-                    await deleteDoc(doc(db, "gallery", id));
+                    const { error } = await supabase.from('gallery').delete().eq('id', id);
+                    if (error) throw error;
                     showToast('Foto galeri telah dihapus.');
+                    fetchGallery();
                 } catch (err) {
                     showToast('Gagal menghapus: ' + err.message, 'error');
                 }
@@ -1301,55 +1439,41 @@
 
         // ================= ONE-CLICK INITIAL DATA SEED =================
         async function runInitialDataSeed() {
-            if (!confirm('Apakah Anda ingin memuat data default awal (Profil, 12 Guru, Fasilitas, Berita, dan Galeri) ke Cloud Firestore?')) {
+            if (!confirm('Apakah Anda ingin memuat data default awal (Profil, 12 Guru, Fasilitas, Berita, dan Galeri) ke Supabase?')) {
                 return;
             }
 
             const btn = document.getElementById('seed-action-btn') || document.getElementById('quick-seed-btn');
             btn.disabled = true;
-            btn.innerText = 'Memuat Data Awal ke Firestore...';
+            btn.innerText = 'Memuat Data Awal ke Supabase...';
 
             try {
                 // 1. Set Profile
-                await setDoc(doc(db, "profile", "main"), {
+                const { error: profErr } = await supabase.from('profiles').upsert({
                     ...DEFAULT_SCHOOL_DATA.profile,
                     updated_at: new Date().toISOString()
                 });
+                if (profErr) throw profErr;
 
                 // 2. Set Teachers
-                for (const t of DEFAULT_SCHOOL_DATA.teachers) {
-                    await addDoc(collection(db, "teachers"), {
-                        ...t,
-                        created_at: new Date().toISOString()
-                    });
-                }
+                const { error: teachErr } = await supabase.from('teachers').insert(DEFAULT_SCHOOL_DATA.teachers);
+                if (teachErr) throw teachErr;
 
                 // 3. Set Facilities
-                for (const f of DEFAULT_SCHOOL_DATA.facilities) {
-                    await addDoc(collection(db, "facilities"), {
-                        ...f,
-                        created_at: new Date().toISOString()
-                    });
-                }
+                const { error: facErr } = await supabase.from('facilities').insert(DEFAULT_SCHOOL_DATA.facilities);
+                if (facErr) throw facErr;
 
                 // 4. Set Posts
-                for (const p of DEFAULT_SCHOOL_DATA.posts) {
-                    await addDoc(collection(db, "posts"), {
-                        ...p,
-                        created_at: new Date().toISOString()
-                    });
-                }
+                const { error: postErr } = await supabase.from('posts').insert(DEFAULT_SCHOOL_DATA.posts);
+                if (postErr) throw postErr;
 
                 // 5. Set Gallery
-                for (const g of DEFAULT_SCHOOL_DATA.gallery) {
-                    await addDoc(collection(db, "gallery"), {
-                        ...g,
-                        created_at: new Date().toISOString()
-                    });
-                }
+                const { error: galErr } = await supabase.from('gallery').insert(DEFAULT_SCHOOL_DATA.gallery);
+                if (galErr) throw galErr;
 
-                showToast('Semua data default awal berhasil disinkronkan ke Cloud Firestore!');
+                showToast('Semua data default awal berhasil disinkronkan ke Supabase!');
                 document.getElementById('sync-banner').classList.add('hidden');
+                fetchAllData();
             } catch (err) {
                 console.error(err);
                 showToast('Gagal menyinkronkan data: ' + err.message, 'error');
