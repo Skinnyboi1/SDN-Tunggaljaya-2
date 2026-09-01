@@ -1,0 +1,167 @@
+================================================================================
+          PANDUAN LENGKAP PENGGUNAAN PANEL OPERATOR WEBSITE
+                       SD N TUNGGALJAYA 2
+================================================================================
+Kecamatan Sumur, Kabupaten Pandeglang, Banten
+Sistem Manajemen Konten Cloud-Based Terintegrasi Supabase PostgreSQL
+================================================================================
+
+1. PENDAHULUAN & GAMBARAN UMUM SISTEM
+--------------------------------------------------------------------------------
+Website resmi SD N TUNGGALJAYA 2 dirancang menggunakan arsitektur Jamstack/Serverless modern yang menggabungkan GitHub Pages sebagai hosting statis dan Supabase Cloud sebagai backend database (PostgreSQL), autentikasi keamanan, dan penyimpanan media foto (Storage).
+
+Setiap perubahan data yang dilakukan oleh Operator di Panel Operator akan secara otomatis tersimpan di database Supabase dan terpancar secara LIVE (Real-time Sync) ke halaman website utama yang diakses oleh masyarakat umum, wali murid, dan siswa.
+
+Keunggulan Sistem Bagi Operator:
+- 100% Bebas Biaya Hosting & Server (Tanpa perlu sewa VPS/Laragon lokal).
+- Kompresi Gambar Otomatis (Foto dari HP ukuran 10MB otomatis diperkecil hingga ~50KB sehingga cepat dibuka).
+- Realtime Live Sync (Perubahan data langsung tampil tanpa perlu reload website utama).
+- Tampilan Responsif (Dapat diakses lewat Komputer, Tablet, maupun HP).
+
+
+2. AKSES KE WEBSITE & PANEL OPERATOR
+--------------------------------------------------------------------------------
+Berikut adalah alamat URL resmi untuk mengakses sistem:
+
++----------------------+-------------------------------------------------------+
+| Halaman              | URL Akses                                             |
++----------------------+-------------------------------------------------------+
+| Website Utama        | https://skinnyboi1.github.io/SDN-Tunggaljaya-2/       |
+| Login Operator       | https://skinnyboi1.github.io/SDN-Tunggaljaya-2/login.html |
+| Panel Dashboard      | https://skinnyboi1.github.io/SDN-Tunggaljaya-2/operator.html |
+| Pusat Berita & PPDB  | https://skinnyboi1.github.io/SDN-Tunggaljaya-2/berita.html |
++----------------------+-------------------------------------------------------+
+
+
+3. PROSES LOGIN OPERATOR
+--------------------------------------------------------------------------------
+Langkah-langkah Masuk ke Panel Operator:
+1. Buka browser (Google Chrome, Edge, atau Safari).
+2. Akses alamat: login.html
+3. Masukkan Akun Operator Resmi:
+   - Email    : operator.tunggaljaya2@gmail.com
+   - Password : Operator123456!
+   (Catatan: Email & Password ini sudah terisi otomatis pada form login)
+4. Klik tombol "Masuk ke Panel Operator".
+5. Dalam 1 detik, Anda akan dialihkan otomatis ke Halaman Dashboard Operator.
+
+Fitur Login Google:
+Anda juga dapat mengklik tombol "Masuk dengan Akun Google" jika email Gmail Anda telah didaftarkan sebagai admin di Supabase Auth.
+
+Cara Logout / Keluar Sesi:
+Untuk menjaga keamanan data, setelah selesai mengelola website, klik tombol "Logout" yang terletak di bagian paling bawah sidebar kiri Panel Operator.
+
+
+4. MENGELOLA PROFIL SEKOLAH
+--------------------------------------------------------------------------------
+Melalui Tab "Profil Sekolah", Operator dapat mengedit identitas dasar dan profil lengkap sekolah.
+
+Data yang Dapat Diubah:
+- Nama Sekolah, NPSN, dan Akreditasi.
+- Sejarah Singkat dan Deskripsi Sekolah.
+- Visi & Misi Sekolah (Misi dapat diisi per poin).
+- Jumlah Statistik (Jumlah Siswa Aktif, Jumlah Guru & Staf, Jumlah Rombel).
+- Kontak (Alamat Lengkap, Nomor Telepon, Email Resmi).
+- Embed Link Google Maps (Untuk menampilkan peta lokasi sekolah di website).
+
+Cara Memperbarui Profil:
+1. Masuk ke Tab "Profil Sekolah" pada menu sidebar kiri.
+2. Edit teks atau angka pada kolom yang tersedia.
+3. Untuk kolom Misi Sekolah, tuliskan per baris (tekan Enter untuk poin baru).
+4. Klik tombol "Simpan Perubahan Profil".
+5. Pesan konfirmasi hijau akan muncul dan data di website utama langsung terupdate.
+
+
+5. MENGELOLA DATA GURU & STAF TENAGA KEPENDIDIKAN
+--------------------------------------------------------------------------------
+Tab "Guru & Tenaga Kerja" digunakan untuk menambah, mengedit, mengurutkan, dan menghapus data guru serta staf TU.
+
+Cara Menambah Guru Baru:
+1. Masuk ke Tab "Guru & Tenaga Kerja".
+2. Klik tombol "+ Tambah Guru Baru".
+3. Pada jendela modal yang muncul, isi data:
+   - Nama Lengkap & Gelar (Contoh: ADE SUMARNA, S.Pd.)
+   - NIP (Isi '-' jika belum memiliki NIP)
+   - Jabatan (Contoh: Guru Kelas I, Guru PJOK, Bendahara & Staf TU)
+   - Urutan Tampil (Angka 1, 2, 3... untuk mengatur siapa yang tampil paling atas)
+   - Foto Guru (Pilih file foto dari komputer/HP Anda)
+4. Klik "Simpan Data Guru".
+5. Sistem akan mengompres foto secara otomatis dan menyimpannya ke Supabase Storage.
+
+Cara Mengedit Data Guru:
+1. Klik tombol "Edit" (ikon pensil) pada kartu nama guru yang ingin diubah.
+2. Ubah data yang diperlukan (bisa mengganti foto atau tetap menggunakan foto lama).
+3. Klik "Simpan Perubahan".
+
+Cara Menghapus Data Guru:
+1. Klik tombol "Hapus" (ikon tempat sampah) pada kartu guru yang bersangkutan.
+2. Konfirmasi penghapusan saat muncul pesan peringatan.
+
+
+6. MENGELOLA FASILITAS SEKOLAH
+--------------------------------------------------------------------------------
+Tab "Fasilitas Sekolah" digunakan untuk menampilkan sarana prasarana penunjang belajar seperti Laboratorium Komputer, Perpustakaan Digital, Ruang Kelas Multimedia, Lapangan Olahraga, Kantin Sehat, dan Ruang UKS.
+
+Cara Menambah Fasilitas Baru:
+1. Klik Tab "Fasilitas Sekolah" -> klik tombol "+ Tambah Fasilitas".
+2. Isi Nama Fasilitas (Contoh: Laboratorium Komputer & TIK).
+3. Isi Deskripsi Singkat penunjang fasilitas tersebut.
+4. Pilih Ikon FontAwesome (Contoh: fa-desktop, fa-book-open-reader, fa-futbol).
+5. Unggah foto fasilitas atau gunakan URL gambar.
+6. Klik "Simpan Fasilitas".
+
+
+7. MENGELOLA BERITA, PENGUMUMAN & PPDB
+--------------------------------------------------------------------------------
+Tab "Berita & PPDB" digunakan untuk merilis artikel kegiatan sekolah, pengumuman resmi, berita prestasi, serta petunjuk Pendaftaran Peserta Didik Baru (PPDB).
+
+Cara Mempublikasikan Berita / Pengumuman PPDB:
+1. Masuk ke Tab "Berita & PPDB".
+2. Klik tombol "+ Tulis Berita / PPDB Baru".
+3. Isi Form Berita:
+   - Judul Berita (Contoh: Penerimaan Peserta Didik Baru TA 2026/2027)
+   - Slug URL (Terisi otomatis dari judul, contoh: ppdb-sdn-tunggaljaya-2-2026)
+   - Kategori (Pilih: Pengumuman, Prestasi, atau Berita)
+   - Ringkasan Singkat (Muncul sebagai cuplikan awal pada kartu berita)
+   - Isi Konten Berita (Dapat berupa teks panjang, daftar paragraf, dan instruksi)
+   - Sampul Gambar Berita (Unggah foto dari HP/Laptop)
+   - Status Publikasi (Centang "Tampilkan di Website" agar langsung publik)
+4. Klik "Simpan & Publikasikan".
+
+
+8. MENGELOLA GALERI DOKUMENTASI KEGIATAN
+--------------------------------------------------------------------------------
+Tab "Galeri Dokumentasi" menampilkan album foto momen-momen berharga sekolah (Upacara bendera, perlombaan, ekstrakurikuler, pameran seni, kerja bakti).
+
+Cara Menambah Foto Galeri:
+1. Masuk ke Tab "Galeri Dokumentasi".
+2. Klik tombol "+ Tambah Foto Galeri".
+3. Isi Judul Foto (Contoh: Kegiatan Upacara Bendera Hari Senin)
+4. Pilih Kategori (Contoh: Upacara, Kegiatan, Prestasi, Fasilitas)
+5. Unggah file gambar foto dari galeri Anda.
+6. Klik "Simpan Foto Galeri".
+
+
+9. FITUR SINKRONISASI DATA AWAL (1-KLIK INITIAL SEED)
+--------------------------------------------------------------------------------
+Jika database Supabase Anda dalam keadaan kosong atau baru di-reset, Operator dapat memanfaatkan fitur "1-Klik Sinkron Data Awal":
+
+1. Di halaman Dashboard Operator, cari tombol berwarna emas "🚀 Muat Data Bawaan Sekarang".
+2. Klik tombol tersebut 1 kali.
+3. Dalam 2 detik, sistem akan secara otomatis mengisi seluruh 5 tabel database (Profil lengkap, 12 foto guru, 6 fasilitas, 3 berita utama, dan 6 foto galeri).
+
+
+10. TROUBLESHOOTING & PENANGANAN MASALAH FREKUENTIF
+--------------------------------------------------------------------------------
+Masalah 1: "Saya tidak bisa login / Muncul pesan Invalid Credentials"
+- Solusi: Pastikan email dan password terisi tepat: operator.tunggaljaya2@gmail.com dan Operator123456!
+
+Masalah 2: "Gambar yang saya upload tidak tampil di website utama"
+- Solusi: Pastikan format gambar berupa .JPG, .JPEG, .PNG, atau .WEBP. Jika mengupload file dari iPhone berformat .HEIC, sistem akan mengompresnya otomatis, namun disarankan menyimpan gambar dalam format JPG standar.
+
+Masalah 3: "Perubahan yang saya buat di Operator tidak muncul di HP pengunjung"
+- Solusi: Lakukan refresh/clear cache pada browser pengunjung dengan cara swipe down di HP atau tekan Ctrl + Shift + R di komputer browser.
+
+================================================================================
+            PANDUAN SELESAI - DIBUAT UNTUK OPERATOR SD N TUNGGALJAYA 2
+================================================================================
