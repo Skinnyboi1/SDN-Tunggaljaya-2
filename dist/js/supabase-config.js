@@ -151,7 +151,7 @@ export const DEFAULT_SCHOOL_DATA = {
             category: "Pengumuman",
             excerpt: "SDN Tunggaljaya 2 resmi membuka pendaftaran peserta didik baru (PPDB) untuk tahun ajaran 2026/2027. Simak syarat dan tata cara pendaftarannya di sini.",
             content: "<p>SDN Tunggaljaya 2 resmi membuka <strong>Penerimaan Peserta Didik Baru (PPDB) Tahun Ajaran 2026/2027</strong>. Pendaftaran dapat dilakukan secara online melalui website ini atau langsung datang ke sekretariat PPDB sekolah.</p><h3>Persyaratan Pendaftaran:</h3><ul><li>Akte Kelahiran (Fotokopi)</li><li>Kartu Keluarga / KK (Fotokopi)</li><li>Pasfoto Ukuran 3x4 (3 Lembar)</li><li>Usia Minimal 6 Tahun per 1 Juli 2026</li></ul><p>Mari bergabung menjadi bagian dari keluarga besar SDN Tunggaljaya 2!</p>",
-            image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&auto=format&fit=crop",
+            image: "./images/IMG_2308.jpg",
             is_published: true,
             published_at: "2026-08-22T21:36:00Z"
         },
@@ -177,8 +177,8 @@ export const DEFAULT_SCHOOL_DATA = {
         }
     ],
     gallery: [
-        { title: "Kegiatan Upacara Bendera Hari Senin", category: "Kegiatan", image: "https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?q=80&w=600&auto=format&fit=crop" },
-        { title: "Praktek Sains di Laboratorium Komputer", category: "Fasilitas", image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=600&auto=format&fit=crop" },
+        { title: "Kegiatan Upacara Bendera Hari Senin", category: "Upacara", image: "./images/upacara_bendera.jpg" },
+        { title: "Lomba Baris - Berbaris Tingkat Kelurahan", category: "Kegiatan", image: "./images/IMG_1162.jpg" },
         { title: "Latihan Rutin Pramuka Penggalang", category: "Kegiatan", image: "https://images.unsplash.com/photo-1526976668912-1a811878dd37?q=80&w=600&auto=format&fit=crop" },
         { title: "Pentas Seni & Kreasi Siswa Akhir Tahun", category: "Prestasi", image: "https://images.unsplash.com/photo-1460518451285-97b6aa326961?q=80&w=600&auto=format&fit=crop" },
         { title: "Lomba Olahraga Sepakbola Antar Kelas", category: "Kegiatan", image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=600&auto=format&fit=crop" },
