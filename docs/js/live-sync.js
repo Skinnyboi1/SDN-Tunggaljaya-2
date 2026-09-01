@@ -1,7 +1,7 @@
 import { supabase } from "./supabase-config.js";
 
-// Initialize Real-time Hydration for Website via Supabase
-export async function initLiveWebsite() {
+// Initialize Fast Non-blocking Real-time Hydration for Website via Supabase
+export function initLiveWebsite() {
     // 1. Live School Profile
     async function loadProfile() {
         try {
@@ -119,7 +119,7 @@ export async function initLiveWebsite() {
                                 <h3 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
                                     <i class="fa-solid ${f.icon || 'fa-building-circle-check'} text-primary"></i> ${f.name}
                                 </h3>
-                                <p class="text-xs text-primary-100 leading-relaxed">${f.description || ''}</p>
+                                <p class="text-xs text-[#fdfbf9] leading-relaxed">${f.description || ''}</p>
                             </div>
                         </div>
                     </div>
@@ -205,16 +205,16 @@ export async function initLiveWebsite() {
         }
     }
 
-    // Run Initial Load
-    await Promise.allSettled([
-        loadProfile(),
-        loadTeachers(),
-        loadFacilities(),
-        loadPosts(),
-        loadGallery()
-    ]);
+    // Non-blocking async load (Executes in background immediately)
+    setTimeout(() => {
+        loadProfile();
+        loadTeachers();
+        loadFacilities();
+        loadPosts();
+        loadGallery();
+    }, 0);
 
-    // Setup Supabase Realtime Listener
+    // Setup Non-blocking Supabase Realtime Listener
     try {
         supabase.channel('public_live_updates')
             .on('postgres_changes', { event: '*', schema: 'public', table: 'profiles' }, () => loadProfile())

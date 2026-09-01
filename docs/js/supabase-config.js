@@ -1,27 +1,12 @@
 // Supabase JS Client v2 Module (ESM CDN)
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 
-// Default Supabase Configuration (URL + Public Anon Key)
+// Active Supabase Project Credentials
 export const DEFAULT_SUPABASE_URL = "https://bjnzqebhjkjusdzjavpv.supabase.co";
-export const DEFAULT_SUPABASE_KEY = "YOUR_SUPABASE_ANON_KEY";
-
-// Get active configuration (LocalStorage or defaults)
-export function getSupabaseCredentials() {
-    const url = localStorage.getItem('supabase_project_url') || DEFAULT_SUPABASE_URL;
-    const key = localStorage.getItem('supabase_api_key') || DEFAULT_SUPABASE_KEY;
-    return { url, key };
-}
-
-// Save custom credentials dynamically
-export function saveSupabaseCredentials(url, key) {
-    if (url) localStorage.setItem('supabase_project_url', url.trim());
-    if (key) localStorage.setItem('supabase_api_key', key.trim());
-    window.location.reload();
-}
+export const DEFAULT_SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJqbnpxZWJoamtqdXNkemphdnB2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgyMzA3NDUsImV4cCI6MjEwMzgwNjc0NX0.JtpQmnz1mM4qiks9p5gDLiCXvZ0wFckk2sKGiXL0_0s";
 
 // Initialize Supabase Client
-const creds = getSupabaseCredentials();
-export const supabase = createClient(creds.url, creds.key, {
+export const supabase = createClient(DEFAULT_SUPABASE_URL, DEFAULT_SUPABASE_KEY, {
     auth: {
         persistSession: true,
         autoRefreshToken: true,
