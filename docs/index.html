@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil SDN Tunggaljaya 2 - Sekolah Dasar Unggul Sumur Pandeglang</title>
-    <meta name="description" content="Website Resmi SDN Tunggaljaya 2 Sumur Pandeglang Banten. Informasi Profil Sekolah, Visi Misi, Guru & Staf, Fasilitas, Berita, PPDB dan Galeri Kegiatan.">
-    
+    <meta name="description"
+        content="Website Resmi SDN Tunggaljaya 2 Sumur Pandeglang Banten. Informasi Profil Sekolah, Visi Misi, Guru & Staf, Fasilitas, Berita, PPDB dan Galeri Kegiatan.">
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="./images/logo.png">
 
     <!-- Google Fonts: Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
     <!-- FontAwesome 6 Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+
     <!-- Tailwind CSS v4 CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -60,23 +63,27 @@
             }
         }
     </script>
-    
+
     <style>
         body {
             background-color: #f1d7c6;
             color: #3b2116;
         }
+
         .flat-nav {
             background-color: #b68a70;
         }
+
         .card-flat {
             background-color: #b68a70;
             border: 1px solid #9e6f54;
             color: #ffffff;
         }
+
         .card-flat-hover {
             transition: all 0.2s ease-in-out;
         }
+
         .card-flat-hover:hover {
             border-color: #f1d7c6;
             transform: translateY(-4px);
@@ -102,27 +109,34 @@
         const analytics = getAnalytics(app);
     </script>
 </head>
+
 <body class="bg-primary text-slate-900 font-sans antialiased flex flex-col min-h-screen">
 
     <!-- TOP BAR INFO & ROLE SWITCHER -->
     <div class="bg-[#9e6f54] text-[#fdfbf9] text-xs py-2 px-4 border-b border-[#835841]">
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
-            <div class="flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-1 font-medium text-[11px] sm:text-xs">
-                <span class="flex items-center gap-1.5"><i class="fa-solid fa-graduation-cap text-primary"></i> NPSN: 20600476</span>
-                <span class="flex items-center gap-1.5"><i class="fa-solid fa-certificate text-primary"></i> Akreditasi: B</span>
-                <span class="hidden lg:flex items-center gap-1.5"><i class="fa-solid fa-envelope text-primary/80"></i> sdntunggaljaya2@gmail.com</span>
+            <div
+                class="flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-1 font-medium text-[11px] sm:text-xs">
+                <span class="flex items-center gap-1.5"><i class="fa-solid fa-graduation-cap text-primary"></i> NPSN:
+                    20600476</span>
+                <span class="flex items-center gap-1.5"><i class="fa-solid fa-certificate text-primary"></i> Akreditasi:
+                    B</span>
+                <span class="hidden lg:flex items-center gap-1.5"><i class="fa-solid fa-envelope text-primary/80"></i>
+                    sdntunggaljaya2@gmail.com</span>
             </div>
-            
-            <div class="flex items-center gap-2.5">
-                <span class="px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-bold bg-[#835841] text-primary border border-[#6c4837]">
-                    <i class="fa-solid fa-user-tag mr-1 text-primary"></i> Role: 
-                                            <strong class="text-white">GUEST</strong>
-                                    </span>
 
-                                    <a href="login.html" class="text-white hover:text-primary font-bold transition flex items-center gap-1 text-[11px] sm:text-xs">
-                        <i class="fa-solid fa-lock text-primary"></i> Login Operator
-                    </a>
-                            </div>
+            <div class="flex items-center gap-2.5">
+                <span
+                    class="px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-bold bg-[#835841] text-primary border border-[#6c4837]">
+                    <i class="fa-solid fa-user-tag mr-1 text-primary"></i> Role:
+                    <strong class="text-white">GUEST</strong>
+                </span>
+
+                <a href="login.html"
+                    class="text-white hover:text-primary font-bold transition flex items-center gap-1 text-[11px] sm:text-xs">
+                    <i class="fa-solid fa-lock text-primary"></i> Login Operator
+                </a>
+            </div>
         </div>
     </div>
 
@@ -130,32 +144,46 @@
     <header class="sticky top-0 z-50 flat-nav border-b border-[#9e6f54] shadow-md text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16 sm:h-20">
-                
+
                 <!-- Logo & Brand Name -->
                 <a href="./" class="flex items-center gap-2.5 sm:gap-3 group">
-                    <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-primary flex items-center justify-center p-1 shadow-md border border-primary-200 group-hover:scale-105 transition transform shrink-0">
+                    <div
+                        class="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-primary flex items-center justify-center p-1 shadow-md border border-primary-200 group-hover:scale-105 transition transform shrink-0">
                         <img src="./images/logo.png" alt="Logo SD N TUNGGALJAYA 2" class="w-full h-full object-contain">
                     </div>
                     <div>
-                        <div class="text-base sm:text-lg font-extrabold tracking-tight text-white group-hover:text-primary transition leading-tight">SD N TUNGGALJAYA 2</div>
-                        <div class="text-[10px] sm:text-xs text-primary-200 font-medium tracking-wide">Kec. Sumur, Kab. Pandeglang</div>
+                        <div
+                            class="text-base sm:text-lg font-extrabold tracking-tight text-white group-hover:text-primary transition leading-tight">
+                            SD N TUNGGALJAYA 2</div>
+                        <div class="text-[10px] sm:text-xs text-primary-200 font-medium tracking-wide">Kec. Sumur, Kab.
+                            Pandeglang</div>
                     </div>
                 </a>
 
                 <!-- Desktop Navigation Links -->
                 <nav class="hidden md:flex items-center gap-1 font-semibold text-sm">
-                    <a href="#beranda" class="px-3 py-2 rounded-lg text-white/90 hover:text-white hover:bg-[#9e6f54] transition">Beranda</a>
-                    <a href="#visimisi" class="px-3 py-2 rounded-lg text-white/90 hover:text-white hover:bg-[#9e6f54] transition">Visi & Misi</a>
-                    <a href="#guru" class="px-3 py-2 rounded-lg text-white/90 hover:text-white hover:bg-[#9e6f54] transition">Guru & Staf</a>
-                    <a href="#fasilitas" class="px-3 py-2 rounded-lg text-white/90 hover:text-white hover:bg-[#9e6f54] transition">Fasilitas</a>
-                    <a href="#berita" class="px-3 py-2 rounded-lg text-white/90 hover:text-white hover:bg-[#9e6f54] transition">Berita</a>
-                    <a href="#galeri" class="px-3 py-2 rounded-lg text-white/90 hover:text-white hover:bg-[#9e6f54] transition">Galeri</a>
-                    <a href="#kontak" class="px-3 py-2 rounded-lg text-white/90 hover:text-white hover:bg-[#9e6f54] transition">Kontak</a>
+                    <a href="#beranda"
+                        class="px-3 py-2 rounded-lg text-white/90 hover:text-white hover:bg-[#9e6f54] transition">Beranda</a>
+                    <a href="#visimisi"
+                        class="px-3 py-2 rounded-lg text-white/90 hover:text-white hover:bg-[#9e6f54] transition">Visi &
+                        Misi</a>
+                    <a href="#guru"
+                        class="px-3 py-2 rounded-lg text-white/90 hover:text-white hover:bg-[#9e6f54] transition">Guru &
+                        Staf</a>
+                    <a href="#fasilitas"
+                        class="px-3 py-2 rounded-lg text-white/90 hover:text-white hover:bg-[#9e6f54] transition">Fasilitas</a>
+                    <a href="#berita"
+                        class="px-3 py-2 rounded-lg text-white/90 hover:text-white hover:bg-[#9e6f54] transition">Berita</a>
+                    <a href="#galeri"
+                        class="px-3 py-2 rounded-lg text-white/90 hover:text-white hover:bg-[#9e6f54] transition">Galeri</a>
+                    <a href="#kontak"
+                        class="px-3 py-2 rounded-lg text-white/90 hover:text-white hover:bg-[#9e6f54] transition">Kontak</a>
                 </nav>
 
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden">
-                    <button id="mobile-menu-btn" aria-label="Toggle Navigation Menu" class="p-2 rounded-xl bg-[#9e6f54] text-white hover:bg-[#835841] focus:outline-none border border-[#835841]">
+                    <button id="mobile-menu-btn" aria-label="Toggle Navigation Menu"
+                        class="p-2 rounded-xl bg-[#9e6f54] text-white hover:bg-[#835841] focus:outline-none border border-[#835841]">
                         <i class="fa-solid fa-bars text-lg"></i>
                     </button>
                 </div>
@@ -164,720 +192,872 @@
 
         <!-- Mobile Navigation Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-[#b68a70] border-b border-[#835841] px-4 pt-2 pb-4 space-y-1">
-            <a href="#beranda" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-white hover:bg-[#9e6f54] active:bg-[#835841]">Beranda</a>
-            <a href="#visimisi" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-white hover:bg-[#9e6f54] active:bg-[#835841]">Visi & Misi</a>
-            <a href="#guru" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-white hover:bg-[#9e6f54] active:bg-[#835841]">Guru & Staf</a>
-            <a href="#fasilitas" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-white hover:bg-[#9e6f54] active:bg-[#835841]">Fasilitas</a>
-            <a href="#berita" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-white hover:bg-[#9e6f54] active:bg-[#835841]">Berita</a>
-            <a href="#galeri" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-white hover:bg-[#9e6f54] active:bg-[#835841]">Galeri</a>
-            <a href="#kontak" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-white hover:bg-[#9e6f54] active:bg-[#835841]">Kontak</a>
+            <a href="#beranda"
+                class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-white hover:bg-[#9e6f54] active:bg-[#835841]">Beranda</a>
+            <a href="#visimisi"
+                class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-white hover:bg-[#9e6f54] active:bg-[#835841]">Visi
+                & Misi</a>
+            <a href="#guru"
+                class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-white hover:bg-[#9e6f54] active:bg-[#835841]">Guru
+                & Staf</a>
+            <a href="#fasilitas"
+                class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-white hover:bg-[#9e6f54] active:bg-[#835841]">Fasilitas</a>
+            <a href="#berita"
+                class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-white hover:bg-[#9e6f54] active:bg-[#835841]">Berita</a>
+            <a href="#galeri"
+                class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-white hover:bg-[#9e6f54] active:bg-[#835841]">Galeri</a>
+            <a href="#kontak"
+                class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-white hover:bg-[#9e6f54] active:bg-[#835841]">Kontak</a>
         </div>
     </header>
 
     <!-- CONTENT ALERTS -->
-    
-    
+
+
     <!-- MAIN BODY SECTION -->
     <main class="flex-grow min-w-0">
-        
-<!-- 1. HERO SECTION -->
-<section id="beranda" class="bg-primary text-slate-900 py-12 sm:py-20 lg:py-28 border-b border-[#e4bca2]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
-            <!-- Left Info -->
-            <div class="lg:col-span-7 space-y-4 sm:space-y-6 text-center lg:text-left">
-                <div class="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1.5 rounded-lg bg-secondary text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider shadow-sm border border-[#9e6f54]">
-                    <i class="fa-solid fa-award text-primary"></i> Sekolah Dasar Penggerak & Berakreditasi B
-                </div>
-                
-                <h1 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                    Membentuk Generasi <span class="text-secondary">Cerdas, Berkarakter & Inovatif</span>
-                </h1>
-                
-                <p class="text-sm sm:text-base text-[#6d4330] max-w-2xl leading-relaxed font-medium mx-auto lg:mx-0">
-                    Selamat datang di <span class="live-school-name">SD N TUNGGALJAYA 2</span>. Kami menghadirkan lingkungan belajar yang aman, menyenangkan, berteknologi modern, dan kaya prestasi bagi tumbuh kembang putra-putri Anda.
-                </p>
 
-                <!-- CTA Buttons -->
-                <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2">
-                    <a href="#berita" class="px-6 py-3.5 rounded-xl bg-secondary hover:bg-secondary-600 text-white font-extrabold text-sm shadow-md transition flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-bullhorn text-primary"></i> Info PPDB & Berita
-                    </a>
-                    <a href="#visimisi" class="px-6 py-3.5 rounded-xl bg-[#3b2116] hover:bg-[#2a170f] text-primary font-bold text-sm transition flex items-center justify-center gap-2 shadow-sm">
-                        <i class="fa-solid fa-compass text-secondary"></i> Jelajahi Visi Misi
-                    </a>
-                </div>
+        <!-- 1. HERO SECTION -->
+        <section id="beranda" class="bg-primary text-slate-900 py-12 sm:py-20 lg:py-28 border-b border-[#e4bca2]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
-                <!-- QUICK STATS COUNTERS -->
-                <div class="grid grid-cols-3 gap-2 sm:gap-4 pt-6 sm:pt-8 border-t border-[#e4bca2] max-w-lg mx-auto lg:mx-0">
-                    <div class="bg-secondary p-3 sm:p-4 rounded-xl border border-[#9e6f54] shadow-sm text-center">
-                        <div class="text-xl sm:text-2xl font-extrabold text-white live-school-students">384 Siswa</div>
-                        <div class="text-[10px] sm:text-xs text-primary font-semibold mt-1">Siswa Aktif</div>
-                    </div>
-                    <div class="bg-secondary p-3 sm:p-4 rounded-xl border border-[#9e6f54] shadow-sm text-center">
-                        <div class="text-xl sm:text-2xl font-extrabold text-white live-school-teachers">12 Guru</div>
-                        <div class="text-[10px] sm:text-xs text-primary font-semibold mt-1">Guru & Staf</div>
-                    </div>
-                    <div class="bg-secondary p-3 sm:p-4 rounded-xl border border-[#9e6f54] shadow-sm text-center">
-                        <div class="text-xl sm:text-2xl font-extrabold text-white live-school-classes">12 Rombel</div>
-                        <div class="text-[10px] sm:text-xs text-primary font-semibold mt-1">Rombel</div>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Right Visual Banner Card -->
-            <div class="lg:col-span-5 flex justify-center">
-                <div class="w-full max-w-md bg-secondary rounded-2xl overflow-hidden border border-[#9e6f54] shadow-xl text-white">
-                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&auto=format&fit=crop" 
-                         alt="Gedung SDN Tunggaljaya 2" 
-                         class="w-full h-48 sm:h-64 object-cover">
-                    
-                    <div class="p-5 sm:p-6 space-y-3">
-                        <div class="flex items-center justify-between text-[11px] sm:text-xs text-primary font-bold uppercase">
-                            <span><i class="fa-solid fa-location-dot"></i> Sumur, Pandeglang</span>
-                            <span><i class="fa-solid fa-shield-check"></i> Terakreditasi B</span>
+                    <!-- Left Info -->
+                    <div class="lg:col-span-7 space-y-4 sm:space-y-6 text-center lg:text-left">
+                        <div
+                            class="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1.5 rounded-lg bg-secondary text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider shadow-sm border border-[#9e6f54]">
+                            <i class="fa-solid fa-award text-primary"></i> Sekolah Dasar Penggerak & Berakreditasi B
                         </div>
-                        <h3 class="text-base sm:text-lg font-bold text-white">
-                            SD Negeri Tunggaljaya 2
-                        </h3>
-                        <p class="text-xs text-primary-100 leading-relaxed font-medium">
-                            Sekolah ramah anak dengan fasilitas laboratorium komputer, perpustakaan digital, dan pembinaan karakter berbasis nilai luhur.
+
+                        <h1
+                            class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                            Membentuk Generasi <span class="text-secondary">Cerdas, Berkarakter & Inovatif</span>
+                        </h1>
+
+                        <p
+                            class="text-sm sm:text-base text-[#6d4330] max-w-2xl leading-relaxed font-medium mx-auto lg:mx-0">
+                            Selamat datang di <span class="live-school-name">SD N TUNGGALJAYA 2</span>. Kami
+                            menghadirkan lingkungan belajar yang aman, menyenangkan, berteknologi modern, dan kaya
+                            prestasi bagi tumbuh kembang putra-putri Anda.
                         </p>
+
+                        <!-- CTA Buttons -->
+                        <div
+                            class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2">
+                            <a href="#berita"
+                                class="px-6 py-3.5 rounded-xl bg-secondary hover:bg-secondary-600 text-white font-extrabold text-sm shadow-md transition flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-bullhorn text-primary"></i> Info PPDB & Berita
+                            </a>
+                            <a href="#visimisi"
+                                class="px-6 py-3.5 rounded-xl bg-[#3b2116] hover:bg-[#2a170f] text-primary font-bold text-sm transition flex items-center justify-center gap-2 shadow-sm">
+                                <i class="fa-solid fa-compass text-secondary"></i> Jelajahi Visi Misi
+                            </a>
+                        </div>
+
+                        <!-- QUICK STATS COUNTERS -->
+                        <div
+                            class="grid grid-cols-3 gap-2 sm:gap-4 pt-6 sm:pt-8 border-t border-[#e4bca2] max-w-lg mx-auto lg:mx-0">
+                            <div
+                                class="bg-secondary p-3 sm:p-4 rounded-xl border border-[#9e6f54] shadow-sm text-center">
+                                <div class="text-xl sm:text-2xl font-extrabold text-white live-school-students">384
+                                    Siswa</div>
+                                <div class="text-[10px] sm:text-xs text-primary font-semibold mt-1">Siswa Aktif</div>
+                            </div>
+                            <div
+                                class="bg-secondary p-3 sm:p-4 rounded-xl border border-[#9e6f54] shadow-sm text-center">
+                                <div class="text-xl sm:text-2xl font-extrabold text-white live-school-teachers">12 Guru
+                                </div>
+                                <div class="text-[10px] sm:text-xs text-primary font-semibold mt-1">Guru & Staf</div>
+                            </div>
+                            <div
+                                class="bg-secondary p-3 sm:p-4 rounded-xl border border-[#9e6f54] shadow-sm text-center">
+                                <div class="text-xl sm:text-2xl font-extrabold text-white live-school-classes">12 Rombel
+                                </div>
+                                <div class="text-[10px] sm:text-xs text-primary font-semibold mt-1">Rombel</div>
+                            </div>
+                        </div>
+
                     </div>
+
+                    <!-- Right Visual Banner Card -->
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div
+                            class="w-full max-w-md bg-secondary rounded-2xl overflow-hidden border border-[#9e6f54] shadow-xl text-white">
+                            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&auto=format&fit=crop"
+                                alt="Gedung SDN Tunggaljaya 2" class="w-full h-48 sm:h-64 object-cover">
+
+                            <div class="p-5 sm:p-6 space-y-3">
+                                <div
+                                    class="flex items-center justify-between text-[11px] sm:text-xs text-primary font-bold uppercase">
+                                    <span><i class="fa-solid fa-location-dot"></i> Sumur, Pandeglang</span>
+                                    <span><i class="fa-solid fa-shield-check"></i> Terakreditasi B</span>
+                                </div>
+                                <h3 class="text-base sm:text-lg font-bold text-white">
+                                    SD Negeri Tunggaljaya 2
+                                </h3>
+                                <p class="text-xs text-primary-100 leading-relaxed font-medium">
+                                    Sekolah ramah anak dengan fasilitas laboratorium komputer, perpustakaan digital, dan
+                                    pembinaan karakter berbasis nilai luhur.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
+        </section>
 
-        </div>
-    </div>
-</section>
+        <!-- 2. VISI & MISI SEKOLAH -->
+        <section id="visimisi" class="py-12 sm:py-20 bg-primary border-b border-[#e4bca2]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-<!-- 2. VISI & MISI SEKOLAH -->
-<section id="visimisi" class="py-12 sm:py-20 bg-primary border-b border-[#e4bca2]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14 space-y-2">
-            <span class="px-3.5 py-1.5 rounded-lg bg-secondary text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider shadow-sm border border-[#9e6f54]">Arah & Tujuan</span>
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Visi & Misi Sekolah</h2>
-            <p class="text-[#6d4330] text-xs sm:text-sm">Landasan dan dorongan utama kami dalam menyelenggarakan pendidikan di SDN Tunggaljaya 2.</p>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8">
-            
-            <!-- Visi Card -->
-            <div class="lg:col-span-5 bg-secondary text-white rounded-2xl p-5 sm:p-8 border border-[#9e6f54] shadow-xl flex flex-col justify-between space-y-6">
-                <div class="space-y-4 sm:space-y-6">
-                    <div class="w-12 h-12 rounded-xl bg-primary text-secondary flex items-center justify-center text-xl font-bold shadow">
-                        <i class="fa-solid fa-eye"></i>
-                    </div>
-                    <h3 class="text-lg sm:text-xl font-bold text-white">Visi Sekolah</h3>
-                    <blockquote class="text-sm sm:text-base font-semibold text-primary leading-relaxed italic border-l-4 border-primary pl-4 live-school-vision">
-                        "Terwujudnya Peserta Didik yang Budi Pekerti Luhur, Cerdas, Inovatif, Berwawasan Lingkungan, dan Unggul dalam Prestasi."
-                    </blockquote>
-                </div>
-                <div class="pt-4 sm:pt-6 text-xs text-primary-200 border-t border-[#9e6f54] font-semibold">
-                    <span class="live-school-name">SD N TUNGGALJAYA 2</span> - Sumur Pandeglang
-                </div>
-            </div>
-
-            <!-- Misi Card -->
-            <div class="lg:col-span-7 bg-secondary text-white rounded-2xl p-5 sm:p-8 border border-[#9e6f54] shadow-xl">
-                <div class="flex items-center gap-3.5 sm:gap-4 mb-6">
-                    <div class="w-12 h-12 rounded-xl bg-primary text-secondary flex items-center justify-center text-xl font-bold shadow shrink-0">
-                        <i class="fa-solid fa-bullseye"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-lg sm:text-xl font-bold text-white">Misi Sekolah</h3>
-                        <p class="text-xs text-primary">Langkah nyata pencapaian visi lembaga</p>
-                    </div>
+                <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14 space-y-2">
+                    <span
+                        class="px-3.5 py-1.5 rounded-lg bg-secondary text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider shadow-sm border border-[#9e6f54]">Arah
+                        & Tujuan</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Visi & Misi Sekolah
+                    </h2>
+                    <p class="text-[#6d4330] text-xs sm:text-sm">Landasan dan dorongan utama kami dalam menyelenggarakan
+                        pendidikan di SDN Tunggaljaya 2.</p>
                 </div>
 
-                <div class="space-y-3" id="live-mission-container">
-                                                                        <div class="flex items-start gap-3 p-3.5 sm:p-4 rounded-xl bg-[#9e6f54] border border-[#835841]">
-                                <span class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-primary text-secondary font-extrabold flex items-center justify-center shrink-0 text-xs shadow-xs">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8">
+
+                    <!-- Visi Card -->
+                    <div
+                        class="lg:col-span-5 bg-secondary text-white rounded-2xl p-5 sm:p-8 border border-[#9e6f54] shadow-xl flex flex-col justify-between space-y-6">
+                        <div class="space-y-4 sm:space-y-6">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-primary text-secondary flex items-center justify-center text-xl font-bold shadow">
+                                <i class="fa-solid fa-eye"></i>
+                            </div>
+                            <h3 class="text-lg sm:text-xl font-bold text-white">Visi Sekolah</h3>
+                            <blockquote
+                                class="text-sm sm:text-base font-semibold text-primary leading-relaxed italic border-l-4 border-primary pl-4 live-school-vision">
+                                "Terwujudnya Peserta Didik yang Budi Pekerti Luhur, Cerdas, Inovatif, Berwawasan
+                                Lingkungan, dan Unggul dalam Prestasi."
+                            </blockquote>
+                        </div>
+                        <div class="pt-4 sm:pt-6 text-xs text-primary-200 border-t border-[#9e6f54] font-semibold">
+                            <span class="live-school-name">SD N TUNGGALJAYA 2</span> - Sumur Pandeglang
+                        </div>
+                    </div>
+
+                    <!-- Misi Card -->
+                    <div
+                        class="lg:col-span-7 bg-secondary text-white rounded-2xl p-5 sm:p-8 border border-[#9e6f54] shadow-xl">
+                        <div class="flex items-center gap-3.5 sm:gap-4 mb-6">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-primary text-secondary flex items-center justify-center text-xl font-bold shadow shrink-0">
+                                <i class="fa-solid fa-bullseye"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg sm:text-xl font-bold text-white">Misi Sekolah</h3>
+                                <p class="text-xs text-primary">Langkah nyata pencapaian visi lembaga</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-3" id="live-mission-container">
+                            <div
+                                class="flex items-start gap-3 p-3.5 sm:p-4 rounded-xl bg-[#9e6f54] border border-[#835841]">
+                                <span
+                                    class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-primary text-secondary font-extrabold flex items-center justify-center shrink-0 text-xs shadow-xs">
                                     1
                                 </span>
-                                <p class="text-[#fdfbf9] text-xs sm:text-sm leading-relaxed font-medium pt-0.5">Menyelenggarakan pembelajaran berorientasi pada pengembangan karakter Islami dan budi pekerti luhur.</p>
+                                <p class="text-[#fdfbf9] text-xs sm:text-sm leading-relaxed font-medium pt-0.5">
+                                    Menyelenggarakan pembelajaran berorientasi pada pengembangan karakter Islami dan
+                                    budi pekerti luhur.</p>
                             </div>
-                                                    <div class="flex items-start gap-3 p-3.5 sm:p-4 rounded-xl bg-[#9e6f54] border border-[#835841]">
-                                <span class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-primary text-secondary font-extrabold flex items-center justify-center shrink-0 text-xs shadow-xs">
+                            <div
+                                class="flex items-start gap-3 p-3.5 sm:p-4 rounded-xl bg-[#9e6f54] border border-[#835841]">
+                                <span
+                                    class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-primary text-secondary font-extrabold flex items-center justify-center shrink-0 text-xs shadow-xs">
                                     2
                                 </span>
-                                <p class="text-[#fdfbf9] text-xs sm:text-sm leading-relaxed font-medium pt-0.5">Mengembangkan pembelajaran aktif, kreatif, efektif, dan menyenangkan berbasis teknologi digital.</p>
+                                <p class="text-[#fdfbf9] text-xs sm:text-sm leading-relaxed font-medium pt-0.5">
+                                    Mengembangkan pembelajaran aktif, kreatif, efektif, dan menyenangkan berbasis
+                                    teknologi digital.</p>
                             </div>
-                                                    <div class="flex items-start gap-3 p-3.5 sm:p-4 rounded-xl bg-[#9e6f54] border border-[#835841]">
-                                <span class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-primary text-secondary font-extrabold flex items-center justify-center shrink-0 text-xs shadow-xs">
+                            <div
+                                class="flex items-start gap-3 p-3.5 sm:p-4 rounded-xl bg-[#9e6f54] border border-[#835841]">
+                                <span
+                                    class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-primary text-secondary font-extrabold flex items-center justify-center shrink-0 text-xs shadow-xs">
                                     3
                                 </span>
-                                <p class="text-[#fdfbf9] text-xs sm:text-sm leading-relaxed font-medium pt-0.5">Menumbuhkan semangat berprestasi dalam bidang akademik, seni, dan olahraga bagi seluruh warga sekolah.</p>
+                                <p class="text-[#fdfbf9] text-xs sm:text-sm leading-relaxed font-medium pt-0.5">
+                                    Menumbuhkan semangat berprestasi dalam bidang akademik, seni, dan olahraga bagi
+                                    seluruh warga sekolah.</p>
                             </div>
-                                                    <div class="flex items-start gap-3 p-3.5 sm:p-4 rounded-xl bg-[#9e6f54] border border-[#835841]">
-                                <span class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-primary text-secondary font-extrabold flex items-center justify-center shrink-0 text-xs shadow-xs">
+                            <div
+                                class="flex items-start gap-3 p-3.5 sm:p-4 rounded-xl bg-[#9e6f54] border border-[#835841]">
+                                <span
+                                    class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-primary text-secondary font-extrabold flex items-center justify-center shrink-0 text-xs shadow-xs">
                                     4
                                 </span>
-                                <p class="text-[#fdfbf9] text-xs sm:text-sm leading-relaxed font-medium pt-0.5">Menciptakan lingkungan sekolah yang bersih, hijau, sehat, dan kondusif untuk tumbuh kembang anak.</p>
+                                <p class="text-[#fdfbf9] text-xs sm:text-sm leading-relaxed font-medium pt-0.5">
+                                    Menciptakan lingkungan sekolah yang bersih, hijau, sehat, dan kondusif untuk tumbuh
+                                    kembang anak.</p>
                             </div>
-                                                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
+        </section>
 
-        </div>
+        <!-- 4. GURU & TENAGA KEPENDIDIKAN -->
+        <section id="guru" class="py-12 sm:py-20 bg-primary border-b border-[#e4bca2]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    </div>
-</section>
-
-<!-- 4. GURU & TENAGA KEPENDIDIKAN -->
-<section id="guru" class="py-12 sm:py-20 bg-primary border-b border-[#e4bca2]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-4">
-            <div>
-                <span class="px-3.5 py-1.5 rounded-lg bg-secondary text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider shadow-sm border border-[#9e6f54]">Sumber Daya Manusia</span>
-                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-2">Tenaga Pendidik & Kependidikan</h2>
-                <p class="text-[#6d4330] text-xs sm:text-sm mt-1">Guru-guru profesional yang ramah dan berdedikasi tinggi membimbing para siswa.</p>
-            </div>
-            <div class="self-start md:self-auto text-white text-xs font-bold bg-secondary border border-[#9e6f54] px-3 py-2 rounded-xl shadow-sm">
-                <i class="fa-solid fa-users text-primary mr-1"></i> <span class="live-school-teachers">Total 12 Tenaga Pendidik</span>
-            </div>
-        </div>
-
-        <!-- Teachers Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" id="live-teachers-container">
-                            <div class="bg-secondary rounded-2xl border border-[#9e6f54] overflow-hidden flex flex-col justify-between shadow-md hover:border-primary transition">
-                    <div class="p-5 sm:p-6 text-center space-y-3">
-                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden mx-auto border-4 border-primary shadow-md">
-                            <img src="./uploads/teachers/ADE%20SUMARNA,%20S.Pd.jpeg" 
-                                 alt="ADE SUMARNA, S.Pd." 
-                                 class="w-full h-full object-cover">
-                        </div>
-                        <div>
-                            <h3 class="text-base font-bold text-white">ADE SUMARNA, S.Pd.</h3>
-                            <p class="text-xs font-semibold text-primary mt-1">Guru Kelas</p>
-                        </div>
-                    </div>
-                    <div class="bg-[#9e6f54] px-4 py-2.5 border-t border-[#835841] text-xs text-primary-200 text-center font-mono">
-                        <i class="fa-solid fa-id-card text-primary mr-1"></i> NIP: -
-                    </div>
-                </div>
-                            <div class="bg-secondary rounded-2xl border border-[#9e6f54] overflow-hidden flex flex-col justify-between shadow-md hover:border-primary transition">
-                    <div class="p-5 sm:p-6 text-center space-y-3">
-                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden mx-auto border-4 border-primary shadow-md">
-                            <img src="./uploads/teachers/ALIMUDIN,%20S.Pd.jpeg" 
-                                 alt="ALIMUDIN, S.Pd." 
-                                 class="w-full h-full object-cover">
-                        </div>
-                        <div>
-                            <h3 class="text-base font-bold text-white">ALIMUDIN, S.Pd.</h3>
-                            <p class="text-xs font-semibold text-primary mt-1">Guru Kelas</p>
-                        </div>
-                    </div>
-                    <div class="bg-[#9e6f54] px-4 py-2.5 border-t border-[#835841] text-xs text-primary-200 text-center font-mono">
-                        <i class="fa-solid fa-id-card text-primary mr-1"></i> NIP: -
-                    </div>
-                </div>
-                            <div class="bg-secondary rounded-2xl border border-[#9e6f54] overflow-hidden flex flex-col justify-between shadow-md hover:border-primary transition">
-                    <div class="p-5 sm:p-6 text-center space-y-3">
-                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden mx-auto border-4 border-primary shadow-md">
-                            <img src="./uploads/teachers/ANIS%20KHUATUL%20SRI%20RAHAYU,%20S.Pd.jpeg" 
-                                 alt="ANIS KHUATUL SRI RAHAYU, S.Pd." 
-                                 class="w-full h-full object-cover">
-                        </div>
-                        <div>
-                            <h3 class="text-base font-bold text-white">ANIS KHUATUL SRI RAHAYU, S.Pd.</h3>
-                            <p class="text-xs font-semibold text-primary mt-1">Guru Kelas</p>
-                        </div>
-                    </div>
-                    <div class="bg-[#9e6f54] px-4 py-2.5 border-t border-[#835841] text-xs text-primary-200 text-center font-mono">
-                        <i class="fa-solid fa-id-card text-primary mr-1"></i> NIP: -
-                    </div>
-                </div>
-                            <div class="bg-secondary rounded-2xl border border-[#9e6f54] overflow-hidden flex flex-col justify-between shadow-md hover:border-primary transition">
-                    <div class="p-5 sm:p-6 text-center space-y-3">
-                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden mx-auto border-4 border-primary shadow-md">
-                            <img src="./uploads/teachers/ENCEP%20IR,%20S.S.jpeg" 
-                                 alt="ENCEP IR, S.S." 
-                                 class="w-full h-full object-cover">
-                        </div>
-                        <div>
-                            <h3 class="text-base font-bold text-white">ENCEP IR, S.S.</h3>
-                            <p class="text-xs font-semibold text-primary mt-1">Guru Bahasa</p>
-                        </div>
-                    </div>
-                    <div class="bg-[#9e6f54] px-4 py-2.5 border-t border-[#835841] text-xs text-primary-200 text-center font-mono">
-                        <i class="fa-solid fa-id-card text-primary mr-1"></i> NIP: -
-                    </div>
-                </div>
-                            <div class="bg-secondary rounded-2xl border border-[#9e6f54] overflow-hidden flex flex-col justify-between shadow-md hover:border-primary transition">
-                    <div class="p-5 sm:p-6 text-center space-y-3">
-                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden mx-auto border-4 border-primary shadow-md">
-                            <img src="./uploads/teachers/EROH%20HERNAWATI,%20S.Pd.jpeg" 
-                                 alt="EROH HERNAWATI, S.Pd." 
-                                 class="w-full h-full object-cover">
-                        </div>
-                        <div>
-                            <h3 class="text-base font-bold text-white">EROH HERNAWATI, S.Pd.</h3>
-                            <p class="text-xs font-semibold text-primary mt-1">Guru Kelas</p>
-                        </div>
-                    </div>
-                    <div class="bg-[#9e6f54] px-4 py-2.5 border-t border-[#835841] text-xs text-primary-200 text-center font-mono">
-                        <i class="fa-solid fa-id-card text-primary mr-1"></i> NIP: -
-                    </div>
-                </div>
-                            <div class="bg-secondary rounded-2xl border border-[#9e6f54] overflow-hidden flex flex-col justify-between shadow-md hover:border-primary transition">
-                    <div class="p-5 sm:p-6 text-center space-y-3">
-                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden mx-auto border-4 border-primary shadow-md">
-                            <img src="./uploads/teachers/FITRIA%20FEBRIYANTI,%20S.Pd.jpeg" 
-                                 alt="FITRIA FEBRIYANTI, S.Pd." 
-                                 class="w-full h-full object-cover">
-                        </div>
-                        <div>
-                            <h3 class="text-base font-bold text-white">FITRIA FEBRIYANTI, S.Pd.</h3>
-                            <p class="text-xs font-semibold text-primary mt-1">Guru Kelas</p>
-                        </div>
-                    </div>
-                    <div class="bg-[#9e6f54] px-4 py-2.5 border-t border-[#835841] text-xs text-primary-200 text-center font-mono">
-                        <i class="fa-solid fa-id-card text-primary mr-1"></i> NIP: -
-                    </div>
-                </div>
-                            <div class="bg-secondary rounded-2xl border border-[#9e6f54] overflow-hidden flex flex-col justify-between shadow-md hover:border-primary transition">
-                    <div class="p-5 sm:p-6 text-center space-y-3">
-                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden mx-auto border-4 border-primary shadow-md">
-                            <img src="./uploads/teachers/IDA%20ROSIDA,%20S.Pd.I.jpeg" 
-                                 alt="IDA ROSIDA, S.Pd.I." 
-                                 class="w-full h-full object-cover">
-                        </div>
-                        <div>
-                            <h3 class="text-base font-bold text-white">IDA ROSIDA, S.Pd.I.</h3>
-                            <p class="text-xs font-semibold text-primary mt-1">Guru Pendidikan Agama Islam</p>
-                        </div>
-                    </div>
-                    <div class="bg-[#9e6f54] px-4 py-2.5 border-t border-[#835841] text-xs text-primary-200 text-center font-mono">
-                        <i class="fa-solid fa-id-card text-primary mr-1"></i> NIP: -
-                    </div>
-                </div>
-                            <div class="bg-secondary rounded-2xl border border-[#9e6f54] overflow-hidden flex flex-col justify-between shadow-md hover:border-primary transition">
-                    <div class="p-5 sm:p-6 text-center space-y-3">
-                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden mx-auto border-4 border-primary shadow-md">
-                            <img src="./uploads/teachers/RISMA%20RISDIYANTI,%20S.Pd.jpeg" 
-                                 alt="RISMA RISDIYANTI, S.Pd." 
-                                 class="w-full h-full object-cover">
-                        </div>
-                        <div>
-                            <h3 class="text-base font-bold text-white">RISMA RISDIYANTI, S.Pd.</h3>
-                            <p class="text-xs font-semibold text-primary mt-1">Guru Kelas</p>
-                        </div>
-                    </div>
-                    <div class="bg-[#9e6f54] px-4 py-2.5 border-t border-[#835841] text-xs text-primary-200 text-center font-mono">
-                        <i class="fa-solid fa-id-card text-primary mr-1"></i> NIP: -
-                    </div>
-                </div>
-                            <div class="bg-secondary rounded-2xl border border-[#9e6f54] overflow-hidden flex flex-col justify-between shadow-md hover:border-primary transition">
-                    <div class="p-5 sm:p-6 text-center space-y-3">
-                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden mx-auto border-4 border-primary shadow-md">
-                            <img src="./uploads/teachers/SACHRUDIYANTO,%20S.Pd.jpeg" 
-                                 alt="SACHRUDIYANTO, S.Pd." 
-                                 class="w-full h-full object-cover">
-                        </div>
-                        <div>
-                            <h3 class="text-base font-bold text-white">SACHRUDIYANTO, S.Pd.</h3>
-                            <p class="text-xs font-semibold text-primary mt-1">Guru PJOK</p>
-                        </div>
-                    </div>
-                    <div class="bg-[#9e6f54] px-4 py-2.5 border-t border-[#835841] text-xs text-primary-200 text-center font-mono">
-                        <i class="fa-solid fa-id-card text-primary mr-1"></i> NIP: -
-                    </div>
-                </div>
-                            <div class="bg-secondary rounded-2xl border border-[#9e6f54] overflow-hidden flex flex-col justify-between shadow-md hover:border-primary transition">
-                    <div class="p-5 sm:p-6 text-center space-y-3">
-                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden mx-auto border-4 border-primary shadow-md">
-                            <img src="./uploads/teachers/SAEFUL%20ANHAR.jpeg" 
-                                 alt="SAEFUL ANHAR" 
-                                 class="w-full h-full object-cover">
-                        </div>
-                        <div>
-                            <h3 class="text-base font-bold text-white">SAEFUL ANHAR</h3>
-                            <p class="text-xs font-semibold text-primary mt-1">Tenaga Kependidikan &amp; Staf TU</p>
-                        </div>
-                    </div>
-                    <div class="bg-[#9e6f54] px-4 py-2.5 border-t border-[#835841] text-xs text-primary-200 text-center font-mono">
-                        <i class="fa-solid fa-id-card text-primary mr-1"></i> NIP: -
-                    </div>
-                </div>
-                            <div class="bg-secondary rounded-2xl border border-[#9e6f54] overflow-hidden flex flex-col justify-between shadow-md hover:border-primary transition">
-                    <div class="p-5 sm:p-6 text-center space-y-3">
-                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden mx-auto border-4 border-primary shadow-md">
-                            <img src="./uploads/teachers/YOGI%20SAPUTRA%20PAMUNGKAS,%20S.Pd.jpeg" 
-                                 alt="YOGI SAPUTRA PAMUNGKAS, S.Pd." 
-                                 class="w-full h-full object-cover">
-                        </div>
-                        <div>
-                            <h3 class="text-base font-bold text-white">YOGI SAPUTRA PAMUNGKAS, S.Pd.</h3>
-                            <p class="text-xs font-semibold text-primary mt-1">Guru Kelas &amp; TIK</p>
-                        </div>
-                    </div>
-                    <div class="bg-[#9e6f54] px-4 py-2.5 border-t border-[#835841] text-xs text-primary-200 text-center font-mono">
-                        <i class="fa-solid fa-id-card text-primary mr-1"></i> NIP: -
-                    </div>
-                </div>
-                            <div class="bg-secondary rounded-2xl border border-[#9e6f54] overflow-hidden flex flex-col justify-between shadow-md hover:border-primary transition">
-                    <div class="p-5 sm:p-6 text-center space-y-3">
-                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden mx-auto border-4 border-primary shadow-md">
-                            <img src="./uploads/teachers/YUNIDAR%20RIFA&#039;ATUL%20MUKARROMAH,%20S.E.jpeg" 
-                                 alt="YUNIDAR RIFA&#039;ATUL MUKARROMAH, S.E." 
-                                 class="w-full h-full object-cover">
-                        </div>
-                        <div>
-                            <h3 class="text-base font-bold text-white">YUNIDAR RIFA&#039;ATUL MUKARROMAH, S.E.</h3>
-                            <p class="text-xs font-semibold text-primary mt-1">Bendahara &amp; Staf Admin</p>
-                        </div>
-                    </div>
-                    <div class="bg-[#9e6f54] px-4 py-2.5 border-t border-[#835841] text-xs text-primary-200 text-center font-mono">
-                        <i class="fa-solid fa-id-card text-primary mr-1"></i> NIP: -
-                    </div>
-                </div>
-                    </div>
-
-    </div>
-</section>
-
-<!-- 5. FASILITAS SEKOLAH -->
-<section id="fasilitas" class="py-12 sm:py-20 bg-primary border-b border-[#e4bca2] text-slate-900">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14 space-y-2">
-            <span class="px-3.5 py-1.5 rounded-lg bg-secondary text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider shadow-sm border border-[#9e6f54]">Sarana & Prasarana</span>
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Fasilitas Penunjang Belajar</h2>
-            <p class="text-[#6d4330] text-xs sm:text-sm">Fasilitas modern yang dirancang untuk mendukung kenyamanan dan proses pembelajaran siswa.</p>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" id="live-facilities-container">
-                            <div class="bg-secondary text-white rounded-2xl overflow-hidden border border-[#9e6f54] flex flex-col justify-between shadow-md hover:border-primary transition">
-                    <div class="relative h-44 sm:h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&amp;w=600&amp;auto=format&amp;fit=crop" 
-                             alt="Laboratorium Komputer &amp; TIK" 
-                             class="w-full h-full object-cover">
-                        <div class="absolute top-3 right-3 bg-secondary p-2 rounded-lg text-primary text-base border border-[#9e6f54] shadow-sm">
-                            <i class="fa-solid fa-circle-check"></i>
-                        </div>
-                    </div>
-                    <div class="p-4 sm:p-5 space-y-2">
-                        <h3 class="text-base font-bold text-white">Laboratorium Komputer &amp; TIK</h3>
-                        <p class="text-xs text-primary-100 leading-relaxed">Dilengkapi 30 unit PC modern dengan koneksi internet cepat untuk menunjang literasi digital peserta didik.</p>
-                    </div>
-                </div>
-                            <div class="bg-secondary text-white rounded-2xl overflow-hidden border border-[#9e6f54] flex flex-col justify-between shadow-md hover:border-primary transition">
-                    <div class="relative h-44 sm:h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&amp;w=600&amp;auto=format&amp;fit=crop" 
-                             alt="Perpustakaan Literasi Cerdas" 
-                             class="w-full h-full object-cover">
-                        <div class="absolute top-3 right-3 bg-secondary p-2 rounded-lg text-primary text-base border border-[#9e6f54] shadow-sm">
-                            <i class="fa-solid fa-circle-check"></i>
-                        </div>
-                    </div>
-                    <div class="p-4 sm:p-5 space-y-2">
-                        <h3 class="text-base font-bold text-white">Perpustakaan Literasi Cerdas</h3>
-                        <p class="text-xs text-primary-100 leading-relaxed">Koleksi ribuan buku pelajaran, sains, dongeng, dan sudut baca digital yang nyaman dan ber-AC.</p>
-                    </div>
-                </div>
-                            <div class="bg-secondary text-white rounded-2xl overflow-hidden border border-[#9e6f54] flex flex-col justify-between shadow-md hover:border-primary transition">
-                    <div class="relative h-44 sm:h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&amp;w=600&amp;auto=format&amp;fit=crop" 
-                             alt="Ruang Kelas Multimedia" 
-                             class="w-full h-full object-cover">
-                        <div class="absolute top-3 right-3 bg-secondary p-2 rounded-lg text-primary text-base border border-[#9e6f54] shadow-sm">
-                            <i class="fa-solid fa-circle-check"></i>
-                        </div>
-                    </div>
-                    <div class="p-4 sm:p-5 space-y-2">
-                        <h3 class="text-base font-bold text-white">Ruang Kelas Multimedia</h3>
-                        <p class="text-xs text-primary-100 leading-relaxed">Ruang belajar interaktif dilengkapi dengan Smart Projector, proyektor pro, dan ventilasi udara yang sejuk.</p>
-                    </div>
-                </div>
-                            <div class="bg-secondary text-white rounded-2xl overflow-hidden border border-[#9e6f54] flex flex-col justify-between shadow-md hover:border-primary transition">
-                    <div class="relative h-44 sm:h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&amp;w=600&amp;auto=format&amp;fit=crop" 
-                             alt="Lapangan Olahraga Serbaguna" 
-                             class="w-full h-full object-cover">
-                        <div class="absolute top-3 right-3 bg-secondary p-2 rounded-lg text-primary text-base border border-[#9e6f54] shadow-sm">
-                            <i class="fa-solid fa-circle-check"></i>
-                        </div>
-                    </div>
-                    <div class="p-4 sm:p-5 space-y-2">
-                        <h3 class="text-base font-bold text-white">Lapangan Olahraga Serbaguna</h3>
-                        <p class="text-xs text-primary-100 leading-relaxed">Fasilitas outdoor untuk bulutangkis, bola basket, futsal, dan upacara bendera mingguan.</p>
-                    </div>
-                </div>
-                            <div class="bg-secondary text-white rounded-2xl overflow-hidden border border-[#9e6f54] flex flex-col justify-between shadow-md hover:border-primary transition">
-                    <div class="relative h-44 sm:h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&amp;w=600&amp;auto=format&amp;fit=crop" 
-                             alt="Kantin Sehat &amp; Higenis" 
-                             class="w-full h-full object-cover">
-                        <div class="absolute top-3 right-3 bg-secondary p-2 rounded-lg text-primary text-base border border-[#9e6f54] shadow-sm">
-                            <i class="fa-solid fa-circle-check"></i>
-                        </div>
-                    </div>
-                    <div class="p-4 sm:p-5 space-y-2">
-                        <h3 class="text-base font-bold text-white">Kantin Sehat &amp; Higenis</h3>
-                        <p class="text-xs text-primary-100 leading-relaxed">Kantin sekolah terverifikasi Dinas Kesehatan menyediakan makanan nutrisi seimbang untuk para siswa.</p>
-                    </div>
-                </div>
-                            <div class="bg-secondary text-white rounded-2xl overflow-hidden border border-[#9e6f54] flex flex-col justify-between shadow-md hover:border-primary transition">
-                    <div class="relative h-44 sm:h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&amp;w=600&amp;auto=format&amp;fit=crop" 
-                             alt="Ruang UKS &amp; Konseling" 
-                             class="w-full h-full object-cover">
-                        <div class="absolute top-3 right-3 bg-secondary p-2 rounded-lg text-primary text-base border border-[#9e6f54] shadow-sm">
-                            <i class="fa-solid fa-circle-check"></i>
-                        </div>
-                    </div>
-                    <div class="p-4 sm:p-5 space-y-2">
-                        <h3 class="text-base font-bold text-white">Ruang UKS &amp; Konseling</h3>
-                        <p class="text-xs text-primary-100 leading-relaxed">Fasilitas kesehatan pertolongan pertama dengan dokter kecil pembina terdedikasi.</p>
-                    </div>
-                </div>
-                    </div>
-
-    </div>
-</section>
-
-<!-- 6. BERITA & PENGUMUMAN / PPDB -->
-<section id="berita" class="py-12 sm:py-20 bg-primary border-b border-[#e4bca2]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-4">
-            <div>
-                <span class="px-3.5 py-1.5 rounded-lg bg-secondary text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider shadow-sm border border-[#9e6f54]">Kabar Terbaru</span>
-                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-2">Berita, Pengumuman & PPDB</h2>
-                <p class="text-[#6d4330] text-xs sm:text-sm mt-1">Dapatkan update seputar kegiatan sekolah, prestasi siswa, dan penerimaan peserta didik baru.</p>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" id="live-posts-container">
-                            <article class="bg-secondary rounded-2xl overflow-hidden border border-[#9e6f54] flex flex-col justify-between shadow-md hover:border-primary transition text-white">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-4">
                     <div>
-                        <div class="relative h-40 sm:h-44 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&amp;w=800&amp;auto=format&amp;fit=crop" 
-                                 alt="Penerimaan Peserta Didik Baru (PPDB) SDN Tunggaljaya 2 Tahun Ajaran 2026/2027" 
-                                 class="w-full h-full object-cover">
-                            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-[#3b2116] text-primary font-extrabold text-[11px] sm:text-xs shadow border border-[#6d4330]">
-                                Pengumuman
-                            </span>
+                        <span
+                            class="px-3.5 py-1.5 rounded-lg bg-secondary text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider shadow-sm border border-[#9e6f54]">Sumber
+                            Daya Manusia</span>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-2">Tenaga
+                            Pendidik & Kependidikan</h2>
+                        <p class="text-[#6d4330] text-xs sm:text-sm mt-1">Guru-guru profesional yang ramah dan
+                            berdedikasi tinggi membimbing para siswa.</p>
+                    </div>
+                    <div
+                        class="self-start md:self-auto text-white text-xs font-bold bg-secondary border border-[#9e6f54] px-3 py-2 rounded-xl shadow-sm">
+                        <i class="fa-solid fa-users text-primary mr-1"></i> <span class="live-school-teachers">Total 12
+                            Tenaga Pendidik</span>
+                    </div>
+                </div>
+
+                <!-- Teachers Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" id="live-teachers-container">
+                    <div
+                        class="bg-secondary rounded-2xl border border-[#9e6f54] overflow-hidden flex flex-col justify-between shadow-md hover:border-primary transition">
+                        <div class="p-5 sm:p-6 text-center space-y-3">
+                            <div
+                                class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden mx-auto border-4 border-primary shadow-md">
+                                <img src="./uploads/teachers/ADE%20SUMARNA,%20S.Pd.jpeg" alt="ADE SUMARNA, S.Pd."
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="text-base font-bold text-white">ADE SUMARNA, S.Pd.</h3>
+                                <p class="text-xs font-semibold text-primary mt-1">Guru Kelas</p>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-[#9e6f54] px-4 py-2.5 border-t border-[#835841] text-xs text-primary-200 text-center font-mono">
+                            <i class="fa-solid fa-id-card text-primary mr-1"></i> NIP: -
+                        </div>
+                    </div>
+                    <div
+                        class="bg-secondary rounded-2xl border border-[#9e6f54] overflow-hidden flex flex-col justify-between shadow-md hover:border-primary transition">
+                        <div class="p-5 sm:p-6 text-center space-y-3">
+                            <div
+                                class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden mx-auto border-4 border-primary shadow-md">
+                                <img src="./uploads/teachers/ALIMUDIN,%20S.Pd.jpeg" alt="ALIMUDIN, S.Pd."
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="text-base font-bold text-white">ALIMUDIN, S.Pd.</h3>
+                                <p class="text-xs font-semibold text-primary mt-1">Guru Kelas</p>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-[#9e6f54] px-4 py-2.5 border-t border-[#835841] text-xs text-primary-200 text-center font-mono">
+                            <i class="fa-solid fa-id-card text-primary mr-1"></i> NIP: -
+                        </div>
+                    </div>
+                    <div
+                        class="bg-secondary rounded-2xl border border-[#9e6f54] overflow-hidden flex flex-col justify-between shadow-md hover:border-primary transition">
+                        <div class="p-5 sm:p-6 text-center space-y-3">
+                            <div
+                                class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden mx-auto border-4 border-primary shadow-md">
+                                <img src="./uploads/teachers/ANIS%20KHUATUL%20SRI%20RAHAYU,%20S.Pd.jpeg"
+                                    alt="ANIS KHUATUL SRI RAHAYU, S.Pd." class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="text-base font-bold text-white">ANIS KHUATUL SRI RAHAYU, S.Pd.</h3>
+                                <p class="text-xs font-semibold text-primary mt-1">Guru Kelas</p>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-[#9e6f54] px-4 py-2.5 border-t border-[#835841] text-xs text-primary-200 text-center font-mono">
+                            <i class="fa-solid fa-id-card text-primary mr-1"></i> NIP: -
+                        </div>
+                    </div>
+                    <div
+                        class="bg-secondary rounded-2xl border border-[#9e6f54] overflow-hidden flex flex-col justify-between shadow-md hover:border-primary transition">
+                        <div class="p-5 sm:p-6 text-center space-y-3">
+                            <div
+                                class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden mx-auto border-4 border-primary shadow-md">
+                                <img src="./uploads/teachers/ENCEP%20IR,%20S.S.jpeg" alt="ENCEP IR, S.S."
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="text-base font-bold text-white">ENCEP IR, S.S.</h3>
+                                <p class="text-xs font-semibold text-primary mt-1">Guru Bahasa</p>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-[#9e6f54] px-4 py-2.5 border-t border-[#835841] text-xs text-primary-200 text-center font-mono">
+                            <i class="fa-solid fa-id-card text-primary mr-1"></i> NIP: -
+                        </div>
+                    </div>
+                    <div
+                        class="bg-secondary rounded-2xl border border-[#9e6f54] overflow-hidden flex flex-col justify-between shadow-md hover:border-primary transition">
+                        <div class="p-5 sm:p-6 text-center space-y-3">
+                            <div
+                                class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden mx-auto border-4 border-primary shadow-md">
+                                <img src="./uploads/teachers/EROH%20HERNAWATI,%20S.Pd.jpeg" alt="EROH HERNAWATI, S.Pd."
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="text-base font-bold text-white">EROH HERNAWATI, S.Pd.</h3>
+                                <p class="text-xs font-semibold text-primary mt-1">Guru Kelas</p>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-[#9e6f54] px-4 py-2.5 border-t border-[#835841] text-xs text-primary-200 text-center font-mono">
+                            <i class="fa-solid fa-id-card text-primary mr-1"></i> NIP: -
+                        </div>
+                    </div>
+                    <div
+                        class="bg-secondary rounded-2xl border border-[#9e6f54] overflow-hidden flex flex-col justify-between shadow-md hover:border-primary transition">
+                        <div class="p-5 sm:p-6 text-center space-y-3">
+                            <div
+                                class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden mx-auto border-4 border-primary shadow-md">
+                                <img src="./uploads/teachers/FITRIA%20FEBRIYANTI,%20S.Pd.jpeg"
+                                    alt="FITRIA FEBRIYANTI, S.Pd." class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="text-base font-bold text-white">FITRIA FEBRIYANTI, S.Pd.</h3>
+                                <p class="text-xs font-semibold text-primary mt-1">Guru Kelas</p>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-[#9e6f54] px-4 py-2.5 border-t border-[#835841] text-xs text-primary-200 text-center font-mono">
+                            <i class="fa-solid fa-id-card text-primary mr-1"></i> NIP: -
+                        </div>
+                    </div>
+                    <div
+                        class="bg-secondary rounded-2xl border border-[#9e6f54] overflow-hidden flex flex-col justify-between shadow-md hover:border-primary transition">
+                        <div class="p-5 sm:p-6 text-center space-y-3">
+                            <div
+                                class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden mx-auto border-4 border-primary shadow-md">
+                                <img src="./uploads/teachers/IDA%20ROSIDA,%20S.Pd.I.jpeg" alt="IDA ROSIDA, S.Pd.I."
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="text-base font-bold text-white">IDA ROSIDA, S.Pd.I.</h3>
+                                <p class="text-xs font-semibold text-primary mt-1">Guru Pendidikan Agama Islam</p>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-[#9e6f54] px-4 py-2.5 border-t border-[#835841] text-xs text-primary-200 text-center font-mono">
+                            <i class="fa-solid fa-id-card text-primary mr-1"></i> NIP: -
+                        </div>
+                    </div>
+                    <div
+                        class="bg-secondary rounded-2xl border border-[#9e6f54] overflow-hidden flex flex-col justify-between shadow-md hover:border-primary transition">
+                        <div class="p-5 sm:p-6 text-center space-y-3">
+                            <div
+                                class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden mx-auto border-4 border-primary shadow-md">
+                                <img src="./uploads/teachers/RISMA%20RISDIYANTI,%20S.Pd.jpeg"
+                                    alt="RISMA RISDIYANTI, S.Pd." class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="text-base font-bold text-white">RISMA RISDIYANTI, S.Pd.</h3>
+                                <p class="text-xs font-semibold text-primary mt-1">Guru Kelas</p>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-[#9e6f54] px-4 py-2.5 border-t border-[#835841] text-xs text-primary-200 text-center font-mono">
+                            <i class="fa-solid fa-id-card text-primary mr-1"></i> NIP: -
+                        </div>
+                    </div>
+                    <div
+                        class="bg-secondary rounded-2xl border border-[#9e6f54] overflow-hidden flex flex-col justify-between shadow-md hover:border-primary transition">
+                        <div class="p-5 sm:p-6 text-center space-y-3">
+                            <div
+                                class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden mx-auto border-4 border-primary shadow-md">
+                                <img src="./uploads/teachers/SACHRUDIYANTO,%20S.Pd.jpeg" alt="SACHRUDIYANTO, S.Pd."
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="text-base font-bold text-white">SACHRUDIYANTO, S.Pd.</h3>
+                                <p class="text-xs font-semibold text-primary mt-1">Guru PJOK</p>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-[#9e6f54] px-4 py-2.5 border-t border-[#835841] text-xs text-primary-200 text-center font-mono">
+                            <i class="fa-solid fa-id-card text-primary mr-1"></i> NIP: -
+                        </div>
+                    </div>
+                    <div
+                        class="bg-secondary rounded-2xl border border-[#9e6f54] overflow-hidden flex flex-col justify-between shadow-md hover:border-primary transition">
+                        <div class="p-5 sm:p-6 text-center space-y-3">
+                            <div
+                                class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden mx-auto border-4 border-primary shadow-md">
+                                <img src="./uploads/teachers/SAEFUL%20ANHAR.jpeg" alt="SAEFUL ANHAR"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="text-base font-bold text-white">SAEFUL ANHAR</h3>
+                                <p class="text-xs font-semibold text-primary mt-1">Tenaga Kependidikan &amp; Staf TU</p>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-[#9e6f54] px-4 py-2.5 border-t border-[#835841] text-xs text-primary-200 text-center font-mono">
+                            <i class="fa-solid fa-id-card text-primary mr-1"></i> NIP: -
+                        </div>
+                    </div>
+                    <div
+                        class="bg-secondary rounded-2xl border border-[#9e6f54] overflow-hidden flex flex-col justify-between shadow-md hover:border-primary transition">
+                        <div class="p-5 sm:p-6 text-center space-y-3">
+                            <div
+                                class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden mx-auto border-4 border-primary shadow-md">
+                                <img src="./uploads/teachers/YOGI%20SAPUTRA%20PAMUNGKAS,%20S.Pd.jpeg"
+                                    alt="YOGI SAPUTRA PAMUNGKAS, S.Pd." class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="text-base font-bold text-white">YOGI SAPUTRA PAMUNGKAS, S.Pd.</h3>
+                                <p class="text-xs font-semibold text-primary mt-1">Guru Kelas &amp; TIK</p>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-[#9e6f54] px-4 py-2.5 border-t border-[#835841] text-xs text-primary-200 text-center font-mono">
+                            <i class="fa-solid fa-id-card text-primary mr-1"></i> NIP: -
+                        </div>
+                    </div>
+                    <div
+                        class="bg-secondary rounded-2xl border border-[#9e6f54] overflow-hidden flex flex-col justify-between shadow-md hover:border-primary transition">
+                        <div class="p-5 sm:p-6 text-center space-y-3">
+                            <div
+                                class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden mx-auto border-4 border-primary shadow-md">
+                                <img src="./uploads/teachers/YUNIDAR%20RIFA&#039;ATUL%20MUKARROMAH,%20S.E.jpeg"
+                                    alt="YUNIDAR RIFA&#039;ATUL MUKARROMAH, S.E." class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="text-base font-bold text-white">YUNIDAR RIFA&#039;ATUL MUKARROMAH, S.E.</h3>
+                                <p class="text-xs font-semibold text-primary mt-1">Bendahara &amp; Staf Admin</p>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-[#9e6f54] px-4 py-2.5 border-t border-[#835841] text-xs text-primary-200 text-center font-mono">
+                            <i class="fa-solid fa-id-card text-primary mr-1"></i> NIP: -
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 5. FASILITAS SEKOLAH -->
+        <section id="fasilitas" class="py-12 sm:py-20 bg-primary border-b border-[#e4bca2] text-slate-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14 space-y-2">
+                    <span
+                        class="px-3.5 py-1.5 rounded-lg bg-secondary text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider shadow-sm border border-[#9e6f54]">Sarana
+                        & Prasarana</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Fasilitas Penunjang
+                        Belajar</h2>
+                    <p class="text-[#6d4330] text-xs sm:text-sm">Fasilitas modern yang dirancang untuk mendukung
+                        kenyamanan dan proses pembelajaran siswa.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
+                    id="live-facilities-container">
+                    <div
+                        class="bg-secondary text-white rounded-2xl overflow-hidden border border-[#9e6f54] flex flex-col justify-between shadow-md hover:border-primary transition">
+                        <div class="relative h-44 sm:h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&amp;w=600&amp;auto=format&amp;fit=crop"
+                                alt="Laboratorium Komputer &amp; TIK" class="w-full h-full object-cover">
+                            <div
+                                class="absolute top-3 right-3 bg-secondary p-2 rounded-lg text-primary text-base border border-[#9e6f54] shadow-sm">
+                                <i class="fa-solid fa-circle-check"></i>
+                            </div>
                         </div>
                         <div class="p-4 sm:p-5 space-y-2">
-                            <div class="text-xs text-primary font-bold flex items-center gap-1.5">
-                                <i class="fa-regular fa-calendar"></i>
-                                <span>22 Aug 2026</span>
-                            </div>
-                            <h3 class="text-sm sm:text-base font-bold text-white hover:text-primary transition leading-snug line-clamp-2">
-                                 <a href="berita/penerimaan-peserta-didik-baru-ppdb-sdn-tunggaljaya-2-2026-2027">Penerimaan Peserta Didik Baru (PPDB) SDN Tunggaljaya 2 Tahun Ajaran 2026/2027</a>
-                            </h3>
-                            <p class="text-xs text-primary-100 line-clamp-3 leading-relaxed">
-                                SDN Tunggaljaya 2 membuka pendaftaran calon siswa baru. Simak syarat, jadwal gelombang, dan mekanisme pendaftaran lengkapnya di sini.
-                            </p>
+                            <h3 class="text-base font-bold text-white">Laboratorium Komputer &amp; TIK</h3>
+                            <p class="text-xs text-primary-100 leading-relaxed">Dilengkapi 30 unit PC modern dengan
+                                koneksi internet cepat untuk menunjang literasi digital peserta didik.</p>
                         </div>
                     </div>
-                    <div class="p-4 sm:p-5 pt-0">
-                        <a href="berita/penerimaan-peserta-didik-baru-ppdb-sdn-tunggaljaya-2-2026-2027" class="inline-flex items-center gap-2 text-xs font-bold text-primary hover:text-white transition">
-                            Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-                            <article class="bg-secondary rounded-2xl overflow-hidden border border-[#9e6f54] flex flex-col justify-between shadow-md hover:border-primary transition text-white">
-                    <div>
-                        <div class="relative h-40 sm:h-44 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1526976668912-1a811878dd37?q=80&amp;w=800&amp;auto=format&amp;fit=crop" 
-                                 alt="Tim Pramuka SDN Tunggaljaya 2 Meraih Juara Umum Lomba Regu Tingkat Kabupaten" 
-                                 class="w-full h-full object-cover">
-                            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-[#3b2116] text-primary font-extrabold text-[11px] sm:text-xs shadow border border-[#6d4330]">
-                                Prestasi
-                            </span>
+                    <div
+                        class="bg-secondary text-white rounded-2xl overflow-hidden border border-[#9e6f54] flex flex-col justify-between shadow-md hover:border-primary transition">
+                        <div class="relative h-44 sm:h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&amp;w=600&amp;auto=format&amp;fit=crop"
+                                alt="Perpustakaan Literasi Cerdas" class="w-full h-full object-cover">
+                            <div
+                                class="absolute top-3 right-3 bg-secondary p-2 rounded-lg text-primary text-base border border-[#9e6f54] shadow-sm">
+                                <i class="fa-solid fa-circle-check"></i>
+                            </div>
                         </div>
                         <div class="p-4 sm:p-5 space-y-2">
-                            <div class="text-xs text-primary font-bold flex items-center gap-1.5">
-                                <i class="fa-regular fa-calendar"></i>
-                                <span>19 Aug 2026</span>
-                            </div>
-                            <h3 class="text-sm sm:text-base font-bold text-white hover:text-primary transition leading-snug line-clamp-2">
-                                 <a href="berita/tim-pramuka-sdn-tunggaljaya-2-meraih-juara-umum-lomba-regu">Tim Pramuka SDN Tunggaljaya 2 Meraih Juara Umum Lomba Regu Tingkat Kabupaten</a>
-                            </h3>
-                            <p class="text-xs text-primary-100 line-clamp-3 leading-relaxed">
-                                Kabar membanggakan! Regu Penggalang SDN Tunggaljaya 2 berhasil membawa pulang trofi Juara Umum dalam ajang Jambore Kabupaten.
-                            </p>
+                            <h3 class="text-base font-bold text-white">Perpustakaan Literasi Cerdas</h3>
+                            <p class="text-xs text-primary-100 leading-relaxed">Koleksi ribuan buku pelajaran, sains,
+                                dongeng, dan sudut baca digital yang nyaman dan ber-AC.</p>
                         </div>
                     </div>
-                    <div class="p-4 sm:p-5 pt-0">
-                        <a href="berita/tim-pramuka-sdn-tunggaljaya-2-meraih-juara-umum-lomba-regu" class="inline-flex items-center gap-2 text-xs font-bold text-primary hover:text-white transition">
-                            Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-                            <article class="bg-secondary rounded-2xl overflow-hidden border border-[#9e6f54] flex flex-col justify-between shadow-md hover:border-primary transition text-white">
-                    <div>
-                        <div class="relative h-40 sm:h-44 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&amp;w=800&amp;auto=format&amp;fit=crop" 
-                                 alt="Peluncuran Program Literasi Digital &amp; Extrakulikuler Coding untuk Kelas IV-VI" 
-                                 class="w-full h-full object-cover">
-                            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-[#3b2116] text-primary font-extrabold text-[11px] sm:text-xs shadow border border-[#6d4330]">
-                                Berita
-                            </span>
+                    <div
+                        class="bg-secondary text-white rounded-2xl overflow-hidden border border-[#9e6f54] flex flex-col justify-between shadow-md hover:border-primary transition">
+                        <div class="relative h-44 sm:h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&amp;w=600&amp;auto=format&amp;fit=crop"
+                                alt="Ruang Kelas Multimedia" class="w-full h-full object-cover">
+                            <div
+                                class="absolute top-3 right-3 bg-secondary p-2 rounded-lg text-primary text-base border border-[#9e6f54] shadow-sm">
+                                <i class="fa-solid fa-circle-check"></i>
+                            </div>
                         </div>
                         <div class="p-4 sm:p-5 space-y-2">
-                            <div class="text-xs text-primary font-bold flex items-center gap-1.5">
-                                <i class="fa-regular fa-calendar"></i>
-                                <span>14 Aug 2026</span>
+                            <h3 class="text-base font-bold text-white">Ruang Kelas Multimedia</h3>
+                            <p class="text-xs text-primary-100 leading-relaxed">Ruang belajar interaktif dilengkapi
+                                dengan Smart Projector, proyektor pro, dan ventilasi udara yang sejuk.</p>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-secondary text-white rounded-2xl overflow-hidden border border-[#9e6f54] flex flex-col justify-between shadow-md hover:border-primary transition">
+                        <div class="relative h-44 sm:h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&amp;w=600&amp;auto=format&amp;fit=crop"
+                                alt="Lapangan Olahraga Serbaguna" class="w-full h-full object-cover">
+                            <div
+                                class="absolute top-3 right-3 bg-secondary p-2 rounded-lg text-primary text-base border border-[#9e6f54] shadow-sm">
+                                <i class="fa-solid fa-circle-check"></i>
                             </div>
-                            <h3 class="text-sm sm:text-base font-bold text-white hover:text-primary transition leading-snug line-clamp-2">
-                                 <a href="berita/peluncuran-program-literasi-digital-extrakulikuler-coding">Peluncuran Program Literasi Digital &amp; Extrakulikuler Coding untuk Kelas IV-VI</a>
-                            </h3>
-                            <p class="text-xs text-primary-100 line-clamp-3 leading-relaxed">
-                                Mengawali semester baru, SDN Tunggaljaya 2 meluncurkan ekstrakurikuler baru di bidang Coding &amp; Logika Komputer.
-                            </p>
+                        </div>
+                        <div class="p-4 sm:p-5 space-y-2">
+                            <h3 class="text-base font-bold text-white">Lapangan Olahraga Serbaguna</h3>
+                            <p class="text-xs text-primary-100 leading-relaxed">Fasilitas outdoor untuk bulutangkis,
+                                bola basket, futsal, dan upacara bendera mingguan.</p>
                         </div>
                     </div>
-                    <div class="p-4 sm:p-5 pt-0">
-                        <a href="berita/peluncuran-program-literasi-digital-extrakulikuler-coding" class="inline-flex items-center gap-2 text-xs font-bold text-primary hover:text-white transition">
-                            Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-                    </div>
-
-    </div>
-</section>
-
-<!-- 7. GALERI KEGIATAN -->
-<section id="galeri" class="py-12 sm:py-20 bg-primary border-b border-[#e4bca2]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14 space-y-2">
-            <span class="px-3.5 py-1.5 rounded-lg bg-secondary text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider shadow-sm border border-[#9e6f54]">Dokumentasi</span>
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Galeri Kegiatan Sekolah</h2>
-            <p class="text-[#6d4330] text-xs sm:text-sm">Momen-momen berharga pembelajaran, karya, dan prestasi siswa SDN Tunggaljaya 2.</p>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" id="live-gallery-container">
-                            <div class="relative group rounded-2xl overflow-hidden aspect-video bg-secondary border border-[#9e6f54] hover:border-primary shadow-md transition">
-                    <img src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?q=80&amp;w=600&amp;auto=format&amp;fit=crop" 
-                         alt="Kegiatan Upacara Bendera Hari Senin" 
-                         class="w-full h-full object-cover group-hover:scale-105 transition transform duration-300">
-                    <div class="absolute inset-0 bg-secondary-950/80 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-4 sm:p-5">
-                        <span class="text-[10px] sm:text-xs text-primary font-bold uppercase mb-1">Upacara</span>
-                        <h4 class="text-white font-bold text-xs sm:text-sm">Kegiatan Upacara Bendera Hari Senin</h4>
-                    </div>
-                </div>
-                            <div class="relative group rounded-2xl overflow-hidden aspect-video bg-secondary border border-[#9e6f54] hover:border-primary shadow-md transition">
-                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&amp;w=600&amp;auto=format&amp;fit=crop" 
-                         alt="Praktek Sains di Laboratorium Komputer" 
-                         class="w-full h-full object-cover group-hover:scale-105 transition transform duration-300">
-                    <div class="absolute inset-0 bg-secondary-950/80 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-4 sm:p-5">
-                        <span class="text-[10px] sm:text-xs text-primary font-bold uppercase mb-1">Akademik</span>
-                        <h4 class="text-white font-bold text-xs sm:text-sm">Praktek Sains di Laboratorium Komputer</h4>
-                    </div>
-                </div>
-                            <div class="relative group rounded-2xl overflow-hidden aspect-video bg-secondary border border-[#9e6f54] hover:border-primary shadow-md transition">
-                    <img src="https://images.unsplash.com/photo-1526976668912-1a811878dd37?q=80&amp;w=600&amp;auto=format&amp;fit=crop" 
-                         alt="Latihan Rutin Pramuka Penggalang" 
-                         class="w-full h-full object-cover group-hover:scale-105 transition transform duration-300">
-                    <div class="absolute inset-0 bg-secondary-950/80 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-4 sm:p-5">
-                        <span class="text-[10px] sm:text-xs text-primary font-bold uppercase mb-1">Ekstrakurikuler</span>
-                        <h4 class="text-white font-bold text-xs sm:text-sm">Latihan Rutin Pramuka Penggalang</h4>
-                    </div>
-                </div>
-                            <div class="relative group rounded-2xl overflow-hidden aspect-video bg-secondary border border-[#9e6f54] hover:border-primary shadow-md transition">
-                    <img src="https://images.unsplash.com/photo-1460518451285-97b6aa326961?q=80&amp;w=600&amp;auto=format&amp;fit=crop" 
-                         alt="Pentas Seni &amp; Kreasi Siswa Akhir Tahun" 
-                         class="w-full h-full object-cover group-hover:scale-105 transition transform duration-300">
-                    <div class="absolute inset-0 bg-secondary-950/80 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-4 sm:p-5">
-                        <span class="text-[10px] sm:text-xs text-primary font-bold uppercase mb-1">Seni &amp; Budaya</span>
-                        <h4 class="text-white font-bold text-xs sm:text-sm">Pentas Seni &amp; Kreasi Siswa Akhir Tahun</h4>
-                    </div>
-                </div>
-                            <div class="relative group rounded-2xl overflow-hidden aspect-video bg-secondary border border-[#9e6f54] hover:border-primary shadow-md transition">
-                    <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&amp;w=600&amp;auto=format&amp;fit=crop" 
-                         alt="Lomba Olahraga Sepakbola Antar Kelas" 
-                         class="w-full h-full object-cover group-hover:scale-105 transition transform duration-300">
-                    <div class="absolute inset-0 bg-secondary-950/80 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-4 sm:p-5">
-                        <span class="text-[10px] sm:text-xs text-primary font-bold uppercase mb-1">Olahraga</span>
-                        <h4 class="text-white font-bold text-xs sm:text-sm">Lomba Olahraga Sepakbola Antar Kelas</h4>
-                    </div>
-                </div>
-                            <div class="relative group rounded-2xl overflow-hidden aspect-video bg-secondary border border-[#9e6f54] hover:border-primary shadow-md transition">
-                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&amp;w=600&amp;auto=format&amp;fit=crop" 
-                         alt="Kerja Bakti Lingkungan Sekolah Hijau" 
-                         class="w-full h-full object-cover group-hover:scale-105 transition transform duration-300">
-                    <div class="absolute inset-0 bg-secondary-950/80 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-4 sm:p-5">
-                        <span class="text-[10px] sm:text-xs text-primary font-bold uppercase mb-1">Lingkungan</span>
-                        <h4 class="text-white font-bold text-xs sm:text-sm">Kerja Bakti Lingkungan Sekolah Hijau</h4>
-                    </div>
-                </div>
-                    </div>
-
-    </div>
-</section>
-
-<!-- 8. KONTAK & LOKASI INTERAKTIF -->
-<section id="kontak" class="py-12 sm:py-20 bg-primary text-slate-900">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-            
-            <!-- Left Info -->
-            <div class="lg:col-span-5 space-y-4 sm:space-y-6">
-                <span class="px-3.5 py-1.5 rounded-lg bg-secondary text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider shadow-sm border border-[#9e6f54]">Hubungi Kami</span>
-                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Lokasi & Sekretariat PPDB</h2>
-                <p class="text-[#6d4330] text-xs sm:text-sm leading-relaxed font-medium">
-                    Kunjungi langsung kampus SDN Tunggaljaya 2 atau hubungi nomor layanan informasi kami pada jam kerja sekolah.
-                </p>
-
-                <div class="space-y-3 sm:space-y-4 pt-2">
-                    <div class="flex items-start gap-3.5 sm:gap-4 p-3.5 sm:p-4 rounded-xl bg-secondary text-white border border-[#9e6f54] shadow-md">
-                        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-[#9e6f54] text-primary flex items-center justify-center font-bold text-base sm:text-lg shrink-0 shadow border border-[#835841]">
-                            <i class="fa-solid fa-map-location-dot"></i>
+                    <div
+                        class="bg-secondary text-white rounded-2xl overflow-hidden border border-[#9e6f54] flex flex-col justify-between shadow-md hover:border-primary transition">
+                        <div class="relative h-44 sm:h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&amp;w=600&amp;auto=format&amp;fit=crop"
+                                alt="Kantin Sehat &amp; Higenis" class="w-full h-full object-cover">
+                            <div
+                                class="absolute top-3 right-3 bg-secondary p-2 rounded-lg text-primary text-base border border-[#9e6f54] shadow-sm">
+                                <i class="fa-solid fa-circle-check"></i>
+                            </div>
                         </div>
-                        <div>
-                            <h4 class="text-xs sm:text-sm font-bold text-white">Alamat Lengkap</h4>
-                            <p class="text-xs text-primary-100 mt-0.5 leading-relaxed live-school-address">Kp. Cipining, Desa Tunggaljaya, Kec. Sumur, Kabupaten Pandeglang, Banten 42283</p>
+                        <div class="p-4 sm:p-5 space-y-2">
+                            <h3 class="text-base font-bold text-white">Kantin Sehat &amp; Higenis</h3>
+                            <p class="text-xs text-primary-100 leading-relaxed">Kantin sekolah terverifikasi Dinas
+                                Kesehatan menyediakan makanan nutrisi seimbang untuk para siswa.</p>
                         </div>
                     </div>
-
-                    <div class="flex items-start gap-3.5 sm:gap-4 p-3.5 sm:p-4 rounded-xl bg-secondary text-white border border-[#9e6f54] shadow-md">
-                        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-[#9e6f54] text-primary flex items-center justify-center font-bold text-base sm:text-lg shrink-0 shadow border border-[#835841]">
-                            <i class="fa-solid fa-phone"></i>
+                    <div
+                        class="bg-secondary text-white rounded-2xl overflow-hidden border border-[#9e6f54] flex flex-col justify-between shadow-md hover:border-primary transition">
+                        <div class="relative h-44 sm:h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&amp;w=600&amp;auto=format&amp;fit=crop"
+                                alt="Ruang UKS &amp; Konseling" class="w-full h-full object-cover">
+                            <div
+                                class="absolute top-3 right-3 bg-secondary p-2 rounded-lg text-primary text-base border border-[#9e6f54] shadow-sm">
+                                <i class="fa-solid fa-circle-check"></i>
+                            </div>
                         </div>
-                        <div>
-                            <h4 class="text-xs sm:text-sm font-bold text-white">Telepon / WhatsApp</h4>
-                            <p class="text-xs text-primary-100 mt-0.5 live-school-phone">(0253) 8812-901</p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-start gap-3.5 sm:gap-4 p-3.5 sm:p-4 rounded-xl bg-secondary text-white border border-[#9e6f54] shadow-md">
-                        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-[#9e6f54] text-primary flex items-center justify-center font-bold text-base sm:text-lg shrink-0 shadow border border-[#835841]">
-                            <i class="fa-solid fa-envelope"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-xs sm:text-sm font-bold text-white">Email Resmi</h4>
-                            <p class="text-xs text-primary-100 mt-0.5 live-school-email">sdntunggaljaya2@gmail.com</p>
+                        <div class="p-4 sm:p-5 space-y-2">
+                            <h3 class="text-base font-bold text-white">Ruang UKS &amp; Konseling</h3>
+                            <p class="text-xs text-primary-100 leading-relaxed">Fasilitas kesehatan pertolongan pertama
+                                dengan dokter kecil pembina terdedikasi.</p>
                         </div>
                     </div>
                 </div>
+
             </div>
+        </section>
 
-            <!-- Right Interactive Map Embed -->
-            <div class="lg:col-span-7">
-                <div class="bg-secondary p-2.5 sm:p-3 rounded-2xl border border-[#9e6f54] shadow-xl">
-                    <iframe src="https://maps.google.com/maps?q=Tunggaljaya+Sumur+Pandeglang&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=&amp;output=embed" 
-                            class="w-full h-64 sm:h-96 rounded-xl border-0 live-map-iframe" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
+        <!-- 6. BERITA & PENGUMUMAN / PPDB -->
+        <section id="berita" class="py-12 sm:py-20 bg-primary border-b border-[#e4bca2]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-4">
+                    <div>
+                        <span
+                            class="px-3.5 py-1.5 rounded-lg bg-secondary text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider shadow-sm border border-[#9e6f54]">Kabar
+                            Terbaru</span>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-2">Berita,
+                            Pengumuman & PPDB</h2>
+                        <p class="text-[#6d4330] text-xs sm:text-sm mt-1">Dapatkan update seputar kegiatan sekolah,
+                            prestasi siswa, dan penerimaan peserta didik baru.</p>
+                    </div>
                 </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" id="live-posts-container">
+                    <article
+                        class="bg-secondary rounded-2xl overflow-hidden border border-[#9e6f54] flex flex-col justify-between shadow-md hover:border-primary transition text-white">
+                        <div>
+                            <div class="relative h-40 sm:h-44 overflow-hidden">
+                                <img src="public/images/IMG_2308.jpg"
+                                    alt="Penerimaan Peserta Didik Baru (PPDB) SDN Tunggaljaya 2 Tahun Ajaran 2026/2027"
+                                    class="w-full h-full object-cover">
+                                <span
+                                    class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-[#3b2116] text-primary font-extrabold text-[11px] sm:text-xs shadow border border-[#6d4330]">
+                                    Pengumuman
+                                </span>
+                            </div>
+                            <div class="p-4 sm:p-5 space-y-2">
+                                <div class="text-xs text-primary font-bold flex items-center gap-1.5">
+                                    <i class="fa-regular fa-calendar"></i>
+                                    <span>22 Aug 2026</span>
+                                </div>
+                                <h3
+                                    class="text-sm sm:text-base font-bold text-white hover:text-primary transition leading-snug line-clamp-2">
+                                    <a href="berita/penerimaan-peserta-didik-baru-ppdb-sdn-tunggaljaya-2-2026-2027">Penerimaan
+                                        Peserta Didik Baru (PPDB) SDN Tunggaljaya 2 Tahun Ajaran 2026/2027</a>
+                                </h3>
+                                <p class="text-xs text-primary-100 line-clamp-3 leading-relaxed">
+                                    SDN Tunggaljaya 2 membuka pendaftaran calon siswa baru. Simak syarat, jadwal
+                                    gelombang, dan mekanisme pendaftaran lengkapnya di sini.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="p-4 sm:p-5 pt-0">
+                            <a href="berita/penerimaan-peserta-didik-baru-ppdb-sdn-tunggaljaya-2-2026-2027"
+                                class="inline-flex items-center gap-2 text-xs font-bold text-primary hover:text-white transition">
+                                Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                    <article
+                        class="bg-secondary rounded-2xl overflow-hidden border border-[#9e6f54] flex flex-col justify-between shadow-md hover:border-primary transition text-white">
+                        <div>
+                            <div class="relative h-40 sm:h-44 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1526976668912-1a811878dd37?q=80&amp;w=800&amp;auto=format&amp;fit=crop"
+                                    alt="Tim Pramuka SDN Tunggaljaya 2 Meraih Juara Umum Lomba Regu Tingkat Kabupaten"
+                                    class="w-full h-full object-cover">
+                                <span
+                                    class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-[#3b2116] text-primary font-extrabold text-[11px] sm:text-xs shadow border border-[#6d4330]">
+                                    Prestasi
+                                </span>
+                            </div>
+                            <div class="p-4 sm:p-5 space-y-2">
+                                <div class="text-xs text-primary font-bold flex items-center gap-1.5">
+                                    <i class="fa-regular fa-calendar"></i>
+                                    <span>19 Aug 2026</span>
+                                </div>
+                                <h3
+                                    class="text-sm sm:text-base font-bold text-white hover:text-primary transition leading-snug line-clamp-2">
+                                    <a href="berita/tim-pramuka-sdn-tunggaljaya-2-meraih-juara-umum-lomba-regu">Tim
+                                        Pramuka SDN Tunggaljaya 2 Meraih Juara Umum Lomba Regu Tingkat Kabupaten</a>
+                                </h3>
+                                <p class="text-xs text-primary-100 line-clamp-3 leading-relaxed">
+                                    Kabar membanggakan! Regu Penggalang SDN Tunggaljaya 2 berhasil membawa pulang trofi
+                                    Juara Umum dalam ajang Jambore Kabupaten.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="p-4 sm:p-5 pt-0">
+                            <a href="berita/tim-pramuka-sdn-tunggaljaya-2-meraih-juara-umum-lomba-regu"
+                                class="inline-flex items-center gap-2 text-xs font-bold text-primary hover:text-white transition">
+                                Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                    <article
+                        class="bg-secondary rounded-2xl overflow-hidden border border-[#9e6f54] flex flex-col justify-between shadow-md hover:border-primary transition text-white">
+                        <div>
+                            <div class="relative h-40 sm:h-44 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&amp;w=800&amp;auto=format&amp;fit=crop"
+                                    alt="Peluncuran Program Literasi Digital &amp; Extrakulikuler Coding untuk Kelas IV-VI"
+                                    class="w-full h-full object-cover">
+                                <span
+                                    class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-[#3b2116] text-primary font-extrabold text-[11px] sm:text-xs shadow border border-[#6d4330]">
+                                    Berita
+                                </span>
+                            </div>
+                            <div class="p-4 sm:p-5 space-y-2">
+                                <div class="text-xs text-primary font-bold flex items-center gap-1.5">
+                                    <i class="fa-regular fa-calendar"></i>
+                                    <span>14 Aug 2026</span>
+                                </div>
+                                <h3
+                                    class="text-sm sm:text-base font-bold text-white hover:text-primary transition leading-snug line-clamp-2">
+                                    <a href="berita/peluncuran-program-literasi-digital-extrakulikuler-coding">Peluncuran
+                                        Program Literasi Digital &amp; Extrakulikuler Coding untuk Kelas IV-VI</a>
+                                </h3>
+                                <p class="text-xs text-primary-100 line-clamp-3 leading-relaxed">
+                                    Mengawali semester baru, SDN Tunggaljaya 2 meluncurkan ekstrakurikuler baru di
+                                    bidang Coding &amp; Logika Komputer.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="p-4 sm:p-5 pt-0">
+                            <a href="berita/peluncuran-program-literasi-digital-extrakulikuler-coding"
+                                class="inline-flex items-center gap-2 text-xs font-bold text-primary hover:text-white transition">
+                                Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
             </div>
+        </section>
 
-        </div>
+        <!-- 7. GALERI KEGIATAN -->
+        <section id="galeri" class="py-12 sm:py-20 bg-primary border-b border-[#e4bca2]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    </div>
-</section>
+                <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14 space-y-2">
+                    <span
+                        class="px-3.5 py-1.5 rounded-lg bg-secondary text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider shadow-sm border border-[#9e6f54]">Dokumentasi</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Galeri Kegiatan
+                        Sekolah</h2>
+                    <p class="text-[#6d4330] text-xs sm:text-sm">Momen-momen berharga pembelajaran, karya, dan prestasi
+                        siswa SDN Tunggaljaya 2.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" id="live-gallery-container">
+                    <div
+                        class="relative group rounded-2xl overflow-hidden aspect-video bg-secondary border border-[#9e6f54] hover:border-primary shadow-md transition">
+                        <img src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?q=80&amp;w=600&amp;auto=format&amp;fit=crop"
+                            alt="Kegiatan Upacara Bendera Hari Senin"
+                            class="w-full h-full object-cover group-hover:scale-105 transition transform duration-300">
+                        <div
+                            class="absolute inset-0 bg-secondary-950/80 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-4 sm:p-5">
+                            <span class="text-[10px] sm:text-xs text-primary font-bold uppercase mb-1">Upacara</span>
+                            <h4 class="text-white font-bold text-xs sm:text-sm">Kegiatan Upacara Bendera Hari Senin</h4>
+                        </div>
+                    </div>
+                    <div
+                        class="relative group rounded-2xl overflow-hidden aspect-video bg-secondary border border-[#9e6f54] hover:border-primary shadow-md transition">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&amp;w=600&amp;auto=format&amp;fit=crop"
+                            alt="Praktek Sains di Laboratorium Komputer"
+                            class="w-full h-full object-cover group-hover:scale-105 transition transform duration-300">
+                        <div
+                            class="absolute inset-0 bg-secondary-950/80 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-4 sm:p-5">
+                            <span class="text-[10px] sm:text-xs text-primary font-bold uppercase mb-1">Akademik</span>
+                            <h4 class="text-white font-bold text-xs sm:text-sm">Praktek Sains di Laboratorium Komputer
+                            </h4>
+                        </div>
+                    </div>
+                    <div
+                        class="relative group rounded-2xl overflow-hidden aspect-video bg-secondary border border-[#9e6f54] hover:border-primary shadow-md transition">
+                        <img src="https://images.unsplash.com/photo-1526976668912-1a811878dd37?q=80&amp;w=600&amp;auto=format&amp;fit=crop"
+                            alt="Latihan Rutin Pramuka Penggalang"
+                            class="w-full h-full object-cover group-hover:scale-105 transition transform duration-300">
+                        <div
+                            class="absolute inset-0 bg-secondary-950/80 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-4 sm:p-5">
+                            <span
+                                class="text-[10px] sm:text-xs text-primary font-bold uppercase mb-1">Ekstrakurikuler</span>
+                            <h4 class="text-white font-bold text-xs sm:text-sm">Latihan Rutin Pramuka Penggalang</h4>
+                        </div>
+                    </div>
+                    <div
+                        class="relative group rounded-2xl overflow-hidden aspect-video bg-secondary border border-[#9e6f54] hover:border-primary shadow-md transition">
+                        <img src="https://images.unsplash.com/photo-1460518451285-97b6aa326961?q=80&amp;w=600&amp;auto=format&amp;fit=crop"
+                            alt="Pentas Seni &amp; Kreasi Siswa Akhir Tahun"
+                            class="w-full h-full object-cover group-hover:scale-105 transition transform duration-300">
+                        <div
+                            class="absolute inset-0 bg-secondary-950/80 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-4 sm:p-5">
+                            <span class="text-[10px] sm:text-xs text-primary font-bold uppercase mb-1">Seni &amp;
+                                Budaya</span>
+                            <h4 class="text-white font-bold text-xs sm:text-sm">Pentas Seni &amp; Kreasi Siswa Akhir
+                                Tahun</h4>
+                        </div>
+                    </div>
+                    <div
+                        class="relative group rounded-2xl overflow-hidden aspect-video bg-secondary border border-[#9e6f54] hover:border-primary shadow-md transition">
+                        <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&amp;w=600&amp;auto=format&amp;fit=crop"
+                            alt="Lomba Olahraga Sepakbola Antar Kelas"
+                            class="w-full h-full object-cover group-hover:scale-105 transition transform duration-300">
+                        <div
+                            class="absolute inset-0 bg-secondary-950/80 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-4 sm:p-5">
+                            <span class="text-[10px] sm:text-xs text-primary font-bold uppercase mb-1">Olahraga</span>
+                            <h4 class="text-white font-bold text-xs sm:text-sm">Lomba Olahraga Sepakbola Antar Kelas
+                            </h4>
+                        </div>
+                    </div>
+                    <div
+                        class="relative group rounded-2xl overflow-hidden aspect-video bg-secondary border border-[#9e6f54] hover:border-primary shadow-md transition">
+                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&amp;w=600&amp;auto=format&amp;fit=crop"
+                            alt="Kerja Bakti Lingkungan Sekolah Hijau"
+                            class="w-full h-full object-cover group-hover:scale-105 transition transform duration-300">
+                        <div
+                            class="absolute inset-0 bg-secondary-950/80 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-4 sm:p-5">
+                            <span class="text-[10px] sm:text-xs text-primary font-bold uppercase mb-1">Lingkungan</span>
+                            <h4 class="text-white font-bold text-xs sm:text-sm">Kerja Bakti Lingkungan Sekolah Hijau
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 8. KONTAK & LOKASI INTERAKTIF -->
+        <section id="kontak" class="py-12 sm:py-20 bg-primary text-slate-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+
+                    <!-- Left Info -->
+                    <div class="lg:col-span-5 space-y-4 sm:space-y-6">
+                        <span
+                            class="px-3.5 py-1.5 rounded-lg bg-secondary text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider shadow-sm border border-[#9e6f54]">Hubungi
+                            Kami</span>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Lokasi & Sekretariat PPDB</h2>
+                        <p class="text-[#6d4330] text-xs sm:text-sm leading-relaxed font-medium">
+                            Kunjungi langsung kampus SDN Tunggaljaya 2 atau hubungi nomor layanan informasi kami pada
+                            jam kerja sekolah.
+                        </p>
+
+                        <div class="space-y-3 sm:space-y-4 pt-2">
+                            <div
+                                class="flex items-start gap-3.5 sm:gap-4 p-3.5 sm:p-4 rounded-xl bg-secondary text-white border border-[#9e6f54] shadow-md">
+                                <div
+                                    class="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-[#9e6f54] text-primary flex items-center justify-center font-bold text-base sm:text-lg shrink-0 shadow border border-[#835841]">
+                                    <i class="fa-solid fa-map-location-dot"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs sm:text-sm font-bold text-white">Alamat Lengkap</h4>
+                                    <p class="text-xs text-primary-100 mt-0.5 leading-relaxed live-school-address">Kp.
+                                        Cipining, Desa Tunggaljaya, Kec. Sumur, Kabupaten Pandeglang, Banten 42283</p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="flex items-start gap-3.5 sm:gap-4 p-3.5 sm:p-4 rounded-xl bg-secondary text-white border border-[#9e6f54] shadow-md">
+                                <div
+                                    class="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-[#9e6f54] text-primary flex items-center justify-center font-bold text-base sm:text-lg shrink-0 shadow border border-[#835841]">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs sm:text-sm font-bold text-white">Telepon / WhatsApp</h4>
+                                    <p class="text-xs text-primary-100 mt-0.5 live-school-phone">(0253) 8812-901</p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="flex items-start gap-3.5 sm:gap-4 p-3.5 sm:p-4 rounded-xl bg-secondary text-white border border-[#9e6f54] shadow-md">
+                                <div
+                                    class="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-[#9e6f54] text-primary flex items-center justify-center font-bold text-base sm:text-lg shrink-0 shadow border border-[#835841]">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs sm:text-sm font-bold text-white">Email Resmi</h4>
+                                    <p class="text-xs text-primary-100 mt-0.5 live-school-email">
+                                        sdntunggaljaya2@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Interactive Map Embed -->
+                    <div class="lg:col-span-7">
+                        <div class="bg-secondary p-2.5 sm:p-3 rounded-2xl border border-[#9e6f54] shadow-xl">
+                            <iframe
+                                src="https://maps.google.com/maps?q=Tunggaljaya+Sumur+Pandeglang&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+                                class="w-full h-64 sm:h-96 rounded-xl border-0 live-map-iframe" allowfullscreen=""
+                                loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
 
     </main>
 
@@ -885,17 +1065,20 @@
     <footer class="bg-[#3b2116] text-[#f5e5da] pt-12 sm:pt-16 pb-8 border-t border-[#6d4330] mt-12 sm:mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 mb-10 sm:mb-12">
-                
+
                 <!-- Col 1: About -->
                 <div>
                     <div class="flex items-center gap-3 mb-4">
-                        <div class="w-9 h-9 rounded-lg bg-primary p-0.5 flex items-center justify-center shadow shrink-0">
-                            <img src="./images/logo.png" alt="Logo SD N TUNGGALJAYA 2" class="w-full h-full object-contain">
+                        <div
+                            class="w-9 h-9 rounded-lg bg-primary p-0.5 flex items-center justify-center shadow shrink-0">
+                            <img src="./images/logo.png" alt="Logo SD N TUNGGALJAYA 2"
+                                class="w-full h-full object-contain">
                         </div>
                         <span class="text-white font-extrabold text-lg">SD N TUNGGALJAYA 2</span>
                     </div>
                     <p class="text-xs text-[#f4d8cc] leading-relaxed mb-4">
-                        Sekolah Dasar Negeri dengan komitmen membina generasi cerdas, berkarakter mulia, bernalar kritis, dan berwawasan teknologi masa depan.
+                        Sekolah Dasar Negeri dengan komitmen membina generasi cerdas, berkarakter mulia, bernalar
+                        kritis, dan berwawasan teknologi masa depan.
                     </p>
                 </div>
 
@@ -903,18 +1086,29 @@
                 <div>
                     <h3 class="text-white font-bold text-sm mb-4 border-l-4 border-secondary pl-3">Tautan Cepat</h3>
                     <ul class="space-y-2 text-xs">
-                        <li><a href="#visimisi" class="hover:text-primary transition inline-block py-0.5"><i class="fa-solid fa-chevron-right text-[10px] text-secondary mr-2"></i>Visi & Misi</a></li>
-                        <li><a href="#guru" class="hover:text-primary transition inline-block py-0.5"><i class="fa-solid fa-chevron-right text-[10px] text-secondary mr-2"></i>Tenaga Pendidik</a></li>
-                        <li><a href="#fasilitas" class="hover:text-primary transition inline-block py-0.5"><i class="fa-solid fa-chevron-right text-[10px] text-secondary mr-2"></i>Fasilitas Sekolah</a></li>
-                        <li><a href="#berita" class="hover:text-primary transition inline-block py-0.5"><i class="fa-solid fa-chevron-right text-[10px] text-secondary mr-2"></i>Berita & PPDB</a></li>
-                        <li><a href="#galeri" class="hover:text-primary transition inline-block py-0.5"><i class="fa-solid fa-chevron-right text-[10px] text-secondary mr-2"></i>Galeri Foto</a></li>
+                        <li><a href="#visimisi" class="hover:text-primary transition inline-block py-0.5"><i
+                                    class="fa-solid fa-chevron-right text-[10px] text-secondary mr-2"></i>Visi &
+                                Misi</a></li>
+                        <li><a href="#guru" class="hover:text-primary transition inline-block py-0.5"><i
+                                    class="fa-solid fa-chevron-right text-[10px] text-secondary mr-2"></i>Tenaga
+                                Pendidik</a></li>
+                        <li><a href="#fasilitas" class="hover:text-primary transition inline-block py-0.5"><i
+                                    class="fa-solid fa-chevron-right text-[10px] text-secondary mr-2"></i>Fasilitas
+                                Sekolah</a></li>
+                        <li><a href="#berita" class="hover:text-primary transition inline-block py-0.5"><i
+                                    class="fa-solid fa-chevron-right text-[10px] text-secondary mr-2"></i>Berita &
+                                PPDB</a></li>
+                        <li><a href="#galeri" class="hover:text-primary transition inline-block py-0.5"><i
+                                    class="fa-solid fa-chevron-right text-[10px] text-secondary mr-2"></i>Galeri
+                                Foto</a></li>
                     </ul>
                 </div>
 
                 <!-- Col 3: Role Info -->
                 <div>
                     <h3 class="text-white font-bold text-sm mb-4 border-l-4 border-secondary pl-3">Akses Sistem</h3>
-                    <div class="bg-[#2a170f] p-4 rounded-xl border border-[#6d4330] text-xs leading-relaxed space-y-2.5">
+                    <div
+                        class="bg-[#2a170f] p-4 rounded-xl border border-[#6d4330] text-xs leading-relaxed space-y-2.5">
                         <div class="flex items-center gap-2 text-[#f5e5da]">
                             <span class="w-2.5 h-2.5 rounded-full bg-primary shrink-0"></span>
                             <span><strong>Role Guest:</strong> Akses penuh profil & pengumuman.</span>
@@ -924,7 +1118,8 @@
                             <span><strong>Role Operator:</strong> Panel kelola konten.</span>
                         </div>
                         <div class="pt-1">
-                            <a href="login.html" class="inline-flex items-center gap-1.5 text-primary font-bold hover:text-secondary-300 hover:underline">
+                            <a href="login.html"
+                                class="inline-flex items-center gap-1.5 text-primary font-bold hover:text-secondary-300 hover:underline">
                                 <i class="fa-solid fa-key text-secondary"></i> Login Operator
                             </a>
                         </div>
@@ -980,5 +1175,5 @@
         initLiveWebsite();
     </script>
 </body>
-</html>
 
+</html>
