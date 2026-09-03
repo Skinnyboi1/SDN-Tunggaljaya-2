@@ -1,12 +1,46 @@
 // Supabase JS Client v2 Module (ESM CDN)
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 
-// Active Supabase Project Credentials
+// Active Default Supabase Project Credentials
 export const DEFAULT_SUPABASE_URL = "https://bjnzqebhjkjusdzjavpv.supabase.co";
 export const DEFAULT_SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJqbnpxZWJoamtqdXNkemphdnB2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgyMzA3NDUsImV4cCI6MjEwMzgwNjc0NX0.JtpQmnz1mM4qiks9p5gDLiCXvZ0wFckk2sKGiXL0_0s";
 
+/**
+ * Get active Supabase Credentials (LocalStorage overriding default)
+ */
+export function getSupabaseCredentials() {
+    let url = DEFAULT_SUPABASE_URL;
+    let key = DEFAULT_SUPABASE_KEY;
+    try {
+        const storedUrl = localStorage.getItem('SUPABASE_URL');
+        const storedKey = localStorage.getItem('SUPABASE_KEY');
+        if (storedUrl && storedUrl.trim()) url = storedUrl.trim();
+        if (storedKey && storedKey.trim()) key = storedKey.trim();
+    } catch (e) {
+        console.warn('LocalStorage credentials access warning:', e);
+    }
+    return { url, key };
+}
+
+/**
+ * Save custom Supabase Credentials to LocalStorage
+ */
+export function saveSupabaseCredentials(url, key) {
+    try {
+        if (url) localStorage.setItem('SUPABASE_URL', url.trim());
+        if (key) localStorage.setItem('SUPABASE_KEY', key.trim());
+        return true;
+    } catch (e) {
+        console.error('Failed to save Supabase credentials:', e);
+        return false;
+    }
+}
+
+// Active Credentials
+const activeCreds = getSupabaseCredentials();
+
 // Initialize Supabase Client
-export const supabase = createClient(DEFAULT_SUPABASE_URL, DEFAULT_SUPABASE_KEY, {
+export const supabase = createClient(activeCreds.url, activeCreds.key, {
     auth: {
         persistSession: true,
         autoRefreshToken: true,
@@ -16,7 +50,7 @@ export const supabase = createClient(DEFAULT_SUPABASE_URL, DEFAULT_SUPABASE_KEY,
 
 /**
  * Client-Side Smart Image Compressor & Supabase Storage Uploader
- * 1. Resizes & compresses uploaded images (e.g. 10MB camera photo -> 50KB JPEG)
+ * 1. Resizes & compresses uploaded images (e.g. 10MB camera photo -> ~50KB JPEG)
  * 2. Uploads to Supabase Storage bucket 'school-media'
  * 3. Returns the public CDN URL (with Data URL fallback if storage is offline)
  */

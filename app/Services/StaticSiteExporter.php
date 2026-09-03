@@ -155,6 +155,21 @@ class StaticSiteExporter
             File::copyDirectory($publicPath . '/uploads', $this->outputDir . '/uploads');
         }
 
+        // Copy js directory
+        if (File::isDirectory($publicPath . '/js')) {
+            File::copyDirectory($publicPath . '/js', $this->outputDir . '/js');
+        }
+
+        // Copy operator.html if exists
+        if (File::exists($publicPath . '/operator.html')) {
+            File::copy($publicPath . '/operator.html', $this->outputDir . '/operator.html');
+        }
+
+        // Copy login.html if exists
+        if (File::exists($publicPath . '/login.html')) {
+            File::copy($publicPath . '/login.html', $this->outputDir . '/login.html');
+        }
+
         // Copy favicon if exists
         if (File::exists($publicPath . '/favicon.ico')) {
             File::copy($publicPath . '/favicon.ico', $this->outputDir . '/favicon.ico');

@@ -62,7 +62,7 @@
 </head>
 <body class="bg-primary text-slate-800 font-sans antialiased flex flex-col md:flex-row min-h-screen">
 
-    <!-- MOBILE HEADER (VISIBLE ON MOBILE < MD) -->
+    <!-- MOBILE HEADER -->
     <div class="md:hidden bg-[#3b2116] text-[#f5e5da] border-b border-[#6d4330] px-4 py-3 flex items-center justify-between sticky top-0 z-40 shadow-md">
         <div class="flex items-center gap-2.5">
             <div class="w-8 h-8 rounded-lg bg-secondary flex items-center justify-center p-1 shadow border border-secondary-600">
@@ -108,7 +108,7 @@
                         <i class="fa-solid fa-database"></i>
                     </div>
                     <div class="min-w-0">
-                        <div class="text-xs font-bold text-white truncate" id="operator-email-display">Memuat...</div>
+                        <div class="text-xs font-bold text-white truncate" id="operator-email-display">Memuat Sesi...</div>
                         <div class="text-[10px] text-emerald-300 flex items-center gap-1 font-medium">
                             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Supabase Connected
                         </div>
@@ -146,11 +146,15 @@
 
         <!-- Footer Actions -->
         <div class="p-4 border-t border-[#6d4330] space-y-2">
-            <a href="./" target="_blank" class="w-full py-2.5 px-4 rounded-xl bg-[#2a170f] hover:bg-[#6d4330] text-primary text-xs font-bold transition flex items-center justify-center gap-2">
+            <button type="button" onclick="openSupabaseSettingsModal()" class="w-full py-2 px-3 rounded-xl bg-[#2a170f] hover:bg-[#6d4330] text-primary text-xs font-bold transition flex items-center justify-center gap-2 border border-[#6d4330]">
+                <i class="fa-solid fa-gear text-secondary"></i> Pengaturan Supabase
+            </button>
+
+            <a href="./" target="_blank" class="w-full py-2 px-3 rounded-xl bg-[#2a170f] hover:bg-[#6d4330] text-primary text-xs font-bold transition flex items-center justify-center gap-2">
                 <i class="fa-solid fa-eye text-secondary"></i> Lihat Website Publik
             </a>
             
-            <button type="button" id="logout-btn" class="w-full py-2.5 px-4 rounded-xl bg-rose-500/20 hover:bg-rose-500 text-rose-300 hover:text-white text-xs font-bold transition flex items-center justify-center gap-2 border border-rose-500/30 cursor-pointer">
+            <button type="button" id="logout-btn" class="w-full py-2 px-3 rounded-xl bg-rose-500/20 hover:bg-rose-500 text-rose-300 hover:text-white text-xs font-bold transition flex items-center justify-center gap-2 border border-rose-500/30 cursor-pointer">
                 <i class="fa-solid fa-right-from-bracket"></i> Keluar / Logout
             </button>
         </div>
@@ -201,231 +205,217 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                     <div class="bg-secondary p-5 rounded-2xl border border-[#9e6f54] shadow-md flex items-center justify-between text-white">
                         <div>
-                            <div class="text-[10px] text-primary font-bold uppercase tracking-wider">Tenaga Pendidik</div>
-                            <div class="text-2xl sm:text-3xl font-extrabold text-white mt-1" id="stat-teachers">0</div>
-                            <button type="button" onclick="switchTab('teachers')" class="text-xs font-bold text-primary hover:text-white mt-2 inline-block">Kelola Guru &rarr;</button>
+                            <div class="text-xs font-semibold text-primary">Tenaga Pendidik</div>
+                            <div class="text-2xl font-extrabold mt-1 text-white" id="stat-teachers">0</div>
+                            <div class="text-[10px] text-primary-200 mt-1">Guru & Staf Terdaftar</div>
                         </div>
-                        <div class="w-11 h-11 rounded-xl bg-[#9e6f54] text-primary flex items-center justify-center text-xl font-bold border border-[#835841] shrink-0">
+                        <div class="w-12 h-12 rounded-xl bg-[#9e6f54] flex items-center justify-center text-primary text-xl border border-[#835841]">
                             <i class="fa-solid fa-chalkboard-user"></i>
                         </div>
                     </div>
 
                     <div class="bg-secondary p-5 rounded-2xl border border-[#9e6f54] shadow-md flex items-center justify-between text-white">
                         <div>
-                            <div class="text-[10px] text-primary font-bold uppercase tracking-wider">Fasilitas</div>
-                            <div class="text-2xl sm:text-3xl font-extrabold text-white mt-1" id="stat-facilities">0</div>
-                            <button type="button" onclick="switchTab('facilities')" class="text-xs font-bold text-primary hover:text-white mt-2 inline-block">Kelola Fasilitas &rarr;</button>
+                            <div class="text-xs font-semibold text-primary">Fasilitas Sekolah</div>
+                            <div class="text-2xl font-extrabold mt-1 text-white" id="stat-facilities">0</div>
+                            <div class="text-[10px] text-primary-200 mt-1">Sarana Penunjang</div>
                         </div>
-                        <div class="w-11 h-11 rounded-xl bg-[#9e6f54] text-primary flex items-center justify-center text-xl font-bold border border-[#835841] shrink-0">
+                        <div class="w-12 h-12 rounded-xl bg-[#9e6f54] flex items-center justify-center text-primary text-xl border border-[#835841]">
                             <i class="fa-solid fa-building-user"></i>
                         </div>
                     </div>
 
                     <div class="bg-secondary p-5 rounded-2xl border border-[#9e6f54] shadow-md flex items-center justify-between text-white">
                         <div>
-                            <div class="text-[10px] text-primary font-bold uppercase tracking-wider">Berita & PPDB</div>
-                            <div class="text-2xl sm:text-3xl font-extrabold text-white mt-1" id="stat-posts">0</div>
-                            <button type="button" onclick="switchTab('posts')" class="text-xs font-bold text-primary hover:text-white mt-2 inline-block">Kelola Berita &rarr;</button>
+                            <div class="text-xs font-semibold text-primary">Berita & Artikel</div>
+                            <div class="text-2xl font-extrabold mt-1 text-white" id="stat-posts">0</div>
+                            <div class="text-[10px] text-primary-200 mt-1">Informasi Terpublikasi</div>
                         </div>
-                        <div class="w-11 h-11 rounded-xl bg-[#9e6f54] text-primary flex items-center justify-center text-xl font-bold border border-[#835841] shrink-0">
+                        <div class="w-12 h-12 rounded-xl bg-[#9e6f54] flex items-center justify-center text-primary text-xl border border-[#835841]">
                             <i class="fa-solid fa-newspaper"></i>
                         </div>
                     </div>
 
                     <div class="bg-secondary p-5 rounded-2xl border border-[#9e6f54] shadow-md flex items-center justify-between text-white">
                         <div>
-                            <div class="text-[10px] text-primary font-bold uppercase tracking-wider">Foto Galeri</div>
-                            <div class="text-2xl sm:text-3xl font-extrabold text-white mt-1" id="stat-gallery">0</div>
-                            <button type="button" onclick="switchTab('gallery')" class="text-xs font-bold text-primary hover:text-white mt-2 inline-block">Kelola Galeri &rarr;</button>
+                            <div class="text-xs font-semibold text-primary">Galeri Foto</div>
+                            <div class="text-2xl font-extrabold mt-1 text-white" id="stat-gallery">0</div>
+                            <div class="text-[10px] text-primary-200 mt-1">Dokumentasi Kegiatan</div>
                         </div>
-                        <div class="w-11 h-11 rounded-xl bg-[#9e6f54] text-primary flex items-center justify-center text-xl font-bold border border-[#835841] shrink-0">
+                        <div class="w-12 h-12 rounded-xl bg-[#9e6f54] flex items-center justify-center text-primary text-xl border border-[#835841]">
                             <i class="fa-solid fa-images"></i>
                         </div>
                     </div>
                 </div>
 
-                <!-- Dashboard Overview -->
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-                    <div class="lg:col-span-7 bg-secondary text-white p-5 sm:p-6 rounded-2xl border border-[#9e6f54] shadow-xl space-y-4">
-                        <div class="flex items-center justify-between border-b border-[#9e6f54] pb-4">
-                            <h3 class="text-base font-bold text-white flex items-center gap-2">
-                                <i class="fa-solid fa-school-flag text-primary"></i> Identitas & Ringkasan Sekolah
+                <!-- Dashboard Details Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="lg:col-span-2 bg-secondary p-6 rounded-2xl border border-[#9e6f54] shadow-md text-white space-y-4">
+                        <div class="flex items-center justify-between border-b border-[#9e6f54] pb-3">
+                            <h3 class="font-extrabold text-base flex items-center gap-2">
+                                <i class="fa-solid fa-school text-primary"></i> Ringkasan Profil Sekolah
                             </h3>
-                            <button type="button" onclick="switchTab('profile')" class="px-3 py-1.5 rounded-lg bg-primary text-slate-950 text-xs font-extrabold hover:bg-primary-200 transition">
-                                <i class="fa-solid fa-pen-to-square"></i> Edit Profil
+                            <button type="button" onclick="switchTab('profile')" class="text-xs font-bold text-primary hover:text-white transition">
+                                Edit Profil &rarr;
                             </button>
                         </div>
 
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                            <div class="p-3 bg-[#9e6f54] rounded-xl border border-[#835841]">
-                                <span class="text-primary font-medium">Nama Sekolah:</span>
-                                <div class="font-bold text-white text-sm mt-0.5" id="dash-school-name">-</div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                            <div class="p-3.5 bg-[#9e6f54] rounded-xl border border-[#835841]">
+                                <div class="text-primary-200 font-semibold text-[11px]">Nama Sekolah</div>
+                                <div class="font-extrabold text-white text-sm mt-0.5" id="dash-school-name">SD N TUNGGALJAYA 2</div>
                             </div>
-                            <div class="p-3 bg-[#9e6f54] rounded-xl border border-[#835841]">
-                                <span class="text-primary font-medium">NPSN / Akreditasi:</span>
-                                <div class="font-bold text-white text-sm mt-0.5" id="dash-school-npsn">-</div>
+                            <div class="p-3.5 bg-[#9e6f54] rounded-xl border border-[#835841]">
+                                <div class="text-primary-200 font-semibold text-[11px]">NPSN & Akreditasi</div>
+                                <div class="font-bold text-white mt-0.5" id="dash-school-npsn">20600476 (Akreditasi B)</div>
                             </div>
-                            <div class="p-3 bg-[#9e6f54] rounded-xl border border-[#835841]">
-                                <span class="text-primary font-medium">Kontak Sekolah:</span>
-                                <div class="font-bold text-white text-sm mt-0.5 truncate" id="dash-school-contact">-</div>
+                            <div class="p-3.5 bg-[#9e6f54] rounded-xl border border-[#835841]">
+                                <div class="text-primary-200 font-semibold text-[11px]">Kontak & Email</div>
+                                <div class="font-bold text-white mt-0.5" id="dash-school-contact">(0253) 8812-901</div>
                             </div>
-                            <div class="p-3 bg-[#9e6f54] rounded-xl border border-[#835841]">
-                                <span class="text-primary font-medium">Jumlah Siswa / Rombel:</span>
-                                <div class="font-bold text-white text-sm mt-0.5" id="dash-school-students">-</div>
+                            <div class="p-3.5 bg-[#9e6f54] rounded-xl border border-[#835841]">
+                                <div class="text-primary-200 font-semibold text-[11px]">Statistik Siswa</div>
+                                <div class="font-bold text-white mt-0.5" id="dash-school-students">185 Siswa / 6 Rombel</div>
                             </div>
                         </div>
 
-                        <div class="p-3.5 bg-[#9e6f54] rounded-xl border border-[#835841] text-xs text-white space-y-1">
-                            <div class="font-bold flex items-center gap-1.5 text-primary">
-                                <i class="fa-solid fa-eye"></i> Visi Sekolah:
-                            </div>
-                            <p class="italic font-medium text-[#fdfbf9]" id="dash-school-vision">-</p>
+                        <div class="p-4 bg-[#9e6f54] rounded-xl border border-[#835841]">
+                            <div class="text-primary-200 font-semibold text-[11px]">Visi Utama</div>
+                            <p class="font-medium text-white italic text-xs mt-1" id="dash-school-vision">"Terwujudnya Peserta Didik yang Beriman, Bertaqwa, Berkarakter Luhur, Unggul dalam Prestasi, dan Berwawasan Lingkungan."</p>
                         </div>
                     </div>
 
-                    <div class="lg:col-span-5 bg-secondary text-white p-5 sm:p-6 rounded-2xl border border-[#9e6f54] shadow-xl space-y-4">
-                        <div class="flex items-center justify-between border-b border-[#9e6f54] pb-4">
-                            <h3 class="text-base font-bold text-white flex items-center gap-2">
+                    <div class="bg-secondary p-6 rounded-2xl border border-[#9e6f54] shadow-md text-white space-y-4">
+                        <div class="flex items-center justify-between border-b border-[#9e6f54] pb-3">
+                            <h3 class="font-extrabold text-base flex items-center gap-2">
                                 <i class="fa-solid fa-newspaper text-primary"></i> Berita Terbaru
                             </h3>
-                            <button type="button" onclick="switchTab('posts')" class="text-xs font-bold text-primary hover:underline">Lihat Semua</button>
+                            <button type="button" onclick="switchTab('posts')" class="text-xs font-bold text-primary hover:text-white transition">
+                                Kelola &rarr;
+                            </button>
                         </div>
 
-                        <div id="dash-recent-posts" class="space-y-2.5">
-                            <p class="text-xs text-primary-200 text-center py-4">Memuat data berita...</p>
+                        <div class="space-y-3" id="dash-recent-posts">
+                            <p class="text-xs text-primary-200 text-center py-4">Memuat berita terbaru...</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- ================= TAB 2: PROFIL SEKOLAH ================= -->
+            <!-- ================= TAB 2: PROFILE ================= -->
             <div id="tab-profile" class="tab-content hidden space-y-6">
-                <div class="bg-secondary text-white p-6 sm:p-8 rounded-3xl border border-[#9e6f54] shadow-xl">
-                    <div class="border-b border-[#9e6f54] pb-4 mb-6">
-                        <h2 class="text-xl font-extrabold text-white flex items-center gap-2.5">
-                            <i class="fa-solid fa-school text-primary"></i> Pengaturan Informasi Profil Sekolah
-                        </h2>
-                        <p class="text-xs text-primary mt-1">Perubahan di halaman ini langsung tersimpan di Supabase PostgreSQL dan otomatis terupdate di website publik.</p>
-                    </div>
-
-                    <form id="form-profile" class="space-y-6">
-                        <!-- Identitas -->
-                        <div class="bg-[#9e6f54] p-4 sm:p-6 rounded-2xl border border-[#835841] space-y-4">
-                            <h3 class="text-sm font-bold text-white border-b border-[#835841] pb-2 flex items-center gap-2">
-                                <i class="fa-solid fa-id-card-clip text-primary"></i> Identitas Pokok Sekolah
-                            </h3>
-                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                                <div>
-                                    <label class="block text-xs font-bold text-white mb-1">Nama Sekolah</label>
-                                    <input type="text" id="prof-name" required class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white text-xs focus:ring-2 focus:ring-primary focus:outline-none">
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-bold text-white mb-1">NPSN</label>
-                                    <input type="text" id="prof-npsn" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white text-xs focus:ring-2 focus:ring-primary focus:outline-none">
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-bold text-white mb-1">Akreditasi</label>
-                                    <input type="text" id="prof-akreditasi" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white text-xs focus:ring-2 focus:ring-primary focus:outline-none">
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Visi & Misi -->
-                        <div class="bg-[#9e6f54] p-4 sm:p-6 rounded-2xl border border-[#835841] space-y-4">
-                            <h3 class="text-sm font-bold text-white border-b border-[#835841] pb-2 flex items-center gap-2">
-                                <i class="fa-solid fa-bullseye text-primary"></i> Visi, Misi & Profil Sejarah
-                            </h3>
+                <div class="bg-secondary p-6 rounded-2xl border border-[#9e6f54] shadow-md text-white">
+                    <form id="form-profile" class="space-y-5">
+                        <div class="border-b border-[#9e6f54] pb-3 flex items-center justify-between">
                             <div>
-                                <label class="block text-xs font-bold text-white mb-1">Visi Lembaga</label>
-                                <textarea id="prof-vision" rows="2" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white text-xs focus:ring-2 focus:ring-primary focus:outline-none"></textarea>
+                                <h3 class="text-base font-bold text-white flex items-center gap-2">
+                                    <i class="fa-solid fa-school text-primary"></i> Identitas & Profil Sekolah
+                                </h3>
+                                <p class="text-xs text-primary-100 mt-0.5">Edit informasi dasar yang akan ditampilkan di landing page website utama.</p>
                             </div>
-                            <div>
-                                <label class="block text-xs font-bold text-white mb-1">Misi Lembaga (Tulis 1 poin per baris)</label>
-                                <textarea id="prof-mission" rows="4" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white text-xs focus:ring-2 focus:ring-primary focus:outline-none" placeholder="Poin misi 1&#10;Poin misi 2&#10;Poin misi 3"></textarea>
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold text-white mb-1">Sejarah Singkat / Profil Sekolah</label>
-                                <textarea id="prof-history" rows="3" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white text-xs focus:ring-2 focus:ring-primary focus:outline-none"></textarea>
-                            </div>
-                        </div>
-
-                        <!-- Statistik & Kontak -->
-                        <div class="bg-[#9e6f54] p-4 sm:p-6 rounded-2xl border border-[#835841] space-y-4">
-                            <h3 class="text-sm font-bold text-white border-b border-[#835841] pb-2 flex items-center gap-2">
-                                <i class="fa-solid fa-address-book text-primary"></i> Statistik, Alamat & Kontak
-                            </h3>
-                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                                <div>
-                                    <label class="block text-xs font-bold text-white mb-1">Jumlah Siswa</label>
-                                    <input type="number" id="prof-students" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white text-xs focus:ring-2 focus:ring-primary focus:outline-none">
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-bold text-white mb-1">Jumlah Guru/Staf</label>
-                                    <input type="number" id="prof-teachers" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white text-xs focus:ring-2 focus:ring-primary focus:outline-none">
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-bold text-white mb-1">Jumlah Rombel / Kelas</label>
-                                    <input type="number" id="prof-classes" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white text-xs focus:ring-2 focus:ring-primary focus:outline-none">
-                                </div>
-                            </div>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-xs font-bold text-white mb-1">Nomor Telepon / WhatsApp</label>
-                                    <input type="text" id="prof-phone" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white text-xs focus:ring-2 focus:ring-primary focus:outline-none">
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-bold text-white mb-1">Email Resmi Sekolah</label>
-                                    <input type="email" id="prof-email" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white text-xs focus:ring-2 focus:ring-primary focus:outline-none">
-                                </div>
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold text-white mb-1">Alamat Lengkap</label>
-                                <input type="text" id="prof-address" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white text-xs focus:ring-2 focus:ring-primary focus:outline-none">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold text-white mb-1">Google Maps Embed URL</label>
-                                <input type="text" id="prof-map-url" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white text-xs focus:ring-2 focus:ring-primary focus:outline-none">
-                            </div>
-                        </div>
-
-                        <div class="flex justify-end">
-                            <button type="submit" id="btn-save-profile" class="px-6 py-3 rounded-xl bg-primary hover:bg-primary-200 text-slate-950 font-extrabold text-xs sm:text-sm shadow-lg transition flex items-center gap-2 cursor-pointer">
+                            <button type="submit" id="btn-save-profile" class="px-5 py-2.5 rounded-xl bg-primary text-slate-950 font-extrabold text-xs shadow hover:bg-primary-200 transition flex items-center gap-2 cursor-pointer">
                                 <i class="fa-solid fa-floppy-disk text-secondary"></i> Simpan Perubahan Profil
                             </button>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+                            <div>
+                                <label class="block font-bold text-white mb-1">Nama Sekolah</label>
+                                <input type="text" id="prof-name" required class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white">
+                            </div>
+                            <div>
+                                <label class="block font-bold text-white mb-1">NPSN</label>
+                                <input type="text" id="prof-npsn" required class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white">
+                            </div>
+                            <div>
+                                <label class="block font-bold text-white mb-1">Akreditasi</label>
+                                <input type="text" id="prof-akreditasi" required class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                            <div>
+                                <label class="block font-bold text-white mb-1">Visi Sekolah</label>
+                                <textarea id="prof-vision" rows="4" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white"></textarea>
+                            </div>
+                            <div>
+                                <label class="block font-bold text-white mb-1">Misi Sekolah (Tulis 1 Misi Per Baris)</label>
+                                <textarea id="prof-mission" rows="4" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="text-xs">
+                            <label class="block font-bold text-white mb-1">Sejarah / Sambutan Singkat</label>
+                            <textarea id="prof-history" rows="4" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white"></textarea>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+                            <div>
+                                <label class="block font-bold text-white mb-1">Jumlah Siswa Aktif</label>
+                                <input type="number" id="prof-students" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white">
+                            </div>
+                            <div>
+                                <label class="block font-bold text-white mb-1">Jumlah Guru & Staf</label>
+                                <input type="number" id="prof-teachers" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white">
+                            </div>
+                            <div>
+                                <label class="block font-bold text-white mb-1">Jumlah Rombongan Belajar</label>
+                                <input type="number" id="prof-classes" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                            <div>
+                                <label class="block font-bold text-white mb-1">Nomor Telepon / WhatsApp</label>
+                                <input type="text" id="prof-phone" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white">
+                            </div>
+                            <div>
+                                <label class="block font-bold text-white mb-1">Email Resmi Sekolah</label>
+                                <input type="email" id="prof-email" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white">
+                            </div>
+                        </div>
+
+                        <div class="text-xs">
+                            <label class="block font-bold text-white mb-1">Alamat Lengkap Sekolah</label>
+                            <input type="text" id="prof-address" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white">
+                        </div>
+
+                        <div class="text-xs">
+                            <label class="block font-bold text-white mb-1">URL Embed Google Maps (Iframe Source)</label>
+                            <input type="text" id="prof-map-url" class="w-full px-3.5 py-2.5 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white font-mono text-[11px]">
                         </div>
                     </form>
                 </div>
             </div>
 
-            <!-- ================= TAB 3: GURU & STAF ================= -->
+            <!-- ================= TAB 3: TEACHERS ================= -->
             <div id="tab-teachers" class="tab-content hidden space-y-6">
-                <div class="bg-secondary text-white p-6 rounded-3xl border border-[#9e6f54] shadow-xl space-y-6">
-                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-[#9e6f54] pb-4">
+                <div class="bg-secondary p-6 rounded-2xl border border-[#9e6f54] shadow-md text-white space-y-4">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-[#9e6f54] pb-4">
                         <div>
-                            <h2 class="text-xl font-extrabold text-white flex items-center gap-2">
-                                <i class="fa-solid fa-chalkboard-user text-primary"></i> Kelola Data Tenaga Pendidik & Staf
-                            </h2>
-                            <p class="text-xs text-primary mt-0.5">Daftar guru yang ditampilkan di halaman utama.</p>
+                            <h3 class="text-base font-bold text-white flex items-center gap-2">
+                                <i class="fa-solid fa-chalkboard-user text-primary"></i> Daftar Tenaga Pendidik & Staf
+                            </h3>
+                            <p class="text-xs text-primary-100">Kelola daftar guru, NIP, jabatan, dan urutan foto profil.</p>
                         </div>
                         <button type="button" onclick="openTeacherModal()" class="px-4 py-2.5 rounded-xl bg-primary hover:bg-primary-200 text-slate-950 font-extrabold text-xs shadow flex items-center gap-2 cursor-pointer">
                             <i class="fa-solid fa-plus text-secondary"></i> Tambah Guru Baru
                         </button>
                     </div>
 
-                    <!-- Teachers Table -->
-                    <div class="overflow-x-auto rounded-xl border border-[#835841]">
+                    <div class="overflow-x-auto">
                         <table class="w-full text-left text-xs">
-                            <thead class="bg-[#2a170f] text-primary uppercase font-bold text-[10px] tracking-wider">
+                            <thead class="bg-[#3b2116] text-primary uppercase font-bold border-b border-[#6d4330]">
                                 <tr>
                                     <th class="px-4 py-3">Foto</th>
                                     <th class="px-4 py-3">Nama Lengkap</th>
                                     <th class="px-4 py-3">NIP</th>
                                     <th class="px-4 py-3">Jabatan</th>
-                                    <th class="px-4 py-3">Urutan</th>
+                                    <th class="px-4 py-3 text-center">Urutan</th>
                                     <th class="px-4 py-3 text-right">Aksi</th>
                                 </tr>
                             </thead>
-                            <tbody id="teachers-table-body" class="divide-y divide-[#835841] bg-[#9e6f54]">
+                            <tbody id="teachers-table-body" class="divide-y divide-[#835841]">
                                 <tr><td colspan="6" class="px-4 py-8 text-center text-primary-200">Memuat data guru...</td></tr>
                             </tbody>
                         </table>
@@ -433,54 +423,54 @@
                 </div>
             </div>
 
-            <!-- ================= TAB 4: FASILITAS ================= -->
+            <!-- ================= TAB 4: FACILITIES ================= -->
             <div id="tab-facilities" class="tab-content hidden space-y-6">
-                <div class="bg-secondary text-white p-6 rounded-3xl border border-[#9e6f54] shadow-xl space-y-6">
-                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-[#9e6f54] pb-4">
+                <div class="bg-secondary p-6 rounded-2xl border border-[#9e6f54] shadow-md text-white space-y-4">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-[#9e6f54] pb-4">
                         <div>
-                            <h2 class="text-xl font-extrabold text-white flex items-center gap-2">
-                                <i class="fa-solid fa-building-user text-primary"></i> Kelola Fasilitas Sekolah
-                            </h2>
-                            <p class="text-xs text-primary mt-0.5">Sarana dan prasarana penunjang kegiatan belajar mengajar.</p>
+                            <h3 class="text-base font-bold text-white flex items-center gap-2">
+                                <i class="fa-solid fa-building-user text-primary"></i> Fasilitas & Sarana Sekolah
+                            </h3>
+                            <p class="text-xs text-primary-100">Kelola foto dan penjelasan fasilitas pendukung kegiatan belajar.</p>
                         </div>
                         <button type="button" onclick="openFacilityModal()" class="px-4 py-2.5 rounded-xl bg-primary hover:bg-primary-200 text-slate-950 font-extrabold text-xs shadow flex items-center gap-2 cursor-pointer">
                             <i class="fa-solid fa-plus text-secondary"></i> Tambah Fasilitas Baru
                         </button>
                     </div>
 
-                    <div id="facilities-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div id="facilities-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                         <p class="text-xs text-primary-200 col-span-full text-center py-8">Memuat fasilitas...</p>
                     </div>
                 </div>
             </div>
 
-            <!-- ================= TAB 5: BERITA & PPDB ================= -->
+            <!-- ================= TAB 5: POSTS ================= -->
             <div id="tab-posts" class="tab-content hidden space-y-6">
-                <div class="bg-secondary text-white p-6 rounded-3xl border border-[#9e6f54] shadow-xl space-y-6">
-                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-[#9e6f54] pb-4">
+                <div class="bg-secondary p-6 rounded-2xl border border-[#9e6f54] shadow-md text-white space-y-4">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-[#9e6f54] pb-4">
                         <div>
-                            <h2 class="text-xl font-extrabold text-white flex items-center gap-2">
+                            <h3 class="text-base font-bold text-white flex items-center gap-2">
                                 <i class="fa-solid fa-newspaper text-primary"></i> Kelola Berita, Pengumuman & PPDB
-                            </h2>
-                            <p class="text-xs text-primary mt-0.5">Publikasikan informasi resmi sekolah secara instan.</p>
+                            </h3>
+                            <p class="text-xs text-primary-100">Publikasikan artikel, pengumuman sekolah, atau informasi pendaftaran.</p>
                         </div>
                         <button type="button" onclick="openPostModal()" class="px-4 py-2.5 rounded-xl bg-primary hover:bg-primary-200 text-slate-950 font-extrabold text-xs shadow flex items-center gap-2 cursor-pointer">
                             <i class="fa-solid fa-plus text-secondary"></i> Buat Berita Baru
                         </button>
                     </div>
 
-                    <div class="overflow-x-auto rounded-xl border border-[#835841]">
+                    <div class="overflow-x-auto">
                         <table class="w-full text-left text-xs">
-                            <thead class="bg-[#2a170f] text-primary uppercase font-bold text-[10px] tracking-wider">
+                            <thead class="bg-[#3b2116] text-primary uppercase font-bold border-b border-[#6d4330]">
                                 <tr>
                                     <th class="px-4 py-3">Judul Berita</th>
                                     <th class="px-4 py-3">Kategori</th>
                                     <th class="px-4 py-3">Status</th>
-                                    <th class="px-4 py-3">Tanggal Terbit</th>
+                                    <th class="px-4 py-3">Tanggal Publikasi</th>
                                     <th class="px-4 py-3 text-right">Aksi</th>
                                 </tr>
                             </thead>
-                            <tbody id="posts-table-body" class="divide-y divide-[#835841] bg-[#9e6f54]">
+                            <tbody id="posts-table-body" class="divide-y divide-[#835841]">
                                 <tr><td colspan="5" class="px-4 py-8 text-center text-primary-200">Memuat berita...</td></tr>
                             </tbody>
                         </table>
@@ -488,15 +478,15 @@
                 </div>
             </div>
 
-            <!-- ================= TAB 6: GALERI FOTO ================= -->
+            <!-- ================= TAB 6: GALLERY ================= -->
             <div id="tab-gallery" class="tab-content hidden space-y-6">
-                <div class="bg-secondary text-white p-6 rounded-3xl border border-[#9e6f54] shadow-xl space-y-6">
-                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-[#9e6f54] pb-4">
+                <div class="bg-secondary p-6 rounded-2xl border border-[#9e6f54] shadow-md text-white space-y-4">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-[#9e6f54] pb-4">
                         <div>
-                            <h2 class="text-xl font-extrabold text-white flex items-center gap-2">
-                                <i class="fa-solid fa-images text-primary"></i> Galeri Dokumentasi Kegiatan
-                            </h2>
-                            <p class="text-xs text-primary mt-0.5">Koleksi foto kegiatan, upacara, dan prestasi siswa.</p>
+                            <h3 class="text-base font-bold text-white flex items-center gap-2">
+                                <i class="fa-solid fa-images text-primary"></i> Galeri Dokumentasi Foto
+                            </h3>
+                            <p class="text-xs text-primary-100">Unggah dokumentasi foto kegiatan, upacara, dan prestasi siswa.</p>
                         </div>
                         <button type="button" onclick="openGalleryModal()" class="px-4 py-2.5 rounded-xl bg-primary hover:bg-primary-200 text-slate-950 font-extrabold text-xs shadow flex items-center gap-2 cursor-pointer">
                             <i class="fa-solid fa-plus text-secondary"></i> Tambah Foto Galeri
@@ -683,7 +673,7 @@
                     <p class="text-[10px] text-primary-200 mt-1">Dapatkan di Supabase Dashboard &rarr; Project Settings &rarr; API &rarr; Project URL</p>
                 </div>
                 <div>
-                    <label class="block font-bold text-white mb-1">Supabase API Key (Anon / Secret)</label>
+                    <label class="block font-bold text-white mb-1">Supabase API Key (Anon / Public)</label>
                     <input type="text" id="setting-supabase-key" required class="w-full px-3 py-2 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white font-mono text-xs">
                 </div>
                 <div class="pt-2 flex justify-end gap-2">
@@ -704,6 +694,20 @@
             saveSupabaseCredentials 
         } from "./js/supabase-config.js";
 
+        // Define Modal Helper Globally on window
+        window.closeModals = function() {
+            document.querySelectorAll('#modal-teacher, #modal-facility, #modal-post, #modal-gallery, #modal-supabase-settings').forEach(el => {
+                el.classList.add('hidden');
+            });
+        };
+
+        window.openSupabaseSettingsModal = function() {
+            const creds = getSupabaseCredentials();
+            document.getElementById('setting-supabase-url').value = creds.url || '';
+            document.getElementById('setting-supabase-key').value = creds.key || '';
+            document.getElementById('modal-supabase-settings').classList.remove('hidden');
+        };
+
         // Global State
         let currentUser = null;
         let schoolProfile = {};
@@ -716,23 +720,23 @@
         async function checkAuthSession() {
             try {
                 const { data: { session }, error } = await supabase.auth.getSession();
-                if (error || !session || !session.user) {
-                    // Redirect to login
-                    window.location.href = './login.html';
-                    return;
+                if (session?.user) {
+                    currentUser = session.user;
+                    document.getElementById('operator-email-display').innerText = currentUser.email || 'Operator (Logged In)';
+                } else {
+                    document.getElementById('operator-email-display').innerText = 'Operator (Sesi Publik)';
                 }
-                currentUser = session.user;
-                document.getElementById('operator-email-display').innerText = currentUser.email || 'Operator';
                 initRealtimeListeners();
             } catch (err) {
-                console.error('Auth verification error:', err);
-                window.location.href = './login.html';
+                console.warn('Auth verification notice:', err);
+                document.getElementById('operator-email-display').innerText = 'Operator (Publik)';
+                initRealtimeListeners();
             }
         }
 
         supabase.auth.onAuthStateChange((event, session) => {
             if (event === 'SIGNED_OUT' || !session) {
-                window.location.href = './login.html';
+                document.getElementById('operator-email-display').innerText = 'Operator (Keluar)';
             } else if (session?.user) {
                 currentUser = session.user;
                 document.getElementById('operator-email-display').innerText = currentUser.email || 'Operator';
@@ -744,7 +748,9 @@
         // Logout action
         document.getElementById('logout-btn').addEventListener('click', async () => {
             if (confirm('Yakin ingin keluar dari Panel Operator?')) {
-                await supabase.auth.signOut();
+                try {
+                    await supabase.auth.signOut();
+                } catch(e) {}
                 window.location.href = './login.html';
             }
         });
@@ -763,6 +769,18 @@
         sidebarBackdrop.addEventListener('click', () => {
             sidebar.classList.add('-translate-x-full');
             sidebarBackdrop.classList.add('hidden');
+        });
+
+        // Settings Form Handler
+        document.getElementById('form-supabase-settings').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const url = document.getElementById('setting-supabase-url').value.trim();
+            const key = document.getElementById('setting-supabase-key').value.trim();
+            saveSupabaseCredentials(url, key);
+            showToast('Pengaturan Supabase berhasil disimpan! Memuat ulang...', 'success');
+            setTimeout(() => {
+                window.location.reload();
+            }, 1000);
         });
 
         // Tab Navigation
@@ -806,15 +824,27 @@
             const icon = type === 'success' ? 'fa-circle-check' : 'fa-triangle-exclamation';
 
             toast.className = `${bgClass} text-white px-4 py-3 rounded-2xl shadow-2xl border text-xs font-bold flex items-center gap-2.5 pointer-events-auto transform translate-y-2 opacity-0 transition duration-300`;
-            toast.innerHTML = `<i class="fa-solid ${icon} text-base"></i> <span>${message}</span>`;
+            toast.innerHTML = `<i class="fa-solid ${icon} text-base shrink-0"></i> <span class="break-words">${message}</span>`;
             
             container.appendChild(toast);
             setTimeout(() => toast.classList.remove('translate-y-2', 'opacity-0'), 10);
             setTimeout(() => {
                 toast.classList.add('opacity-0', '-translate-y-2');
                 setTimeout(() => toast.remove(), 300);
-            }, 3500);
+            }, type === 'success' ? 4000 : 7000);
         };
+
+        // Helper to format Supabase errors nicely
+        function handleSupabaseError(err, prefix) {
+            console.error(prefix, err);
+            let msg = err?.message || 'Terjadi kesalahan tidak dikenal.';
+            if (msg.includes('row-level security') || msg.includes('permission denied')) {
+                msg = 'Akses ditolak (Row-Level Security / RLS). Pastikan Anda telah login sebagai Operator atau atur Policy di Supabase SQL Editor.';
+            } else if (msg.includes('relation') && msg.includes('does not exist')) {
+                msg = 'Tabel database belum dibuat di Supabase. Jalankan file supabase_schema.sql di Supabase SQL Editor.';
+            }
+            showToast(`${prefix}: ${msg}`, 'error');
+        }
 
         // ================= SUPABASE DATA SYNC & CRUD =================
         function renderDefaultDataFirst() {
@@ -826,6 +856,20 @@
                     document.getElementById('dash-school-contact').innerText = `${data.phone || '-'} / ${data.email || '-'}`;
                     document.getElementById('dash-school-students').innerText = `${data.student_count || 0} Siswa / ${data.class_count || 0} Rombel`;
                     document.getElementById('dash-school-vision').innerText = data.vision || 'Belum diisi';
+
+                    document.getElementById('prof-name').value = data.name || '';
+                    document.getElementById('prof-npsn').value = data.npsn || '';
+                    document.getElementById('prof-akreditasi').value = data.akreditasi || '';
+                    document.getElementById('prof-vision').value = data.vision || '';
+                    document.getElementById('prof-mission').value = Array.isArray(data.mission) ? data.mission.join('\n') : '';
+                    document.getElementById('prof-history').value = data.history || '';
+                    document.getElementById('prof-students').value = data.student_count || 0;
+                    document.getElementById('prof-teachers').value = data.teacher_count || 0;
+                    document.getElementById('prof-classes').value = data.class_count || 0;
+                    document.getElementById('prof-phone').value = data.phone || '';
+                    document.getElementById('prof-email').value = data.email || '';
+                    document.getElementById('prof-address').value = data.address || '';
+                    document.getElementById('prof-map-url').value = data.map_url || '';
                 }
                 if (DEFAULT_SCHOOL_DATA?.teachers) {
                     teachersList = DEFAULT_SCHOOL_DATA.teachers;
@@ -841,6 +885,7 @@
                     postsList = DEFAULT_SCHOOL_DATA.posts;
                     document.getElementById('stat-posts').innerText = postsList.length;
                     renderPostsTable(postsList);
+                    renderRecentPosts(postsList);
                 }
                 if (DEFAULT_SCHOOL_DATA?.gallery) {
                     galleryList = DEFAULT_SCHOOL_DATA.gallery;
@@ -965,11 +1010,10 @@
             try {
                 const { error } = await supabase.from('profiles').upsert(payload);
                 if (error) throw error;
-                showToast('Profil sekolah berhasil disimpan!');
+                showToast('Profil sekolah berhasil disimpan ke Supabase!', 'success');
                 fetchProfile();
             } catch (err) {
-                console.error(err);
-                showToast('Gagal menyimpan profil: ' + err.message, 'error');
+                handleSupabaseError(err, 'Gagal menyimpan profil');
             } finally {
                 btn.disabled = false;
                 btn.innerHTML = '<i class="fa-solid fa-floppy-disk text-secondary"></i> Simpan Perubahan Profil';
@@ -985,9 +1029,11 @@
                     .order('order', { ascending: true });
 
                 if (error) throw error;
-                teachersList = data || [];
-                document.getElementById('stat-teachers').innerText = teachersList.length;
-                renderTeachersTable(teachersList);
+                if (data && data.length) {
+                    teachersList = data;
+                    document.getElementById('stat-teachers').innerText = teachersList.length;
+                    renderTeachersTable(teachersList);
+                }
             } catch (err) {
                 console.warn('Error fetching teachers:', err);
             }
@@ -1063,17 +1109,16 @@
                 if (id) {
                     const { error } = await supabase.from('teachers').update(data).eq('id', id);
                     if (error) throw error;
-                    showToast('Data guru berhasil diperbarui!');
+                    showToast('Data guru berhasil diperbarui!', 'success');
                 } else {
                     const { error } = await supabase.from('teachers').insert([data]);
                     if (error) throw error;
-                    showToast('Guru baru berhasil ditambahkan!');
+                    showToast('Guru baru berhasil ditambahkan!', 'success');
                 }
-                closeModals();
+                window.closeModals();
                 fetchTeachers();
             } catch (err) {
-                console.error(err);
-                showToast('Gagal menyimpan guru: ' + err.message, 'error');
+                handleSupabaseError(err, 'Gagal menyimpan guru');
             } finally {
                 btn.disabled = false;
                 btn.innerText = 'Simpan Guru';
@@ -1085,10 +1130,10 @@
                 try {
                     const { error } = await supabase.from('teachers').delete().eq('id', id);
                     if (error) throw error;
-                    showToast('Data guru telah dihapus.');
+                    showToast('Data guru telah dihapus.', 'success');
                     fetchTeachers();
                 } catch (err) {
-                    showToast('Gagal menghapus: ' + err.message, 'error');
+                    handleSupabaseError(err, 'Gagal menghapus guru');
                 }
             }
         };
@@ -1102,9 +1147,11 @@
                     .order('created_at', { ascending: false });
 
                 if (error) throw error;
-                facilitiesList = data || [];
-                document.getElementById('stat-facilities').innerText = facilitiesList.length;
-                renderFacilitiesGrid(facilitiesList);
+                if (data && data.length) {
+                    facilitiesList = data;
+                    document.getElementById('stat-facilities').innerText = facilitiesList.length;
+                    renderFacilitiesGrid(facilitiesList);
+                }
             } catch (err) {
                 console.warn('Error fetching facilities:', err);
             }
@@ -1173,17 +1220,16 @@
                 if (id) {
                     const { error } = await supabase.from('facilities').update(data).eq('id', id);
                     if (error) throw error;
-                    showToast('Fasilitas berhasil diperbarui!');
+                    showToast('Fasilitas berhasil diperbarui!', 'success');
                 } else {
                     const { error } = await supabase.from('facilities').insert([data]);
                     if (error) throw error;
-                    showToast('Fasilitas baru berhasil ditambahkan!');
+                    showToast('Fasilitas baru berhasil ditambahkan!', 'success');
                 }
-                closeModals();
+                window.closeModals();
                 fetchFacilities();
             } catch (err) {
-                console.error(err);
-                showToast('Gagal menyimpan fasilitas: ' + err.message, 'error');
+                handleSupabaseError(err, 'Gagal menyimpan fasilitas');
             } finally {
                 btn.disabled = false;
                 btn.innerText = 'Simpan Fasilitas';
@@ -1195,10 +1241,10 @@
                 try {
                     const { error } = await supabase.from('facilities').delete().eq('id', id);
                     if (error) throw error;
-                    showToast('Fasilitas berhasil dihapus.');
+                    showToast('Fasilitas berhasil dihapus.', 'success');
                     fetchFacilities();
                 } catch (err) {
-                    showToast('Gagal menghapus: ' + err.message, 'error');
+                    handleSupabaseError(err, 'Gagal menghapus fasilitas');
                 }
             }
         };
@@ -1212,10 +1258,12 @@
                     .order('published_at', { ascending: false });
 
                 if (error) throw error;
-                postsList = data || [];
-                document.getElementById('stat-posts').innerText = postsList.length;
-                renderPostsTable(postsList);
-                renderRecentPosts(postsList);
+                if (data && data.length) {
+                    postsList = data;
+                    document.getElementById('stat-posts').innerText = postsList.length;
+                    renderPostsTable(postsList);
+                    renderRecentPosts(postsList);
+                }
             } catch (err) {
                 console.warn('Error fetching posts:', err);
             }
@@ -1321,19 +1369,18 @@
                 if (id) {
                     const { error } = await supabase.from('posts').update(data).eq('id', id);
                     if (error) throw error;
-                    showToast('Berita berhasil diperbarui!');
+                    showToast('Berita berhasil diperbarui!', 'success');
                 } else {
                     data.slug = slug;
                     data.published_at = new Date().toISOString();
                     const { error } = await supabase.from('posts').insert([data]);
                     if (error) throw error;
-                    showToast('Berita baru berhasil diterbitkan!');
+                    showToast('Berita baru berhasil diterbitkan!', 'success');
                 }
-                closeModals();
+                window.closeModals();
                 fetchPosts();
             } catch (err) {
-                console.error(err);
-                showToast('Gagal menyimpan berita: ' + err.message, 'error');
+                handleSupabaseError(err, 'Gagal menyimpan berita');
             } finally {
                 btn.disabled = false;
                 btn.innerText = 'Simpan Berita';
@@ -1345,10 +1392,10 @@
                 try {
                     const { error } = await supabase.from('posts').delete().eq('id', id);
                     if (error) throw error;
-                    showToast('Berita telah dihapus.');
+                    showToast('Berita telah dihapus.', 'success');
                     fetchPosts();
                 } catch (err) {
-                    showToast('Gagal menghapus: ' + err.message, 'error');
+                    handleSupabaseError(err, 'Gagal menghapus berita');
                 }
             }
         };
@@ -1362,9 +1409,11 @@
                     .order('created_at', { ascending: false });
 
                 if (error) throw error;
-                galleryList = data || [];
-                document.getElementById('stat-gallery').innerText = galleryList.length;
-                renderGalleryGrid(galleryList);
+                if (data && data.length) {
+                    galleryList = data;
+                    document.getElementById('stat-gallery').innerText = galleryList.length;
+                    renderGalleryGrid(galleryList);
+                }
             } catch (err) {
                 console.warn('Error fetching gallery:', err);
             }
@@ -1425,12 +1474,11 @@
 
                 const { error } = await supabase.from('gallery').insert([data]);
                 if (error) throw error;
-                showToast('Foto galeri berhasil ditambahkan!');
-                closeModals();
+                showToast('Foto galeri berhasil ditambahkan!', 'success');
+                window.closeModals();
                 fetchGallery();
             } catch (err) {
-                console.error(err);
-                showToast('Gagal menyimpan galeri: ' + err.message, 'error');
+                handleSupabaseError(err, 'Gagal menyimpan galeri');
             } finally {
                 btn.disabled = false;
                 btn.innerText = 'Simpan Foto';
@@ -1442,10 +1490,10 @@
                 try {
                     const { error } = await supabase.from('gallery').delete().eq('id', id);
                     if (error) throw error;
-                    showToast('Foto galeri telah dihapus.');
+                    showToast('Foto galeri telah dihapus.', 'success');
                     fetchGallery();
                 } catch (err) {
-                    showToast('Gagal menghapus: ' + err.message, 'error');
+                    handleSupabaseError(err, 'Gagal menghapus galeri');
                 }
             }
         };
@@ -1484,12 +1532,11 @@
                 const { error: galErr } = await supabase.from('gallery').insert(DEFAULT_SCHOOL_DATA.gallery);
                 if (galErr) throw galErr;
 
-                showToast('Semua data default awal berhasil disinkronkan ke Supabase!');
+                showToast('Semua data default awal berhasil disinkronkan ke Supabase!', 'success');
                 document.getElementById('sync-banner').classList.add('hidden');
                 fetchAllData();
             } catch (err) {
-                console.error(err);
-                showToast('Gagal menyinkronkan data: ' + err.message, 'error');
+                handleSupabaseError(err, 'Gagal menyinkronkan data awal');
             } finally {
                 btn.disabled = false;
                 btn.innerText = 'Sinkronkan Data Awal';

@@ -205,7 +205,7 @@ export function initLiveWebsite() {
         }
     }
 
-    // Non-blocking async load (Executes in background immediately)
+    // Non-blocking async load
     setTimeout(() => {
         loadProfile();
         loadTeachers();
