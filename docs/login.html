@@ -101,7 +101,7 @@
                         <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-primary-200">
                             <i class="fa-solid fa-envelope"></i>
                         </div>
-                        <input type="email" id="email" required placeholder="operator.tunggaljaya2@gmail.com" value="operator.tunggaljaya2@gmail.com" class="w-full pl-10 pr-3.5 py-3 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white placeholder-primary-300 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition">
+                        <input type="email" id="email" required placeholder="operator.tunggaljaya2@gmail.com" class="w-full pl-10 pr-3.5 py-3 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white placeholder-primary-300 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition">
                     </div>
                 </div>
 
@@ -113,7 +113,7 @@
                         <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-primary-200">
                             <i class="fa-solid fa-key"></i>
                         </div>
-                        <input type="password" id="password" required placeholder="••••••••" value="Operator123456!" class="w-full pl-10 pr-10 py-3 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white placeholder-primary-300 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition">
+                        <input type="password" id="password" required placeholder="••••••••" class="w-full pl-10 pr-10 py-3 rounded-xl bg-[#3b2116] border border-[#6d4330] text-white placeholder-primary-300 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition">
                         <button type="button" id="toggle-password" class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-primary-200 hover:text-white transition">
                             <i id="password-eye-icon" class="fa-solid fa-eye"></i>
                         </button>
@@ -126,19 +126,6 @@
                     </button>
                 </div>
             </form>
-
-            <div class="relative flex py-1 items-center">
-                <div class="flex-grow border-t border-[#9e6f54]"></div>
-                <span class="shrink-0 mx-3 text-[10px] font-bold text-primary-200 uppercase">Atau Masuk Dengan</span>
-                <div class="flex-grow border-t border-[#9e6f54]"></div>
-            </div>
-
-            <!-- OAuth Buttons -->
-            <div>
-                <button type="button" id="google-btn" class="w-full py-3 px-4 rounded-xl bg-[#3b2116] hover:bg-[#2a170f] text-white font-bold text-xs transition border border-[#6d4330] flex items-center justify-center gap-2.5 cursor-pointer">
-                    <i class="fa-brands fa-google text-red-400"></i> Masuk dengan Akun Google
-                </button>
-            </div>
 
             <!-- Direct Guest Access Link -->
             <div class="text-center pt-2">
@@ -166,7 +153,6 @@
         const passwordInput = document.getElementById('password');
         const submitBtn = document.getElementById('submit-btn');
         const btnText = document.getElementById('btn-text');
-        const googleBtn = document.getElementById('google-btn');
         const alertBox = document.getElementById('login-alert');
         const alertMessage = document.getElementById('alert-message');
         const alertIcon = document.getElementById('alert-icon');
@@ -243,22 +229,6 @@
                     msg = 'Email belum dikonfirmasi di Supabase (aktifkan Auto Confirm di Auth Settings).';
                 }
                 showAlert(msg, 'error');
-            }
-        });
-
-        // Handle Google Login
-        googleBtn.addEventListener('click', async () => {
-            try {
-                const { error } = await supabase.auth.signInWithOAuth({
-                    provider: 'google',
-                    options: {
-                        redirectTo: window.location.origin + window.location.pathname.replace('login.html', 'operator.html')
-                    }
-                });
-                if (error) throw error;
-            } catch (error) {
-                console.error('Google Sign-In Error:', error);
-                showAlert('Gagal login via Google: ' + error.message, 'error');
             }
         });
     </script>
