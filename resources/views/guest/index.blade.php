@@ -54,7 +54,7 @@
             <!-- Right Visual Banner Card -->
             <div class="lg:col-span-5 flex justify-center">
                 <div class="w-full max-w-md bg-secondary rounded-2xl overflow-hidden border border-[#9e6f54] shadow-xl text-white">
-                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&auto=format&fit=crop" 
+                    <img src="./images/IMG_2308.jpg" 
                          alt="Gedung SDN Tunggaljaya 2" 
                          class="w-full h-48 sm:h-64 object-cover">
                     
