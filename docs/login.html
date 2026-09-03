@@ -126,13 +126,6 @@
                     </button>
                 </div>
             </form>
-
-            <!-- Direct Guest Access Link -->
-            <div class="text-center pt-2">
-                <a href="./operator.html" class="text-xs font-bold text-primary hover:text-white transition inline-flex items-center gap-1">
-                    Buka Dashboard Operator Langsung (Sesi Publik) <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                </a>
-            </div>
         </div>
 
         <!-- Footer Info & Links -->
@@ -224,7 +217,7 @@
                 
                 let msg = error.message || 'Gagal masuk. Periksa kembali email dan password Anda.';
                 if (error.message?.includes('Invalid login credentials')) {
-                    msg = 'Email atau kata sandi tidak cocok di Supabase Auth. Jika belum ada akun, Anda dapat langsung mengeklik "Buka Dashboard Operator Langsung (Sesi Publik)".';
+                    msg = 'Email atau kata sandi tidak cocok di Supabase Auth. Silakan periksa kembali kredensial Anda.';
                 } else if (error.message?.includes('Email not confirmed')) {
                     msg = 'Email belum dikonfirmasi di Supabase (aktifkan Auto Confirm di Auth Settings).';
                 }

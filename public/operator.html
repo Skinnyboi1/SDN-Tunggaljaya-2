@@ -722,21 +722,20 @@
                 const { data: { session }, error } = await supabase.auth.getSession();
                 if (session?.user) {
                     currentUser = session.user;
-                    document.getElementById('operator-email-display').innerText = currentUser.email || 'Operator (Logged In)';
+                    document.getElementById('operator-email-display').innerText = currentUser.email || 'Operator';
+                    initRealtimeListeners();
                 } else {
-                    document.getElementById('operator-email-display').innerText = 'Operator (Sesi Publik)';
+                    window.location.href = './login.html';
                 }
-                initRealtimeListeners();
             } catch (err) {
                 console.warn('Auth verification notice:', err);
-                document.getElementById('operator-email-display').innerText = 'Operator (Publik)';
-                initRealtimeListeners();
+                window.location.href = './login.html';
             }
         }
 
         supabase.auth.onAuthStateChange((event, session) => {
             if (event === 'SIGNED_OUT' || !session) {
-                document.getElementById('operator-email-display').innerText = 'Operator (Keluar)';
+                window.location.href = './login.html';
             } else if (session?.user) {
                 currentUser = session.user;
                 document.getElementById('operator-email-display').innerText = currentUser.email || 'Operator';
