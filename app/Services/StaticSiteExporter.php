@@ -209,13 +209,13 @@ class StaticSiteExporter
             $html = preg_replace('/href="\/#([^"]*)"/', 'href="#$1"', $html);
             $html = preg_replace('/href="\/"/', 'href="./"', $html);
             $html = preg_replace('/href="\/berita\//', 'href="berita/', $html);
-            $html = preg_replace('/href="\/login"/', 'href="#" title="Login Operator (Gunakan Server Lokal)"', $html);
+            $html = preg_replace('/href="\/login"/', 'href="login.html"', $html);
         } else {
             // Subpages (e.g. berita/slug)
             $html = preg_replace('/href="\/#([^"]*)"/', 'href="' . $prefix . '#$1"', $html);
             $html = preg_replace('/href="\/"/', 'href="' . $prefix . '"', $html);
             $html = preg_replace('/href="\/berita\//', 'href="' . $prefix . 'berita/', $html);
-            $html = preg_replace('/href="\/login"/', 'href="#" title="Login Operator (Gunakan Server Lokal)"', $html);
+            $html = preg_replace('/href="\/login"/', 'href="' . $prefix . 'login.html"', $html);
         }
 
         // 5. URL-encode spaces in local upload paths for strict web servers

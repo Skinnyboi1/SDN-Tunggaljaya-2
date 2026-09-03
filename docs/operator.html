@@ -171,10 +171,10 @@
             </div>
 
             <div class="flex items-center gap-2.5">
-                <button type="button" id="quick-seed-btn" class="px-3.5 py-2 rounded-xl bg-[#3b2116] hover:bg-[#2a170f] text-primary text-xs font-bold transition flex items-center gap-2 border border-[#6d4330] shadow-sm cursor-pointer" title="Muat data default awal jika database kosong">
-                    <i class="fa-solid fa-database text-secondary"></i> <span class="hidden sm:inline">Sinkronkan Data Awal</span><span class="sm:hidden">Sync</span>
+                <button type="button" id="save-changes-btn" class="px-3.5 py-2 rounded-xl bg-primary hover:bg-primary-200 text-slate-950 text-xs font-extrabold transition flex items-center gap-2 shadow-md cursor-pointer" title="Simpan perubahan ke Supabase dan Website Utama">
+                    <i class="fa-solid fa-floppy-disk text-secondary"></i> <span class="hidden sm:inline">Simpan Perubahan</span><span class="sm:hidden">Simpan</span>
                 </button>
-                <a href="./" target="_blank" class="px-3.5 py-2 rounded-xl bg-primary hover:bg-primary-200 text-slate-950 text-xs font-extrabold transition flex items-center gap-2 shadow-sm">
+                <a href="./" target="_blank" class="px-3.5 py-2 rounded-xl bg-[#3b2116] hover:bg-[#2a170f] text-primary text-xs font-bold transition flex items-center gap-2 border border-[#6d4330] shadow-sm">
                     <i class="fa-solid fa-globe text-secondary"></i> View Website
                 </a>
             </div>
@@ -846,6 +846,39 @@
             showToast(`${prefix}: ${msg}`, 'error');
         }
 
+        // Unsaved Changes Tracking & Dynamic "Simpan Perubahan" Handler
+        let hasUnsavedChanges = false;
+
+        window.setUnsavedChanges = function(status) {
+            hasUnsavedChanges = status;
+            const btn = document.getElementById('save-changes-btn');
+            if (!btn) return;
+            if (status) {
+                btn.className = "px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs transition flex items-center gap-2 shadow-xl animate-pulse cursor-pointer border-2 border-amber-300";
+                btn.innerHTML = `<i class="fa-solid fa-floppy-disk text-slate-950"></i> <span class="hidden sm:inline">Simpan Perubahan (Ada Perubahan!)</span><span class="sm:hidden">Simpan!</span>`;
+            } else {
+                btn.className = "px-3.5 py-2 rounded-xl bg-primary hover:bg-primary-200 text-slate-950 text-xs font-extrabold transition flex items-center gap-2 shadow-md cursor-pointer";
+                btn.innerHTML = `<i class="fa-solid fa-floppy-disk text-secondary"></i> <span class="hidden sm:inline">Simpan Perubahan</span><span class="sm:hidden">Simpan</span>`;
+            }
+        };
+
+        // Attach input listeners for form changes
+        setTimeout(() => {
+            document.querySelectorAll('#form-profile input, #form-profile textarea').forEach(input => {
+                input.addEventListener('input', () => setUnsavedChanges(true));
+            });
+        }, 500);
+
+        // Topbar "Simpan Perubahan" click action
+        document.getElementById('save-changes-btn')?.addEventListener('click', async () => {
+            const formProf = document.getElementById('form-profile');
+            if (formProf) {
+                formProf.requestSubmit();
+            } else {
+                showToast('Semua perubahan telah disinkronkan ke Supabase & Website Utama!', 'success');
+            }
+        });
+
         // ================= SUPABASE DATA SYNC & CRUD =================
         function renderDefaultDataFirst() {
             try {
@@ -1010,7 +1043,8 @@
             try {
                 const { error } = await supabase.from('profiles').upsert(payload);
                 if (error) throw error;
-                showToast('Profil sekolah berhasil disimpan ke Supabase!', 'success');
+                setUnsavedChanges(false);
+                showToast('Perubahan profil berhasil disimpan & dipublikasikan ke Website Utama!', 'success');
                 fetchProfile();
             } catch (err) {
                 handleSupabaseError(err, 'Gagal menyimpan profil');

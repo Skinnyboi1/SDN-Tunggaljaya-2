@@ -314,6 +314,10 @@
             });
         });
     </script>
+    <script type="module">
+        import { initLiveWebsite } from "./js/live-sync.js";
+        initLiveWebsite();
+    </script>
 </body>
 </html>
 

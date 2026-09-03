@@ -20,7 +20,7 @@
                 </h1>
                 
                 <p class="text-sm sm:text-base text-[#6d4330] max-w-2xl leading-relaxed font-medium mx-auto lg:mx-0">
-                    Selamat datang di {{ $profile->name ?? 'SDN Tunggaljaya 2' }}. Kami menghadirkan lingkungan belajar yang aman, menyenangkan, berteknologi modern, dan kaya prestasi bagi tumbuh kembang putra-putri Anda.
+                    Selamat datang di <span class="live-school-name">{{ $profile->name ?? 'SD N TUNGGALJAYA 2' }}</span>. Kami menghadirkan lingkungan belajar yang aman, menyenangkan, berteknologi modern, dan kaya prestasi bagi tumbuh kembang putra-putri Anda.
                 </p>
 
                 <!-- CTA Buttons -->
@@ -36,15 +36,15 @@
                 <!-- QUICK STATS COUNTERS -->
                 <div class="grid grid-cols-3 gap-2 sm:gap-4 pt-6 sm:pt-8 border-t border-[#e4bca2] max-w-lg mx-auto lg:mx-0">
                     <div class="bg-secondary p-3 sm:p-4 rounded-xl border border-[#9e6f54] shadow-sm text-center">
-                        <div class="text-xl sm:text-2xl font-extrabold text-white">{{ $profile->student_count ?? 384 }}</div>
+                        <div class="text-xl sm:text-2xl font-extrabold text-white live-school-students">{{ $profile->student_count ?? 185 }} Siswa</div>
                         <div class="text-[10px] sm:text-xs text-primary font-semibold mt-1">Siswa Aktif</div>
                     </div>
                     <div class="bg-secondary p-3 sm:p-4 rounded-xl border border-[#9e6f54] shadow-sm text-center">
-                        <div class="text-xl sm:text-2xl font-extrabold text-white">{{ $profile->teacher_count ?? 24 }}</div>
+                        <div class="text-xl sm:text-2xl font-extrabold text-white live-school-teachers">{{ $profile->teacher_count ?? 12 }} Guru</div>
                         <div class="text-[10px] sm:text-xs text-primary font-semibold mt-1">Guru & Staf</div>
                     </div>
                     <div class="bg-secondary p-3 sm:p-4 rounded-xl border border-[#9e6f54] shadow-sm text-center">
-                        <div class="text-xl sm:text-2xl font-extrabold text-white">{{ $profile->class_count ?? 12 }}</div>
+                        <div class="text-xl sm:text-2xl font-extrabold text-white live-school-classes">{{ $profile->class_count ?? 6 }} Rombel</div>
                         <div class="text-[10px] sm:text-xs text-primary font-semibold mt-1">Rombel</div>
                     </div>
                 </div>
@@ -96,12 +96,12 @@
                         <i class="fa-solid fa-eye"></i>
                     </div>
                     <h3 class="text-lg sm:text-xl font-bold text-white">Visi Sekolah</h3>
-                    <blockquote class="text-sm sm:text-base font-semibold text-primary leading-relaxed italic border-l-4 border-primary pl-4">
-                        "{{ $profile->vision ?? 'Terwujudnya Peserta Didik yang Budi Pekerti Luhur, Cerdas, Inovatif, Berwawasan Lingkungan, dan Unggul dalam Prestasi.' }}"
+                    <blockquote class="text-sm sm:text-base font-semibold text-primary leading-relaxed italic border-l-4 border-primary pl-4 live-school-vision">
+                        "{{ $profile->vision ?? 'Terwujudnya Peserta Didik yang Beriman, Bertaqwa, Berkarakter Luhur, Unggul dalam Prestasi, dan Berwawasan Lingkungan.' }}"
                     </blockquote>
                 </div>
                 <div class="pt-4 sm:pt-6 text-xs text-primary-200 border-t border-[#9e6f54] font-semibold">
-                    SDN Tunggaljaya 2 - Sumur Pandeglang
+                    <span class="live-school-name">{{ $profile->name ?? 'SD N TUNGGALJAYA 2' }}</span> - Sumur Pandeglang
                 </div>
             </div>
 
@@ -117,7 +117,7 @@
                     </div>
                 </div>
 
-                <div class="space-y-3">
+                <div class="space-y-3" id="live-mission-container">
                     @if(is_array($profile->mission) && count($profile->mission) > 0)
                         @foreach($profile->mission as $index => $misi)
                             <div class="flex items-start gap-3 p-3.5 sm:p-4 rounded-xl bg-[#9e6f54] border border-[#835841]">
@@ -154,12 +154,12 @@
                 <p class="text-[#6d4330] text-xs sm:text-sm mt-1">Guru-guru profesional yang ramah dan berdedikasi tinggi membimbing para siswa.</p>
             </div>
             <div class="self-start md:self-auto text-white text-xs font-bold bg-secondary border border-[#9e6f54] px-3 py-2 rounded-xl shadow-sm">
-                <i class="fa-solid fa-users text-primary mr-1"></i> Total {{ count($teachers) }} Tenaga Pendidik
+                <i class="fa-solid fa-users text-primary mr-1"></i> <span class="live-school-teachers">Total {{ count($teachers) }} Tenaga Pendidik</span>
             </div>
         </div>
 
         <!-- Teachers Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" id="live-teachers-container">
             @foreach($teachers as $teacher)
                 <div class="bg-secondary rounded-2xl border border-[#9e6f54] overflow-hidden flex flex-col justify-between shadow-md hover:border-primary transition">
                     <div class="p-5 sm:p-6 text-center space-y-3">
@@ -193,7 +193,7 @@
             <p class="text-[#6d4330] text-xs sm:text-sm">Fasilitas modern yang dirancang untuk mendukung kenyamanan dan proses pembelajaran siswa.</p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" id="live-facilities-container">
             @foreach($facilities as $facility)
                 <div class="bg-secondary text-white rounded-2xl overflow-hidden border border-[#9e6f54] flex flex-col justify-between shadow-md hover:border-primary transition">
                     <div class="relative h-44 sm:h-48 overflow-hidden">
@@ -227,7 +227,7 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" id="live-posts-container">
             @foreach($latestPosts as $post)
                 <article class="bg-secondary rounded-2xl overflow-hidden border border-[#9e6f54] flex flex-col justify-between shadow-md hover:border-primary transition text-white">
                     <div>
@@ -274,7 +274,7 @@
             <p class="text-[#6d4330] text-xs sm:text-sm">Momen-momen berharga pembelajaran, karya, dan prestasi siswa SDN Tunggaljaya 2.</p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" id="live-gallery-container">
             @foreach($galleries as $gallery)
                 <div class="relative group rounded-2xl overflow-hidden aspect-video bg-secondary border border-[#9e6f54] hover:border-primary shadow-md transition">
                     <img src="{{ $gallery->image }}" 
@@ -312,7 +312,7 @@
                         </div>
                         <div>
                             <h4 class="text-xs sm:text-sm font-bold text-white">Alamat Lengkap</h4>
-                            <p class="text-xs text-primary-100 mt-0.5 leading-relaxed">{{ $profile->address }}</p>
+                            <p class="text-xs text-primary-100 mt-0.5 leading-relaxed live-school-address">{{ $profile->address }}</p>
                         </div>
                     </div>
 
@@ -322,7 +322,7 @@
                         </div>
                         <div>
                             <h4 class="text-xs sm:text-sm font-bold text-white">Telepon / WhatsApp</h4>
-                            <p class="text-xs text-primary-100 mt-0.5">{{ $profile->phone }}</p>
+                            <p class="text-xs text-primary-100 mt-0.5 live-school-phone">{{ $profile->phone }}</p>
                         </div>
                     </div>
 
@@ -332,7 +332,7 @@
                         </div>
                         <div>
                             <h4 class="text-xs sm:text-sm font-bold text-white">Email Resmi</h4>
-                            <p class="text-xs text-primary-100 mt-0.5">{{ $profile->email }}</p>
+                            <p class="text-xs text-primary-100 mt-0.5 live-school-email">{{ $profile->email }}</p>
                         </div>
                     </div>
                 </div>
@@ -342,7 +342,7 @@
             <div class="lg:col-span-7">
                 <div class="bg-secondary p-2.5 sm:p-3 rounded-2xl border border-[#9e6f54] shadow-xl">
                     <iframe src="{{ $profile->map_url ?? 'https://maps.google.com/maps?q=Sumur+Pandeglang&t=&z=13&ie=UTF8&iwloc=&output=embed' }}" 
-                            class="w-full h-64 sm:h-96 rounded-xl border-0" 
+                            class="w-full h-64 sm:h-96 rounded-xl border-0 live-map-iframe" 
                             allowfullscreen="" 
                             loading="lazy" 
                             referrerpolicy="no-referrer-when-downgrade">
